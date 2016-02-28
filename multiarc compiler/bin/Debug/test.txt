@@ -1,0 +1,14 @@
+
+
+using System;
+using System.IO;
+using MultiArc_Compiler;
+
+public class DynamicClass
+{
+public static void executest(ref Int16 data, Memory memory, ref Int16 acc, ref Int16 pc, ref Int16 psw)
+{	
+	memory.WriteByte((uint)data, (byte)((acc & 0xff00) >> 8));
+	memory.WriteByte((uint)data, (byte)(acc & 0x00ff));
+}
+}inst: ld, acc = 0

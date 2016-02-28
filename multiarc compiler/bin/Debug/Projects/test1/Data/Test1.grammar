@@ -1,0 +1,169 @@
+/* This is auto-generated text. Do not edit! */
+%header%
+
+GRAMMARTYPE = "LL"
+CASESENSITIVE = "false"
+
+%tokens%
+
+token1 = "+("
+token2 = ")-"
+token3 = "["
+token4 = "]"
+LD = "LD"
+BZ = "BZ"
+ST = "ST"
+ADD = "ADD"
+AND = "AND"
+JADR = "JADR"
+ASR = "ASR"
+JMP = "JMP"
+JSR = "JSR"
+PUSH = "PUSH"
+POP = "POP"
+RTS = "RTS"
+PC = "PC"
+A = "A"
+R0 = "R0"
+R1 = "R1"
+R2 = "R2"
+R3 = "R3"
+R4 = "R4"
+R5 = "R5"
+R6 = "R6"
+R7 = "R7"
+R8 = "R8"
+R9 = "R9"
+R10 = "R10"
+R11 = "R11"
+R12 = "R12"
+R13 = "R13"
+R14 = "R14"
+R15 = "R15"
+R16 = "R16"
+R17 = "R17"
+R18 = "R18"
+R19 = "R19"
+R20 = "R20"
+R21 = "R21"
+R22 = "R22"
+R23 = "R23"
+R24 = "R24"
+R25 = "R25"
+R26 = "R26"
+R27 = "R27"
+R28 = "R28"
+R29 = "R29"
+R30 = "R30"
+R31 = "R31"
+PSW = "PSW"
+SP = "SP"
+
+EQUALS = "="
+LEFT_PAREN = "("
+RIGHT_PAREN = ")"
+HASH = "#"
+COLON = ":"
+COMMA = ","
+ORG = "org"
+
+SIGN = <<[+-]>>
+DEC_NUMBER = <<[0-9]+>>
+BIN_NUMBER = <<[01]+[bB]>>
+OCT_NUMBER = <<[0-8]+[oO]>>
+HEX_NUMBER = <<[0-9a-f]+[hH]>>
+IDENTIFIER = <<[a-z][a-z0-9_]*>>
+
+ENTER = <<[\n\r]+>>
+SINGLE_LINE_COMMENT = <<;.*>> %ignore%
+WHITESPACE = <<[ \t]+>> %ignore%
+
+%productions%
+
+Program = [Separator] [Origin] Lines ;
+
+Separator = ENTER (ENTER)* ;
+
+Origin = ORG DEC_NUMBER Separator ;
+
+Lines = Line (Line)* ;
+
+Line = [IDENTIFIER ":"] Instruction Separator ;
+
+JMPADDR = IDENTIFIER | DEC_NUMBER ;
+
+REGDIR = R0 | R1 | R2 | R3 | R4 | R5 | R6 | R7 | R8 | R9 | R10 | R11 | R12 | R13 | R14 | R15 | R16 | R17 | R18 | R19 | R20 | R21 | R22 | R23 | R24 | R25 | R26 | R27 | R28 | R29 | R30 | R31 ;
+
+REGIND = "(" R0 ")" | "(" R1 ")" | "(" R2 ")" | "(" R3 ")" | "(" R4 ")" | "(" R5 ")" | "(" R6 ")" | "(" R7 ")" | "(" R8 ")" | "(" R9 ")" | "(" R10 ")" | "(" R11 ")" | "(" R12 ")" | "(" R13 ")" | "(" R14 ")" | "(" R15 ")" | "(" R16 ")" | "(" R17 ")" | "(" R18 ")" | "(" R19 ")" | "(" R20 ")" | "(" R21 ")" | "(" R22 ")" | "(" R23 ")" | "(" R24 ")" | "(" R25 ")" | "(" R26 ")" | "(" R27 ")" | "(" R28 ")" | "(" R29 ")" | "(" R30 ")" | "(" R31 ")" ;
+
+POSTDECR = "(" R0 ")-"  | "(" R1 ")-"  | "(" R2 ")-"  | "(" R3 ")-"  | "(" R4 ")-"  | "(" R5 ")-"  | "(" R6 ")-"  | "(" R7 ")-"  | "(" R8 ")-"  | "(" R9 ")-"  | "(" R10 ")-"  | "(" R11 ")-"  | "(" R12 ")-"  | "(" R13 ")-"  | "(" R14 ")-"  | "(" R15 ")-"  | "(" R16 ")-"  | "(" R17 ")-"  | "(" R18 ")-"  | "(" R19 ")-"  | "(" R20 ")-"  | "(" R21 ")-"  | "(" R22 ")-"  | "(" R23 ")-"  | "(" R24 ")-"  | "(" R25 ")-"  | "(" R26 ")-"  | "(" R27 ")-"  | "(" R28 ")-"  | "(" R29 ")-"  | "(" R30 ")-"  | "(" R31 ")-"  ;
+
+PREINCR = "+(" R0 ")"  | "+(" R1 ")"  | "+(" R2 ")"  | "+(" R3 ")"  | "+(" R4 ")"  | "+(" R5 ")"  | "+(" R6 ")"  | "+(" R7 ")"  | "+(" R8 ")"  | "+(" R9 ")"  | "+(" R10 ")"  | "+(" R11 ")"  | "+(" R12 ")"  | "+(" R13 ")"  | "+(" R14 ")"  | "+(" R15 ")"  | "+(" R16 ")"  | "+(" R17 ")"  | "+(" R18 ")"  | "+(" R19 ")"  | "+(" R20 ")"  | "+(" R21 ")"  | "+(" R22 ")"  | "+(" R23 ")"  | "+(" R24 ")"  | "+(" R25 ")"  | "+(" R26 ")"  | "+(" R27 ")"  | "+(" R28 ")"  | "+(" R29 ")"  | "+(" R30 ")"  | "+(" R31 ")"  ;
+
+MEMDIR = IDENTIFIER | DEC_NUMBER ;
+
+MEMIND = "("IDENTIFIER")" | "("DEC_NUMBER")" ;
+
+REGINDPOM = "["R0"]"DEC_NUMBER | "["R1"]"DEC_NUMBER | "["R2"]"DEC_NUMBER | "["R3"]"DEC_NUMBER | "["R4"]"DEC_NUMBER | "["R5"]"DEC_NUMBER | "["R6"]"DEC_NUMBER | "["R7"]"DEC_NUMBER | "["R8"]"DEC_NUMBER | "["R9"]"DEC_NUMBER | "["R10"]"DEC_NUMBER | "["R11"]"DEC_NUMBER | "["R12"]"DEC_NUMBER | "["R13"]"DEC_NUMBER | "["R14"]"DEC_NUMBER | "["R15"]"DEC_NUMBER | "["R16"]"DEC_NUMBER | "["R17"]"DEC_NUMBER | "["R18"]"DEC_NUMBER | "["R19"]"DEC_NUMBER | "["R20"]"DEC_NUMBER | "["R21"]"DEC_NUMBER | "["R22"]"DEC_NUMBER | "["R23"]"DEC_NUMBER | "["R24"]"DEC_NUMBER | "["R25"]"DEC_NUMBER | "["R26"]"DEC_NUMBER | "["R27"]"DEC_NUMBER | "["R28"]"DEC_NUMBER | "["R29"]"DEC_NUMBER | "["R30"]"DEC_NUMBER | "["R31"]"DEC_NUMBER ;
+
+IMMED = "#"IDENTIFIER | "#" [SIGN] DEC_NUMBER ;
+
+DISP = DEC_NUMBER | IDENTIFIER ;
+
+ld1 = LD ( REGDIR | REGIND | POSTDECR | PREINCR ) ;
+
+ld2 = LD ( MEMDIR | MEMIND ) ;
+
+ld3 = LD ( REGINDPOM ) ;
+
+ld4 = LD ( IMMED ) ;
+
+st1 = ST ( REGDIR | REGIND | POSTDECR | PREINCR ) ;
+
+st2 = ST ( MEMDIR | MEMIND ) ;
+
+st3 = ST ( REGINDPOM ) ;
+
+bz1 = BZ ( DISP ) ;
+
+add1 = ADD ( REGDIR | REGIND | POSTDECR | PREINCR ) ;
+
+add2 = ADD ( MEMDIR | MEMIND ) ;
+
+add3 = ADD ( REGINDPOM ) ;
+
+add4 = ADD ( IMMED ) ;
+
+and1 = AND ( REGDIR | REGIND | POSTDECR | PREINCR ) ;
+
+and2 = AND ( MEMDIR | MEMIND ) ;
+
+and3 = AND ( REGINDPOM ) ;
+
+and4 = AND ( IMMED ) ;
+
+asr1 = ASR ( REGDIR | REGIND | POSTDECR | PREINCR ) ;
+
+asr2 = ASR ( MEMDIR | MEMIND ) ;
+
+asr3 = ASR ( REGINDPOM ) ;
+
+asr4 = ASR ( IMMED ) ;
+
+jadr1 = JADR ( REGDIR | REGIND | POSTDECR | PREINCR ) ;
+
+jadr2 = JADR ( MEMDIR | MEMIND ) ;
+
+jadr3 = JADR ( REGINDPOM ) ;
+
+jmp1 = JMP ( JMPADDR ) ;
+
+jsr1 = JSR ( MEMDIR ) ;
+
+push1 = PUSH  ;
+
+pop1 = POP  ;
+
+rts1 = RTS  ;
+
+Instruction = ( ld1 ) | ( ld2 ) | ( ld3 ) | ( ld4 ) | ( st1 ) | ( st2 ) | ( st3 ) | ( bz1 ) | ( add1 ) | ( add2 ) | ( add3 ) | ( add4 ) | ( and1 ) | ( and2 ) | ( and3 ) | ( and4 ) | ( asr1 ) | ( asr2 ) | ( asr3 ) | ( asr4 ) | ( jadr1 ) | ( jadr2 ) | ( jadr3 ) | ( jmp1 ) | ( jsr1 ) | ( push1 ) | ( pop1 ) | ( rts1 ) ;

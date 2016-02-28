@@ -1,0 +1,5 @@
+D:\MultiArc Compiler\Grammatica\Grammatica\Grammatica\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\MultiArc Compiler\Grammatica\Grammatica\Grammatica\bin\Debug\Grammatica.exe
+D:\MultiArc Compiler\Grammatica\Grammatica\Grammatica\bin\Debug\Grammatica.pdb
+D:\MultiArc Compiler\Grammatica\Grammatica\Grammatica\obj\x86\Debug\Grammatica.exe
+D:\MultiArc Compiler\Grammatica\Grammatica\Grammatica\obj\x86\Debug\Grammatica.pdb

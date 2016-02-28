@@ -1,0 +1,1 @@
+java -jar grammatica-1.5.jar arch4.grammar --csoutput cs --csnamespace MultiArc_Compiler

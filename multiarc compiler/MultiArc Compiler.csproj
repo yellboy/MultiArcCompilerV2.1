@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7AEE7C29-ED44-48C3-8A98-7836269BA32F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MultiArc_Compiler</RootNamespace>
+    <AssemblyName>MultiArc Compiler</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="testApp">
+      <HintPath>..\Line_Numbers_v1.2_src\c# Line Numbers\testApp\bin\Debug\testApp.exe</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddressingMode.cs" />
+    <Compile Include="ArchConstants.cs" />
+    <Compile Include="Argument.cs" />
+    <Compile Include="Assembler.cs" />
+    <Compile Include="Clipboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clipboard.Designer.cs">
+      <DependentUpon>Clipboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConversionHelper.cs" />
+    <Compile Include="CPU.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Data.cs" />
+    <Compile Include="Executor.cs" />
+    <Compile Include="IMemoryObserver.cs" />
+    <Compile Include="Instruction.cs" />
+    <Compile Include="InstructionRegister.cs" />
+    <Compile Include="IRegistersObserver.cs" />
+    <Compile Include="Line.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="linenum_rtf.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Memory.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemoryDumpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemoryDumpForm.Designer.cs">
+      <DependentUpon>MemoryDumpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NonCPUComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OtherComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PerCederberg.Grammatica.Runtime.RE\AlternativeElement.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime.RE\CharacterSetElement.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime.RE\CombineElement.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime.RE\Element.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime.RE\Matcher.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime.RE\RegExp.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime.RE\RegExpException.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime.RE\RepeatElement.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime.RE\StringElement.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\Analyzer.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\LookAheadSet.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\Node.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\ParseException.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\Parser.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\ParserCreationException.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\ParserLogException.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\Production.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\ProductionPattern.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\ProductionPatternAlternative.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\ProductionPatternElement.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\ReaderBuffer.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\RecursiveDescentParser.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\Token.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\Tokenizer.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\TokenMatch.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\TokenNFA.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\TokenPattern.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\TokenRegExpParser.cs" />
+    <Compile Include="PerCederberg.Grammatica.Runtime\TokenStringDFA.cs" />
+    <Compile Include="Pin.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Port.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.cs" />
+    <Compile Include="RegistersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistersForm.Designer.cs">
+      <DependentUpon>RegistersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaveOldFileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveOldFileForm.Designer.cs">
+      <DependentUpon>SaveOldFileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="Signal.cs" />
+    <Compile Include="Symbol.cs" />
+    <Compile Include="SystemComponent.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserSystem.cs" />
+    <Compile Include="Variables.cs" />
+    <EmbeddedResource Include="Clipboard.resx">
+      <DependentUpon>Clipboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Line.resx">
+      <DependentUpon>Line.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemoryDumpForm.resx">
+      <DependentUpon>MemoryDumpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RegistersForm.resx">
+      <DependentUpon>RegistersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveOldFileForm.resx">
+      <DependentUpon>SaveOldFileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\download.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\play.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

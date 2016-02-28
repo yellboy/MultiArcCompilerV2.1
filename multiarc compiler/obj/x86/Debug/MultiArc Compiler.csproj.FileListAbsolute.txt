@@ -1,0 +1,42 @@
+D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MultiArc Compiler.exe
+D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MultiArc Compiler.pdb
+D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\testApp.exe
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Clipboard.resources
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Form1.resources
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Line.resources
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.MemoryDumpForm.resources
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Properties.Resources.resources
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.RegistersForm.resources
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SaveOldFileForm.resources
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.GenerateResource.Cache
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csprojResolveAssemblyReference.cache
+E:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
+E:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
+E:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csprojResolveAssemblyReference.cache
+E:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Clipboard.resources
+E:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Form1.resources
+E:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Line.resources
+E:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.MemoryDumpForm.resources
+E:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Properties.Resources.resources
+E:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.RegistersForm.resources
+E:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SaveOldFileForm.resources
+E:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.GenerateResource.Cache
+E:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MultiArc Compiler.exe
+E:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MultiArc Compiler.pdb
+E:\MultiArc Compiler\MultiArc Compiler\bin\Debug\testApp.exe
+G:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MultiArc Compiler.exe
+G:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MultiArc Compiler.pdb
+G:\MultiArc Compiler\MultiArc Compiler\bin\Debug\testApp.exe
+G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Clipboard.resources
+G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Form1.resources
+G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Line.resources
+G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.MemoryDumpForm.resources
+G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Properties.Resources.resources
+G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.RegistersForm.resources
+G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SaveOldFileForm.resources
+G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.GenerateResource.Cache
+G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
+G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
+G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csprojResolveAssemblyReference.cache

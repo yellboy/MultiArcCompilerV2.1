@@ -1,0 +1,31 @@
+System.Threading.SemaphoreFullException: Adding the specified count to the semaphore would cause it to exceed its maximum count.
+   at System.Threading.Semaphore.Release(Int32 releaseCount)
+   at MultiArc_Compiler.Executor.Continue() in g:\MultiArc Compiler\multiarc compiler\Executor.cs:line 414
+   at MultiArc_Compiler.UserSystem.StartWorking(LinkedList`1 separators, LinkedList`1 breakPoints, TextBoxBase outputBox, Int32 entryPoint, Byte[] binary) in g:\MultiArc Compiler\multiarc compiler\UserSystem.cs:line 237
+   at MultiArc_Compiler.UserSystem.StartWorkingTickByTick(LinkedList`1 separators, LinkedList`1 breakPoints, TextBoxBase outputBox, Int32 entryPoint, Byte[] binary) in g:\MultiArc Compiler\multiarc compiler\UserSystem.cs:line 257
+   at MultiArc_Compiler.Form1.ExecuteTickByTick() in g:\MultiArc Compiler\multiarc compiler\Form1.cs:line 443
+   at MultiArc_Compiler.Clipboard.nextClockButton_Click(Object sender, EventArgs e) in g:\MultiArc Compiler\multiarc compiler\Clipboard.cs:line 186
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+   at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
+   at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
+   at System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   at System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   at System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   at System.Windows.Forms.Application.Run(Form mainForm)
+   at MultiArc_Compiler.Program.Main() in g:\MultiArc Compiler\multiarc compiler\Program.cs:line 25System.InvalidOperationException: Cross-thread operation not valid: Control 'CodeBox' accessed from a thread other than the thread it was created on.
+   at System.Windows.Forms.Control.get_Handle()
+   at System.Windows.Forms.RichTextBox.StreamOut(Stream data, Int32 flags, Boolean includeCrLfs)
+   at System.Windows.Forms.RichTextBox.StreamOut(Int32 flags)
+   at System.Windows.Forms.RichTextBox.get_Text()
+   at System.Windows.Forms.TextBoxBase.get_Lines()
+   at MultiArc_Compiler.Form1.deselectAllLines() in g:\MultiArc Compiler\multiarc compiler\Form1.cs:line 815
+   at MultiArc_Compiler.Form1.ExecutionStoped() in g:\MultiArc Compiler\multiarc compiler\Form1.cs:line 449
+   at MultiArc_Compiler.Executor.executeStepByStep() in g:\MultiArc Compiler\multiarc compiler\Executor.cs:line 322

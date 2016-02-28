@@ -1,0 +1,28 @@
+<othercomponent>
+	<name>1HzCLK</name>
+	<filename>1HzCLK.cs</filename>
+	<dimensions>
+		<height>
+			50
+		</height>
+		<width>
+			50
+		</width>
+	</dimensions>
+	<ports>
+		<clk>
+			<name>
+				CLK
+			</name>
+			<side>
+				right
+			</side>
+			<type>
+				out
+			</type>
+			<number>
+				1
+			</number>
+		</clk>
+	</ports>
+</othercomponent>
