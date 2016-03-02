@@ -19,6 +19,9 @@ namespace MultiArc_Compiler
     /// </summary>
     public class UserSystem
     {
+        private static long lastId = 0;
+
+        private long id = ++lastId;
 
         private double frequency = 1000;
 
@@ -38,7 +41,8 @@ namespace MultiArc_Compiler
 
         private volatile bool running = false;
 
-        public bool Running { 
+        public bool Running 
+        { 
             get { return running; } 
             set { running = value; } 
         }
@@ -114,7 +118,7 @@ namespace MultiArc_Compiler
             }
         }
 
-        private LinkedList<long> wakeUpTimes = new LinkedList<long>();
+        private volatile LinkedList<long> wakeUpTimes = new LinkedList<long>();
 
         private LinkedList<SystemComponent> components = new LinkedList<SystemComponent>();
 
@@ -211,6 +215,7 @@ namespace MultiArc_Compiler
         {
             if (ex == null || ex.Executing == false)
             {
+                ResetToDefault();
                 thread = new Thread(new ThreadStart(run));
                 Console.WriteLine("System thread id = " + thread.ManagedThreadId);
                 running = true;

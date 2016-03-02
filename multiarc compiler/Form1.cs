@@ -423,10 +423,6 @@ namespace MultiArc_Compiler
             }
             if (compiled == true)
             {
-                if (!system.Running)
-                {
-                    system.ResetToDefault();
-                }
                 system.StartWorking(separators, breakPoints, OutputBox, entryPoint, binary);
             }
         }

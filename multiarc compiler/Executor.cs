@@ -302,7 +302,8 @@ namespace MultiArc_Compiler
                         Form1.Instance.InstructionReached(next);
                         if (breakPoints.Contains(next) && separators.Contains(pc - entryPoint))
                         {
-                            breakSem.WaitOne();
+                            //breakSem.WaitOne();
+                            system.Running = false;
                         }
                         byte[] readFromMemory = cpu.ReadFromMemory((uint)pc);
                         Console.WriteLine("Read from memory {0}", ConversionHelper.ConvertFromByteArrayToInt(readFromMemory));
@@ -411,7 +412,8 @@ namespace MultiArc_Compiler
             Thread.BeginCriticalRegion();
             stepByStepMode = false;
             Thread.EndCriticalRegion();
-            breakSem.Release(1);
+            //breakSem.Release(1);
+            //system.Running = true;
         }
 
         /// <summary>
