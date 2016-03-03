@@ -740,7 +740,7 @@ Line = [IDENTIFIER "":""] Instruction Separator ;
             {
                 if (ex == null || ex.Executing == false)
                 {
-                    system.ExecuteNextStep();
+                    system.ExecuteNextStep(separators, breakPoints, OutputBox, entryPoint, binary);
                     CodeBox.ReadOnly = true;
                     CodeBox.BackColor = Color.White;
                     deselectAllLines();

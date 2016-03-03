@@ -211,7 +211,7 @@ namespace MultiArc_Compiler
         /// <summary>
         /// Starts program execution.
         /// </summary>
-        public void StartWorking(LinkedList<int> separators, LinkedList<int> breakPoints, TextBoxBase outputBox, int entryPoint, byte[] binary)
+        public void StartWorking(LinkedList<int> separators, LinkedList<int> breakPoints, TextBoxBase outputBox, int entryPoint, byte[] binary, bool stepByStepMode = false)
         {
             if (ex == null || ex.Executing == false)
             {
@@ -223,7 +223,14 @@ namespace MultiArc_Compiler
                 Form1.Instance.ExecutionStarting();
                 CPU cpu = (CPU)components.First(c => c is CPU);
                 ex = new Executor(cpu, this, separators, breakPoints, outputBox, binary, entryPoint);
-                ex.Debug();
+                if (stepByStepMode)
+                {
+                    ex.EnterStepByStep();
+                }
+                else
+                {
+                    ex.Debug();
+                }
                 foreach (var c in components.Where(c => c is NonCPUComponent))
                 {
                     ((NonCPUComponent)c).StartWorking();
@@ -259,11 +266,17 @@ namespace MultiArc_Compiler
             StartWorking(separators, breakPoints, outputBox, entryPoint, binary);
         }
 
-        public void ExecuteNextStep()
+        public void ExecuteNextStep(LinkedList<int> separators, LinkedList<int> breakPoints, TextBoxBase outputBox, int entryPoint, byte[] binary)
         {
             running = true;
-            ex.EnterStepByStep();
-            ex.ExecuteNextStep();
+            if (ex == null || !ex.Executing)
+            {
+                StartWorking(separators, breakPoints, outputBox, entryPoint, binary, true);
+            }
+            else
+            {
+                ex.ExecuteNextStep();
+            }
         }
 
         public void EnterTickByTickMode()

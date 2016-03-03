@@ -228,7 +228,7 @@ namespace MultiArc_Compiler
             Thread.BeginCriticalRegion();
             stepByStepMode = true;
             Thread.EndCriticalRegion();
-            breakSem.Release(1);
+            //breakSem.Release(1);
             return !thread.IsAlive; 
         }
 
@@ -300,7 +300,7 @@ namespace MultiArc_Compiler
                         }
                         //byte[] readFromMemory = Program.Mem[(uint)pc];
                         Form1.Instance.InstructionReached(next);
-                        if (breakPoints.Contains(next) && separators.Contains(pc - entryPoint))
+                        if ((stepByStepMode || breakPoints.Contains(next)) && separators.Contains(pc - entryPoint))
                         {
                             //breakSem.WaitOne();
                             system.Running = false;
