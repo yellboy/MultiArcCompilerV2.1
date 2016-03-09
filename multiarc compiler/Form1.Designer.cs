@@ -52,15 +52,16 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.architectureToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cPUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.memoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.recompileCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.memoryDumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.architectureToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cPUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.memoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otherComponentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recompileCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.debugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assembleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.executeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,8 +94,8 @@
             this.BinaryCodeBox = new System.Windows.Forms.RichTextBox();
             this.BinaryCodeLabel = new System.Windows.Forms.Label();
             this.lineNumbers_For_RichTextBox2 = new LineNumbers.LineNumbers_For_RichTextBox();
-            this.otherComponentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LoadOtherComponentDialog = new System.Windows.Forms.OpenFileDialog();
+            this.designerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -230,6 +231,41 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.memoryDumpToolStripMenuItem,
+            this.registersToolStripMenuItem,
+            this.systemToolStripMenuItem,
+            this.designerToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // memoryDumpToolStripMenuItem
+            // 
+            this.memoryDumpToolStripMenuItem.Name = "memoryDumpToolStripMenuItem";
+            this.memoryDumpToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.M)));
+            this.memoryDumpToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.memoryDumpToolStripMenuItem.Text = "Memory dump";
+            this.memoryDumpToolStripMenuItem.Click += new System.EventHandler(this.memoryDumpToolStripMenuItem_Click);
+            // 
+            // registersToolStripMenuItem
+            // 
+            this.registersToolStripMenuItem.Name = "registersToolStripMenuItem";
+            this.registersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.R)));
+            this.registersToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.registersToolStripMenuItem.Text = "Registers";
+            this.registersToolStripMenuItem.Click += new System.EventHandler(this.registersToolStripMenuItem_Click);
+            // 
+            // systemToolStripMenuItem
+            // 
+            this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
+            this.systemToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.systemToolStripMenuItem.Text = "System";
+            this.systemToolStripMenuItem.Click += new System.EventHandler(this.systemToolStripMenuItem_Click);
+            // 
             // architectureToolStripMenuItem1
             // 
             this.architectureToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -265,6 +301,14 @@
             this.memoryToolStripMenuItem.Text = "Memory";
             this.memoryToolStripMenuItem.Click += new System.EventHandler(this.memoryToolStripMenuItem_Click);
             // 
+            // otherComponentToolStripMenuItem
+            // 
+            this.otherComponentToolStripMenuItem.Name = "otherComponentToolStripMenuItem";
+            this.otherComponentToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.otherComponentToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
+            this.otherComponentToolStripMenuItem.Text = "Other Component";
+            this.otherComponentToolStripMenuItem.Click += new System.EventHandler(this.otherComponentToolStripMenuItem_Click);
+            // 
             // recompileCodeToolStripMenuItem
             // 
             this.recompileCodeToolStripMenuItem.Name = "recompileCodeToolStripMenuItem";
@@ -272,40 +316,6 @@
             this.recompileCodeToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.recompileCodeToolStripMenuItem.Text = "Recompile code";
             this.recompileCodeToolStripMenuItem.Click += new System.EventHandler(this.recompileCodeToolStripMenuItem_Click);
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.memoryDumpToolStripMenuItem,
-            this.registersToolStripMenuItem,
-            this.systemToolStripMenuItem});
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.viewToolStripMenuItem.Text = "View";
-            // 
-            // memoryDumpToolStripMenuItem
-            // 
-            this.memoryDumpToolStripMenuItem.Name = "memoryDumpToolStripMenuItem";
-            this.memoryDumpToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.M)));
-            this.memoryDumpToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.memoryDumpToolStripMenuItem.Text = "Memory dump";
-            this.memoryDumpToolStripMenuItem.Click += new System.EventHandler(this.memoryDumpToolStripMenuItem_Click);
-            // 
-            // registersToolStripMenuItem
-            // 
-            this.registersToolStripMenuItem.Name = "registersToolStripMenuItem";
-            this.registersToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.R)));
-            this.registersToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.registersToolStripMenuItem.Text = "Registers";
-            this.registersToolStripMenuItem.Click += new System.EventHandler(this.registersToolStripMenuItem_Click);
-            // 
-            // systemToolStripMenuItem
-            // 
-            this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
-            this.systemToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.S)));
-            this.systemToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.systemToolStripMenuItem.Text = "System";
-            this.systemToolStripMenuItem.Click += new System.EventHandler(this.systemToolStripMenuItem_Click);
             // 
             // debugToolStripMenuItem
             // 
@@ -571,18 +581,18 @@
             this.lineNumbers_For_RichTextBox2.TabIndex = 43;
             this.lineNumbers_For_RichTextBox2.Click += new System.EventHandler(this.lineNumbers_For_RichTextBox1_Click);
             // 
-            // otherComponentToolStripMenuItem
-            // 
-            this.otherComponentToolStripMenuItem.Name = "otherComponentToolStripMenuItem";
-            this.otherComponentToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.otherComponentToolStripMenuItem.Size = new System.Drawing.Size(212, 22);
-            this.otherComponentToolStripMenuItem.Text = "Other Component";
-            this.otherComponentToolStripMenuItem.Click += new System.EventHandler(this.otherComponentToolStripMenuItem_Click);
-            // 
             // LoadOtherComponentDialog
             // 
             this.LoadOtherComponentDialog.DefaultExt = "arc files|*.arc|all files|*.*";
             this.LoadOtherComponentDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.LoadOtherComponentDialog_FileOk);
+            // 
+            // designerToolStripMenuItem
+            // 
+            this.designerToolStripMenuItem.Name = "designerToolStripMenuItem";
+            this.designerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
+            this.designerToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.designerToolStripMenuItem.Text = "Designer";
+            this.designerToolStripMenuItem.Click += new System.EventHandler(this.designerToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -681,6 +691,7 @@
         private System.Windows.Forms.Label BinaryCodeLabel;
         private System.Windows.Forms.ToolStripMenuItem otherComponentToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog LoadOtherComponentDialog;
+        private System.Windows.Forms.ToolStripMenuItem designerToolStripMenuItem;
 
     }
 }

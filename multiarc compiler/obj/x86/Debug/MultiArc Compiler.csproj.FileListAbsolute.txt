@@ -40,3 +40,6 @@ G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.Ge
 G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
 G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
 G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csprojResolveAssemblyReference.cache
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Designer.resources
+D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MoreLinq.dll
+D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MoreLinq.xml

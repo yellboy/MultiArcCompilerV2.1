@@ -1426,5 +1426,10 @@ Name: " + projectName + @"
                 return;
             }
         }
+
+        private void designerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Designer designer = new Designer(componentsList);
+        }
     }
 }
