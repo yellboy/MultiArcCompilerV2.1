@@ -14,6 +14,8 @@ namespace MultiArc_Compiler
     {
         private ICollection<SystemComponent> _componentsList;
 
+        private SystemComponent _selectedComponent;
+
         public Designer(ICollection<SystemComponent> components)
         {
             InitializeComponent();
@@ -25,6 +27,11 @@ namespace MultiArc_Compiler
         private void ComponentsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             BrowseComponentImageButton.Enabled = true;
+            _selectedComponent = _componentsList.ElementAt(ComponentsComboBox.SelectedIndex);
+            PinsList.Items.Clear();
+            _selectedComponent.Ports.ForEach(port => port.GetAllPins().ForEach(pin => PinsList.Items.Add(pin.Name)));
+            PinsList.Enabled = true;
+            AddPinButton.Enabled = true;
         }
     }
 }

@@ -56,6 +56,7 @@
             this.memoryDumpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.systemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.designerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.architectureToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cPUToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,7 +96,6 @@
             this.BinaryCodeLabel = new System.Windows.Forms.Label();
             this.lineNumbers_For_RichTextBox2 = new LineNumbers.LineNumbers_For_RichTextBox();
             this.LoadOtherComponentDialog = new System.Windows.Forms.OpenFileDialog();
-            this.designerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -265,6 +265,14 @@
             this.systemToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.systemToolStripMenuItem.Text = "System";
             this.systemToolStripMenuItem.Click += new System.EventHandler(this.systemToolStripMenuItem_Click);
+            // 
+            // designerToolStripMenuItem
+            // 
+            this.designerToolStripMenuItem.Name = "designerToolStripMenuItem";
+            this.designerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
+            this.designerToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.designerToolStripMenuItem.Text = "Designer";
+            this.designerToolStripMenuItem.Click += new System.EventHandler(this.designerToolStripMenuItem_Click);
             // 
             // architectureToolStripMenuItem1
             // 
@@ -585,14 +593,6 @@
             // 
             this.LoadOtherComponentDialog.DefaultExt = "arc files|*.arc|all files|*.*";
             this.LoadOtherComponentDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.LoadOtherComponentDialog_FileOk);
-            // 
-            // designerToolStripMenuItem
-            // 
-            this.designerToolStripMenuItem.Name = "designerToolStripMenuItem";
-            this.designerToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.D)));
-            this.designerToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.designerToolStripMenuItem.Text = "Designer";
-            this.designerToolStripMenuItem.Click += new System.EventHandler(this.designerToolStripMenuItem_Click);
             // 
             // Form1
             // 

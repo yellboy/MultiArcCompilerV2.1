@@ -271,5 +271,10 @@ namespace MultiArc_Compiler
             Val = 0;
             Initializing = false;
         }
+
+        public ICollection<Pin> GetAllPins()
+        {
+            return pins;
+        }
     }
 }
