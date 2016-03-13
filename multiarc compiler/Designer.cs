@@ -33,5 +33,21 @@ namespace MultiArc_Compiler
             PinsList.Enabled = true;
             AddPinButton.Enabled = true;
         }
+
+        private void BrowseComponentImageDialog_FileOk(object sender, CancelEventArgs e)
+        {
+            var image = new Bitmap(BrowseComponentImageDialog.FileName);
+            if (MessageBox.Show("Do you want to make this image transparent?", "Transparent", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                image.MakeTransparent();
+            }
+            var graphics = DesignPanel.CreateGraphics();
+            graphics.DrawImage(image, new Point(0, 0));
+        }
+
+        private void BrowseComponentImageButton_Click(object sender, EventArgs e)
+        {
+            BrowseComponentImageDialog.ShowDialog();
+        }
     }
 }

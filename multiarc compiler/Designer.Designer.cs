@@ -83,6 +83,11 @@
             this.BrowseComponentImageButton.TabIndex = 4;
             this.BrowseComponentImageButton.Text = "Browse";
             this.BrowseComponentImageButton.UseVisualStyleBackColor = true;
+            this.BrowseComponentImageButton.Click += new System.EventHandler(this.BrowseComponentImageButton_Click);
+            // 
+            // BrowseComponentImageDialog
+            // 
+            this.BrowseComponentImageDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.BrowseComponentImageDialog_FileOk);
             // 
             // PinsList
             // 
