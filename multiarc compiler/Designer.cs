@@ -40,9 +40,8 @@ namespace MultiArc_Compiler
             var graphics = DesignPanel.CreateGraphics();
             if (MessageBox.Show("Do you want to make this image transparent?", "Transparent", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                // TODO Fix this algorhitm
-                int upperBorder = 0;
-                int leftBorder = 0;
+                int upperBorder = image.Size.Height;
+                int leftBorder = image.Size.Width;
                 int lowerBorder = 0;
                 int rightBorder = 0;
                 for (int x = 0; x < image.Size.Width; x++)
@@ -54,23 +53,27 @@ namespace MultiArc_Compiler
                         var white = Color.White.ToArgb();
                         if (color != white)
                         {
-                            if (y > upperBorder)
+                            if (y < upperBorder)
                             {
                                 upperBorder = y;
                             }
-                            if (x > leftBorder)
+                            if (x < leftBorder)
                             {
                                 leftBorder = x;
                             }
-                        }
-                        else
-                        {
-                            { }
+                            if (y > lowerBorder)
+                            {
+                                lowerBorder = y;
+                            }
+                            if (x > rightBorder)
+                            {
+                                rightBorder = x;
+                            }
                         }
                     }
                 }
                 image.MakeTransparent();
-                graphics.DrawImage(image, new Rectangle(0, 0, image.Width, image.Height), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder, lowerBorder - upperBorder), GraphicsUnit.Pixel);
+                graphics.DrawImage(image, new Rectangle(0, 0, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), GraphicsUnit.Pixel);
             }
             else
             {
