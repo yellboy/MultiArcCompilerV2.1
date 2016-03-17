@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.componentsListBox = new System.Windows.Forms.ListBox();
-            this.systemPanel1 = new System.Windows.Forms.Panel();
+            this.systemPanel1 = new DragAndDropPanel();
             this.addComponentButton = new System.Windows.Forms.Button();
             this.nextClockButton = new System.Windows.Forms.Button();
             this.executeButton = new System.Windows.Forms.Button();
@@ -66,8 +66,6 @@
             this.systemPanel1.Name = "systemPanel1";
             this.systemPanel1.Size = new System.Drawing.Size(458, 309);
             this.systemPanel1.TabIndex = 1;
-            this.systemPanel1.DragDrop += new System.Windows.Forms.DragEventHandler(this.systemPanel1_DragDrop);
-            this.systemPanel1.DragEnter += new System.Windows.Forms.DragEventHandler(this.systemPanel1_DragEnter);
             this.systemPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseClick);
             this.systemPanel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseDoubleClick);
             this.systemPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseMove);
@@ -190,7 +188,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox componentsListBox;
-        private System.Windows.Forms.Panel systemPanel1;
+        private DragAndDropPanel systemPanel1;
         private System.Windows.Forms.Button addComponentButton;
         private System.Windows.Forms.Button nextClockButton;
         private System.Windows.Forms.Button executeButton;

@@ -64,6 +64,9 @@
     <Compile Include="Clipboard.Designer.cs">
       <DependentUpon>Clipboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlWithImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ConversionHelper.cs" />
     <Compile Include="CPU.cs">
       <SubType>Component</SubType>
@@ -74,6 +77,9 @@
     </Compile>
     <Compile Include="Designer.Designer.cs">
       <DependentUpon>Designer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DragAndDropPanel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Executor.cs" />
     <Compile Include="IMemoryObserver.cs" />

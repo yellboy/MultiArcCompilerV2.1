@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.ComponentsComboBox = new System.Windows.Forms.ComboBox();
-            this.DesignPanel = new System.Windows.Forms.Panel();
+            this.DesignPanel = new DragAndDropPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BrowseComponentImageButton = new System.Windows.Forms.Button();
@@ -142,7 +142,7 @@
         #endregion
 
         private System.Windows.Forms.ComboBox ComponentsComboBox;
-        private System.Windows.Forms.Panel DesignPanel;
+        private DragAndDropPanel DesignPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BrowseComponentImageButton;

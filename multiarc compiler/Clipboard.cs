@@ -63,19 +63,6 @@ namespace MultiArc_Compiler
             }
         }
 
-        private void systemPanel1_DragDrop(object sender, DragEventArgs e)
-        {
-            string[] formats = e.Data.GetFormats();
-            Control item = (Control)(e.Data.GetData(formats[0]));
-            item.Location = new Point(e.X - this.Location.X - systemPanel1.Location.X - 8, e.Y - this.Location.Y - systemPanel1.Location.Y - 31);
-            item.Refresh();
-        }
-
-        private void systemPanel1_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Move;
-        }
-
         private void componentsListBox_DrawItem(object sender, DrawItemEventArgs e)
         {
             e.DrawBackground();
