@@ -7,21 +7,30 @@ using System.Windows.Forms;
 
 namespace MultiArc_Compiler
 {
-    public class ControlWithImage : Control
+    public class ControlWithImage : DropableControl
     {
         private readonly Bitmap _image;
 
         private bool _transparent = false;
+
+        private ContextMenuStrip _menu = new ContextMenuStrip();
+
 
         public ControlWithImage(Bitmap image)
         {
             _image = image;
             Size = image.Size;
             Paint += Draw;
-            MouseDown += OnMouseDown;
+            _menu.Items.Add("Remove");
+            _menu.ItemClicked += MenuItemClicked;
         }
 
-        protected void OnMouseDown(object sender, MouseEventArgs e)
+        private void MenuItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            Parent.Controls.Remove(this);
+        }
+
+        protected override void MouseDownAction(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -29,7 +38,7 @@ namespace MultiArc_Compiler
             }
             else
             {
-                menu.Show(this, new Point(((MouseEventArgs)e).X, ((MouseEventArgs)e).Y));
+                _menu.Show(this, new Point(((MouseEventArgs)e).X, ((MouseEventArgs)e).Y));
             }
         }
 

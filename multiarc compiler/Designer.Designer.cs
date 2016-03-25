@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.ComponentsComboBox = new System.Windows.Forms.ComboBox();
-            this.DesignPanel = new DragAndDropPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.BrowseComponentImageButton = new System.Windows.Forms.Button();
@@ -37,6 +36,7 @@
             this.PinsList = new System.Windows.Forms.ListBox();
             this.AddPinButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.DesignPanel = new MultiArc_Compiler.DragAndDropPanel();
             this.SuspendLayout();
             // 
             // ComponentsComboBox
@@ -47,15 +47,6 @@
             this.ComponentsComboBox.Size = new System.Drawing.Size(130, 21);
             this.ComponentsComboBox.TabIndex = 0;
             this.ComponentsComboBox.SelectedIndexChanged += new System.EventHandler(this.ComponentsComboBox_SelectedIndexChanged);
-            // 
-            // DesignPanel
-            // 
-            this.DesignPanel.BackColor = System.Drawing.Color.GhostWhite;
-            this.DesignPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DesignPanel.Location = new System.Drawing.Point(150, 13);
-            this.DesignPanel.Name = "DesignPanel";
-            this.DesignPanel.Size = new System.Drawing.Size(443, 343);
-            this.DesignPanel.TabIndex = 1;
             // 
             // label1
             // 
@@ -77,6 +68,7 @@
             // 
             // BrowseComponentImageButton
             // 
+            this.BrowseComponentImageButton.Enabled = false;
             this.BrowseComponentImageButton.Location = new System.Drawing.Point(76, 56);
             this.BrowseComponentImageButton.Name = "BrowseComponentImageButton";
             this.BrowseComponentImageButton.Size = new System.Drawing.Size(67, 23);
@@ -118,6 +110,16 @@
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Pins";
+            // 
+            // DesignPanel
+            // 
+            this.DesignPanel.AllowDrop = true;
+            this.DesignPanel.BackColor = System.Drawing.Color.GhostWhite;
+            this.DesignPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DesignPanel.Location = new System.Drawing.Point(150, 13);
+            this.DesignPanel.Name = "DesignPanel";
+            this.DesignPanel.Size = new System.Drawing.Size(443, 343);
+            this.DesignPanel.TabIndex = 1;
             // 
             // Designer
             // 

@@ -81,6 +81,9 @@
     <Compile Include="DragAndDropPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DropableControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Executor.cs" />
     <Compile Include="IMemoryObserver.cs" />
     <Compile Include="Instruction.cs" />

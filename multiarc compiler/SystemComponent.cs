@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace MultiArc_Compiler
 {
-    public abstract class SystemComponent: Control
+    public abstract class SystemComponent : DropableControl
     {
 
         protected string name;
@@ -126,7 +126,6 @@ namespace MultiArc_Compiler
         /// </summary>
         public SystemComponent()
         {
-            base.MouseDown += this.OnMouseDown;
             base.Paint += this.redraw;
             base.AllowDrop = true;
         }
@@ -271,7 +270,7 @@ namespace MultiArc_Compiler
         /// </returns>
         public abstract object Clone();
 
-        protected void OnMouseDown(object sender, MouseEventArgs e)
+        protected override void MouseDownAction(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && SignalAttached == false)
             {
