@@ -9,7 +9,7 @@ namespace MultiArc_Compiler
 {
     public class ControlWithImage : Control
     {
-        private Bitmap _image;
+        private readonly Bitmap _image;
 
         private bool _transparent = false;
 
@@ -18,6 +18,19 @@ namespace MultiArc_Compiler
             _image = image;
             Size = image.Size;
             Paint += Draw;
+            MouseDown += OnMouseDown;
+        }
+
+        protected void OnMouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                DoDragDrop(this, DragDropEffects.Move);
+            }
+            else
+            {
+                menu.Show(this, new Point(((MouseEventArgs)e).X, ((MouseEventArgs)e).Y));
+            }
         }
 
         public void MakeTransparent()

@@ -52,14 +52,7 @@ namespace MultiArc_Compiler
         /// </returns>
         public Port GetPort(string name)
         {
-            foreach (Port port in ports)
-            {
-                if (port.Name.ToLower().Equals(name.ToLower()))
-                {
-                    return port;
-                }
-            }
-            return null;
+            return ports.FirstOrDefault(port => port.Name.ToLower().Equals(name.ToLower()));
         }
 
         public Pin GetPin(string name)
@@ -87,6 +80,7 @@ namespace MultiArc_Compiler
         {
             return ports;
         }
+
         protected UserSystem system;
 
         /// <summary>
@@ -294,7 +288,7 @@ namespace MultiArc_Compiler
             Port port = GetPort(portName);
             //lock (port)
             //{
-                while (!(port.Val == value))
+                while (port.Val != value)
                 {
                     //Monitor.Wait(port);
                     Monitor.Wait(Form1.LockObject);
@@ -307,7 +301,7 @@ namespace MultiArc_Compiler
             Pin pin = GetPin(pinName);
             //lock (pin.ParentPort)
             //{
-                while (!(pin.Val == value))
+                while (pin.Val != value)
                 {
                     //Monitor.Wait(pin.ParentPort);
                     Monitor.Wait(Form1.LockObject);
