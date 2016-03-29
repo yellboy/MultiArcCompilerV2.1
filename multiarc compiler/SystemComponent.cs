@@ -133,100 +133,106 @@ namespace MultiArc_Compiler
         protected void redraw(object sender, PaintEventArgs e)
         {
             Graphics graphics = this.CreateGraphics();
-            Rectangle rectangle = new Rectangle(5, 5, this.Width - 10, this.Height - 10);
-            graphics.FillRectangle(new SolidBrush(Color.White), rectangle);
-            graphics.DrawRectangle(Pens.Black, rectangle);
-            LinkedList<Port> rightPorts = new LinkedList<Port>();
-            int rightCount = 0;
-            rightPorts.Clear();
-            foreach (Port port in ports)
+            if (Controls.Count != 0)
             {
-                if (port.PortPosition == Position.RIGHT)
-                {
-                    rightPorts.AddLast(port);
-                    rightCount += port.Size;
-                }
             }
-            int rightStep = rightCount != 0 ? (this.Height - 10) / rightCount : 0;
-            int y = 5 + rightStep / 2;
-            foreach (Port port in rightPorts)
+            else
             {
-                for (int i = 0; i < port.Size; i++)
+                Rectangle rectangle = new Rectangle(5, 5, this.Width - 10, this.Height - 10);
+                graphics.FillRectangle(new SolidBrush(Color.White), rectangle);
+                graphics.DrawRectangle(Pens.Black, rectangle);
+                LinkedList<Port> rightPorts = new LinkedList<Port>();
+                int rightCount = 0;
+                rightPorts.Clear();
+                foreach (Port port in ports)
                 {
-                    string pinName = port.Name + "" + i;
-                    graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, this.Width - 5 - pinName.Length * 6, y - 3);
-                    //graphics.DrawLine(Pens.Black, this.Width - 5, y, this.Width, y);
-                    port[i].Location = new Point(this.Width - 5, y);
-                    y += rightStep;
+                    if (port.PortPosition == Position.RIGHT)
+                    {
+                        rightPorts.AddLast(port);
+                        rightCount += port.Size;
+                    }
                 }
-            }
-            LinkedList<Port> leftPorts = new LinkedList<Port>();
-            int leftCount = 0;
-            leftPorts.Clear();
-            foreach (Port port in ports)
-            {
-                if (port.PortPosition == Position.LEFT)
+                int rightStep = rightCount != 0 ? (this.Height - 10) / rightCount : 0;
+                int y = 5 + rightStep / 2;
+                foreach (Port port in rightPorts)
                 {
-                    leftPorts.AddLast(port);
-                    leftCount += port.Size;
+                    for (int i = 0; i < port.Size; i++)
+                    {
+                        string pinName = port.Name + "" + i;
+                        graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, this.Width - 5 - pinName.Length * 6, y - 3);
+                        //graphics.DrawLine(Pens.Black, this.Width - 5, y, this.Width, y);
+                        port[i].Location = new Point(this.Width - 5, y);
+                        y += rightStep;
+                    }
                 }
-            }
-            int leftStep = leftCount != 0 ? (this.Height - 10) / leftCount : 0;
-            y = 5 + leftStep / 2;
-            foreach (Port port in leftPorts)
-            {
-                for (int i = 0; i < port.Size; i++)
+                LinkedList<Port> leftPorts = new LinkedList<Port>();
+                int leftCount = 0;
+                leftPorts.Clear();
+                foreach (Port port in ports)
                 {
-                    string pinName = port.Name + "" + i;
-                    graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, 5, y - 3);
-                    port[i].Location = new Point(0, y);
-                    y += leftStep;
+                    if (port.PortPosition == Position.LEFT)
+                    {
+                        leftPorts.AddLast(port);
+                        leftCount += port.Size;
+                    }
                 }
-            }
-            LinkedList<Port> upPorts = new LinkedList<Port>();
-            int upCount = 0;
-            upPorts.Clear();
-            foreach (Port port in ports)
-            {
-                if (port.PortPosition == Position.UP)
+                int leftStep = leftCount != 0 ? (this.Height - 10) / leftCount : 0;
+                y = 5 + leftStep / 2;
+                foreach (Port port in leftPorts)
                 {
-                    upPorts.AddLast(port);
-                    upCount += port.Size;
+                    for (int i = 0; i < port.Size; i++)
+                    {
+                        string pinName = port.Name + "" + i;
+                        graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, 5, y - 3);
+                        port[i].Location = new Point(0, y);
+                        y += leftStep;
+                    }
                 }
-            }
-            int upStep = upCount != 0 ? (this.Width - 10) / upCount : 0;
-            int x = 5 + upStep / 2;
-            foreach (Port port in upPorts)
-            {
-                for (int i = 0; i < port.Size; i++)
+                LinkedList<Port> upPorts = new LinkedList<Port>();
+                int upCount = 0;
+                upPorts.Clear();
+                foreach (Port port in ports)
                 {
-                    string pinName = port.Name + "" + i;
-                    graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, x - pinName.Length * 3, 8);
-                    port[i].Location = new Point(x, 0);
-                    x += upStep;
+                    if (port.PortPosition == Position.UP)
+                    {
+                        upPorts.AddLast(port);
+                        upCount += port.Size;
+                    }
                 }
-            }
-            LinkedList<Port> downPorts = new LinkedList<Port>();
-            int downCount = 0;
-            downPorts.Clear();
-            foreach (Port port in ports)
-            {
-                if (port.PortPosition == Position.DOWN)
+                int upStep = upCount != 0 ? (this.Width - 10) / upCount : 0;
+                int x = 5 + upStep / 2;
+                foreach (Port port in upPorts)
                 {
-                    downPorts.AddLast(port);
-                    downCount += port.Size;
+                    for (int i = 0; i < port.Size; i++)
+                    {
+                        string pinName = port.Name + "" + i;
+                        graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, x - pinName.Length * 3, 8);
+                        port[i].Location = new Point(x, 0);
+                        x += upStep;
+                    }
                 }
-            }
-            int downStep = downCount != 0 ? (this.Width - 10) / downCount : 0;
-            x = 5 + downStep / 2;
-            foreach (Port port in downPorts)
-            {
-                for (int i = 0; i < port.Size; i++)
+                LinkedList<Port> downPorts = new LinkedList<Port>();
+                int downCount = 0;
+                downPorts.Clear();
+                foreach (Port port in ports)
                 {
-                    string pinName = port.Name + "" + i;
-                    graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, x - pinName.Length * 3, this.Height - 14);
-                    port[i].Location = new Point(x, this.Height - 5);
-                    x += downStep;
+                    if (port.PortPosition == Position.DOWN)
+                    {
+                        downPorts.AddLast(port);
+                        downCount += port.Size;
+                    }
+                }
+                int downStep = downCount != 0 ? (this.Width - 10) / downCount : 0;
+                x = 5 + downStep / 2;
+                foreach (Port port in downPorts)
+                {
+                    for (int i = 0; i < port.Size; i++)
+                    {
+                        string pinName = port.Name + "" + i;
+                        graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, x - pinName.Length * 3, this.Height - 14);
+                        port[i].Location = new Point(x, this.Height - 5);
+                        x += downStep;
+                    }
                 }
             }
         }

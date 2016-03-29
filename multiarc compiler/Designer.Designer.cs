@@ -37,6 +37,7 @@
             this.AddPinButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.DesignPanel = new MultiArc_Compiler.DragAndDropPanel();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ComponentsComboBox
@@ -121,11 +122,22 @@
             this.DesignPanel.Size = new System.Drawing.Size(443, 343);
             this.DesignPanel.TabIndex = 1;
             // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(518, 362);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.TabIndex = 8;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
             // Designer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 397);
+            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.AddPinButton);
             this.Controls.Add(this.PinsList);
@@ -152,5 +164,6 @@
         private System.Windows.Forms.ListBox PinsList;
         private System.Windows.Forms.Button AddPinButton;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button SaveButton;
     }
 }

@@ -42,11 +42,52 @@ namespace MultiArc_Compiler
                 control.MakeTransparent();
             }
             DesignPanel.Controls.Add(control);
+            DesignPanel.Refresh();
+            //_selectedComponent.Controls.Add(control);
         }
 
         private void BrowseComponentImageButton_Click(object sender, EventArgs e)
         {
             BrowseComponentImageDialog.ShowDialog();
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure?", "Sure", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                int upperBorder = DesignPanel.Height;
+                int lowerBorder = 0;
+                int leftBorder = DesignPanel.Width;
+                int rightBorder = 0;
+                foreach (ControlWithImage c in DesignPanel.Controls)
+                {
+                    if (c.Location.X < leftBorder)
+                    {
+                        leftBorder = c.Location.X;
+                    }
+                    if (c.Location.X + c.Width > rightBorder)
+                    {
+                        rightBorder = c.Location.X + c.Width;
+                    }
+                    if (c.Location.Y < upperBorder)
+                    {
+                        upperBorder = c.Location.Y;
+                    }
+                    if (c.Location.Y + c.Height > lowerBorder)
+                    {
+                        lowerBorder = c.Location.Y + c.Height;
+                    }
+                }
+
+                _selectedComponent.Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
+
+                foreach (ControlWithImage c in DesignPanel.Controls)
+                {
+                    c.SetBounds(c.Location.X - leftBorder, c.Location.Y - upperBorder, c.Width, c.Height);
+                    _selectedComponent.Controls.Add(c);
+                }
+
+            }
         }
     }
 }
