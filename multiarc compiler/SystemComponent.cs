@@ -133,7 +133,18 @@ namespace MultiArc_Compiler
         protected void redraw(object sender, PaintEventArgs e)
         {
             Graphics graphics = this.CreateGraphics();
-            if (Controls.Count != 0)
+
+            var haveNonPortControls = false;
+            foreach (var c in Controls)
+            {
+                if (c is ControlWithImage)
+                {
+                    haveNonPortControls = true;
+                    break;
+                }
+            }
+
+            if (haveNonPortControls)
             {
             }
             else
