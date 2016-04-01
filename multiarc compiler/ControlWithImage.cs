@@ -15,6 +15,7 @@ namespace MultiArc_Compiler
 
         private ContextMenuStrip _menu = new ContextMenuStrip();
 
+        private bool _drawn = false;
 
         public ControlWithImage(Bitmap image)
         {
@@ -50,48 +51,59 @@ namespace MultiArc_Compiler
         private void Draw(object sender, PaintEventArgs e)
         {
             var graphics = this.CreateGraphics();
+            //var graphics = Parent.CreateGraphics();
+            
             if (_transparent)
             {
-                int upperBorder = _image.Size.Height;
-                int leftBorder = _image.Size.Width;
-                int lowerBorder = 0;
-                int rightBorder = 0;
-                for (int x = 0; x < _image.Size.Width; x++)
+                _image.MakeTransparent();
+                if (!_drawn)
                 {
-                    for (int y = 0; y < _image.Size.Height; y++)
+                    int upperBorder = _image.Size.Height;
+                    int leftBorder = _image.Size.Width;
+                    int lowerBorder = 0;
+                    int rightBorder = 0;
+                    for (int x = 0; x < _image.Size.Width; x++)
                     {
-                        var pixel = _image.GetPixel(x, y);
-                        var color = pixel.ToArgb();
-                        var white = Color.White.ToArgb();
-                        if (color != white)
+                        for (int y = 0; y < _image.Size.Height; y++)
                         {
-                            if (y < upperBorder)
+                            var pixel = _image.GetPixel(x, y);
+                            var color = pixel.ToArgb();
+                            var white = Color.White.ToArgb();
+                            if (color != white)
                             {
-                                upperBorder = y;
-                            }
-                            if (x < leftBorder)
-                            {
-                                leftBorder = x;
-                            }
-                            if (y > lowerBorder)
-                            {
-                                lowerBorder = y;
-                            }
-                            if (x > rightBorder)
-                            {
-                                rightBorder = x;
+                                if (y < upperBorder)
+                                {
+                                    upperBorder = y;
+                                }
+                                if (x < leftBorder)
+                                {
+                                    leftBorder = x;
+                                }
+                                if (y > lowerBorder)
+                                {
+                                    lowerBorder = y;
+                                }
+                                if (x > rightBorder)
+                                {
+                                    rightBorder = x;
+                                }
                             }
                         }
                     }
+
+                    Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
+                    graphics.DrawImage(_image, new Rectangle(0, 0, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), GraphicsUnit.Pixel);
                 }
-                Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
-                _image.MakeTransparent();
-                graphics.DrawImage(_image, new Rectangle(0, 0, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), GraphicsUnit.Pixel);
+                else
+                {
+                    graphics.DrawImage(_image, new Rectangle(0, 0, Size.Width, Size.Height), new Rectangle(0, 0, Size.Width, Size.Height), GraphicsUnit.Pixel);
+                }
             }
             else
             {
                 graphics.DrawImage(_image, new Point(0, 0));
             }
+            _drawn = true;
         }
     }
 }
