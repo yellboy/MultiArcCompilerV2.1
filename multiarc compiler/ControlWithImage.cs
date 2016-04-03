@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -51,59 +52,67 @@ namespace MultiArc_Compiler
         private void Draw(object sender, PaintEventArgs e)
         {
             var graphics = this.CreateGraphics();
-            //var graphics = Parent.CreateGraphics();
             
             if (_transparent)
             {
                 _image.MakeTransparent();
-                if (!_drawn)
+                SetStyle(ControlStyles.SupportsTransparentBackColor, true);
+                SetStyle(ControlStyles.Opaque, true);
+                BackColor = Color.Transparent;
+                int upperBorder = _image.Size.Height;
+                int leftBorder = _image.Size.Width;
+                int lowerBorder = 0;
+                int rightBorder = 0;
+                for (int x = 0; x < _image.Size.Width; x++)
                 {
-                    int upperBorder = _image.Size.Height;
-                    int leftBorder = _image.Size.Width;
-                    int lowerBorder = 0;
-                    int rightBorder = 0;
-                    for (int x = 0; x < _image.Size.Width; x++)
+                    for (int y = 0; y < _image.Size.Height; y++)
                     {
-                        for (int y = 0; y < _image.Size.Height; y++)
+                        var pixel = _image.GetPixel(x, y);
+                        var color = pixel.ToArgb();
+                        var white = Color.White.ToArgb();
+                        if (color != white && color != 0)
                         {
-                            var pixel = _image.GetPixel(x, y);
-                            var color = pixel.ToArgb();
-                            var white = Color.White.ToArgb();
-                            if (color != white)
+                            if (y < upperBorder)
                             {
-                                if (y < upperBorder)
-                                {
-                                    upperBorder = y;
-                                }
-                                if (x < leftBorder)
-                                {
-                                    leftBorder = x;
-                                }
-                                if (y > lowerBorder)
-                                {
-                                    lowerBorder = y;
-                                }
-                                if (x > rightBorder)
-                                {
-                                    rightBorder = x;
-                                }
+                                upperBorder = y;
+                            }
+                            if (x < leftBorder)
+                            {
+                                leftBorder = x;
+                            }
+                            if (y > lowerBorder)
+                            {
+                                lowerBorder = y;
+                            }
+                            if (x > rightBorder)
+                            {
+                                rightBorder = x;
                             }
                         }
                     }
+                }
 
-                    Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
-                    graphics.DrawImage(_image, new Rectangle(0, 0, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), GraphicsUnit.Pixel);
-                }
-                else
+                Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
+                graphics.DrawImage(_image, new Rectangle(0, 0, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), GraphicsUnit.Pixel);
+                List<Point> points = new List<Point>();
+                for (int x = 0; x < _image.Width; x++)
                 {
-                    graphics.DrawImage(_image, new Rectangle(0, 0, Size.Width, Size.Height), new Rectangle(0, 0, Size.Width, Size.Height), GraphicsUnit.Pixel);
+                    for (int y = 0; y < _image.Height; y++)
+                    {
+                        if (_image.GetPixel(x, y).ToArgb() == Color.Black.ToArgb())
+                        {
+                            points.Add(new Point(x, y));
+                        }
+                    }
                 }
+                GraphicsPath path = new GraphicsPath();
+                path.AddClosedCurve(points.ToArray());
+                Region = new Region(path);
             }
             else
             {
                 graphics.DrawImage(_image, new Point(0, 0));
             }
-            _drawn = true;
         }
     }
 }
