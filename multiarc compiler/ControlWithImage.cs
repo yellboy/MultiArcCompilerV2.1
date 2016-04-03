@@ -63,14 +63,15 @@ namespace MultiArc_Compiler
                 int leftBorder = _image.Size.Width;
                 int lowerBorder = 0;
                 int rightBorder = 0;
+                int? previousColor = null;
+                List<Point> points = new List<Point>();
                 for (int x = 0; x < _image.Size.Width; x++)
                 {
                     for (int y = 0; y < _image.Size.Height; y++)
                     {
                         var pixel = _image.GetPixel(x, y);
                         var color = pixel.ToArgb();
-                        var white = Color.White.ToArgb();
-                        if (color != white && color != 0)
+                        if (!IsWhiteOrTransparent(color))
                         {
                             if (y < upperBorder)
                             {
@@ -89,22 +90,23 @@ namespace MultiArc_Compiler
                                 rightBorder = x;
                             }
                         }
-                    }
-                }
 
-                Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
-                graphics.DrawImage(_image, new Rectangle(0, 0, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), GraphicsUnit.Pixel);
-                List<Point> points = new List<Point>();
-                for (int x = 0; x < _image.Width; x++)
-                {
-                    for (int y = 0; y < _image.Height; y++)
-                    {
-                        if (_image.GetPixel(x, y).ToArgb() == Color.Black.ToArgb())
+                        var leftColor = x == 0 ? 0 : _image.GetPixel(x - 1, y).ToArgb();
+                        var rightColor = x == _image.Width - 1 ? 0 : _image.GetPixel(x + 1, y).ToArgb();
+                        var upperColor = y == 0 ? 0 : _image.GetPixel(x, y - 1).ToArgb();
+                        var bottomColor = y == _image.Height - 1 ? 0 : _image.GetPixel(x, y + 1).ToArgb();
+
+                        if ((IsWhiteOrTransparent(leftColor) || IsWhiteOrTransparent(rightColor) || IsWhiteOrTransparent(upperColor) || IsWhiteOrTransparent(bottomColor)) 
+                            && !IsWhiteOrTransparent(color) && !points.Any(p => p.X == x && p.Y == y))
                         {
                             points.Add(new Point(x, y));
                         }
                     }
                 }
+
+                Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
+                graphics.DrawImage(_image, new Rectangle(0, 0, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), GraphicsUnit.Pixel);
+
                 GraphicsPath path = new GraphicsPath();
                 path.AddClosedCurve(points.ToArray());
                 Region = new Region(path);
@@ -113,6 +115,11 @@ namespace MultiArc_Compiler
             {
                 graphics.DrawImage(_image, new Point(0, 0));
             }
+        }
+
+        private static bool IsWhiteOrTransparent(int color)
+        {
+            return color == Color.White.ToArgb() || color == 0;
         }
     }
 }
