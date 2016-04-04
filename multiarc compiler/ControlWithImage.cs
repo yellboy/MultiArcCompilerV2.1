@@ -63,7 +63,6 @@ namespace MultiArc_Compiler
                 int leftBorder = _image.Size.Width;
                 int lowerBorder = 0;
                 int rightBorder = 0;
-                int? previousColor = null;
                 List<Point> points = new List<Point>();
                 for (int x = 0; x < _image.Size.Width; x++)
                 {
@@ -104,11 +103,12 @@ namespace MultiArc_Compiler
                     }
                 }
 
-                Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
+                //Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
                 graphics.DrawImage(_image, new Rectangle(0, 0, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), GraphicsUnit.Pixel);
 
                 GraphicsPath path = new GraphicsPath();
-                path.AddClosedCurve(points.ToArray());
+                points = points.OrderBy(p => p.X).ThenBy(p => p.Y).ToList();
+                path.AddCurve(points.ToArray(), 1);
                 Region = new Region(path);
             }
             else
