@@ -103,12 +103,95 @@ namespace MultiArc_Compiler
                     }
                 }
 
+                // TODO Try ordering points from left to right, then to bottom, then to left, then to top again
+                // TODO Example: {(1, 1), (1, 5), (5, 5), (5, 1)}
+                // TODO Also try to make panel transparent
                 //Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
                 graphics.DrawImage(_image, new Rectangle(0, 0, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), GraphicsUnit.Pixel);
 
                 GraphicsPath path = new GraphicsPath();
-                points = points.OrderBy(p => p.X).ThenBy(p => p.Y).ToList();
-                path.AddCurve(points.ToArray(), 1);
+                points = new List<Point>
+                {
+                    new Point(1, 1),
+                    new Point(2, 1),
+                    new Point(3, 1),
+                    new Point(4, 1),
+                    new Point(5, 1),
+                    new Point(6, 1),
+                    new Point(7, 1),
+                    new Point(8, 1),
+                    new Point(9, 1),
+                    new Point(10, 1),
+                    new Point(11, 1),
+                    new Point(12, 1),
+                    new Point(13, 1),
+                    new Point(14, 1),
+                    new Point(15, 1),
+                    new Point(16, 1),
+                    new Point(17, 1),
+                    new Point(18, 1),
+                    new Point(19, 1),
+                    new Point(19, 2),
+                    new Point(19, 3),
+                    new Point(19, 4),
+                    new Point(19, 5),
+                    new Point(19, 6),
+                    new Point(19, 7),
+                    new Point(19, 8),
+                    new Point(19, 9),
+                    new Point(19, 10),
+                    new Point(19, 11),
+                    new Point(19, 12),
+                    new Point(19, 13),
+                    new Point(19, 14),
+                    new Point(19, 15),
+                    new Point(19, 16),
+                    new Point(19, 17),
+                    new Point(19, 18),
+                    new Point(19, 19),
+                    new Point(18, 19),
+                    new Point(17, 19),
+                    new Point(16, 19),
+                    new Point(15, 19),
+                    new Point(14, 19),
+                    new Point(13, 19),
+                    new Point(12, 19),
+                    new Point(11, 19),
+                    new Point(10, 19),
+                    new Point(9, 19),
+                    new Point(8, 19),
+                    new Point(7, 19),
+                    new Point(6, 19),
+                    new Point(5, 19),
+                    new Point(4, 19),
+                    new Point(3, 19),
+                    new Point(2, 19),
+                    new Point(1, 19),
+                    new Point(1, 18),
+                    new Point(1, 17),
+                    new Point(1, 16),
+                    new Point(1, 15),
+                    new Point(1, 14),
+                    new Point(1, 13),
+                    new Point(1, 12),
+                    new Point(1, 11),
+                    new Point(1, 10),
+                    new Point(1, 9),
+                    new Point(1, 8),
+                    new Point(1, 7),
+                    new Point(1, 6),
+                    new Point(1, 5),
+                    new Point(1, 4),
+                    new Point(1, 3),
+                    new Point(1, 2),
+                    new Point(1, 1)
+                };
+                var orderedPoints = new List<Point>();
+                var currentPoint = points.OrderBy(p => p.Y).ThenBy(p => p.X).First();
+                orderedPoints.Add(currentPoint);
+                
+                //points = points.OrderBy(p => p.X).ThenBy(p => p.Y).ToList();
+                path.AddClosedCurve(points.ToArray());
                 Region = new Region(path);
             }
             else
