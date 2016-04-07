@@ -110,89 +110,108 @@ namespace MultiArc_Compiler
                 graphics.DrawImage(_image, new Rectangle(0, 0, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), GraphicsUnit.Pixel);
 
                 GraphicsPath path = new GraphicsPath();
-                points = new List<Point>
-                {
-                    new Point(1, 1),
-                    new Point(2, 1),
-                    new Point(3, 1),
-                    new Point(4, 1),
-                    new Point(5, 1),
-                    new Point(6, 1),
-                    new Point(7, 1),
-                    new Point(8, 1),
-                    new Point(9, 1),
-                    new Point(10, 1),
-                    new Point(11, 1),
-                    new Point(12, 1),
-                    new Point(13, 1),
-                    new Point(14, 1),
-                    new Point(15, 1),
-                    new Point(16, 1),
-                    new Point(17, 1),
-                    new Point(18, 1),
-                    new Point(19, 1),
-                    new Point(19, 2),
-                    new Point(19, 3),
-                    new Point(19, 4),
-                    new Point(19, 5),
-                    new Point(19, 6),
-                    new Point(19, 7),
-                    new Point(19, 8),
-                    new Point(19, 9),
-                    new Point(19, 10),
-                    new Point(19, 11),
-                    new Point(19, 12),
-                    new Point(19, 13),
-                    new Point(19, 14),
-                    new Point(19, 15),
-                    new Point(19, 16),
-                    new Point(19, 17),
-                    new Point(19, 18),
-                    new Point(19, 19),
-                    new Point(18, 19),
-                    new Point(17, 19),
-                    new Point(16, 19),
-                    new Point(15, 19),
-                    new Point(14, 19),
-                    new Point(13, 19),
-                    new Point(12, 19),
-                    new Point(11, 19),
-                    new Point(10, 19),
-                    new Point(9, 19),
-                    new Point(8, 19),
-                    new Point(7, 19),
-                    new Point(6, 19),
-                    new Point(5, 19),
-                    new Point(4, 19),
-                    new Point(3, 19),
-                    new Point(2, 19),
-                    new Point(1, 19),
-                    new Point(1, 18),
-                    new Point(1, 17),
-                    new Point(1, 16),
-                    new Point(1, 15),
-                    new Point(1, 14),
-                    new Point(1, 13),
-                    new Point(1, 12),
-                    new Point(1, 11),
-                    new Point(1, 10),
-                    new Point(1, 9),
-                    new Point(1, 8),
-                    new Point(1, 7),
-                    new Point(1, 6),
-                    new Point(1, 5),
-                    new Point(1, 4),
-                    new Point(1, 3),
-                    new Point(1, 2),
-                    new Point(1, 1)
-                };
+
                 var orderedPoints = new List<Point>();
                 var currentPoint = points.OrderBy(p => p.Y).ThenBy(p => p.X).First();
+                var firstPoint = currentPoint;
+                orderedPoints.Add(new Point(currentPoint.X > 0 ? currentPoint.X - 1 : currentPoint.X, currentPoint.Y > 0 ? currentPoint.Y - 1 : currentPoint.Y));
                 orderedPoints.Add(currentPoint);
-                
+
+                for (int i = 0; i < points.Count() - 1; i++)
+                {
+                    if (points.Any(p => (p.X == currentPoint.X - 1) && (p.Y == currentPoint.Y)))
+                    {
+                        var point = points.FirstOrDefault(p => (p.X == currentPoint.X - 1) && (p.Y == currentPoint.Y));
+                        if (point != null && !orderedPoints.Contains(point))
+                        {
+                            currentPoint = point;
+                            orderedPoints.Add(currentPoint);
+                            continue;
+                        }
+                    }
+
+                    if (points.Any(p => p.X == (currentPoint.X - 1) && p.Y == (currentPoint.Y - 1)))
+                    {
+                        var point = points.First(p => p.X == (currentPoint.X - 1) && p.Y == (currentPoint.Y - 1));
+                        if (point != null && !orderedPoints.Contains(point))
+                        {
+                            currentPoint = point;
+                            orderedPoints.Add(currentPoint);
+                            continue;
+                        }
+                    }
+
+                    if (points.Any(p => p.X == currentPoint.X && (p.Y == currentPoint.Y - 1)))
+                    {
+                        var point = points.First(p => p.X == currentPoint.X && (p.Y == currentPoint.Y - 1));
+                        if (point != null && !orderedPoints.Contains(point))
+                        {
+                            currentPoint = point;
+                            orderedPoints.Add(currentPoint);
+                            continue;
+                        }
+                    }
+
+                    if (points.Any(p => p.X == (currentPoint.X + 1) && (p.Y == currentPoint.Y - 1))) {
+                        var point = points.First(p => p.X == (currentPoint.X + 1) && (p.Y == currentPoint.Y - 1));
+                        if (point != null && !orderedPoints.Contains(point))
+                        {
+                            currentPoint = point;
+                            orderedPoints.Add(currentPoint);
+                            continue;
+                        }
+                    }
+
+                    if (points.Any(p => p.X == (currentPoint.X + 1) && p.Y == currentPoint.Y))
+                    {
+                        var point = points.FirstOrDefault(p => p.X == (currentPoint.X + 1) && p.Y == currentPoint.Y);
+                        if (point != null && !orderedPoints.Contains(point))
+                        {
+                            currentPoint = point;
+                            orderedPoints.Add(currentPoint);
+                            continue;
+                        }
+                    }
+
+                    if (points.Any(p => (p.X == currentPoint.X + 1) && (p.Y == currentPoint.Y + 1)))
+                    {
+                        var point = points.FirstOrDefault(p => (p.X == currentPoint.X + 1) && (p.Y == currentPoint.Y + 1));
+                        if (point != null && !orderedPoints.Contains(point))
+                        {
+                            currentPoint = point;
+                            orderedPoints.Add(currentPoint);
+                            continue;
+                        }
+                    }
+
+                    if (points.Any(p => p.X == currentPoint.X && (p.Y == currentPoint.Y + 1)))
+                    {
+                        var point = points.FirstOrDefault(p => p.X == currentPoint.X && (p.Y == currentPoint.Y + 1));
+                        if (point != null && !orderedPoints.Contains(point))
+                        {
+                            currentPoint = point;
+                            orderedPoints.Add(currentPoint);
+                            continue;
+                        }
+                    }
+
+                    if (points.Any(p => (p.X == currentPoint.X - 1) && (p.Y == currentPoint.Y + 1)))
+                    {
+                        var point = points.FirstOrDefault(p => (p.X == currentPoint.X - 1) && (p.Y == currentPoint.Y + 1));
+                        if (point != null && !orderedPoints.Contains(point))
+                        {
+                            currentPoint = point;
+                            orderedPoints.Add(currentPoint);
+                            continue;
+                        }
+                    }
+                }
+
+                orderedPoints.Remove(firstPoint);
                 //points = points.OrderBy(p => p.X).ThenBy(p => p.Y).ToList();
-                path.AddClosedCurve(points.ToArray());
+                path.AddClosedCurve(orderedPoints.ToArray());
                 Region = new Region(path);
+                Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
             }
             else
             {
