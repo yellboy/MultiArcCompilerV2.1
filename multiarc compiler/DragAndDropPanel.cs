@@ -21,7 +21,8 @@ namespace MultiArc_Compiler
             var item = (DropableControl)(e.Data.GetData(formats[0]));
             //item.Location = new Point(e.X, e.Y);
             //item.Location = new Point(e.X - this.Location.X - 8, e.Y);
-            item.Location = PointToClient(new Point(e.X - item.ClickedX, e.Y - item.ClickedY));
+            var point = new Point(e.X - item.ClickedX, e.Y - item.ClickedY);
+            item.Location = PointToClient(point);
             item.Refresh();
         }
 

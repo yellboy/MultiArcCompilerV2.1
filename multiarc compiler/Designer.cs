@@ -35,15 +35,25 @@ namespace MultiArc_Compiler
 
         private void BrowseComponentImageDialog_FileOk(object sender, CancelEventArgs e)
         {
-            var image = new Bitmap(BrowseComponentImageDialog.FileName);
-            var control = new ControlWithImage(image);
-            if (MessageBox.Show("Do you want to make this image transparent?", "Transparent", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            try
             {
-                control.MakeTransparent();
+
+                var image = new Bitmap(BrowseComponentImageDialog.FileName);
+                var control = new ControlWithImage(image);
+                if (
+                    MessageBox.Show("Do you want to make this image transparent?", "Transparent",
+                        MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    control.MakeTransparent();
+                }
+                DesignPanel.Controls.Add(control);
+                DesignPanel.Refresh();
+                //_selectedComponent.Controls.Add(control);
             }
-            DesignPanel.Controls.Add(control);
-            DesignPanel.Refresh();
-            //_selectedComponent.Controls.Add(control);
+            catch (Exception ex)
+            {
+                int x = 3;
+            }
         }
 
         private void BrowseComponentImageButton_Click(object sender, EventArgs e)

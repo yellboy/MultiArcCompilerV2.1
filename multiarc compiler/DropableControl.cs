@@ -6,9 +6,9 @@ using System.Windows.Forms;
 
 namespace MultiArc_Compiler
 {
-    public abstract class DropableControl : Control
+    public abstract class DropableControl : UserControl
     {
-        public DropableControl()
+        protected DropableControl()
         {
             MouseDown += OnMouseDown;
         }

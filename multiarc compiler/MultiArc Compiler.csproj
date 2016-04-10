@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ImageMap">
+      <HintPath>..\ImageMapControl_Source\bin\Debug\ImageMap.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MoreLinq">
       <HintPath>..\packages\morelinq.1.4.0\lib\net35\MoreLinq.dll</HintPath>
@@ -65,7 +68,7 @@
       <DependentUpon>Clipboard.cs</DependentUpon>
     </Compile>
     <Compile Include="ControlWithImage.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ConversionHelper.cs" />
     <Compile Include="CPU.cs">
@@ -82,7 +85,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="DropableControl.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Executor.cs" />
     <Compile Include="IMemoryObserver.cs" />
@@ -111,10 +114,10 @@
       <DependentUpon>MemoryDumpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NonCPUComponent.cs">
-      <SubType>Component</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="OtherComponent.cs">
-      <SubType>Component</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="PerCederberg.Grammatica.Runtime.RE\AlternativeElement.cs" />
     <Compile Include="PerCederberg.Grammatica.Runtime.RE\CharacterSetElement.cs" />
@@ -168,7 +171,7 @@
     <Compile Include="Signal.cs" />
     <Compile Include="Symbol.cs" />
     <Compile Include="SystemComponent.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserSystem.cs" />
     <Compile Include="Variables.cs" />

@@ -56,8 +56,6 @@ namespace MultiArc_Compiler
             if (_transparent)
             {
                 _image.MakeTransparent();
-                SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-                SetStyle(ControlStyles.Opaque, true);
                 BackColor = Color.Transparent;
                 int upperBorder = _image.Size.Height;
                 int leftBorder = _image.Size.Width;
@@ -95,8 +93,8 @@ namespace MultiArc_Compiler
                         var upperColor = y == 0 ? 0 : _image.GetPixel(x, y - 1).ToArgb();
                         var bottomColor = y == _image.Height - 1 ? 0 : _image.GetPixel(x, y + 1).ToArgb();
 
-                        if ((IsWhiteOrTransparent(leftColor) || IsWhiteOrTransparent(rightColor) || IsWhiteOrTransparent(upperColor) || IsWhiteOrTransparent(bottomColor)) 
-                            && !IsWhiteOrTransparent(color) && !points.Any(p => p.X == x && p.Y == y))
+                        if ((!IsWhiteOrTransparent(leftColor) || !IsWhiteOrTransparent(rightColor) || ! IsWhiteOrTransparent(upperColor) || !IsWhiteOrTransparent(bottomColor)) 
+                            && IsWhiteOrTransparent(color) && !points.Any(p => p.X == x && p.Y == y))
                         {
                             points.Add(new Point(x, y));
                         }
@@ -109,12 +107,10 @@ namespace MultiArc_Compiler
                 //Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
                 graphics.DrawImage(_image, new Rectangle(0, 0, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), GraphicsUnit.Pixel);
 
-                GraphicsPath path = new GraphicsPath();
 
+                var centralPoint = new Point((rightBorder - leftBorder) / 2, (lowerBorder - upperBorder) / 2);
                 var orderedPoints = new List<Point>();
                 var currentPoint = points.OrderBy(p => p.Y).ThenBy(p => p.X).First();
-                var firstPoint = currentPoint;
-                orderedPoints.Add(new Point(currentPoint.X > 0 ? currentPoint.X - 1 : currentPoint.X, currentPoint.Y > 0 ? currentPoint.Y - 1 : currentPoint.Y));
                 orderedPoints.Add(currentPoint);
 
                 for (int i = 0; i < points.Count() - 1; i++)
@@ -132,7 +128,7 @@ namespace MultiArc_Compiler
 
                     if (points.Any(p => p.X == (currentPoint.X - 1) && p.Y == (currentPoint.Y - 1)))
                     {
-                        var point = points.First(p => p.X == (currentPoint.X - 1) && p.Y == (currentPoint.Y - 1));
+                        var point = points.FirstOrDefault(p => p.X == (currentPoint.X - 1) && p.Y == (currentPoint.Y - 1));
                         if (point != null && !orderedPoints.Contains(point))
                         {
                             currentPoint = point;
@@ -207,9 +203,14 @@ namespace MultiArc_Compiler
                     }
                 }
 
-                orderedPoints.Remove(firstPoint);
-                //points = points.OrderBy(p => p.X).ThenBy(p => p.Y).ToList();
-                path.AddClosedCurve(orderedPoints.ToArray());
+                var types = new byte[orderedPoints.Count];
+                types[0] = 0;
+                for (int i = 1; i < types.Length; i++)
+                {
+                    types[i] = 1;
+                }
+
+                GraphicsPath path =  new GraphicsPath(orderedPoints.ToArray(), types);
                 Region = new Region(path);
                 Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
             }

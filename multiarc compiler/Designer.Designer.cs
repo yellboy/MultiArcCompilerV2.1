@@ -115,7 +115,7 @@
             // DesignPanel
             // 
             this.DesignPanel.AllowDrop = true;
-            this.DesignPanel.BackColor = System.Drawing.Color.GhostWhite;
+            this.DesignPanel.BackColor = System.Drawing.Color.Transparent;
             this.DesignPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DesignPanel.Location = new System.Drawing.Point(150, 13);
             this.DesignPanel.Name = "DesignPanel";

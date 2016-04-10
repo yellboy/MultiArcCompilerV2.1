@@ -279,9 +279,7 @@ public static void Cycle(OtherComponent component)
 
         public override object Clone()
         {
-            throw new NotImplementedException();
+            return this;
         }
-
-        
     }
 }
