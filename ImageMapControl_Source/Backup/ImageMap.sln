@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageMap", "ImageMap.csproj", "{6AA4EB45-1EF4-46DE-85BF-378CD797241B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageMapTestClient", "ImageMapTestClient\ImageMapTestClient.csproj", "{3763D77E-AD32-4A06-9AF3-C4A9EB1E2064}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{6AA4EB45-1EF4-46DE-85BF-378CD797241B}.Debug.ActiveCfg = Debug|.NET
+		{6AA4EB45-1EF4-46DE-85BF-378CD797241B}.Debug.Build.0 = Debug|.NET
+		{6AA4EB45-1EF4-46DE-85BF-378CD797241B}.Release.ActiveCfg = Release|.NET
+		{6AA4EB45-1EF4-46DE-85BF-378CD797241B}.Release.Build.0 = Release|.NET
+		{3763D77E-AD32-4A06-9AF3-C4A9EB1E2064}.Debug.ActiveCfg = Debug|.NET
+		{3763D77E-AD32-4A06-9AF3-C4A9EB1E2064}.Debug.Build.0 = Debug|.NET
+		{3763D77E-AD32-4A06-9AF3-C4A9EB1E2064}.Release.ActiveCfg = Release|.NET
+		{3763D77E-AD32-4A06-9AF3-C4A9EB1E2064}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

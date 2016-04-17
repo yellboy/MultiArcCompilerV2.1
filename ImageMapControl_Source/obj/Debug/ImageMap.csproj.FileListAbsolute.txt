@@ -1,0 +1,14 @@
+C:\Users\boje\Downloads\ImageMapControl_Source\bin\Debug\ImageMap.dll
+C:\Users\boje\Downloads\ImageMapControl_Source\bin\Debug\ImageMap.pdb
+C:\Users\boje\Downloads\ImageMapControl_Source\obj\Debug\ImageMap.csprojResolveAssemblyReference.cache
+C:\Users\boje\Downloads\ImageMapControl_Source\obj\Debug\DotNetOpenSource.Controls.ImageMap.resources
+C:\Users\boje\Downloads\ImageMapControl_Source\obj\Debug\ImageMap.csproj.GenerateResource.Cache
+C:\Users\boje\Downloads\ImageMapControl_Source\obj\Debug\ImageMap.dll
+C:\Users\boje\Downloads\ImageMapControl_Source\obj\Debug\ImageMap.pdb
+C:\Projects\MultiArcCompilerV2.0\ImageMapControl_Source\bin\Debug\ImageMap.dll
+C:\Projects\MultiArcCompilerV2.0\ImageMapControl_Source\bin\Debug\ImageMap.pdb
+C:\Projects\MultiArcCompilerV2.0\ImageMapControl_Source\obj\Debug\ImageMap.csprojResolveAssemblyReference.cache
+C:\Projects\MultiArcCompilerV2.0\ImageMapControl_Source\obj\Debug\DotNetOpenSource.Controls.ImageMap.resources
+C:\Projects\MultiArcCompilerV2.0\ImageMapControl_Source\obj\Debug\ImageMap.csproj.GenerateResource.Cache
+C:\Projects\MultiArcCompilerV2.0\ImageMapControl_Source\obj\Debug\ImageMap.dll
+C:\Projects\MultiArcCompilerV2.0\ImageMapControl_Source\obj\Debug\ImageMap.pdb
