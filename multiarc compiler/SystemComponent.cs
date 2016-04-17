@@ -287,7 +287,7 @@ namespace MultiArc_Compiler
         /// </returns>
         public abstract object Clone();
 
-        protected override void MouseDownAction(MouseEventArgs e)
+        public override void MouseDownAction(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && SignalAttached == false)
             {

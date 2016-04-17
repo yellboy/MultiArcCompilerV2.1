@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 using MoreLinq;
@@ -10,10 +11,12 @@ namespace MultiArc_Compiler
 {
     public partial class Designer : Form
     {
-        private ICollection<SystemComponent> _componentsList;
+        private readonly ICollection<SystemComponent> _componentsList;
 
         private SystemComponent _selectedComponent;
 
+        private readonly ICollection<ControlWithImage> _addedImages = new List<ControlWithImage>();
+        
         public Designer(ICollection<SystemComponent> components)
         {
             InitializeComponent();
@@ -30,30 +33,23 @@ namespace MultiArc_Compiler
             _selectedComponent.Ports.ForEach(port => port.GetAllPins().ForEach(pin => PinsList.Items.Add(pin.Name)));
             PinsList.Enabled = true;
             AddPinButton.Enabled = true;
-            //DesignPanel.Controls.Add(_selectedComponent);
+            SaveButton.Enabled = false;
+            _addedImages.Clear();
         }
 
         private void BrowseComponentImageDialog_FileOk(object sender, CancelEventArgs e)
         {
-            try
+            var image = new Bitmap(BrowseComponentImageDialog.FileName);
+            var control = new ControlWithImage(image);
+            if (MessageBox.Show("Do you want to make this image transparent?", "Transparent", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                control.MakeTransparent();
+            }
 
-                var image = new Bitmap(BrowseComponentImageDialog.FileName);
-                var control = new ControlWithImage(image);
-                if (
-                    MessageBox.Show("Do you want to make this image transparent?", "Transparent",
-                        MessageBoxButtons.YesNo) == DialogResult.Yes)
-                {
-                    control.MakeTransparent();
-                }
-                DesignPanel.Controls.Add(control);
-                DesignPanel.Refresh();
-                //_selectedComponent.Controls.Add(control);
-            }
-            catch (Exception ex)
-            {
-                int x = 3;
-            }
+            DesignPanel.Controls.Add(control);
+            DesignPanel.Refresh();
+            _addedImages.Add(control);
+            SaveButton.Enabled = true;
         }
 
         private void BrowseComponentImageButton_Click(object sender, EventArgs e)
@@ -69,7 +65,7 @@ namespace MultiArc_Compiler
                 int lowerBorder = 0;
                 int leftBorder = DesignPanel.Width;
                 int rightBorder = 0;
-                foreach (ControlWithImage c in DesignPanel.Controls)
+                foreach (var c in _addedImages)
                 {
                     if (c.Location.X < leftBorder)
                     {
@@ -91,13 +87,26 @@ namespace MultiArc_Compiler
 
                 _selectedComponent.Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
 
-                foreach (ControlWithImage c in DesignPanel.Controls)
+                foreach (var c in _addedImages)
                 {
                     c.SetBounds(c.Location.X - leftBorder, c.Location.Y - upperBorder, c.Width, c.Height);
-                    _selectedComponent.Controls.Add(c);
+                    var clonedControl = (ControlWithImage)c.Clone();
+                    clonedControl.AddToSystemComponent(_selectedComponent);
+                    if (_selectedComponent.Region == null)
+                    {
+                        _selectedComponent.Region = c.Region.Clone();
+                    }
+                    else
+                    {
+                        _selectedComponent.Region.Union(c.Region);
+                    }
                 }
-
             }
+        }
+
+        private void AddPinButton_Click(object sender, EventArgs e)
+        {
+            DesignPanel.Controls.Add(_selectedComponent.GetPin(PinsList.SelectedItem.ToString()));
         }
     }
 }

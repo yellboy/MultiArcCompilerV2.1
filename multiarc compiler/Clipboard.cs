@@ -54,7 +54,7 @@ namespace MultiArc_Compiler
             if (componentToAdd.SignalAttached == false)
             {
                 componentToAdd.Draw();
-                systemPanel1.Controls.Add(componentToAdd as Control);
+                systemPanel1.Controls.Add(componentToAdd);
                 if (!system.Components.Contains(componentToAdd))
                 {
                     system.Components.AddLast(componentToAdd);

@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MultiArc_Compiler
 {
-    public class ControlWithImage : DropableControl
+    public class ControlWithImage : DropableControl, ICloneable
     {
         private readonly Bitmap _image;
 
         private bool _transparent = false;
 
-        private ContextMenuStrip _menu = new ContextMenuStrip();
-
-        private bool _drawn = false;
+        private readonly ContextMenuStrip _menu = new ContextMenuStrip();
+        
+        private bool _addedToComponent;
 
         public ControlWithImage(Bitmap image)
         {
@@ -32,15 +31,26 @@ namespace MultiArc_Compiler
             Parent.Controls.Remove(this);
         }
 
-        protected override void MouseDownAction(MouseEventArgs e)
+        public void AddToSystemComponent(SystemComponent component)
         {
+            component.Controls.Add(this);
+            _addedToComponent = true;
+        }
+
+        public override void MouseDownAction(MouseEventArgs e)
+        {
+            if (_addedToComponent)
+            {
+                ((SystemComponent)Parent).MouseDownAction(e);
+            }
+
             if (e.Button == MouseButtons.Left)
             {
                 DoDragDrop(this, DragDropEffects.Move);
             }
             else
             {
-                _menu.Show(this, new Point(((MouseEventArgs)e).X, ((MouseEventArgs)e).Y));
+                _menu.Show(this, new Point(e.X, e.Y));
             }
         }
 
@@ -51,7 +61,7 @@ namespace MultiArc_Compiler
 
         private void Draw(object sender, PaintEventArgs e)
         {
-            var graphics = this.CreateGraphics();
+            var graphics = CreateGraphics();
             
             if (_transparent)
             {
@@ -101,14 +111,8 @@ namespace MultiArc_Compiler
                     }
                 }
 
-                // TODO Try ordering points from left to right, then to bottom, then to left, then to top again
-                // TODO Example: {(1, 1), (1, 5), (5, 5), (5, 1)}
-                // TODO Also try to make panel transparent
-                //Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
                 graphics.DrawImage(_image, new Rectangle(0, 0, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), new Rectangle(leftBorder, upperBorder, rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1), GraphicsUnit.Pixel);
 
-
-                var centralPoint = new Point((rightBorder - leftBorder) / 2, (lowerBorder - upperBorder) / 2);
                 var orderedPoints = new List<Point>();
                 var currentPoint = points.OrderBy(p => p.Y).ThenBy(p => p.X).First();
                 orderedPoints.Add(currentPoint);
@@ -118,7 +122,7 @@ namespace MultiArc_Compiler
                     if (points.Any(p => (p.X == currentPoint.X - 1) && (p.Y == currentPoint.Y)))
                     {
                         var point = points.FirstOrDefault(p => (p.X == currentPoint.X - 1) && (p.Y == currentPoint.Y));
-                        if (point != null && !orderedPoints.Contains(point))
+                        if (!orderedPoints.Contains(point))
                         {
                             currentPoint = point;
                             orderedPoints.Add(currentPoint);
@@ -129,7 +133,7 @@ namespace MultiArc_Compiler
                     if (points.Any(p => p.X == (currentPoint.X - 1) && p.Y == (currentPoint.Y - 1)))
                     {
                         var point = points.FirstOrDefault(p => p.X == (currentPoint.X - 1) && p.Y == (currentPoint.Y - 1));
-                        if (point != null && !orderedPoints.Contains(point))
+                        if (!orderedPoints.Contains(point))
                         {
                             currentPoint = point;
                             orderedPoints.Add(currentPoint);
@@ -140,7 +144,7 @@ namespace MultiArc_Compiler
                     if (points.Any(p => p.X == currentPoint.X && (p.Y == currentPoint.Y - 1)))
                     {
                         var point = points.First(p => p.X == currentPoint.X && (p.Y == currentPoint.Y - 1));
-                        if (point != null && !orderedPoints.Contains(point))
+                        if (!orderedPoints.Contains(point))
                         {
                             currentPoint = point;
                             orderedPoints.Add(currentPoint);
@@ -150,7 +154,7 @@ namespace MultiArc_Compiler
 
                     if (points.Any(p => p.X == (currentPoint.X + 1) && (p.Y == currentPoint.Y - 1))) {
                         var point = points.First(p => p.X == (currentPoint.X + 1) && (p.Y == currentPoint.Y - 1));
-                        if (point != null && !orderedPoints.Contains(point))
+                        if (!orderedPoints.Contains(point))
                         {
                             currentPoint = point;
                             orderedPoints.Add(currentPoint);
@@ -161,7 +165,7 @@ namespace MultiArc_Compiler
                     if (points.Any(p => p.X == (currentPoint.X + 1) && p.Y == currentPoint.Y))
                     {
                         var point = points.FirstOrDefault(p => p.X == (currentPoint.X + 1) && p.Y == currentPoint.Y);
-                        if (point != null && !orderedPoints.Contains(point))
+                        if (!orderedPoints.Contains(point))
                         {
                             currentPoint = point;
                             orderedPoints.Add(currentPoint);
@@ -172,7 +176,7 @@ namespace MultiArc_Compiler
                     if (points.Any(p => (p.X == currentPoint.X + 1) && (p.Y == currentPoint.Y + 1)))
                     {
                         var point = points.FirstOrDefault(p => (p.X == currentPoint.X + 1) && (p.Y == currentPoint.Y + 1));
-                        if (point != null && !orderedPoints.Contains(point))
+                        if (!orderedPoints.Contains(point))
                         {
                             currentPoint = point;
                             orderedPoints.Add(currentPoint);
@@ -183,7 +187,7 @@ namespace MultiArc_Compiler
                     if (points.Any(p => p.X == currentPoint.X && (p.Y == currentPoint.Y + 1)))
                     {
                         var point = points.FirstOrDefault(p => p.X == currentPoint.X && (p.Y == currentPoint.Y + 1));
-                        if (point != null && !orderedPoints.Contains(point))
+                        if (!orderedPoints.Contains(point))
                         {
                             currentPoint = point;
                             orderedPoints.Add(currentPoint);
@@ -194,11 +198,10 @@ namespace MultiArc_Compiler
                     if (points.Any(p => (p.X == currentPoint.X - 1) && (p.Y == currentPoint.Y + 1)))
                     {
                         var point = points.FirstOrDefault(p => (p.X == currentPoint.X - 1) && (p.Y == currentPoint.Y + 1));
-                        if (point != null && !orderedPoints.Contains(point))
+                        if (!orderedPoints.Contains(point))
                         {
                             currentPoint = point;
                             orderedPoints.Add(currentPoint);
-                            continue;
                         }
                     }
                 }
@@ -223,6 +226,18 @@ namespace MultiArc_Compiler
         private static bool IsWhiteOrTransparent(int color)
         {
             return color == Color.White.ToArgb() || color == 0;
+        }
+
+        public object Clone()
+        {
+            var clone = new ControlWithImage(_image)
+            {
+                _transparent = _transparent,
+                _addedToComponent = _addedToComponent,
+                Region = Region
+            };
+
+            return clone;
         }
     }
 }

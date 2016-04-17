@@ -20,7 +20,7 @@ namespace MultiArc_Compiler
             MouseDownAction(e);
         }
 
-        protected abstract void MouseDownAction(MouseEventArgs e);
+        public abstract void MouseDownAction(MouseEventArgs e);
 
         public int ClickedX { get; protected set; }
 

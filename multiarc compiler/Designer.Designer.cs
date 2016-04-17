@@ -1,4 +1,6 @@
-﻿namespace MultiArc_Compiler
+﻿using System.Windows.Forms;
+
+namespace MultiArc_Compiler
 {
     partial class Designer
     {
@@ -36,8 +38,8 @@
             this.PinsList = new System.Windows.Forms.ListBox();
             this.AddPinButton = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.DesignPanel = new MultiArc_Compiler.DragAndDropPanel();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.DesignPanel = new MultiArc_Compiler.DragAndDropPanel();
             this.SuspendLayout();
             // 
             // ComponentsComboBox
@@ -102,6 +104,7 @@
             this.AddPinButton.TabIndex = 6;
             this.AddPinButton.Text = "Add";
             this.AddPinButton.UseVisualStyleBackColor = true;
+            this.AddPinButton.Click += new System.EventHandler(this.AddPinButton_Click);
             // 
             // label3
             // 
@@ -112,16 +115,6 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Pins";
             // 
-            // DesignPanel
-            // 
-            this.DesignPanel.AllowDrop = true;
-            this.DesignPanel.BackColor = System.Drawing.Color.Transparent;
-            this.DesignPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DesignPanel.Location = new System.Drawing.Point(150, 13);
-            this.DesignPanel.Name = "DesignPanel";
-            this.DesignPanel.Size = new System.Drawing.Size(443, 343);
-            this.DesignPanel.TabIndex = 1;
-            // 
             // SaveButton
             // 
             this.SaveButton.Location = new System.Drawing.Point(518, 362);
@@ -131,6 +124,16 @@
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // DesignPanel
+            // 
+            this.DesignPanel.AllowDrop = true;
+            this.DesignPanel.BackColor = System.Drawing.Color.Transparent;
+            this.DesignPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.DesignPanel.Location = new System.Drawing.Point(150, 13);
+            this.DesignPanel.Name = "DesignPanel";
+            this.DesignPanel.Size = new System.Drawing.Size(443, 343);
+            this.DesignPanel.TabIndex = 1;
             // 
             // Designer
             // 
