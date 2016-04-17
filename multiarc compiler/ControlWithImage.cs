@@ -42,6 +42,7 @@ namespace MultiArc_Compiler
             if (_addedToComponent)
             {
                 ((SystemComponent)Parent).MouseDownAction(e);
+                return;
             }
 
             if (e.Button == MouseButtons.Left)
