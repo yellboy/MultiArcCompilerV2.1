@@ -22,8 +22,8 @@ namespace MultiArc_Compiler
 
         public abstract void MouseDownAction(MouseEventArgs e);
 
-        public int ClickedX { get; protected set; }
+        public int ClickedX { get; set; }
 
-        public int ClickedY { get; protected set; }
+        public int ClickedY { get; set; }
     }
 }

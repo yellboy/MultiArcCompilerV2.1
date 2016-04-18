@@ -41,7 +41,10 @@ namespace MultiArc_Compiler
         {
             if (_addedToComponent)
             {
-                ((SystemComponent)Parent).MouseDownAction(e);
+                var parent = (SystemComponent)Parent;
+                parent.ClickedX = Location.X + ClickedX;
+                parent.ClickedY = Location.Y + ClickedY;
+                parent.MouseDownAction(e);
                 return;
             }
 
