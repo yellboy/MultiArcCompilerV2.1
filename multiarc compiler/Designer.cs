@@ -105,7 +105,9 @@ namespace MultiArc_Compiler
 
         private void AddPinButton_Click(object sender, EventArgs e)
         {
-            DesignPanel.Controls.Add(_selectedComponent.GetPin(PinsList.SelectedItem.ToString()));
+            var pin = _selectedComponent.GetPin(PinsList.SelectedItem.ToString());
+            DesignPanel.Controls.Add(pin);
+            pin.Designer = this;
             PinsList.Items.RemoveAt(PinsList.SelectedIndex);
             
             if (PinsList.Items.Count == 0)
@@ -118,6 +120,7 @@ namespace MultiArc_Compiler
         {
             DesignPanel.Controls.Remove(pin);
             PinsList.Items.Add(pin.Name);
+            SaveButton.Enabled = false;
         }
     }
 }

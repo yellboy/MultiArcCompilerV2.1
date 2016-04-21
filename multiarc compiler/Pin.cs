@@ -20,7 +20,7 @@ namespace MultiArc_Compiler
     /// <summary>
     /// Class representing pin of the port.
     /// </summary>
-    public class Pin : UserControl
+    public class Pin : DropableControl
     {
         private Port parentPort;
 
@@ -132,7 +132,6 @@ namespace MultiArc_Compiler
                 this.Height = 1;
                 this.Width = 15;
             }
-            base.MouseClick += this.mouseClick;
             base.Paint += this.redraw;
             base.MouseEnter += this.mouseEnter;
             _menu.Items.Add("Remove");
@@ -156,7 +155,10 @@ namespace MultiArc_Compiler
 
         protected void mouseEnter(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.UpArrow;
+            if (Clipboard != null)
+            {
+                this.Cursor = Cursors.UpArrow;
+            }
         }
 
         protected void redraw(object sender, PaintEventArgs e)
@@ -179,15 +181,25 @@ namespace MultiArc_Compiler
             }
         }
 
-        protected void mouseClick(object sender, MouseEventArgs e)
+        public override void MouseDownAction(MouseEventArgs e)
         {
             if (Clipboard != null)
             {
-                Clipboard.PinClicked(this);
+                if (e.Button == MouseButtons.Left)
+                {
+                    Clipboard.PinClicked(this);
+                }
             }
-            else
+            else if (Designer != null)
             {
-                
+                if (e.Button == MouseButtons.Left)
+                {
+                    DoDragDrop(this, DragDropEffects.Move);
+                }
+                else
+                {
+                    _menu.Show(new Point(e.X, e.Y));
+                }
             }
         }
 
