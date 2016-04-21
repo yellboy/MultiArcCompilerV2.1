@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Windows.Forms;
 using MoreLinq;
@@ -49,7 +48,7 @@ namespace MultiArc_Compiler
             DesignPanel.Controls.Add(control);
             DesignPanel.Refresh();
             _addedImages.Add(control);
-            SaveButton.Enabled = true;
+            //SaveButton.Enabled = true;
         }
 
         private void BrowseComponentImageButton_Click(object sender, EventArgs e)
@@ -107,6 +106,18 @@ namespace MultiArc_Compiler
         private void AddPinButton_Click(object sender, EventArgs e)
         {
             DesignPanel.Controls.Add(_selectedComponent.GetPin(PinsList.SelectedItem.ToString()));
+            PinsList.Items.RemoveAt(PinsList.SelectedIndex);
+            
+            if (PinsList.Items.Count == 0)
+            {
+                SaveButton.Enabled = true;
+            }
+        }
+
+        public void RemovePin(Pin pin)
+        {
+            DesignPanel.Controls.Remove(pin);
+            PinsList.Items.Add(pin.Name);
         }
     }
 }

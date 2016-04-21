@@ -5,10 +5,7 @@
  */
 
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -23,7 +20,7 @@ namespace MultiArc_Compiler
     /// <summary>
     /// Class representing pin of the port.
     /// </summary>
-    public class Pin : Control
+    public class Pin : UserControl
     {
         private Port parentPort;
 
@@ -109,6 +106,12 @@ namespace MultiArc_Compiler
 
         public new string Name { get; set; }
 
+        public Clipboard Clipboard { get; set; }
+
+        public Designer Designer { get; set; }
+
+        private readonly ContextMenuStrip _menu = new ContextMenuStrip();
+
         /// <summary>
         /// Creates one object of Pin class.
         /// </summary>
@@ -132,6 +135,13 @@ namespace MultiArc_Compiler
             base.MouseClick += this.mouseClick;
             base.Paint += this.redraw;
             base.MouseEnter += this.mouseEnter;
+            _menu.Items.Add("Remove");
+            _menu.ItemClicked += ItemClicked;
+        }
+
+        private void ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            Designer.RemovePin(this);
         }
 
         public void InformThatSignalChanged(PinValue signalValue)
@@ -171,7 +181,14 @@ namespace MultiArc_Compiler
 
         protected void mouseClick(object sender, MouseEventArgs e)
         {
-            ((Clipboard)((Pin)sender).Parent.Parent.Parent).PinClicked(this);
+            if (Clipboard != null)
+            {
+                Clipboard.PinClicked(this);
+            }
+            else
+            {
+                
+            }
         }
 
     }

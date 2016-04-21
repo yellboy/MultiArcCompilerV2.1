@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MultiArc_Compiler
@@ -29,7 +27,7 @@ namespace MultiArc_Compiler
             InitializeComponent();
             this.Visible = true;
             this.componentsList = componentsList;
-            foreach (Control component in componentsList)
+            foreach (var component in componentsList)
             {
                 componentsListBox.Items.Add(component);
             }
@@ -76,7 +74,7 @@ namespace MultiArc_Compiler
         {
             int x = pin.Location.X + pin.Parent.Location.X + (pin.ParentPort.PortPosition == Position.RIGHT ? 5 : 0);
             int y = pin.Location.Y + pin.Parent.Location.Y + (pin.ParentPort.PortPosition == Position.DOWN ? 5 : 0);
-            if (drawingSignal == true)
+            if (drawingSignal)
             {
                 if (x != signalX || y != signalY)
                 {
@@ -96,7 +94,7 @@ namespace MultiArc_Compiler
                 drawingSignal = false;
                 currentlyDrawing.Pins.AddLast(pin);
                 pin.Signal = currentlyDrawing;
-                this.Cursor = Cursors.Arrow;
+                Cursor = Cursors.Arrow;
                 system.Signals.AddLast(currentlyDrawing);
                 currentlyDrawing.SetColor(Color.Violet);
             }
