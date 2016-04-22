@@ -1,11 +1,5 @@
-System.ObjectDisposedException: Cannot access a disposed object.
-Object name: 'Pin'.
-   at System.Windows.Forms.Control.CreateHandle()
-   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
-   at System.Windows.Forms.Control.CreateControl(Boolean fIgnoreVisible)
-   at System.Windows.Forms.Control.CreateControl()
-   at System.Windows.Forms.Control.ControlCollection.Add(Control value)
-   at MultiArc_Compiler.Clipboard.addComponentButton_Click(Object sender, EventArgs e) in d:\MultiArc Compiler\multiarc compiler\Clipboard.cs:line 55
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Designer.AddPinButton_Click(Object sender, EventArgs e) in d:\MultiArc Compiler\multiarc compiler\Designer.cs:line 137
    at System.Windows.Forms.Control.OnClick(EventArgs e)
    at System.Windows.Forms.Button.OnClick(EventArgs e)
    at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)

@@ -15,6 +15,8 @@ namespace MultiArc_Compiler
         private SystemComponent _selectedComponent;
 
         private readonly ICollection<ControlWithImage> _addedImages = new List<ControlWithImage>();
+
+        private readonly ICollection<Pin> _addedPins = new List<Pin>();
         
         public Designer(ICollection<SystemComponent> components)
         {
@@ -84,6 +86,26 @@ namespace MultiArc_Compiler
                     }
                 }
 
+                foreach (var p in _addedPins)
+                {
+                    if (p.Location.X < leftBorder)
+                    {
+                        leftBorder = p.Location.X;
+                    }
+                    if (p.Location.X + p.Width > rightBorder)
+                    {
+                        rightBorder = p.Location.X + p.Width;
+                    }
+                    if (p.Location.Y < upperBorder)
+                    {
+                        upperBorder = p.Location.Y;
+                    }
+                    if (p.Location.Y + p.Height > lowerBorder)
+                    {
+                        lowerBorder = p.Location.Y + p.Height;
+                    }
+                }
+
                 _selectedComponent.Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
 
                 foreach (var c in _addedImages)
@@ -100,12 +122,21 @@ namespace MultiArc_Compiler
                         _selectedComponent.Region.Union(c.Region);
                     }
                 }
+
+                foreach (var p in _addedPins)
+                {
+                    p.Location = new Point(p.Location.X - leftBorder, p.Location.Y - upperBorder);
+                    var actualPin = _selectedComponent.GetPin(p.Name);
+                    actualPin.Location = p.Location;
+                    _selectedComponent.Region.Intersect(new Rectangle(p.Location.X, p.Location.Y, p.Size.Width, p.Size.Height));
+                }
             }
         }
 
         private void AddPinButton_Click(object sender, EventArgs e)
         {
-            var pin = _selectedComponent.GetPin(PinsList.SelectedItem.ToString());
+            var pin = (Pin)_selectedComponent.GetPin(PinsList.SelectedItem.ToString()).Clone();
+            _addedPins.Add(pin);
             DesignPanel.Controls.Add(pin);
             pin.Designer = this;
             PinsList.Items.RemoveAt(PinsList.SelectedIndex);

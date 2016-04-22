@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using MoreLinq;
 
 namespace MultiArc_Compiler
 {
@@ -366,6 +367,14 @@ namespace MultiArc_Compiler
             {
                 p.ResetToDefault();
             }
+        }
+
+        public IEnumerable<Pin> GetAllPins()
+        {
+            var pinsList = new List<Pin>();
+            ports.ForEach(port => pinsList.AddRange(port.GetAllPins()));
+
+            return pinsList;
         }
     }
 }

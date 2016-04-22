@@ -20,7 +20,7 @@ namespace MultiArc_Compiler
     /// <summary>
     /// Class representing pin of the port.
     /// </summary>
-    public class Pin : DropableControl
+    public class Pin : DropableControl, ICloneable
     {
         private Port parentPort;
 
@@ -118,10 +118,19 @@ namespace MultiArc_Compiler
         /// <param name="parentPort">
         /// Parent port containing pin.
         /// </param>
-        public Pin(Port parentPort, int index)
+        public Pin(Port parentPort, int index) : this(parentPort)
+        {
+            this.Name = parentPort.Name + index;
+        }
+
+        public Pin(Port parentPort, string name) : this(parentPort)
+        {
+            this.Name = name;
+        }
+
+        private Pin(Port parentPort)
         {
             this.parentPort = parentPort;
-            this.Name = parentPort.Name + index;
             if (parentPort.PortPosition == Position.DOWN || parentPort.PortPosition == Position.UP)
             {
                 this.Height = 15;
@@ -203,5 +212,20 @@ namespace MultiArc_Compiler
             }
         }
 
+        public object Clone()
+        {
+            var newPin = new Pin(parentPort, Name);
+            newPin.val = val;
+            newPin.Location = Location;
+            newPin.Clipboard = Clipboard;
+            newPin.Designer = Designer;
+            newPin.ClickedX = ClickedX;
+            newPin.ClickedY = ClickedY;
+            newPin.OldVal = OldVal;
+            newPin.parentGraphics = parentGraphics;
+            newPin.Size = Size;
+            
+            return newPin;
+        }
     }
 }
