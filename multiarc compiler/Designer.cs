@@ -128,7 +128,7 @@ namespace MultiArc_Compiler
                     p.Location = new Point(p.Location.X - leftBorder, p.Location.Y - upperBorder);
                     var actualPin = _selectedComponent.GetPin(p.Name);
                     actualPin.Location = p.Location;
-                    _selectedComponent.Region.Intersect(new Rectangle(p.Location.X, p.Location.Y, p.Size.Width, p.Size.Height));
+                    _selectedComponent.Region.Union(new Rectangle(p.Location.X, p.Location.Y, p.Size.Width, p.Size.Height));
                 }
             }
         }

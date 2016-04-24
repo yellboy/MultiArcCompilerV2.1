@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using MoreLinq;
 
 namespace MultiArc_Compiler
 {
@@ -58,6 +59,7 @@ namespace MultiArc_Compiler
                     system.Components.AddLast(componentToAdd);
                 }
                 componentToAdd.System = system;
+                componentToAdd.GetAllPins().ForEach(p => p.Clipboard = this);
             }
         }
 
