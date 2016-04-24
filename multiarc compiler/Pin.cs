@@ -133,13 +133,13 @@ namespace MultiArc_Compiler
             this.parentPort = parentPort;
             if (parentPort.PortPosition == Position.DOWN || parentPort.PortPosition == Position.UP)
             {
-                this.Height = 15;
+                this.Height = 5;
                 this.Width = 1;
             }
             else
             {
                 this.Height = 1;
-                this.Width = 15;
+                this.Width = 5;
             }
             base.Paint += this.redraw;
             base.MouseEnter += this.mouseEnter;

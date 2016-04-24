@@ -17,18 +17,38 @@ namespace MultiArc_Compiler
         
         private bool _addedToComponent;
 
-        public ControlWithImage(Bitmap image)
+        private readonly Designer _designer;
+
+        public int Level { get; set; }
+
+        public ControlWithImage(Bitmap image, Designer designer)
         {
             _image = image;
+            _designer = designer;
             Size = image.Size;
             Paint += Draw;
+
+            _menu.Items.Add("Bring to front");
+            _menu.Items.Add("Send to back"); 
+            _menu.Items.Add(new ToolStripSeparator());
             _menu.Items.Add("Remove");
             _menu.ItemClicked += MenuItemClicked;
         }
 
         private void MenuItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            Parent.Controls.Remove(this);
+            switch (e.ClickedItem.Text)
+            {
+                case "Bring to front":
+                    _designer.BringToFront(this);
+                    break;
+                case "Send to back":
+                    _designer.SendToBack(this);
+                    break;
+                case "Remove":
+                    _designer.Remove(this);
+                    break;
+            }
         }
 
         public void AddToSystemComponent(SystemComponent component)
@@ -234,7 +254,7 @@ namespace MultiArc_Compiler
 
         public object Clone()
         {
-            var clone = new ControlWithImage(_image)
+            var clone = new ControlWithImage(_image, _designer)
             {
                 _transparent = _transparent,
                 _addedToComponent = _addedToComponent,

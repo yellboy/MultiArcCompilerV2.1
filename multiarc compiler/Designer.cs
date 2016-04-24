@@ -17,6 +17,8 @@ namespace MultiArc_Compiler
         private readonly ICollection<ControlWithImage> _addedImages = new List<ControlWithImage>();
 
         private readonly ICollection<Pin> _addedPins = new List<Pin>();
+
+        private int _lastLevel = 0;
         
         public Designer(ICollection<SystemComponent> components)
         {
@@ -36,21 +38,22 @@ namespace MultiArc_Compiler
             AddPinButton.Enabled = true;
             SaveButton.Enabled = false;
             _addedImages.Clear();
+            _lastLevel = 0;
         }
 
         private void BrowseComponentImageDialog_FileOk(object sender, CancelEventArgs e)
         {
             var image = new Bitmap(BrowseComponentImageDialog.FileName);
-            var control = new ControlWithImage(image);
+            var control = new ControlWithImage(image, this);
             if (MessageBox.Show("Do you want to make this image transparent?", "Transparent", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 control.MakeTransparent();
             }
 
             DesignPanel.Controls.Add(control);
+            control.Level = _lastLevel++;
             DesignPanel.Refresh();
             _addedImages.Add(control);
-            //SaveButton.Enabled = true;
         }
 
         private void BrowseComponentImageButton_Click(object sender, EventArgs e)
@@ -152,6 +155,28 @@ namespace MultiArc_Compiler
             DesignPanel.Controls.Remove(pin);
             PinsList.Items.Add(pin.Name);
             SaveButton.Enabled = false;
+        }
+
+        public void BringToFront(ControlWithImage controlWithImage)
+        {
+            controlWithImage.BringToFront();
+            _addedImages.Where(i => i != controlWithImage && i.Level > controlWithImage.Level).ForEach(i => i.Level--);
+            controlWithImage.Level = _lastLevel;
+        }
+
+        public void SendToBack(ControlWithImage controlWithImage)
+        {
+            controlWithImage.SendToBack();
+            _addedImages.Where(i => i != controlWithImage && i.Level < controlWithImage.Level).ForEach(i => i.Level++);
+            controlWithImage.Level = 0;
+        }
+
+        public void Remove(ControlWithImage controlWithImage)
+        {
+            DesignPanel.Controls.Remove(controlWithImage);
+            _addedImages.Where(i => i != controlWithImage && i.Level > controlWithImage.Level).ForEach(i => i.Level--);
+            _addedImages.Remove(controlWithImage);
+            _lastLevel--;
         }
     }
 }
