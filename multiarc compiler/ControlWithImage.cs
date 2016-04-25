@@ -258,7 +258,8 @@ namespace MultiArc_Compiler
             {
                 _transparent = _transparent,
                 _addedToComponent = _addedToComponent,
-                Region = Region
+                Region = Region,
+                Location = Location
             };
 
             return clone;
