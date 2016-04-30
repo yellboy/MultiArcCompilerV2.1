@@ -122,6 +122,17 @@ namespace MultiArc_Compiler
 
         protected ContextMenuStrip menu = new ContextMenuStrip();
 
+        protected virtual string[] MenuItems 
+        {
+            get
+            {
+                return new[] 
+                {
+                    "Remove"
+                };
+            }
+        }
+
         /// <summary>
         /// Creates one object of SystemComponent class.
         /// </summary>
@@ -129,6 +140,14 @@ namespace MultiArc_Compiler
         {
             base.Paint += this.redraw;
             base.AllowDrop = true;
+            MenuItems.ForEach(mi => menu.Items.Add(mi));
+            menu.ItemClicked += MenuItemClicked;
+        }
+
+        protected virtual void MenuItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            system.RemoveComponent(this);
+            Parent.Controls.Remove(this);
         }
 
         protected void redraw(object sender, PaintEventArgs e)

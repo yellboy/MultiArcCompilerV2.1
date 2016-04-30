@@ -1098,15 +1098,24 @@ public class DynamicClass" + name + @"
             base.Draw();
             if (wasDrawn == false)
             {
-                menu.Items.Add("Registers");
-                menu.Items.Add("Memory dump");
-                menu.Items.Add("Remove");
-                menu.ItemClicked += this.menuItemClicked;
                 wasDrawn = true;
             }
         }
 
-        private void menuItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        protected override string[] MenuItems 
+        {
+            get
+            {
+                return new[]
+                {
+                    "Registers",
+                    "Memory dump",
+                    "Remove"
+                };
+            }
+        }
+
+        protected override void MenuItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             switch (e.ClickedItem.Text)
             {
@@ -1117,8 +1126,7 @@ public class DynamicClass" + name + @"
                     (Program.Mem.Observer as MemoryDumpForm).Show();
                     break;
                 case "Remove":
-                    system.RemoveComponent(this);
-                    this.Visible = false;
+                    base.MenuItemClicked(sender, e);
                     break;
             }
         }

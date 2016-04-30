@@ -279,6 +279,18 @@ namespace MultiArc_Compiler
             arcDirectoryName = "Memories/";
         }
 
+        protected override string[] MenuItems
+        {
+            get
+            {
+                return new[]
+                {
+                    "Memory dump",
+                    "Remove"
+                };
+            }
+        }
+
         /// <summary>
         /// Delegate used for notifying observer that some location was changed.
         /// </summary>
@@ -675,18 +687,7 @@ public static void Cycle(Memory memory)
             return errorCount;
         }
 
-        /// <summary>
-        /// Draws memory.
-        /// </summary>
-        public override void Draw()
-        {
-            base.Draw();
-            menu.Items.Add("Memory dump");
-            menu.Items.Add("Remove");
-            menu.ItemClicked += this.menuItemClicked;
-        }
-
-        private void menuItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        protected override void MenuItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             switch (e.ClickedItem.Text)
             {
@@ -694,8 +695,7 @@ public static void Cycle(Memory memory)
                     ((MemoryDumpForm)observer).Show();
                     break;
                 case "Remove":
-                    Visible = false;
-                    system.RemoveComponent(this);
+                    base.MenuItemClicked(sender, e);
                     break;
             }
             

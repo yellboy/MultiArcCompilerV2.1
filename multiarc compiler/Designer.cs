@@ -30,15 +30,23 @@ namespace MultiArc_Compiler
 
         private void ComponentsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BrowseComponentImageButton.Enabled = true;
             _selectedComponent = _componentsList.ElementAt(ComponentsComboBox.SelectedIndex);
-            PinsList.Items.Clear();
-            _selectedComponent.Ports.ForEach(port => port.GetAllPins().ForEach(pin => PinsList.Items.Add(pin.Name)));
-            PinsList.Enabled = true;
-            AddPinButton.Enabled = true;
-            SaveButton.Enabled = false;
-            _addedImages.Clear();
-            _lastLevel = 0;
+
+            if (_selectedComponent.System != null)
+            {
+                MessageBox.Show("This component is already added to system. Please remove it in order to change its design");
+            }
+            else
+            {
+                BrowseComponentImageButton.Enabled = true;
+                PinsList.Items.Clear();
+                _selectedComponent.Ports.ForEach(port => port.GetAllPins().ForEach(pin => PinsList.Items.Add(pin.Name)));
+                PinsList.Enabled = true;
+                AddPinButton.Enabled = true;
+                SaveButton.Enabled = false;
+                _addedImages.Clear();
+                _lastLevel = 0;
+            }
         }
 
         private void BrowseComponentImageDialog_FileOk(object sender, CancelEventArgs e)
