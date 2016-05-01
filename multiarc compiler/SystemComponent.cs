@@ -11,7 +11,6 @@ namespace MultiArc_Compiler
 {
     public abstract class SystemComponent : DropableControl
     {
-
         protected string name;
 
         /// <summary>
@@ -23,7 +22,16 @@ namespace MultiArc_Compiler
             set;
         }
 
-        protected string fileName;
+        public string ArcFile { get; protected set; }
+
+        public string FileName 
+        { 
+            get; 
+            protected set; 
+        }
+
+        public abstract string ArcDirectoryName { get; }
+
 
         protected LinkedList<Port> ports = new LinkedList<Port>();
         

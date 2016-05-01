@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using MoreLinq;
+using System.IO;
 
 namespace MultiArc_Compiler
 {
@@ -19,12 +20,15 @@ namespace MultiArc_Compiler
         private readonly ICollection<Pin> _addedPins = new List<Pin>();
 
         private int _lastLevel = 0;
+
+        private string _projectFolder;
         
-        public Designer(ICollection<SystemComponent> components)
+        public Designer(ICollection<SystemComponent> components, string projectFolder)
         {
             InitializeComponent();
             components.ForEach(c => ComponentsComboBox.Items.Add(c.Name));
             _componentsList = components;
+            _projectFolder = projectFolder;
             Visible = true;
         }
 
@@ -141,6 +145,18 @@ namespace MultiArc_Compiler
                     actualPin.Location = p.Location;
                     _selectedComponent.Region.Union(new Rectangle(p.Location.X, p.Location.Y, p.Size.Width, p.Size.Height));
                 }
+
+                SaveComponentPermanently();
+            }
+        }
+
+        private void SaveComponentPermanently()
+        {
+            foreach (var c in _addedImages)
+            {
+                File.WriteAllBytes(string.Format("{0}/Images/{1}{2}.png", _projectFolder, _selectedComponent.Name, c.Level), c.ImageStream);
+                
+                var xmlString = File.ReadAllText(_selectedComponent.ArcFile);
             }
         }
 

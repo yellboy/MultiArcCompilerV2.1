@@ -1054,6 +1054,8 @@ Name: " + projectName + @"
                 Directory.Delete(dataFolder, true);
             }
             Directory.CreateDirectory(dataFolder);
+            Directory.CreateDirectory(projectPath + "Images\\");
+            Directory.CreateDirectory(projectPath + "System\\");
             Directory.CreateDirectory(dataFolder + "CPUs\\");
             Directory.CreateDirectory(dataFolder + "Memories\\");
             Directory.CreateDirectory(dataFolder + "OtherComponents\\");
@@ -1429,7 +1431,7 @@ Name: " + projectName + @"
 
         private void designerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Designer designer = new Designer(componentsList);
+            Designer designer = new Designer(componentsList, projectPath);
         }
     }
 }

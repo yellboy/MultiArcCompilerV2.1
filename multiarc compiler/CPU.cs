@@ -39,6 +39,11 @@ namespace MultiArc_Compiler
             }
         }
 
+        public override string ArcDirectoryName
+        {
+            get { return "CPUs/"; }
+        }
+
         private ArchConstants constants = new ArchConstants();
 
         /// <summary>
@@ -91,6 +96,7 @@ namespace MultiArc_Compiler
         public override int Load(string arcFile, string dataFolder)
         {
             int errorCount = 0;
+            this.ArcFile = arcFile;
             constants.RemoveAllInstructions();
             constants.RemoveAllAddressingModes();
             constants.RemoveAllDataTypes();
@@ -113,7 +119,7 @@ namespace MultiArc_Compiler
                         this.name = node.InnerText;
                         break;
                     case "filename":
-                        this.fileName = node.InnerText;
+                        this.FileName = node.InnerText;
                         break;
                     case "instruction_mnemonics":
                         foreach (XmlNode name in node.ChildNodes)
@@ -1013,7 +1019,7 @@ public static void execute_" + i.Mnemonic.ToLower() + @"(InstructionRegister ir,
 
                 errorCount++;
             }
-            if (this.fileName == null)
+            if (this.FileName == null)
             {
                 Form1.Instance.AddToOutput(DateTime.Now.ToString() + " ERROR: File name must be specified");
             }
@@ -1031,7 +1037,7 @@ public static void execute_" + i.Mnemonic.ToLower() + @"(InstructionRegister ir,
             }
             if (errorCount == 0)
             {
-                if (!File.Exists(dataFolder + "CPUs/" + fileName))
+                if (!File.Exists(dataFolder + "CPUs/" + FileName))
                 {
                     string methodBodies =
 @"
@@ -1049,9 +1055,9 @@ public static void WriteToMemory(CPU cpu, uint address, byte[] value)
     // Define how CPU writtes to memory here.
     // If this method is not needed, just leave it empty.
 }";
-                    var file = File.Create(dataFolder + "CPUs/" + fileName);
+                    var file = File.Create(dataFolder + "CPUs/" + FileName);
                     file.Close();
-                    File.WriteAllText(dataFolder + "CPUs/" + fileName, methodBodies);
+                    File.WriteAllText(dataFolder + "CPUs/" + FileName, methodBodies);
                 }
                 errorCount = CompileCode(dataFolder);
             }
@@ -1060,7 +1066,7 @@ public static void WriteToMemory(CPU cpu, uint address, byte[] value)
 
         public override int CompileCode(string dataFolder)
         {
-            string methodBodies = File.ReadAllText(dataFolder + "CPUs/" + fileName);
+            string methodBodies = File.ReadAllText(dataFolder + "CPUs/" + FileName);
             string executableCode =
 @"
 using System;
@@ -1084,7 +1090,7 @@ public class DynamicClass" + name + @"
             {
                 foreach (CompilerError error in results.Errors)
                 {
-                    Form1.Instance.AddToOutput(DateTime.Now.ToString() + "Error in " + fileName + ": " + error.ErrorText + " in line " + (error.Line - 8) + ".\n");
+                    Form1.Instance.AddToOutput(DateTime.Now.ToString() + "Error in " + FileName + ": " + error.ErrorText + " in line " + (error.Line - 8) + ".\n");
                 }
             }
             return results.Errors.Count;

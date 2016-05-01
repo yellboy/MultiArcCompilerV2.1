@@ -1,5 +1,11 @@
-System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.Designer.AddPinButton_Click(Object sender, EventArgs e) in d:\MultiArc Compiler\multiarc compiler\Designer.cs:line 138
+System.NotSupportedException: The given path's format is not supported.
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   at System.IO.File.InternalReadAllText(String path, Encoding encoding, Boolean checkHost)
+   at System.IO.File.ReadAllText(String path)
+   at MultiArc_Compiler.Designer.SaveComponentPermanently() in d:\MultiArc Compiler\multiarc compiler\Designer.cs:line 159
+   at MultiArc_Compiler.Designer.SaveButton_Click(Object sender, EventArgs e) in d:\MultiArc Compiler\multiarc compiler\Designer.cs:line 149
    at System.Windows.Forms.Control.OnClick(EventArgs e)
    at System.Windows.Forms.Button.OnClick(EventArgs e)
    at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)

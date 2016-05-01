@@ -18,8 +18,6 @@ namespace MultiArc_Compiler
 
         protected volatile bool running;
 
-        protected string arcDirectoryName;
-
         public void StartWorking()
         {
             thread = new Thread(Run);
@@ -51,7 +49,7 @@ namespace MultiArc_Compiler
 
         public override int CompileCode(string dataFolder)
         {
-            string methodBody = File.ReadAllText(dataFolder + arcDirectoryName + fileName);
+            string methodBody = File.ReadAllText(dataFolder + ArcDirectoryName + FileName);
             string executableCode =
 @"
 using System;
@@ -75,7 +73,7 @@ public class DynamicClass" + name + @"
             {
                 foreach (CompilerError error in results.Errors)
                 {
-                    Form1.Instance.AddToOutput(DateTime.Now.ToString() + "Error in " + fileName + ": " + error.ErrorText + " in line " + (error.Line - 8) + ".\n");
+                    Form1.Instance.AddToOutput(DateTime.Now.ToString() + "Error in " + FileName + ": " + error.ErrorText + " in line " + (error.Line - 8) + ".\n");
                 }
             }
             return results.Errors.Count;

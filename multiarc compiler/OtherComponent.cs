@@ -12,7 +12,6 @@ namespace MultiArc_Compiler
 {
     public class OtherComponent : NonCPUComponent
     {
-        private string arcFile;
         private string dataFolder;
         private RegistersForm observer;
         ArchConstants constants = new ArchConstants();
@@ -23,14 +22,14 @@ namespace MultiArc_Compiler
             set { name = value; }
         }
 
-        public OtherComponent()
+        public override string ArcDirectoryName
         {
-            arcDirectoryName = "Other/";
+            get { return "Other/"; }
         }
 
         public override int Load(string arcFile, string dataFolder)
         {
-            this.arcFile = arcFile;
+            this.ArcFile = arcFile;
             this.dataFolder = dataFolder;
             this.observer = null;
             int errorCount = 0;
@@ -46,7 +45,7 @@ namespace MultiArc_Compiler
                         name = node.InnerText;
                         break;
                     case "filename":
-                        fileName = node.InnerText;
+                        FileName = node.InnerText;
                         break;
                     case "registers":
                         var list = node.ChildNodes;
@@ -249,16 +248,16 @@ namespace MultiArc_Compiler
                         break;
                 }
             }
-            if (fileName == null)
+            if (FileName == null)
             {
                 Form1.Instance.AddToOutput(DateTime.Now.ToString() + " ERROR: File name must be specified. \n");
                 errorCount++;
             }
             if (errorCount == 0)
             {
-                if (!File.Exists(dataFolder + "Other/" + fileName))
+                if (!File.Exists(dataFolder + "Other/" + FileName))
                 {
-                    var file = File.Create(dataFolder + "Other/" + fileName);
+                    var file = File.Create(dataFolder + "Other/" + FileName);
                     file.Close();
                     const string methodBody = @"
 // This is auto-generated code.
@@ -269,7 +268,7 @@ public static void Cycle(OtherComponent component)
     // Define how this component behaves during one cycle.
 }
 ";
-                    File.WriteAllText(dataFolder + "Other/" + fileName, methodBody);
+                    File.WriteAllText(dataFolder + "Other/" + FileName, methodBody);
                 }
                 errorCount += CompileCode(dataFolder);
                 observer = new RegistersForm(constants);

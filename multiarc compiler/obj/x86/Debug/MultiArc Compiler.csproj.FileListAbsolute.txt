@@ -59,6 +59,5 @@ D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SaveOldFi
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.GenerateResource.Cache
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
-D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csprojResolveAssemblyReference.cache
 C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\ImageMap.dll
 C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\ImageMap.pdb

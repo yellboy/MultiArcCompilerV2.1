@@ -274,9 +274,9 @@ namespace MultiArc_Compiler
             }
         }
 
-        public Memory()
+        public override string ArcDirectoryName
         {
-            arcDirectoryName = "Memories/";
+            get { return "Memories/"; }
         }
 
         protected override string[] MenuItems
@@ -488,8 +488,6 @@ namespace MultiArc_Compiler
             }
         }
 
-        private string arcFile;
-
         private string dataFolder;
 
         /// <summary>
@@ -506,7 +504,7 @@ namespace MultiArc_Compiler
         /// </returns>
         public override int Load(string arcFile, string dataFolder)
         {
-            this.arcFile = arcFile;
+            this.ArcFile = arcFile;
             this.dataFolder = dataFolder;
             this.observer = null;
             int errorCount = 0;
@@ -522,7 +520,7 @@ namespace MultiArc_Compiler
                         name = node.InnerText;
                         break;
                     case "filename":
-                        fileName = node.InnerText;
+                        FileName = node.InnerText;
                         break;
                     case "size":
                         size = Convert.ToInt32(node.InnerText);
@@ -653,7 +651,7 @@ namespace MultiArc_Compiler
                 Form1.Instance.AddToOutput(DateTime.Now.ToString() + " ERROR: Memory size must be specified.\n");
                 errorCount++;
             }
-            if (fileName == null)
+            if (FileName == null)
             {
                 Form1.Instance.AddToOutput(DateTime.Now.ToString() + " ERROR: File name must be specified. \n");
                 errorCount++;
@@ -665,9 +663,9 @@ namespace MultiArc_Compiler
             }
             if (errorCount == 0)
             {
-                if (!File.Exists(dataFolder + "Memories/" + fileName))
+                if (!File.Exists(dataFolder + "Memories/" + FileName))
                 {
-                    var file = File.Create(dataFolder + "Memories/" + fileName);
+                    var file = File.Create(dataFolder + "Memories/" + FileName);
                     file.Close();
                     const string methodBody = @"
 // This is auto-generated code.
@@ -678,7 +676,7 @@ public static void Cycle(Memory memory)
     // Define how memory behaves during one cycle.
 }
 ";
-                    File.WriteAllText(dataFolder + "Memories/" + fileName, methodBody);
+                    File.WriteAllText(dataFolder + "Memories/" + FileName, methodBody);
                 }
                 errorCount += CompileCode(dataFolder);
                 Initialize();
@@ -716,7 +714,7 @@ public static void Cycle(Memory memory)
             newMemory.name = this.name;
             newMemory.initFile = this.initFile;
             newMemory.dataFolder = this.dataFolder;
-            newMemory.arcFile = this.arcFile;
+            newMemory.ArcFile = this.ArcFile;
             newMemory.ports = new LinkedList<Port>();
             newMemory.ports.Clear();
             foreach (Port port in ports)

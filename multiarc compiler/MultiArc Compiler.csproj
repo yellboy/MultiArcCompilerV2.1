@@ -72,7 +72,7 @@
     </Compile>
     <Compile Include="ConversionHelper.cs" />
     <Compile Include="CPU.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Data.cs" />
     <Compile Include="Designer.cs">
@@ -99,7 +99,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Memory.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -114,10 +114,10 @@
       <DependentUpon>MemoryDumpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NonCPUComponent.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="OtherComponent.cs">
-      <SubType>Form</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PerCederberg.Grammatica.Runtime.RE\AlternativeElement.cs" />
     <Compile Include="PerCederberg.Grammatica.Runtime.RE\CharacterSetElement.cs" />
@@ -206,7 +206,6 @@
     <EmbeddedResource Include="SaveOldFileForm.resx">
       <DependentUpon>SaveOldFileForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -21,6 +21,15 @@ namespace MultiArc_Compiler
 
         public int Level { get; set; }
 
+        public byte[] ImageStream
+        {
+            get
+            {
+                ImageConverter converter = new ImageConverter();
+                return (byte[])converter.ConvertTo(_image, typeof(byte[]));
+            }
+        }
+
         public ControlWithImage(Bitmap image, Designer designer)
         {
             _image = image;
