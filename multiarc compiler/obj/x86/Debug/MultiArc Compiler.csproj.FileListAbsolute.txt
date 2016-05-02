@@ -61,3 +61,4 @@ D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
 C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\ImageMap.dll
 C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\ImageMap.pdb
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csprojResolveAssemblyReference.cache

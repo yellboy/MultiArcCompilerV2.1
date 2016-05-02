@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using MoreLinq;
 using System.IO;
+using System.Xml;
 
 namespace MultiArc_Compiler
 {
@@ -152,12 +153,66 @@ namespace MultiArc_Compiler
 
         private void SaveComponentPermanently()
         {
+            var document = new XmlDocument();
+            document.Load(_selectedComponent.ArcFile);
+            var rootNode = document.FirstChild;
+            XmlNode designNode = null;
+            foreach (XmlNode n in rootNode.ChildNodes)
+            {
+                if (n.Name == "design")
+                {
+                    designNode = n;
+                }
+            }
+
+            if (designNode != null)
+            {
+                rootNode.RemoveChild(designNode);
+            }
+
+            designNode = document.CreateElement("design");
+            rootNode.AppendChild(designNode);
+
             foreach (var c in _addedImages)
             {
-                File.WriteAllBytes(string.Format("{0}/Images/{1}{2}.png", _projectFolder, _selectedComponent.Name, c.Level), c.ImageStream);
+                var fileName = string.Format("{0}{1}.png", _selectedComponent.Name, c.Level);
+                File.WriteAllBytes(string.Format("{0}/Images/{1}", _projectFolder, fileName), c.ImageStream);
                 
-                var xmlString = File.ReadAllText(_selectedComponent.ArcFile);
+                var imageNode = document.CreateElement("image");
+                designNode.AppendChild(imageNode);
+
+                var fileNameNode = document.CreateElement("file");
+                fileNameNode.InnerText = fileName;
+                imageNode.AppendChild(fileNameNode);
+
+                var xNode = document.CreateElement("x");
+                xNode.InnerText = c.Location.X.ToString();
+                imageNode.AppendChild(xNode);
+
+                var yNode = document.CreateElement("y");
+                yNode.InnerText = c.Location.Y.ToString();
+                imageNode.AppendChild(yNode);
             }
+
+            foreach (var p in _addedPins)
+            {
+                var pinNode = document.CreateElement("pin");
+                designNode.AppendChild(pinNode);
+
+                var nameNode = document.CreateElement("name");
+                nameNode.InnerText = p.Name;
+                pinNode.AppendChild(nameNode);
+
+                var xNode = document.CreateElement("x");
+                xNode.InnerText = p.Location.X.ToString();
+                pinNode.AppendChild(xNode);
+
+                var yNode = document.CreateElement("y");
+                yNode.InnerText = p.Location.Y.ToString();
+                pinNode.AppendChild(yNode);
+            }
+
+            document.Save(_selectedComponent.ArcFile);
         }
 
         private void AddPinButton_Click(object sender, EventArgs e)
