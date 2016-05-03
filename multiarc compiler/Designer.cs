@@ -60,7 +60,7 @@ namespace MultiArc_Compiler
             var control = new ControlWithImage(image, this);
             if (MessageBox.Show("Do you want to make this image transparent?", "Transparent", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                control.MakeTransparent();
+                control.Transparent = true;
             }
 
             DesignPanel.Controls.Add(control);
@@ -192,6 +192,14 @@ namespace MultiArc_Compiler
                 var yNode = document.CreateElement("y");
                 yNode.InnerText = c.Location.Y.ToString();
                 imageNode.AppendChild(yNode);
+
+                var levelNode = document.CreateElement("level");
+                levelNode.InnerText = c.Level.ToString();
+                imageNode.AppendChild(levelNode);
+
+                var transparentNode = document.CreateElement("transparent");
+                transparentNode.InnerText = c.Transparent.ToString();
+                imageNode.AppendChild(transparentNode);
             }
 
             foreach (var p in _addedPins)

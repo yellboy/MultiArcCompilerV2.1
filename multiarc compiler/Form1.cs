@@ -237,7 +237,7 @@ namespace MultiArc_Compiler
             try
             {
                 CPU oldCPU = cpu;
-                cpu = new CPU();
+                cpu = new CPU(projectPath);
                 errorCount = cpu.Load(fileName, dataFolder);
                 if (errorCount == 0)
                 {
@@ -1321,7 +1321,7 @@ Name: " + projectName + @"
         {
             try
             {
-                Memory memory = new Memory();
+                Memory memory = new Memory(projectPath);
                 string fileName = memoryFileName == null ? LoadMemoryDialog.FileName : memoryFileName;
                 string content = File.ReadAllText(fileName);
                 int errorCount = memory.Load(fileName, dataFolder);
@@ -1391,7 +1391,7 @@ Name: " + projectName + @"
         {
             try
             {
-                OtherComponent otherComponent = new OtherComponent();
+                OtherComponent otherComponent = new OtherComponent(projectPath);
                 string fileName = otherComponentFileName ?? LoadOtherComponentDialog.FileName;
                 string content = File.ReadAllText(fileName);
                 int errorCount = otherComponent.Load(fileName, dataFolder);

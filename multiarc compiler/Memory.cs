@@ -291,6 +291,8 @@ namespace MultiArc_Compiler
             }
         }
 
+        public Memory(string projectPath) : base(projectPath) { }
+
         /// <summary>
         /// Delegate used for notifying observer that some location was changed.
         /// </summary>
@@ -642,6 +644,9 @@ namespace MultiArc_Compiler
                             }
                         }
                         break;
+                    case "design":
+                        ProcessDesignNode(node);
+                        break;
                     default:
                         break;
                 }
@@ -701,7 +706,7 @@ public static void Cycle(Memory memory)
 
         public override object Clone()
         {
-            Memory newMemory = new Memory();
+            Memory newMemory = new Memory(_projectPath);
             newMemory.auSize = this.auSize;
             newMemory.size = this.size;
             newMemory.ramEnd = this.ramEnd;

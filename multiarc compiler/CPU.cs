@@ -81,6 +81,8 @@ namespace MultiArc_Compiler
 
         private CompilerResults results;
 
+        public CPU(string projectPath) : base(projectPath) { }
+
         /// <summary>
         /// Loads architecture from file.
         /// </summary>
@@ -245,7 +247,7 @@ namespace MultiArc_Compiler
                         break;
                     case "memory":
                         int memoryErrorCount = 0;
-                        Program.Mem = new Memory();
+                        Program.Mem = new Memory(_projectPath);
                         Program.Mem.Name = this.name + "_memory";
                         foreach (XmlNode mem in node.ChildNodes)
                         {
@@ -1008,6 +1010,9 @@ public static void execute_" + i.Mnemonic.ToLower() + @"(InstructionRegister ir,
                             }
                             errorCount += instErrorCount;
                         }
+                        break;
+                    case "design":
+                        ProcessDesignNode(node);
                         break;
                     default:
                         break;

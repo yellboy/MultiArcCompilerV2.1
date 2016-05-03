@@ -1,6 +1,10 @@
-System.InvalidOperationException: Cannot set a value on node type 'Element'.
-   at System.Xml.XmlNode.set_Value(String value)
-   at MultiArc_Compiler.Designer.SaveComponentPermanently() in d:\MultiArc Compiler\multiarc compiler\Designer.cs:line 185
+System.IO.IOException: The process cannot access the file 'D:\MultiArc Compiler\multiarc compiler\bin\Debug\Projects\sd\Images\1HzCLK0.png' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.File.InternalWriteAllBytes(String path, Byte[] bytes, Boolean checkHost)
+   at System.IO.File.WriteAllBytes(String path, Byte[] bytes)
+   at MultiArc_Compiler.Designer.SaveComponentPermanently() in d:\MultiArc Compiler\multiarc compiler\Designer.cs:line 179
    at MultiArc_Compiler.Designer.SaveButton_Click(Object sender, EventArgs e) in d:\MultiArc Compiler\multiarc compiler\Designer.cs:line 150
    at System.Windows.Forms.Control.OnClick(EventArgs e)
    at System.Windows.Forms.Button.OnClick(EventArgs e)

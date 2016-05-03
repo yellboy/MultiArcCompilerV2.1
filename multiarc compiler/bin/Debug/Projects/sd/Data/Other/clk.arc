@@ -30,11 +30,12 @@
       <file>1HzCLK0.png</file>
       <x>0</x>
       <y>0</y>
+      <level>0</level>
     </image>
     <pin>
       <name>CLK0</name>
-      <x>202</x>
-      <y>91</y>
+      <x>199</x>
+      <y>92</y>
     </pin>
   </design>
 </othercomponent>

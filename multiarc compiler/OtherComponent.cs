@@ -27,6 +27,8 @@ namespace MultiArc_Compiler
             get { return "Other/"; }
         }
 
+        public OtherComponent(string projectPath) : base(projectPath) { }
+
         public override int Load(string arcFile, string dataFolder)
         {
             this.ArcFile = arcFile;
@@ -243,6 +245,9 @@ namespace MultiArc_Compiler
                                 }
                             }
                         }
+                        break;
+                    case "design":
+                        ProcessDesignNode(node);
                         break;
                     default:
                         break;

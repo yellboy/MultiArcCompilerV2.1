@@ -18,6 +18,8 @@ namespace MultiArc_Compiler
 
         protected volatile bool running;
 
+        public NonCPUComponent(string projectPath) : base(projectPath) { }
+
         public void StartWorking()
         {
             thread = new Thread(Run);

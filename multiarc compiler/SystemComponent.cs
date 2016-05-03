@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using MoreLinq;
+using System.Xml;
 
 namespace MultiArc_Compiler
 {
@@ -141,11 +142,14 @@ namespace MultiArc_Compiler
             }
         }
 
+        protected string _projectPath;
+
         /// <summary>
         /// Creates one object of SystemComponent class.
         /// </summary>
-        public SystemComponent()
+        public SystemComponent(string projectPath)
         {
+            _projectPath = projectPath;
             base.Paint += this.redraw;
             base.AllowDrop = true;
             MenuItems.ForEach(mi => menu.Items.Add(mi));
@@ -402,6 +406,95 @@ namespace MultiArc_Compiler
             ports.ForEach(port => pinsList.AddRange(port.GetAllPins()));
 
             return pinsList;
+        }
+
+        public void ProcessDesignNode(XmlNode designNode)
+        {
+            foreach (Control c in this.Controls)
+            {
+                if (c is ControlWithImage)
+                {
+                    Controls.Remove(c);
+                }
+            }
+
+            var imageControls = new List<ControlWithImage>();
+
+            foreach (XmlNode node in designNode.ChildNodes)
+            {
+                if (node.Name == "image")
+                {
+                    string fileName = null;
+                    int x = 0;
+                    int y = 0;
+                    int level = 0;
+                    bool transparent = false;
+
+                    foreach (XmlNode property in node.ChildNodes)
+                    {
+                        switch (property.Name)
+                        {
+                            case "file":
+                                fileName = property.InnerText;
+                                break;
+                            case "level":
+                                level = Convert.ToInt32(property.InnerText);
+                                break;
+                            case "x":
+                                x = Convert.ToInt32(property.InnerText);
+                                break;
+                            case "y":
+                                y = Convert.ToInt32(property.InnerText);
+                                break;
+                            case "transparent":
+                                transparent = Convert.ToBoolean(property.InnerText);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
+                    var image = new Bitmap(string.Format("{0}/Images/{1}", _projectPath, fileName));
+                    var control = new ControlWithImage(image, null);
+                    control.Location = new Point(x, y);
+                    control.Level = level;
+                    imageControls.Add(control);
+                    control.Draw();
+                }
+                else if (node.Name == "pin")
+                {
+                    int x = 0;
+                    int y = 0;
+                    string name = null;
+
+                    foreach (XmlNode property in node.ChildNodes)
+                    {
+                        switch (property.Name)
+                        {
+                            case "name":
+                                name = property.InnerText;
+                                break;
+                            case "x":
+                                x = Convert.ToInt32(property.InnerText);
+                                break;
+                            case "y":
+                                y = Convert.ToInt32(property.InnerText);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
+                    var pin = GetPin(name);
+                    pin.Location = new Point(x, y);
+                }
+            }
+
+            Controls.AddRange(imageControls.ToArray());
+            imageControls.OrderBy(c => c.Level).ForEach(c => c.BringToFront());
+            GetAllPins().ForEach(p => p.BringToFront());
+
+
         }
     }
 }

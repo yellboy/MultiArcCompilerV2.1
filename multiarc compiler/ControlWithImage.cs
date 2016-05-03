@@ -11,7 +11,7 @@ namespace MultiArc_Compiler
     {
         private readonly Bitmap _image;
 
-        private bool _transparent = false;
+        public bool Transparent { get; set; }
 
         private readonly ContextMenuStrip _menu = new ContextMenuStrip();
         
@@ -89,14 +89,19 @@ namespace MultiArc_Compiler
 
         public void MakeTransparent()
         {
-            _transparent = true;
+            Transparent = true;
         }
 
         private void Draw(object sender, PaintEventArgs e)
         {
+            Draw();
+        }
+
+        public void Draw()
+        {
             var graphics = CreateGraphics();
-            
-            if (_transparent)
+
+            if (Transparent)
             {
                 _image.MakeTransparent();
                 BackColor = Color.Transparent;
@@ -136,7 +141,7 @@ namespace MultiArc_Compiler
                         var upperColor = y == 0 ? 0 : _image.GetPixel(x, y - 1).ToArgb();
                         var bottomColor = y == _image.Height - 1 ? 0 : _image.GetPixel(x, y + 1).ToArgb();
 
-                        if ((!IsWhiteOrTransparent(leftColor) || !IsWhiteOrTransparent(rightColor) || ! IsWhiteOrTransparent(upperColor) || !IsWhiteOrTransparent(bottomColor)) 
+                        if ((!IsWhiteOrTransparent(leftColor) || !IsWhiteOrTransparent(rightColor) || !IsWhiteOrTransparent(upperColor) || !IsWhiteOrTransparent(bottomColor))
                             && IsWhiteOrTransparent(color) && !points.Any(p => p.X == x && p.Y == y))
                         {
                             points.Add(new Point(x, y));
@@ -185,7 +190,8 @@ namespace MultiArc_Compiler
                         }
                     }
 
-                    if (points.Any(p => p.X == (currentPoint.X + 1) && (p.Y == currentPoint.Y - 1))) {
+                    if (points.Any(p => p.X == (currentPoint.X + 1) && (p.Y == currentPoint.Y - 1)))
+                    {
                         var point = points.First(p => p.X == (currentPoint.X + 1) && (p.Y == currentPoint.Y - 1));
                         if (!orderedPoints.Contains(point))
                         {
@@ -246,7 +252,7 @@ namespace MultiArc_Compiler
                     types[i] = 1;
                 }
 
-                GraphicsPath path =  new GraphicsPath(orderedPoints.ToArray(), types);
+                GraphicsPath path = new GraphicsPath(orderedPoints.ToArray(), types);
                 Region = new Region(path);
                 Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
             }
@@ -265,7 +271,7 @@ namespace MultiArc_Compiler
         {
             var clone = new ControlWithImage(_image, _designer)
             {
-                _transparent = _transparent,
+                Transparent = Transparent,
                 _addedToComponent = _addedToComponent,
                 Region = Region,
                 Location = Location
