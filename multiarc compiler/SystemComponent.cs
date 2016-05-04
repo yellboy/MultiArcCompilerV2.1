@@ -456,6 +456,7 @@ namespace MultiArc_Compiler
 
                     var image = new Bitmap(string.Format("{0}/Images/{1}", _projectPath, fileName));
                     var control = new ControlWithImage(image, null);
+                    control.Transparent = transparent;
                     control.Location = new Point(x, y);
                     control.Level = level;
                     imageControls.Add(control);
@@ -490,11 +491,54 @@ namespace MultiArc_Compiler
                 }
             }
 
-            Controls.AddRange(imageControls.ToArray());
+            int lowerBorder = imageControls.Select(c => c.Location.Y + c.Height).Max();
+            int upperBorder = 0;
+            int leftBorder = 0;
+            int rightBorder = imageControls.Select(c => c.Location.X + c.Width).Max();
+
+            foreach (var p in GetAllPins())
+            {
+                if (p.Location.X < leftBorder)
+                {
+                    leftBorder = p.Location.X;
+                }
+                if (p.Location.X + p.Width > rightBorder)
+                {
+                    rightBorder = p.Location.X + p.Width;
+                }
+                if (p.Location.Y < upperBorder)
+                {
+                    upperBorder = p.Location.Y;
+                }
+                if (p.Location.Y + p.Height > lowerBorder)
+                {
+                    lowerBorder = p.Location.Y + p.Height;
+                }
+            }
+
+            Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
+
+            foreach (var c in imageControls)
+            {
+                c.SetBounds(c.Location.X - leftBorder, c.Location.Y - upperBorder, c.Width, c.Height);
+                c.AddToSystemComponent(this);
+                if (Region == null)
+                {
+                    Region = c.Region.Clone();
+                }
+                else
+                {
+                    Region.Union(c.Region);
+                }
+            }
+
+            foreach (var p in GetAllPins())
+            {
+                Region.Union(new Rectangle(p.Location.X, p.Location.Y, p.Size.Width, p.Size.Height));
+            }
+
             imageControls.OrderBy(c => c.Level).ForEach(c => c.BringToFront());
             GetAllPins().ForEach(p => p.BringToFront());
-
-
         }
     }
 }

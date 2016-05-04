@@ -259,6 +259,7 @@ namespace MultiArc_Compiler
             else
             {
                 graphics.DrawImage(_image, new Point(0, 0));
+                Region = new Region(new Rectangle(0, 0, _image.Width, _image.Height));
             }
         }
 
