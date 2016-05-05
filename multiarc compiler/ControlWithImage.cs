@@ -280,5 +280,10 @@ namespace MultiArc_Compiler
 
             return clone;
         }
+
+        public void DisposeImage()
+        {
+            _image.Dispose();
+        }
     }
 }

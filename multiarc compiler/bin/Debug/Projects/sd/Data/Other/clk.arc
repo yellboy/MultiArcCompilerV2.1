@@ -31,11 +31,12 @@
       <x>0</x>
       <y>0</y>
       <level>0</level>
+      <transparent>True</transparent>
     </image>
     <pin>
       <name>CLK0</name>
-      <x>199</x>
-      <y>92</y>
+      <x>43</x>
+      <y>15</y>
     </pin>
   </design>
 </othercomponent>

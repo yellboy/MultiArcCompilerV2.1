@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using MoreLinq;
@@ -17,7 +17,7 @@ namespace MultiArc_Compiler
         /// <summary>
         /// Gets or sets name of the component.
         /// </summary>
-        public abstract new string Name
+        public new abstract string Name
         {
             get;
             set;
@@ -77,6 +77,7 @@ namespace MultiArc_Compiler
                     }
                 }
             }
+
             return null;
         }
 
@@ -297,10 +298,6 @@ namespace MultiArc_Compiler
         /// </summary>
         public virtual void Draw()
         {
-            if (base.Location == null)
-            {
-                base.Location = new Point(0, 0);
-            }
             Visible = true;
             foreach (Port port in ports)
             {
@@ -414,6 +411,7 @@ namespace MultiArc_Compiler
             {
                 if (c is ControlWithImage)
                 {
+                    ((ControlWithImage)c).DisposeImage();
                     Controls.Remove(c);
                 }
             }
@@ -454,11 +452,15 @@ namespace MultiArc_Compiler
                         }
                     }
 
-                    var image = new Bitmap(string.Format("{0}/Images/{1}", _projectPath, fileName));
-                    var control = new ControlWithImage(image, null);
-                    control.Transparent = transparent;
-                    control.Location = new Point(x, y);
-                    control.Level = level;
+                    CopyImageToTempFolder(fileName);
+                    var image = new Bitmap(string.Format("{0}/temp/{1}", _projectPath, fileName));
+                    var control = new ControlWithImage(image, null)
+                    {
+                        Transparent = transparent,
+                        Location = new Point(x, y),
+                        Level = level
+                    };
+
                     imageControls.Add(control);
                     control.Draw();
                 }
@@ -466,14 +468,14 @@ namespace MultiArc_Compiler
                 {
                     int x = 0;
                     int y = 0;
-                    string name = null;
+                    string pinName = null;
 
                     foreach (XmlNode property in node.ChildNodes)
                     {
                         switch (property.Name)
                         {
                             case "name":
-                                name = property.InnerText;
+                                pinName = property.InnerText;
                                 break;
                             case "x":
                                 x = Convert.ToInt32(property.InnerText);
@@ -486,7 +488,7 @@ namespace MultiArc_Compiler
                         }
                     }
 
-                    var pin = GetPin(name);
+                    var pin = GetPin(pinName);
                     pin.Location = new Point(x, y);
                 }
             }
@@ -539,6 +541,20 @@ namespace MultiArc_Compiler
 
             imageControls.OrderBy(c => c.Level).ForEach(c => c.BringToFront());
             GetAllPins().ForEach(p => p.BringToFront());
+        }
+
+        private void CopyImageToTempFolder(string fileName)
+        {
+            var tempDirectoryPath = string.Format("{0}/temp", _projectPath);
+            if (!Directory.Exists(tempDirectoryPath))
+            {
+                Directory.CreateDirectory(tempDirectoryPath);
+            }
+
+            var tempFile = string.Format("{0}/{1}", tempDirectoryPath, fileName);
+            var file = File.Open(tempFile, FileMode.OpenOrCreate, FileAccess.Write);
+            file.Close();
+            File.Copy(string.Format("{0}/Images/{1}", _projectPath, fileName), tempFile, true);
         }
     }
 }

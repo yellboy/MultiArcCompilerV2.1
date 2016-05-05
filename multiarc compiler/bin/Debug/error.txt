@@ -1,8 +1,14 @@
-System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.ControlWithImage.MenuItemClicked(Object sender, ToolStripItemClickedEventArgs e) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 58
-   at System.Windows.Forms.ToolStrip.OnItemClicked(ToolStripItemClickedEventArgs e)
-   at System.Windows.Forms.ToolStripDropDown.OnItemClicked(ToolStripItemClickedEventArgs e)
-   at System.Windows.Forms.ToolStrip.HandleItemClick(ToolStripItem dismissingItem)
+System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'Clipboard'.
+   at System.Windows.Forms.Control.CreateHandle()
+   at System.Windows.Forms.Form.CreateHandle()
+   at System.Windows.Forms.Control.get_Handle()
+   at System.Windows.Forms.Control.SetVisibleCore(Boolean value)
+   at System.Windows.Forms.Form.SetVisibleCore(Boolean value)
+   at System.Windows.Forms.Control.set_Visible(Boolean value)
+   at MultiArc_Compiler.Form1.systemToolStripMenuItem_Click(Object sender, EventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Form1.cs:line 1306
+   at System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   at System.Windows.Forms.ToolStripMenuItem.OnClick(EventArgs e)
    at System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
    at System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
    at System.Windows.Forms.ToolStripItem.FireEventInteractive(EventArgs e, ToolStripItemEventType met)
@@ -22,14 +28,41 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.Run(Form mainForm)
-   at MultiArc_Compiler.Program.Main() in d:\MultiArc Compiler\multiarc compiler\Program.cs:line 25System.InvalidOperationException: Sequence contains no elements
-   at System.Linq.Enumerable.Max(IEnumerable`1 source)
-   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 492
-   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
-   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1397System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 526
-   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
-   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1397System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 526
-   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
-   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1397
+   at MultiArc_Compiler.Program.Main() in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Program.cs:line 25System.IO.IOException: The process cannot access the file 'C:\Projects\MultiArcCompilerV2.0\multiarc compiler\bin\Debug\Projects\sd\/temp/1HzCLK0.png' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   at System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   at MultiArc_Compiler.SystemComponent.CopyImageToTempFolder(String fileName) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\SystemComponent.cs:line 553
+   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\SystemComponent.cs:line 454
+   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\OtherComponent.cs:line 250
+   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Form1.cs:line 1397System.IO.IOException: The process cannot access the file 'C:\Projects\MultiArcCompilerV2.0\multiarc compiler\bin\Debug\Projects\sd\/temp/1HzCLK0.png' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   at System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   at MultiArc_Compiler.SystemComponent.CopyImageToTempFolder(String fileName) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\SystemComponent.cs:line 554
+   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\SystemComponent.cs:line 455
+   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\OtherComponent.cs:line 250
+   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Form1.cs:line 1397System.IO.IOException: The process cannot access the file 'C:\Projects\MultiArcCompilerV2.0\multiarc compiler\bin\Debug\Projects\sd\/temp/1HzCLK0.png' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.File.InternalCopy(String sourceFileName, String destFileName, Boolean overwrite, Boolean checkHost)
+   at System.IO.File.Copy(String sourceFileName, String destFileName, Boolean overwrite)
+   at MultiArc_Compiler.SystemComponent.CopyImageToTempFolder(String fileName) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\SystemComponent.cs:line 554
+   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\SystemComponent.cs:line 455
+   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\OtherComponent.cs:line 250
+   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Form1.cs:line 1397System.IO.IOException: The process cannot access the file 'C:\Projects\MultiArcCompilerV2.0\multiarc compiler\bin\Debug\Projects\sd\temp\1HzCLK0.png' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.IO.File.Open(String path, FileMode mode, FileAccess access)
+   at MultiArc_Compiler.SystemComponent.CopyImageToTempFolder(String fileName) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\SystemComponent.cs:line 555
+   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\SystemComponent.cs:line 455
+   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\OtherComponent.cs:line 250
+   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Form1.cs:line 1397System.IO.IOException: The process cannot access the file 'C:\Projects\MultiArcCompilerV2.0\multiarc compiler\bin\Debug\Projects\sd\temp\1HzCLK0.png' because it is being used by another process.
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share)
+   at System.IO.File.Open(String path, FileMode mode, FileAccess access)
+   at MultiArc_Compiler.SystemComponent.CopyImageToTempFolder(String fileName) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\SystemComponent.cs:line 555
+   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\SystemComponent.cs:line 455
+   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\OtherComponent.cs:line 250
+   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Form1.cs:line 1397
