@@ -556,5 +556,16 @@ namespace MultiArc_Compiler
             file.Close();
             File.Copy(string.Format("{0}/Images/{1}", _projectPath, fileName), tempFile, true);
         }
+
+        public void DisposeAllImages()
+        {
+            foreach (var c in Controls)
+            {
+                if (c is ControlWithImage)
+                {
+                    ((ControlWithImage) c).DisposeImage();
+                }
+            }
+        }
     }
 }

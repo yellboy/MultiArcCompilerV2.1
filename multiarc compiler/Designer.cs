@@ -78,6 +78,8 @@ namespace MultiArc_Compiler
         {
             if (MessageBox.Show("Are you sure?", "Sure", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+                _selectedComponent.DisposeAllImages();
+
                 int upperBorder = DesignPanel.Height;
                 int lowerBorder = 0;
                 int leftBorder = DesignPanel.Width;

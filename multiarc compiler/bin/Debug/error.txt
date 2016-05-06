@@ -65,4 +65,5 @@ Object name: 'Clipboard'.
    at MultiArc_Compiler.SystemComponent.CopyImageToTempFolder(String fileName) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\SystemComponent.cs:line 555
    at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\SystemComponent.cs:line 455
    at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\OtherComponent.cs:line 250
-   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Form1.cs:line 1397
+   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Form1.cs:line 1397System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Executor.executeStepByStep() in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Executor.cs:line 276
