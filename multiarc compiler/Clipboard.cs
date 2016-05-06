@@ -40,7 +40,7 @@ namespace MultiArc_Compiler
         private void addComponentButton_Click(object sender, EventArgs e)
         {
             Graphics graphics = systemPanel1.CreateGraphics();
-            SystemComponent selectedComponent = (SystemComponent)(componentsList.ElementAt(componentsListBox.SelectedIndex));
+            SystemComponent selectedComponent = componentsList.ElementAt(componentsListBox.SelectedIndex);
             SystemComponent componentToAdd;
             if (!system.ContainsComponentOfGivenType(selectedComponent))
             {
