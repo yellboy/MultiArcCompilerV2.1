@@ -559,13 +559,19 @@ namespace MultiArc_Compiler
 
         public void DisposeAllImages()
         {
+            var controlsWithImages = new List<ControlWithImage>();
+
             foreach (var c in Controls)
             {
                 if (c is ControlWithImage)
                 {
-                    ((ControlWithImage) c).DisposeImage();
+                    var controlWithImage = (ControlWithImage)c;
+                    controlsWithImages.Add(controlWithImage);
+                    controlWithImage.DisposeImage();
                 }
             }
+
+            controlsWithImages.ForEach(c => Controls.Remove(c));
         }
     }
 }

@@ -35,8 +35,8 @@
     </image>
     <pin>
       <name>CLK0</name>
-      <x>153</x>
-      <y>21</y>
+      <x>177</x>
+      <y>33</y>
     </pin>
   </design>
 </othercomponent>

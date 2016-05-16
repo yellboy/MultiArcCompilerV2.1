@@ -1114,6 +1114,12 @@ Name: " + projectName + @"
             LoadFileDialog.InitialDirectory = dataFolder;
             loadToolStripMenuItem.Enabled = true;
             LoadArcButton.Enabled = true;
+
+            foreach (SystemComponent c in componentsList)
+            {
+                c.DisposeAllImages();
+            }
+
             string[] cpuFiles = Directory.GetFiles(dataFolder + "CPUs\\");
             foreach (string f in cpuFiles)
             {
@@ -1147,6 +1153,7 @@ Name: " + projectName + @"
                     LoadOtherComponentDialog_FileOk(sender, e);
                 }
             }
+
 
             projectOpenning = false;
         }
@@ -1328,6 +1335,12 @@ Name: " + projectName + @"
                 if (errorCount == 0)
                 {
                     Program.Mem = memory;
+                    var sameMemory = componentsList.FirstOrDefault(c => c.Name == memory.Name);
+                    if (sameMemory != null)
+                    {
+                        componentsList.Remove(sameMemory);
+                    }
+
                     componentsList.AddLast(memory);
                     OutputBox.Text += DateTime.Now.ToString() + " Memory architecture loaded succesfully.\n";
                     if (projectOpenning == false)
@@ -1397,6 +1410,12 @@ Name: " + projectName + @"
                 int errorCount = otherComponent.Load(fileName, dataFolder);
                 if (errorCount == 0)
                 {
+                    var sameComponent = componentsList.FirstOrDefault(c => c.Name == otherComponent.Name);
+                    if (sameComponent != null)
+                    {
+                        componentsList.Remove(sameComponent);
+                    }
+
                     componentsList.AddLast(otherComponent);
                     OutputBox.Text += DateTime.Now.ToString() + " Component architecture loaded succesfully.\n";
                     if (projectOpenning == false)
