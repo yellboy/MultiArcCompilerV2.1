@@ -25,7 +25,7 @@
 			</number>
     </clk>
   </ports>
-  <design>
+  <design code="true">
     <image>
       <file>1HzCLK0.png</file>
       <x>0</x>

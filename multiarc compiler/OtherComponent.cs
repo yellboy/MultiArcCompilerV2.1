@@ -247,7 +247,7 @@ namespace MultiArc_Compiler
                         }
                         break;
                     case "design":
-                        ProcessDesignNode(node);
+                        errorCount += ProcessDesignNode(node);
                         break;
                     default:
                         break;

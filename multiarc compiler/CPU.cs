@@ -247,7 +247,7 @@ namespace MultiArc_Compiler
                         break;
                     case "memory":
                         int memoryErrorCount = 0;
-                        Program.Mem = new Memory(_projectPath);
+                        Program.Mem = new Memory(ProjectPath);
                         Program.Mem.Name = this.name + "_memory";
                         foreach (XmlNode mem in node.ChildNodes)
                         {
@@ -1012,7 +1012,7 @@ public static void execute_" + i.Mnemonic.ToLower() + @"(InstructionRegister ir,
                         }
                         break;
                     case "design":
-                        ProcessDesignNode(node);
+                        errorCount += ProcessDesignNode(node);
                         break;
                     default:
                         break;

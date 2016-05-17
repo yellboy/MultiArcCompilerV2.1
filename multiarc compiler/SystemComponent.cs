@@ -7,6 +7,9 @@ using System.Threading;
 using System.Windows.Forms;
 using MoreLinq;
 using System.Xml;
+using Microsoft.CSharp;
+using System.CodeDom.Compiler;
+using System.Reflection;
 
 namespace MultiArc_Compiler
 {
@@ -143,14 +146,18 @@ namespace MultiArc_Compiler
             }
         }
 
-        protected string _projectPath;
+        protected string ProjectPath;
+
+        protected  CompilerResults DesignCompileResults;
+        
+        protected bool DrawnFromCode;
 
         /// <summary>
         /// Creates one object of SystemComponent class.
         /// </summary>
         public SystemComponent(string projectPath)
         {
-            _projectPath = projectPath;
+            ProjectPath = projectPath;
             base.Paint += this.redraw;
             base.AllowDrop = true;
             MenuItems.ForEach(mi => menu.Items.Add(mi));
@@ -167,115 +174,123 @@ namespace MultiArc_Compiler
         {
             Graphics graphics = this.CreateGraphics();
 
-            var haveNonPortControls = false;
-            foreach (var c in Controls)
+            if (DrawnFromCode)
             {
-                if (c is ControlWithImage)
-                {
-                    haveNonPortControls = true;
-                    break;
-                }
-            }
-
-            if (haveNonPortControls)
-            {
+                var t = DesignCompileResults.CompiledAssembly.GetType("DynamicDesignClass" + name);
+                t.GetMethod("DrawComponent").Invoke(null, new object[] { this, graphics });
             }
             else
             {
-                Rectangle rectangle = new Rectangle(5, 5, this.Width - 10, this.Height - 10);
-                graphics.FillRectangle(new SolidBrush(Color.White), rectangle);
-                graphics.DrawRectangle(Pens.Black, rectangle);
-                LinkedList<Port> rightPorts = new LinkedList<Port>();
-                int rightCount = 0;
-                rightPorts.Clear();
-                foreach (Port port in ports)
+                var haveNonPortControls = false;
+                foreach (var c in Controls)
                 {
-                    if (port.PortPosition == Position.RIGHT)
+                    if (c is ControlWithImage)
                     {
-                        rightPorts.AddLast(port);
-                        rightCount += port.Size;
+                        haveNonPortControls = true;
+                        break;
                     }
                 }
-                int rightStep = rightCount != 0 ? (this.Height - 10) / rightCount : 0;
-                int y = 5 + rightStep / 2;
-                foreach (Port port in rightPorts)
+
+                if (haveNonPortControls)
                 {
-                    for (int i = 0; i < port.Size; i++)
-                    {
-                        string pinName = port.Name + "" + i;
-                        graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, this.Width - 5 - pinName.Length * 6, y - 3);
-                        //graphics.DrawLine(Pens.Black, this.Width - 5, y, this.Width, y);
-                        port[i].Location = new Point(this.Width - 5, y);
-                        y += rightStep;
-                    }
                 }
-                LinkedList<Port> leftPorts = new LinkedList<Port>();
-                int leftCount = 0;
-                leftPorts.Clear();
-                foreach (Port port in ports)
+                else
                 {
-                    if (port.PortPosition == Position.LEFT)
+                    Rectangle rectangle = new Rectangle(5, 5, this.Width - 10, this.Height - 10);
+                    graphics.FillRectangle(new SolidBrush(Color.White), rectangle);
+                    graphics.DrawRectangle(Pens.Black, rectangle);
+                    LinkedList<Port> rightPorts = new LinkedList<Port>();
+                    int rightCount = 0;
+                    rightPorts.Clear();
+                    foreach (Port port in ports)
                     {
-                        leftPorts.AddLast(port);
-                        leftCount += port.Size;
+                        if (port.PortPosition == Position.RIGHT)
+                        {
+                            rightPorts.AddLast(port);
+                            rightCount += port.Size;
+                        }
                     }
-                }
-                int leftStep = leftCount != 0 ? (this.Height - 10) / leftCount : 0;
-                y = 5 + leftStep / 2;
-                foreach (Port port in leftPorts)
-                {
-                    for (int i = 0; i < port.Size; i++)
+                    int rightStep = rightCount != 0 ? (this.Height - 10) / rightCount : 0;
+                    int y = 5 + rightStep / 2;
+                    foreach (Port port in rightPorts)
                     {
-                        string pinName = port.Name + "" + i;
-                        graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, 5, y - 3);
-                        port[i].Location = new Point(0, y);
-                        y += leftStep;
+                        for (int i = 0; i < port.Size; i++)
+                        {
+                            string pinName = port.Name + "" + i;
+                            graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, this.Width - 5 - pinName.Length * 6, y - 3);
+                            //graphics.DrawLine(Pens.Black, this.Width - 5, y, this.Width, y);
+                            port[i].Location = new Point(this.Width - 5, y);
+                            y += rightStep;
+                        }
                     }
-                }
-                LinkedList<Port> upPorts = new LinkedList<Port>();
-                int upCount = 0;
-                upPorts.Clear();
-                foreach (Port port in ports)
-                {
-                    if (port.PortPosition == Position.UP)
+                    LinkedList<Port> leftPorts = new LinkedList<Port>();
+                    int leftCount = 0;
+                    leftPorts.Clear();
+                    foreach (Port port in ports)
                     {
-                        upPorts.AddLast(port);
-                        upCount += port.Size;
+                        if (port.PortPosition == Position.LEFT)
+                        {
+                            leftPorts.AddLast(port);
+                            leftCount += port.Size;
+                        }
                     }
-                }
-                int upStep = upCount != 0 ? (this.Width - 10) / upCount : 0;
-                int x = 5 + upStep / 2;
-                foreach (Port port in upPorts)
-                {
-                    for (int i = 0; i < port.Size; i++)
+                    int leftStep = leftCount != 0 ? (this.Height - 10) / leftCount : 0;
+                    y = 5 + leftStep / 2;
+                    foreach (Port port in leftPorts)
                     {
-                        string pinName = port.Name + "" + i;
-                        graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, x - pinName.Length * 3, 8);
-                        port[i].Location = new Point(x, 0);
-                        x += upStep;
+                        for (int i = 0; i < port.Size; i++)
+                        {
+                            string pinName = port.Name + "" + i;
+                            graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, 5, y - 3);
+                            port[i].Location = new Point(0, y);
+                            y += leftStep;
+                        }
                     }
-                }
-                LinkedList<Port> downPorts = new LinkedList<Port>();
-                int downCount = 0;
-                downPorts.Clear();
-                foreach (Port port in ports)
-                {
-                    if (port.PortPosition == Position.DOWN)
+                    LinkedList<Port> upPorts = new LinkedList<Port>();
+                    int upCount = 0;
+                    upPorts.Clear();
+                    foreach (Port port in ports)
                     {
-                        downPorts.AddLast(port);
-                        downCount += port.Size;
+                        if (port.PortPosition == Position.UP)
+                        {
+                            upPorts.AddLast(port);
+                            upCount += port.Size;
+                        }
                     }
-                }
-                int downStep = downCount != 0 ? (this.Width - 10) / downCount : 0;
-                x = 5 + downStep / 2;
-                foreach (Port port in downPorts)
-                {
-                    for (int i = 0; i < port.Size; i++)
+                    int upStep = upCount != 0 ? (this.Width - 10) / upCount : 0;
+                    int x = 5 + upStep / 2;
+                    foreach (Port port in upPorts)
                     {
-                        string pinName = port.Name + "" + i;
-                        graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, x - pinName.Length * 3, this.Height - 14);
-                        port[i].Location = new Point(x, this.Height - 5);
-                        x += downStep;
+                        for (int i = 0; i < port.Size; i++)
+                        {
+                            string pinName = port.Name + "" + i;
+                            graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, x - pinName.Length * 3, 8);
+                            port[i].Location = new Point(x, 0);
+                            x += upStep;
+                        }
+                    }
+                    LinkedList<Port> downPorts = new LinkedList<Port>();
+                    int downCount = 0;
+                    downPorts.Clear();
+                    foreach (Port port in ports)
+                    {
+                        if (port.PortPosition == Position.DOWN)
+                        {
+                            downPorts.AddLast(port);
+                            downCount += port.Size;
+                        }
+                    }
+                    int downStep = downCount != 0 ? (this.Width - 10) / downCount : 0;
+                    x = 5 + downStep / 2;
+                    foreach (Port port in downPorts)
+                    {
+                        for (int i = 0; i < port.Size; i++)
+                        {
+                            string pinName = port.Name + "" + i;
+                            graphics.DrawString(pinName, new Font(new FontFamily("Arial"), 6), Brushes.Black, x - pinName.Length * 3, this.Height - 14);
+                            port[i].Location = new Point(x, this.Height - 5);
+                            x += downStep;
+                        }
                     }
                 }
             }
@@ -405,7 +420,7 @@ namespace MultiArc_Compiler
             return pinsList;
         }
 
-        public void ProcessDesignNode(XmlNode designNode)
+        public int ProcessDesignNode(XmlNode designNode)
         {
             foreach (Control c in this.Controls)
             {
@@ -416,136 +431,199 @@ namespace MultiArc_Compiler
                 }
             }
 
-            var imageControls = new List<ControlWithImage>();
+            DrawnFromCode = false;
 
-            foreach (XmlNode node in designNode.ChildNodes)
+            foreach (XmlAttribute a in designNode.Attributes)
             {
-                if (node.Name == "image")
+                if (a.Name == "code" && a.Value == "true")
                 {
-                    string fileName = null;
-                    int x = 0;
-                    int y = 0;
-                    int level = 0;
-                    bool transparent = false;
+                    DrawnFromCode = true;
 
-                    foreach (XmlNode property in node.ChildNodes)
+                    var path = string.Format("{0}\\Data\\{1}\\{2}Design.cs", ProjectPath, ArcDirectoryName, name);
+
+                    if (!File.Exists(path))
                     {
-                        switch (property.Name)
-                        {
-                            case "file":
-                                fileName = property.InnerText;
-                                break;
-                            case "level":
-                                level = Convert.ToInt32(property.InnerText);
-                                break;
-                            case "x":
-                                x = Convert.ToInt32(property.InnerText);
-                                break;
-                            case "y":
-                                y = Convert.ToInt32(property.InnerText);
-                                break;
-                            case "transparent":
-                                transparent = Convert.ToBoolean(property.InnerText);
-                                break;
-                            default:
-                                break;
-                        }
+                        var contents = 
+@"public void DrawComponent(" + GetType() + @"component) 
+{
+    // This is auto generated code. Please, edit only method body.
+    // Define how component is drawn here.
+}";
+                        File.WriteAllText(path, contents);
+
+                        return PrecompileDesignCode();
                     }
-
-                    CopyImageToTempFolder(fileName);
-                    var image = new Bitmap(string.Format("{0}/temp/{1}", _projectPath, fileName));
-                    var control = new ControlWithImage(image, null)
-                    {
-                        Transparent = transparent,
-                        Location = new Point(x, y),
-                        Level = level
-                    };
-
-                    imageControls.Add(control);
-                    control.Draw();
                 }
-                else if (node.Name == "pin")
-                {
-                    int x = 0;
-                    int y = 0;
-                    string pinName = null;
+            }
 
-                    foreach (XmlNode property in node.ChildNodes)
+            if (!DrawnFromCode)
+            {
+                var imageControls = new List<ControlWithImage>();
+
+                foreach (XmlNode node in designNode.ChildNodes)
+                {
+                    if (node.Name == "image")
                     {
-                        switch (property.Name)
+                        string fileName = null;
+                        int x = 0;
+                        int y = 0;
+                        int level = 0;
+                        bool transparent = false;
+
+                        foreach (XmlNode property in node.ChildNodes)
                         {
-                            case "name":
-                                pinName = property.InnerText;
-                                break;
-                            case "x":
-                                x = Convert.ToInt32(property.InnerText);
-                                break;
-                            case "y":
-                                y = Convert.ToInt32(property.InnerText);
-                                break;
-                            default:
-                                break;
+                            switch (property.Name)
+                            {
+                                case "file":
+                                    fileName = property.InnerText;
+                                    break;
+                                case "level":
+                                    level = Convert.ToInt32(property.InnerText);
+                                    break;
+                                case "x":
+                                    x = Convert.ToInt32(property.InnerText);
+                                    break;
+                                case "y":
+                                    y = Convert.ToInt32(property.InnerText);
+                                    break;
+                                case "transparent":
+                                    transparent = Convert.ToBoolean(property.InnerText);
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
+
+                        CopyImageToTempFolder(fileName);
+                        var image = new Bitmap(string.Format("{0}/temp/{1}", ProjectPath, fileName));
+                        var control = new ControlWithImage(image, null)
+                        {
+                            Transparent = transparent,
+                            Location = new Point(x, y),
+                            Level = level
+                        };
+
+                        imageControls.Add(control);
+                        control.Draw();
                     }
+                    else if (node.Name == "pin")
+                    {
+                        int x = 0;
+                        int y = 0;
+                        string pinName = null;
 
-                    var pin = GetPin(pinName);
-                    pin.Location = new Point(x, y);
+                        foreach (XmlNode property in node.ChildNodes)
+                        {
+                            switch (property.Name)
+                            {
+                                case "name":
+                                    pinName = property.InnerText;
+                                    break;
+                                case "x":
+                                    x = Convert.ToInt32(property.InnerText);
+                                    break;
+                                case "y":
+                                    y = Convert.ToInt32(property.InnerText);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+
+                        var pin = GetPin(pinName);
+                        pin.Location = new Point(x, y);
+                    }
                 }
+
+                int lowerBorder = imageControls.Select(c => c.Location.Y + c.Height).Max();
+                int upperBorder = 0;
+                int leftBorder = 0;
+                int rightBorder = imageControls.Select(c => c.Location.X + c.Width).Max();
+
+                foreach (var p in GetAllPins())
+                {
+                    if (p.Location.X < leftBorder)
+                    {
+                        leftBorder = p.Location.X;
+                    }
+                    if (p.Location.X + p.Width > rightBorder)
+                    {
+                        rightBorder = p.Location.X + p.Width;
+                    }
+                    if (p.Location.Y < upperBorder)
+                    {
+                        upperBorder = p.Location.Y;
+                    }
+                    if (p.Location.Y + p.Height > lowerBorder)
+                    {
+                        lowerBorder = p.Location.Y + p.Height;
+                    }
+                }
+
+                Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
+
+                foreach (var c in imageControls)
+                {
+                    c.SetBounds(c.Location.X - leftBorder, c.Location.Y - upperBorder, c.Width, c.Height);
+                    c.AddToSystemComponent(this);
+                    if (Region == null)
+                    {
+                        Region = c.Region.Clone();
+                    }
+                    else
+                    {
+                        Region.Union(c.Region);
+                    }
+                }
+
+                foreach (var p in GetAllPins())
+                {
+                    Region.Union(new Rectangle(p.Location.X, p.Location.Y, p.Size.Width, p.Size.Height));
+                }
+
+                imageControls.OrderBy(c => c.Level).ForEach(c => c.BringToFront());
+                GetAllPins().ForEach(p => p.BringToFront());
             }
 
-            int lowerBorder = imageControls.Select(c => c.Location.Y + c.Height).Max();
-            int upperBorder = 0;
-            int leftBorder = 0;
-            int rightBorder = imageControls.Select(c => c.Location.X + c.Width).Max();
+            return 0;
+        }
 
-            foreach (var p in GetAllPins())
+        private int PrecompileDesignCode()
+        {
+            var codeFilePath = string.Format("{0}/Data/{1}/{2}Design.cs");
+            string methodBody = File.ReadAllText(codeFilePath);
+            string executableCode =
+@"
+using System;
+using System.IO;
+using MultiArc_Compiler;
+
+public class DynamicDesignClass" + name + @"
+{
+" + methodBody + @"
+}";
+            var provider = CSharpCodeProvider.CreateProvider("c#");
+            var options = new CompilerParameters();
+            var assemblyContainingNotDynamicClass = Path.GetFileName(Assembly.GetExecutingAssembly().Location);
+            options.ReferencedAssemblies.Add(assemblyContainingNotDynamicClass);
+            var assemblyContaningForms = Assembly.GetAssembly(typeof(System.Windows.Forms.Control)).Location;
+            options.ReferencedAssemblies.Add(assemblyContaningForms);
+            var assemblyContainingComponent = Assembly.GetAssembly(typeof(System.ComponentModel.Component)).Location;
+            options.ReferencedAssemblies.Add(assemblyContainingComponent);
+            DesignCompileResults = provider.CompileAssemblyFromSource(options, new[] { executableCode });
+            if (DesignCompileResults.Errors.Count > 0)
             {
-                if (p.Location.X < leftBorder)
+                foreach (CompilerError error in DesignCompileResults.Errors)
                 {
-                    leftBorder = p.Location.X;
-                }
-                if (p.Location.X + p.Width > rightBorder)
-                {
-                    rightBorder = p.Location.X + p.Width;
-                }
-                if (p.Location.Y < upperBorder)
-                {
-                    upperBorder = p.Location.Y;
-                }
-                if (p.Location.Y + p.Height > lowerBorder)
-                {
-                    lowerBorder = p.Location.Y + p.Height;
+                    Form1.Instance.AddToOutput(DateTime.Now.ToString() + "Error in " + FileName + ": " + error.ErrorText + " in line " + (error.Line - 8) + ".\n");
                 }
             }
-
-            Size = new Size(rightBorder - leftBorder + 1, lowerBorder - upperBorder + 1);
-
-            foreach (var c in imageControls)
-            {
-                c.SetBounds(c.Location.X - leftBorder, c.Location.Y - upperBorder, c.Width, c.Height);
-                c.AddToSystemComponent(this);
-                if (Region == null)
-                {
-                    Region = c.Region.Clone();
-                }
-                else
-                {
-                    Region.Union(c.Region);
-                }
-            }
-
-            foreach (var p in GetAllPins())
-            {
-                Region.Union(new Rectangle(p.Location.X, p.Location.Y, p.Size.Width, p.Size.Height));
-            }
-
-            imageControls.OrderBy(c => c.Level).ForEach(c => c.BringToFront());
-            GetAllPins().ForEach(p => p.BringToFront());
+            return DesignCompileResults.Errors.Count;
         }
 
         private void CopyImageToTempFolder(string fileName)
         {
-            var tempDirectoryPath = string.Format("{0}/temp", _projectPath);
+            var tempDirectoryPath = string.Format("{0}/temp", ProjectPath);
             if (!Directory.Exists(tempDirectoryPath))
             {
                 Directory.CreateDirectory(tempDirectoryPath);
@@ -554,7 +632,7 @@ namespace MultiArc_Compiler
             var tempFile = string.Format("{0}/{1}", tempDirectoryPath, fileName);
             var file = File.Open(tempFile, FileMode.OpenOrCreate, FileAccess.Write);
             file.Close();
-            File.Copy(string.Format("{0}/Images/{1}", _projectPath, fileName), tempFile, true);
+            File.Copy(string.Format("{0}/Images/{1}", ProjectPath, fileName), tempFile, true);
         }
 
         public void DisposeAllImages()

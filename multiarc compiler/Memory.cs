@@ -645,7 +645,7 @@ namespace MultiArc_Compiler
                         }
                         break;
                     case "design":
-                        ProcessDesignNode(node);
+                        errorCount += ProcessDesignNode(node);
                         break;
                     default:
                         break;
@@ -706,7 +706,7 @@ public static void Cycle(Memory memory)
 
         public override object Clone()
         {
-            Memory newMemory = new Memory(_projectPath);
+            Memory newMemory = new Memory(ProjectPath);
             newMemory.auSize = this.auSize;
             newMemory.size = this.size;
             newMemory.ramEnd = this.ramEnd;
