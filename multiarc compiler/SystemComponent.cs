@@ -176,8 +176,10 @@ namespace MultiArc_Compiler
 
             if (DrawnFromCode)
             {
-                var t = DesignCompileResults.CompiledAssembly.GetType("DynamicDesignClass" + name);
-                t.GetMethod("DrawComponent").Invoke(null, new object[] { this, graphics });
+                var t = DesignCompileResults.CompiledAssembly.GetType("MultiArc_Compiler.DynamicDesignClass" + name);
+
+                var method = t.GetMethod("DrawComponent");
+                method.Invoke(null, new object[] { this, graphics });
             }
             else
             {
@@ -444,15 +446,15 @@ namespace MultiArc_Compiler
                     if (!File.Exists(path))
                     {
                         var contents = 
-@"public void DrawComponent(" + GetType() + @"component) 
+@"public stati void DrawComponent(" + GetType() + @"component, Graphics graphics) 
 {
     // This is auto generated code. Please, edit only method body.
     // Define how component is drawn here.
 }";
                         File.WriteAllText(path, contents);
-
-                        return PrecompileDesignCode();
                     }
+
+                    return PrecompileDesignCode();
                 }
             }
 
@@ -590,26 +592,36 @@ namespace MultiArc_Compiler
 
         private int PrecompileDesignCode()
         {
-            var codeFilePath = string.Format("{0}/Data/{1}/{2}Design.cs");
+            var codeFilePath = string.Format("{0}/Data/{1}/{2}Design.cs", ProjectPath, ArcDirectoryName, name);
             string methodBody = File.ReadAllText(codeFilePath);
             string executableCode =
 @"
 using System;
+using System.Windows.Forms;
+using System.Drawing;
 using System.IO;
-using MultiArc_Compiler;
 
-public class DynamicDesignClass" + name + @"
-{
-" + methodBody + @"
+namespace MultiArc_Compiler {
+
+    public class DynamicDesignClass" + name + @"
+    {
+    " + methodBody + @"
+    }
 }";
             var provider = CSharpCodeProvider.CreateProvider("c#");
             var options = new CompilerParameters();
-            var assemblyContainingNotDynamicClass = Path.GetFileName(Assembly.GetExecutingAssembly().Location);
+
+            var executingAssembly = Assembly.GetExecutingAssembly();
+
+            var assemblyContainingNotDynamicClass = Path.GetFileName(executingAssembly.Location);
             options.ReferencedAssemblies.Add(assemblyContainingNotDynamicClass);
+            //options.ReferencedAssemblies.AddRange(executingAssembly.GetReferencedAssemblies().Select(a => a.Name).ToArray());
             var assemblyContaningForms = Assembly.GetAssembly(typeof(System.Windows.Forms.Control)).Location;
             options.ReferencedAssemblies.Add(assemblyContaningForms);
             var assemblyContainingComponent = Assembly.GetAssembly(typeof(System.ComponentModel.Component)).Location;
             options.ReferencedAssemblies.Add(assemblyContainingComponent);
+            var assemblyContainingDrawing = Assembly.GetAssembly(typeof(System.Drawing.Graphics)).Location;
+            options.ReferencedAssemblies.Add(assemblyContainingDrawing);
             DesignCompileResults = provider.CompileAssemblyFromSource(options, new[] { executableCode });
             if (DesignCompileResults.Errors.Count > 0)
             {
