@@ -327,6 +327,11 @@ namespace MultiArc_Compiler
         public void RemoveComponent(SystemComponent component)
         {
             components.Remove(component);
+
+            if (!components.Any())
+            {
+                clipboard.EnableCloseButton();
+            }
         }
 
         public void SaveSystemToFile(string fileName)

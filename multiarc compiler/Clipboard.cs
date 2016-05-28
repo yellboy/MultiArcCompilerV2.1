@@ -5,11 +5,13 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using MoreLinq;
+using System.Runtime.InteropServices;
 
 namespace MultiArc_Compiler
 {
     public partial class Clipboard : Form
     {
+        private const int NoCloseButton = 0x200;
 
         private bool drawingSignal = false;
 
@@ -20,7 +22,7 @@ namespace MultiArc_Compiler
         private LinkedList<SystemComponent> componentsList;
 
         public LinkedList<SystemComponent> Component { get { return componentsList; } }
-
+        
         private UserSystem system;
 
         public Clipboard(LinkedList<SystemComponent> componentsList, UserSystem system)
@@ -61,6 +63,8 @@ namespace MultiArc_Compiler
                 componentToAdd.System = system;
                 componentToAdd.GetAllPins().ForEach(p => p.Clipboard = this);
             }
+
+            DisableCloseButton();
         }
 
         private void componentsListBox_DrawItem(object sender, DrawItemEventArgs e)
@@ -217,6 +221,24 @@ namespace MultiArc_Compiler
                 s.SetColor(Color.Violet);
             }
             systemPanel1.Refresh();
+        }
+
+        [DllImport("user32")]
+        public static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+
+        [DllImport("user32")]
+        public static extern bool EnableMenuItem(IntPtr hMenu, uint itemId, uint uEnable);
+
+        public void DisableCloseButton()
+        {
+            // The 1 parameter means to gray out. 0xF060 is SC_CLOSE.
+            EnableMenuItem(GetSystemMenu(Handle, false), 0xF060, 1);
+        }
+
+        public void EnableCloseButton()
+        {
+            // The zero parameter means to enable. 0xF060 is SC_CLOSE.
+            EnableMenuItem(GetSystemMenu(Handle, false), 0xF060, 0);
         }
     }
 }

@@ -1306,10 +1306,7 @@ Name: " + projectName + @"
 
         private void systemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (clipboard == null)
-            {
-                clipboard = new Clipboard(componentsList, system);
-            }
+            clipboard = new Clipboard(componentsList, system);
             clipboard.Visible = true;
             clipboard.Focus();
         }

@@ -1,4 +1,5 @@
-﻿namespace MultiArc_Compiler
+﻿using System.Windows.Forms;
+namespace MultiArc_Compiler
 {
     partial class Clipboard
     {
