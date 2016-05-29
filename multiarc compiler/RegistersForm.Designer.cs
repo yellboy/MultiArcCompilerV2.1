@@ -29,11 +29,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistersForm));
             this.updateButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // updateButton
             // 
+            this.updateButton.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.updateButton.Location = new System.Drawing.Point(70, 12);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
@@ -49,6 +52,7 @@
             this.ClientSize = new System.Drawing.Size(227, 56);
             this.Controls.Add(this.updateButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistersForm";
             this.Text = "RegistersForm";
             this.ResumeLayout(false);

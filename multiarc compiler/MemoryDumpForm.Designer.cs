@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MemoryDumpForm));
             this.prevButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             // 
             // prevButton
             // 
+            this.prevButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.prevButton.Location = new System.Drawing.Point(13, 276);
             this.prevButton.Name = "prevButton";
             this.prevButton.Size = new System.Drawing.Size(75, 23);
@@ -49,6 +51,7 @@
             // 
             // nextButton
             // 
+            this.nextButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.nextButton.Location = new System.Drawing.Point(332, 276);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(75, 23);
@@ -59,6 +62,7 @@
             // 
             // updateButton
             // 
+            this.updateButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.updateButton.Location = new System.Drawing.Point(522, 276);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(75, 23);
@@ -69,6 +73,7 @@
             // 
             // AddressBox
             // 
+            this.AddressBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.AddressBox.Location = new System.Drawing.Point(145, 278);
             this.AddressBox.Name = "AddressBox";
             this.AddressBox.Size = new System.Drawing.Size(100, 20);
@@ -87,6 +92,7 @@
             // GotoButton
             // 
             this.GotoButton.Enabled = false;
+            this.GotoButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.GotoButton.Location = new System.Drawing.Point(251, 276);
             this.GotoButton.Name = "GotoButton";
             this.GotoButton.Size = new System.Drawing.Size(75, 23);
@@ -107,6 +113,7 @@
             this.Controls.Add(this.nextButton);
             this.Controls.Add(this.prevButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MemoryDumpForm";
             this.Text = "MemoryDumpForm";
             this.VisibleChanged += new System.EventHandler(this.MemoryDumpForm_VisibleChanged);

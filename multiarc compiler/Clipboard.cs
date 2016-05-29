@@ -37,6 +37,8 @@ namespace MultiArc_Compiler
             this.system = system;
             system.MyClipboard = this;
             TicksChanged();
+            addComponentButton.Enabled = false;
+            frequencyInput.Value = (decimal)system.Frequency;
         }
 
         private void addComponentButton_Click(object sender, EventArgs e)
@@ -239,6 +241,32 @@ namespace MultiArc_Compiler
         {
             // The zero parameter means to enable. 0xF060 is SC_CLOSE.
             EnableMenuItem(GetSystemMenu(Handle, false), 0xF060, 0);
+        }
+
+        private void componentsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (componentsListBox.SelectedItems.Count > 0)
+            {
+                addComponentButton.Enabled = true;
+                return;
+            }
+
+            addComponentButton.Enabled = false;
+        }
+
+        public void DisableFrequencyChanges()
+        {
+            frequencyInput.Enabled = false;
+        }
+
+        public void EnableFrequencyChanges()
+        {
+            frequencyInput.Enabled = true;
+        }
+
+        private void frequencyInput_ValueChanged(object sender, EventArgs e)
+        {
+            system.Frequency = (double)frequencyInput.Value;
         }
     }
 }

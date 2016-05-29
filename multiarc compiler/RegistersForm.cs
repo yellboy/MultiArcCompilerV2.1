@@ -52,6 +52,7 @@ namespace MultiArc_Compiler
                 registersValues[i].Location = new System.Drawing.Point(xText, yText);
                 registersNames[i].Text = this.constants.GetRegister(i).Names.ElementAt(0);
                 registersValues[i].Text = this.constants.GetRegister(i).Val.ToString();
+                registersValues[i].BorderStyle = BorderStyle.FixedSingle;
                 yText += 26;
                 yLabel += 26;
                 this.Controls.Add(registersNames[i]);

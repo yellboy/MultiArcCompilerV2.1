@@ -30,6 +30,7 @@ namespace MultiArc_Compiler
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Designer));
             this.ComponentsComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@ namespace MultiArc_Compiler
             // 
             // ComponentsComboBox
             // 
+            this.ComponentsComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ComponentsComboBox.FormattingEnabled = true;
             this.ComponentsComboBox.Location = new System.Drawing.Point(13, 29);
             this.ComponentsComboBox.Name = "ComponentsComboBox";
@@ -72,6 +74,7 @@ namespace MultiArc_Compiler
             // BrowseComponentImageButton
             // 
             this.BrowseComponentImageButton.Enabled = false;
+            this.BrowseComponentImageButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BrowseComponentImageButton.Location = new System.Drawing.Point(76, 56);
             this.BrowseComponentImageButton.Name = "BrowseComponentImageButton";
             this.BrowseComponentImageButton.Size = new System.Drawing.Size(67, 23);
@@ -86,18 +89,23 @@ namespace MultiArc_Compiler
             // 
             // PinsList
             // 
+            this.PinsList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.PinsList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PinsList.Enabled = false;
             this.PinsList.FormattingEnabled = true;
             this.PinsList.Location = new System.Drawing.Point(13, 144);
             this.PinsList.Name = "PinsList";
             this.PinsList.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.PinsList.Size = new System.Drawing.Size(130, 212);
+            this.PinsList.Size = new System.Drawing.Size(130, 210);
             this.PinsList.Sorted = true;
             this.PinsList.TabIndex = 5;
             // 
             // AddPinButton
             // 
+            this.AddPinButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddPinButton.Enabled = false;
+            this.AddPinButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.AddPinButton.Location = new System.Drawing.Point(68, 362);
             this.AddPinButton.Name = "AddPinButton";
             this.AddPinButton.Size = new System.Drawing.Size(75, 23);
@@ -117,6 +125,8 @@ namespace MultiArc_Compiler
             // 
             // SaveButton
             // 
+            this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SaveButton.Location = new System.Drawing.Point(518, 362);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
@@ -128,6 +138,9 @@ namespace MultiArc_Compiler
             // DesignPanel
             // 
             this.DesignPanel.AllowDrop = true;
+            this.DesignPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DesignPanel.BackColor = System.Drawing.Color.Transparent;
             this.DesignPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DesignPanel.Location = new System.Drawing.Point(150, 13);
@@ -149,6 +162,8 @@ namespace MultiArc_Compiler
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DesignPanel);
             this.Controls.Add(this.ComponentsComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(621, 435);
             this.Name = "Designer";
             this.Text = "Designer";
             this.ResumeLayout(false);

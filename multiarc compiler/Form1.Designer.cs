@@ -476,8 +476,9 @@
             // 
             // DebugButton
             // 
+            this.DebugButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("DebugButton.BackgroundImage")));
+            this.DebugButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.DebugButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.DebugButton.Image = ((System.Drawing.Image)(resources.GetObject("DebugButton.Image")));
             this.DebugButton.Location = new System.Drawing.Point(155, 27);
             this.DebugButton.Name = "DebugButton";
             this.DebugButton.Size = new System.Drawing.Size(22, 22);

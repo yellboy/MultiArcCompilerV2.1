@@ -23,7 +23,7 @@ namespace MultiArc_Compiler
 
         private long id = ++lastId;
 
-        private double frequency = 1000;
+        private double frequency = 100;
 
         public double Frequency 
         { 
@@ -258,6 +258,8 @@ namespace MultiArc_Compiler
                 //    stopDebuggingToolStripMenuItem.Enabled = false;
                 //}
             }
+
+            clipboard.DisableFrequencyChanges();
         }
 
         public void StartWorkingTickByTick(LinkedList<int> separators, LinkedList<int> breakPoints, TextBoxBase outputBox, int entryPoint, byte[] binary)
@@ -295,6 +297,8 @@ namespace MultiArc_Compiler
             {
                 component.StopWorking();
             }
+
+            clipboard.EnableFrequencyChanges();
         }
 
         /// <summary>
