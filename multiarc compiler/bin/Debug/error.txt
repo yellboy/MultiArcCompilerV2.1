@@ -28,4 +28,5 @@ Object name: 'Clipboard'.
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.Run(Form mainForm)
-   at MultiArc_Compiler.Program.Main() in d:\MultiArc Compiler\multiarc compiler\Program.cs:line 25
+   at MultiArc_Compiler.Program.Main() in d:\MultiArc Compiler\multiarc compiler\Program.cs:line 25System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler\multiarc compiler\Executor.cs:line 276

@@ -74,6 +74,7 @@ namespace MultiArc_Compiler
             Instance = this;
             CodeBox.AppendText("  ");
             CodeBox.Clear();
+            designerToolStripMenuItem.Enabled = false;
             systemToolStripMenuItem.Enabled = false;
             loadToolStripMenuItem.Enabled = false;
             recompileCodeToolStripMenuItem.Enabled = false;
@@ -85,6 +86,7 @@ namespace MultiArc_Compiler
             LoadArcButton.Enabled = false;
             assembleToolStripMenuItem.Enabled = false;
             stopDebuggingToolStripMenuItem.Enabled = false;
+            systemToolStripMenuItem.Enabled = false;
             DebugButton.Enabled = false;
             fileChanged = false;
             compiled = false;
@@ -353,58 +355,26 @@ namespace MultiArc_Compiler
                             projectOpenning = false;
                             OutputBox.AppendText(DateTime.Now.ToString() + " CPU architecture loaded successfully. \n");
                             OutputBox.ScrollToCaret();
-                            memoryDumpToolStripMenuItem.Enabled = true;
-                            registersToolStripMenuItem.Enabled = true;
-                            assembleToolStripMenuItem.Enabled = true;
-                            executeToolStripMenuItem.Enabled = true;
-                            nextStepToolStripMenuItem.Enabled = true;
-                            executeWithoutDebugToolStripMenuItem.Enabled = true;
-                            systemToolStripMenuItem.Enabled = true;
-                            DebugButton.Enabled = true;
-                            recompileCodeToolStripMenuItem.Enabled = true;
+                            EnableAllButtons();
                             compiled = false;
                         }
                         else
                         {
                             projectOpenning = false;
-                            systemToolStripMenuItem.Enabled = false; ;
-                            memoryDumpToolStripMenuItem.Enabled = false;
-                            registersToolStripMenuItem.Enabled = false;
-                            assembleToolStripMenuItem.Enabled = false;
-                            executeToolStripMenuItem.Enabled = false;
-                            nextStepToolStripMenuItem.Enabled = false;
-                            executeWithoutDebugToolStripMenuItem.Enabled = false;
-                            DebugButton.Enabled = false;
-                            recompileCodeToolStripMenuItem.Enabled = false;
+                            DisableAllButtons();
                         }
                     }
                 }
                 catch (Exception ex)
                 {
                     projectOpenning = false;
-                    systemToolStripMenuItem.Enabled = false;
-                    memoryDumpToolStripMenuItem.Enabled = false;
-                    registersToolStripMenuItem.Enabled = false;
-                    assembleToolStripMenuItem.Enabled = false;
-                    executeToolStripMenuItem.Enabled = false;
-                    nextStepToolStripMenuItem.Enabled = false;
-                    executeWithoutDebugToolStripMenuItem.Enabled = false;
-                    DebugButton.Enabled = false;
-                    recompileCodeToolStripMenuItem.Enabled = false;
+                    DisableAllButtons();
                     File.AppendAllText("error.txt", ex.ToString());
                 }
             }
             else
             {
-                systemToolStripMenuItem.Enabled = false;
-                memoryDumpToolStripMenuItem.Enabled = false;
-                registersToolStripMenuItem.Enabled = false;
-                assembleToolStripMenuItem.Enabled = false;
-                executeToolStripMenuItem.Enabled = false;
-                nextStepToolStripMenuItem.Enabled = false;
-                executeWithoutDebugToolStripMenuItem.Enabled = false;
-                DebugButton.Enabled = false;
-                recompileCodeToolStripMenuItem.Enabled = false;
+                DisableAllButtons();
                 projectOpenning = false;
             }
             
@@ -1349,6 +1319,9 @@ Name: " + projectName + @"
                         }
                         File.WriteAllText(dataFolder + "Memories\\" + fileName.Substring(fileName.LastIndexOf('\\')), content);
                     }
+
+                    EnableAllButtons(); 
+                    compiled = false;
                 }
             }
             catch (Exception ex)
@@ -1357,17 +1330,23 @@ Name: " + projectName + @"
                 OutputBox.ScrollToCaret();
                 File.AppendAllText("error.txt", ex.ToString());
                 projectOpenning = false;
-                memoryDumpToolStripMenuItem.Enabled = false;
-                registersToolStripMenuItem.Enabled = false;
-                assembleToolStripMenuItem.Enabled = false;
-                executeToolStripMenuItem.Enabled = false;
-                nextStepToolStripMenuItem.Enabled = false;
-                executeWithoutDebugToolStripMenuItem.Enabled = false;
-                stopDebuggingToolStripMenuItem.Enabled = false;
-                DebugButton.Enabled = false;
-                recompileCodeToolStripMenuItem.Enabled = false;
+                DisableAllButtons();
                 return;
             }
+        }
+
+        private void DisableAllButtons()
+        {
+            designerToolStripMenuItem.Enabled = false;
+            memoryDumpToolStripMenuItem.Enabled = false;
+            registersToolStripMenuItem.Enabled = false;
+            assembleToolStripMenuItem.Enabled = false;
+            executeToolStripMenuItem.Enabled = false;
+            nextStepToolStripMenuItem.Enabled = false;
+            executeWithoutDebugToolStripMenuItem.Enabled = false;
+            stopDebuggingToolStripMenuItem.Enabled = false;
+            DebugButton.Enabled = false;
+            recompileCodeToolStripMenuItem.Enabled = false;
         }
 
         private delegate void SwitchToInstructionDelegate(int number);
@@ -1424,6 +1403,8 @@ Name: " + projectName + @"
                         }
                         File.WriteAllText(dataFolder + "Other\\" + fileName.Substring(fileName.LastIndexOf('\\')), content);
                     }
+
+                    EnableAllButtons();
                 }
             }
             catch (Exception ex)
@@ -1432,17 +1413,25 @@ Name: " + projectName + @"
                 OutputBox.ScrollToCaret();
                 File.AppendAllText("error.txt", ex.ToString());
                 projectOpenning = false;
-                memoryDumpToolStripMenuItem.Enabled = false;
-                registersToolStripMenuItem.Enabled = false;
-                assembleToolStripMenuItem.Enabled = false;
-                executeToolStripMenuItem.Enabled = false;
-                nextStepToolStripMenuItem.Enabled = false;
-                executeWithoutDebugToolStripMenuItem.Enabled = false;
-                stopDebuggingToolStripMenuItem.Enabled = false;
-                DebugButton.Enabled = false;
-                recompileCodeToolStripMenuItem.Enabled = false;
+                DisableAllButtons();
                 return;
             }
+        }
+
+        private void EnableAllButtons()
+        {
+            designerToolStripMenuItem.Enabled = true;
+            memoryDumpToolStripMenuItem.Enabled = true;
+            registersToolStripMenuItem.Enabled = true;
+            assembleToolStripMenuItem.Enabled = true;
+            executeToolStripMenuItem.Enabled = true;
+            nextStepToolStripMenuItem.Enabled = true;
+            executeWithoutDebugToolStripMenuItem.Enabled = true;
+            systemToolStripMenuItem.Enabled = true;
+            DebugButton.Enabled = true;
+            recompileCodeToolStripMenuItem.Enabled = true;
+            designerToolStripMenuItem.Enabled = true;
+            compiled = false;
         }
 
         private void designerToolStripMenuItem_Click(object sender, EventArgs e)
