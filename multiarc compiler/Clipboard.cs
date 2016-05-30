@@ -33,6 +33,7 @@ namespace MultiArc_Compiler
             foreach (var component in componentsList)
             {
                 componentsListBox.Items.Add(component);
+                component.DetachAllSignals();
             }
             this.system = system;
             system.MyClipboard = this;
@@ -209,6 +210,8 @@ namespace MultiArc_Compiler
 
         private void DrawSystem()
         {
+            systemPanel1.Controls.Clear();
+
             foreach (var c in system.Components)
             {
                 c.Draw();
@@ -254,14 +257,34 @@ namespace MultiArc_Compiler
             addComponentButton.Enabled = false;
         }
 
+        private delegate void SwitchFrequencyInputEnabledDelegate(bool enabled);
+
+        private void SwitchFrequencyInputEnabled(bool enabled)
+        {
+            frequencyInput.Enabled = enabled;
+        }
+
         public void DisableFrequencyChanges()
         {
-            frequencyInput.Enabled = false;
+            SwitchFrequencyInputEnabledThreadSafe(false);
         }
 
         public void EnableFrequencyChanges()
         {
-            frequencyInput.Enabled = true;
+            SwitchFrequencyInputEnabledThreadSafe(true);
+        }
+
+        private void SwitchFrequencyInputEnabledThreadSafe(bool enable)
+        {
+            if (frequencyInput.InvokeRequired)
+            {
+                SwitchFrequencyInputEnabledDelegate d = new SwitchFrequencyInputEnabledDelegate(SwitchFrequencyInputEnabled);
+                this.BeginInvoke(d, enable);
+            }
+            else
+            {
+                SwitchFrequencyInputEnabled(enable);
+            }
         }
 
         private void frequencyInput_ValueChanged(object sender, EventArgs e)

@@ -663,5 +663,13 @@ namespace MultiArc_Compiler {
 
             controlsWithImages.ForEach(c => Controls.Remove(c));
         }
+
+        public void DetachAllSignals()
+        {
+            foreach (var pin in GetAllPins())
+            {
+                pin.Signal = null;
+            }
+        }
     }
 }
