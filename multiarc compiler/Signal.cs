@@ -15,7 +15,7 @@ namespace MultiArc_Compiler
 
         private int id = nextId++;
 
-        private string name;
+        private LinkedList<string> names;
 
         private PinValue val = PinValue.HIGHZ;
 
@@ -46,15 +46,11 @@ namespace MultiArc_Compiler
         /// <summary>
         /// Gets or sets name of the signal.
         /// </summary>
-        public string Name
+        public LinkedList<string> Names
         {
             get
             {
-                return name;
-            }
-            set
-            {
-                name = value;
+                return names;
             }
         }
 
@@ -89,7 +85,8 @@ namespace MultiArc_Compiler
         /// </summary>
         public Signal()
         {
-            name = "Signal" + id;
+            names = new LinkedList<string>();
+            names.AddLast(string.Format("Signal{0}", id));
         }
 
         /// <summary>
@@ -144,6 +141,11 @@ namespace MultiArc_Compiler
                     p.InformThatSignalChanged(val);
                 }
             }
+        }
+
+        public void AddName(string name)
+        {
+            this.Names.AddLast(name);
         }
     }
 }

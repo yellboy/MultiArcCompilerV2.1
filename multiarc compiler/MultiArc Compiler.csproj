@@ -98,6 +98,12 @@
     <Compile Include="linenum_rtf.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ManageSignalNamesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageSignalNamesDialog.Designer.cs">
+      <DependentUpon>ManageSignalNamesDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Memory.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -186,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Line.resx">
       <DependentUpon>Line.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageSignalNamesDialog.resx">
+      <DependentUpon>ManageSignalNamesDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MemoryDumpForm.resx">
       <DependentUpon>MemoryDumpForm.cs</DependentUpon>

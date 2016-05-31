@@ -369,7 +369,7 @@ namespace MultiArc_Compiler
                         {
                             XmlNode attachedSignal = doc.CreateElement("signal");
                             XmlAttribute attachedSignalNameAttribute = doc.CreateAttribute("signal_name");
-                            attachedSignalNameAttribute.Value = p[i].Signal.Name;
+                            attachedSignalNameAttribute.Value = p[i].Signal.Names.First();
                             attachedSignal.Attributes.Append(attachedSignalNameAttribute);
                             XmlAttribute pinNameAttribute = doc.CreateAttribute("pin_name");
                             pinNameAttribute.Value = p[i].Name;
@@ -387,7 +387,7 @@ namespace MultiArc_Compiler
             {
                 XmlNode signalNode = doc.CreateElement("signal");
                 XmlAttribute signalNameAttribute = doc.CreateAttribute("name");
-                signalNameAttribute.Value = s.Name;
+                signalNameAttribute.Value = s.Names.First();
                 signalNode.Attributes.Append(signalNameAttribute);
                 XmlNode linesNode = doc.CreateElement("lines");
                 signalNode.AppendChild(linesNode);
@@ -451,7 +451,7 @@ namespace MultiArc_Compiler
                     foreach (XmlNode signalNode in childNode.ChildNodes)
                     {
                         Signal signal = new Signal();
-                        signal.Name = signalNode.Attributes["name"].Value;
+                        signal.Names.AddLast(signalNode.Attributes["name"].Value);
                         foreach (XmlNode innerNode in signalNode.ChildNodes)
                         {
                             if (innerNode.Name.Equals("lines"))
