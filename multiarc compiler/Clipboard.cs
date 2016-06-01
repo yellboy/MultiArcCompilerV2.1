@@ -109,7 +109,8 @@ namespace MultiArc_Compiler
             }
             else
             {
-                currentlyDrawing = new Signal();
+                currentlyDrawing = new Signal(system);
+                currentlyDrawing.AddGenericName();
                 currentlyDrawing.Pins.AddLast(pin);
                 pin.Signal = currentlyDrawing;
                 drawingSignal = true;

@@ -1,6 +1,8 @@
-System.InvalidOperationException: List that this enumerator is bound to has been modified. An enumerator can only be used if the list does not change.
-   at System.Windows.Forms.ListBox.ItemArray.EntryEnumerator.System.Collections.IEnumerator.MoveNext()
-   at MultiArc_Compiler.ManageSignalNamesDialog.RemoveButton_Click(Object sender, EventArgs e) in d:\MultiArc Compiler\multiarc compiler\ManageSignalNamesDialog.cs:line 53
+System.Threading.SynchronizationLockException: Object synchronization method was called from an unsynchronized block of code.
+   at System.Threading.Monitor.ObjPulseAll(Object obj)
+   at System.Threading.Monitor.PulseAll(Object obj)
+   at MultiArc_Compiler.UserSystem.set_Ticks(Int64 value) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\UserSystem.cs:line 115
+   at MultiArc_Compiler.Clipboard.nextClockButton_Click(Object sender, EventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Clipboard.cs:line 182
    at System.Windows.Forms.Control.OnClick(EventArgs e)
    at System.Windows.Forms.Button.OnClick(EventArgs e)
    at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
@@ -16,4 +18,4 @@ System.InvalidOperationException: List that this enumerator is bound to has been
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.Run(Form mainForm)
-   at MultiArc_Compiler.Program.Main() in d:\MultiArc Compiler\multiarc compiler\Program.cs:line 25
+   at MultiArc_Compiler.Program.Main() in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Program.cs:line 25

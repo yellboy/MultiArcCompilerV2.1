@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace MultiArc_Compiler
 {
@@ -80,13 +81,19 @@ namespace MultiArc_Compiler
             }
         }
 
+        private readonly UserSystem _system;
+
+        public LinkedList<Signal> ConnectedSignals { get; private set; } 
+
         /// <summary>
         /// Creates one object of 
         /// </summary>
-        public Signal()
+        public Signal(UserSystem system)
         {
+            _system = system;
+
+            ConnectedSignals = new LinkedList<Signal>();
             names = new LinkedList<string>();
-            names.AddLast(string.Format("Signal{0}", id));
         }
 
         /// <summary>
@@ -119,6 +126,7 @@ namespace MultiArc_Compiler
             foreach (Pin p in pins)
             {
                 p.Signal = null;
+                _system.Signals.Remove(this);
             }
             foreach (Line l in lines)
             {
@@ -132,20 +140,85 @@ namespace MultiArc_Compiler
         /// <param name="pin">
         /// Pin that changed value of the signal.
         /// </param>
-        public void InformOtherPins(Pin pin)
+        public void InformOtherPins(Pin pin = null)
         {
             foreach (Pin p in pins)
             {
-                if (p != pin)
+                if (pin == null || p != pin)
                 {
                     p.InformThatSignalChanged(val);
                 }
+            }
+
+            foreach (var s in ConnectedSignals)
+            {
+                s.InformOtherPins();
             }
         }
 
         public void AddName(string name)
         {
-            this.Names.AddLast(name);
+            Names.AddLast(name);
+
+            var signalsToMerge = new LinkedList<Signal>();
+            foreach (var s in _system.Signals)
+            {
+                if (s != this && s.Names.Contains(name))
+                {
+                    signalsToMerge.AddLast(s);
+                }
+            }
+
+            if (signalsToMerge.Count > 0)
+            {
+                signalsToMerge.AddLast(this);
+                MergeSignals(signalsToMerge);
+            }
+        }
+
+        private static void MergeSignals(LinkedList<Signal> signalsToMerge)
+        {
+            var signal = signalsToMerge.Last();
+            var system = signal._system;
+            
+            var mergedSignal = new Signal(signal._system);
+
+            foreach (var s in signalsToMerge)
+            {
+                foreach (var name in s.names)
+                {
+                    if (!mergedSignal.names.Contains(name))
+                    {
+                        mergedSignal.names.AddLast(name);
+                    }
+                }
+
+                foreach (var line in s.lines)
+                {
+                    if (!mergedSignal.lines.Contains(line))
+                    {
+                        mergedSignal.lines.AddLast(line);
+                    }
+                }
+
+                foreach (var pin in s.pins)
+                {
+                    if (!mergedSignal.pins.Contains(pin))
+                    {
+                        mergedSignal.pins.AddLast(pin);
+                        pin.Signal = mergedSignal;
+                    }
+                }
+
+                system.Signals.Remove(s);
+            }
+
+            system.Signals.AddLast(mergedSignal);
+        }
+
+        public void AddGenericName()
+        {
+            names.AddLast("Signal" + id);
         }
     }
 }

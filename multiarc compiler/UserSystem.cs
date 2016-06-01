@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
+using MoreLinq;
 
 namespace MultiArc_Compiler
 {
@@ -65,6 +66,7 @@ namespace MultiArc_Compiler
             set
             {
                 clipboard = value;
+                components.ForEach(c => c.GetAllPins().ForEach(p => p.Clipboard = value));
             }
         }
 
@@ -360,25 +362,6 @@ namespace MultiArc_Compiler
                 XmlAttribute yAttribute = doc.CreateAttribute("y");
                 yAttribute.Value = c.Location.Y.ToString();
                 componentNode.Attributes.Append(yAttribute);
-                XmlNode attachedSignalsNode = doc.CreateElement("signals");
-                foreach (Port p in c.Ports)
-                {
-                    for (int i = 0; i < p.Size; i++)
-                    {
-                        if (p[i].Signal != null)
-                        {
-                            XmlNode attachedSignal = doc.CreateElement("signal");
-                            XmlAttribute attachedSignalNameAttribute = doc.CreateAttribute("signal_name");
-                            attachedSignalNameAttribute.Value = p[i].Signal.Names.First();
-                            attachedSignal.Attributes.Append(attachedSignalNameAttribute);
-                            XmlAttribute pinNameAttribute = doc.CreateAttribute("pin_name");
-                            pinNameAttribute.Value = p[i].Name;
-                            attachedSignal.Attributes.Append(pinNameAttribute);
-                            componentNode.AppendChild(attachedSignal);
-                        }
-                    }
-                }
-                componentNode.AppendChild(attachedSignalsNode);
                 componentsNode.AppendChild(componentNode);
             }
             XmlNode signalsNode = doc.CreateElement("signals");
@@ -386,9 +369,13 @@ namespace MultiArc_Compiler
             foreach (Signal s in signals)
             {
                 XmlNode signalNode = doc.CreateElement("signal");
-                XmlAttribute signalNameAttribute = doc.CreateAttribute("name");
-                signalNameAttribute.Value = s.Names.First();
-                signalNode.Attributes.Append(signalNameAttribute);
+                foreach (var name in s.Names)
+                {
+                    XmlElement nameElement = doc.CreateElement("name");
+                    nameElement.InnerText = name;
+                    signalNode.AppendChild(nameElement);
+                }
+
                 XmlNode linesNode = doc.CreateElement("lines");
                 signalNode.AppendChild(linesNode);
                 foreach (Line l in s.Lines)
@@ -450,30 +437,36 @@ namespace MultiArc_Compiler
                 {
                     foreach (XmlNode signalNode in childNode.ChildNodes)
                     {
-                        Signal signal = new Signal();
-                        signal.Names.AddLast(signalNode.Attributes["name"].Value);
+                        Signal signal = new Signal(this);
                         foreach (XmlNode innerNode in signalNode.ChildNodes)
                         {
-                            if (innerNode.Name.Equals("lines"))
+                            switch (innerNode.Name)
                             {
-                                foreach (XmlNode lineNode in innerNode.ChildNodes)
-                                {
-                                    int x1 = Convert.ToInt32(lineNode.Attributes["x1"].Value);
-                                    int x2 = Convert.ToInt32(lineNode.Attributes["x2"].Value);
-                                    int y1 = Convert.ToInt32(lineNode.Attributes["y1"].Value);
-                                    int y2 = Convert.ToInt32(lineNode.Attributes["y2"].Value);
-                                    Line line = new Line(x1, y1, x2, y2, signal);
-                                    signal.Lines.AddLast(line);
-                                }
-                            }
-                            else if (innerNode.Name.Equals("pins"))
-                            {
-                                foreach (XmlNode pinNode in innerNode.ChildNodes)
-                                {
-                                    Pin pin = components.First(c => c.Name == pinNode.Attributes["component_name"].Value).GetPin(pinNode.Attributes["pin_name"].Value);
-                                    pin.Signal = signal;
-                                    signal.Pins.AddLast(pin);
-                                }
+                                case "lines":
+                                    foreach (XmlNode lineNode in innerNode.ChildNodes)
+                                    {
+                                        int x1 = Convert.ToInt32(lineNode.Attributes["x1"].Value);
+                                        int x2 = Convert.ToInt32(lineNode.Attributes["x2"].Value);
+                                        int y1 = Convert.ToInt32(lineNode.Attributes["y1"].Value);
+                                        int y2 = Convert.ToInt32(lineNode.Attributes["y2"].Value);
+                                        Line line = new Line(x1, y1, x2, y2, signal);
+                                        signal.Lines.AddLast(line);
+                                    }
+                                    break;
+                                case "pins":
+                                    foreach (XmlNode pinNode in innerNode.ChildNodes)
+                                    {
+                                        Pin pin = components.First(c => c.Name == pinNode.Attributes["component_name"].Value).GetPin(pinNode.Attributes["pin_name"].Value);
+                                        pin.Signal = signal;
+                                        pin.Clipboard = clipboard;
+                                        signal.Pins.AddLast(pin);
+                                    }
+                                    break;
+                                case "name":
+                                    signal.Names.AddLast(innerNode.InnerText.Trim());
+                                    break;
+                                default:
+                                    break;
                             }
                         }
                         signals.AddLast(signal);
