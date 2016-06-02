@@ -99,6 +99,8 @@ namespace MultiArc_Compiler
             }
         }
 
+        private int _thicknes;
+
         protected ContextMenuStrip menu = new ContextMenuStrip();
 
         /// <summary>
@@ -119,8 +121,9 @@ namespace MultiArc_Compiler
         /// <param name="signal">
         /// Signal containing line.
         /// </param>
-        public Line(int x1 = 0, int y1 = 0, int x2 = 0, int y2 = 0, Signal signal = null)
+        public Line(int thicknes, int x1 = 0, int y1 = 0, int x2 = 0, int y2 = 0, Signal signal = null)
         {
+            _thicknes = thicknes;
             this.x1 = x1;
             this.y1 = y1;
             this.x2 = x2;
@@ -130,12 +133,12 @@ namespace MultiArc_Compiler
             Height = Math.Abs(y2 - y1);
             if (Width == 0)
             {
-                Width = 1;
+                Width = _thicknes;
                 Location = new Point(x1, y2 > y1 ? y1 : y2);
             }
             if (Height == 0)
             {
-                Height = 1;
+                Height = _thicknes;
                 Location = new Point(x2 > x1 ? x1 : x2, y1);
             }
             menu.ItemClicked += menuClick;
@@ -163,12 +166,13 @@ namespace MultiArc_Compiler
         protected void draw(object sender, EventArgs e)
         {
             Graphics graphics = CreateGraphics();
-            Pen pen = new Pen(this.ForeColor);
-            if (Width == 1)
+            graphics.PageUnit = GraphicsUnit.Pixel;
+            Pen pen = new Pen(this.ForeColor, _thicknes);
+            if (Width == _thicknes)
             {
                 graphics.DrawLine(pen, 0, 0, 0, Height);
             }
-            if (Height == 1)
+            if (Height == _thicknes)
             {
                 graphics.DrawLine(pen, 0, 0, Width, 0);
             }

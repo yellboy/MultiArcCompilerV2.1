@@ -13,11 +13,13 @@ namespace MultiArc_Compiler
     {
         private const int NoCloseButton = 0x200;
 
-        private bool drawingSignal = false;
+        private bool drawingConnector = false;
 
-        private Signal currentlyDrawing = null;
+        private Connector currentlyDrawnConnector = null;
 
-        private int signalX = 0, signalY = 0;
+        private bool drawingBus = false;
+
+        private int connectorX = 0, connectorY = 0;
 
         private LinkedList<SystemComponent> componentsList;
 
@@ -83,83 +85,147 @@ namespace MultiArc_Compiler
         {
             int x = pin.Location.X + pin.Parent.Location.X + (pin.ParentPort.PortPosition == Position.RIGHT ? 5 : 0);
             int y = pin.Location.Y + pin.Parent.Location.Y + (pin.ParentPort.PortPosition == Position.DOWN ? 5 : 0);
-            if (drawingSignal)
+            if (drawingConnector && !drawingBus)
             {
-                if (x != signalX || y != signalY)
+                var signal = currentlyDrawnConnector as Signal;
+                
+                if (x != connectorX || y != connectorY)
                 {
-                    Line line1 = new Line(signalX, signalY, x, signalY, currentlyDrawing);
-                    Line line2 = new Line(x, signalY, x, y, currentlyDrawing);
+                    Line line1 = new Line(Thicknes, connectorX, connectorY, x, connectorY, signal);
+                    Line line2 = new Line(Thicknes, x, connectorY, x, y, signal);
                     systemPanel1.Controls.Add(line1);
                     systemPanel1.Controls.Add(line2);
-                    currentlyDrawing.Lines.AddLast(line1);
-                    currentlyDrawing.Lines.AddLast(line2);
+                    currentlyDrawnConnector.Lines.AddLast(line1);
+                    currentlyDrawnConnector.Lines.AddLast(line2);
                 }
                 else
                 {
-                    Line line = new Line(signalX, signalY, x, y, currentlyDrawing);
+                    Line line = new Line(Thicknes, connectorX, connectorY, x, y, signal);
                     systemPanel1.Controls.Add(line);
-                    currentlyDrawing.Lines.AddLast(line);
+                    currentlyDrawnConnector.Lines.AddLast(line);
                 }
-                drawingSignal = false;
-                currentlyDrawing.Pins.AddLast(pin);
-                pin.Signal = currentlyDrawing;
+                drawingConnector = false;
+                signal.Pins.AddLast(pin);
+                pin.Signal = signal;
                 Cursor = Cursors.Arrow;
-                system.Signals.AddLast(currentlyDrawing);
-                currentlyDrawing.SetColor(Color.Violet);
+                system.Signals.AddLast(signal);
+                currentlyDrawnConnector.SetColor(Color.Violet);
             }
             else
             {
-                currentlyDrawing = new Signal(system);
-                currentlyDrawing.AddGenericName();
-                currentlyDrawing.Pins.AddLast(pin);
-                pin.Signal = currentlyDrawing;
-                drawingSignal = true;
-                signalX = x;
-                signalY = y;
-                this.Cursor = Cursors.Cross;
+                currentlyDrawnConnector = new Signal(system);
+                var signal = currentlyDrawnConnector as Signal;
+                signal.Pins.AddLast(pin);
+                pin.Signal = signal;
+                StartDrawing(x, y);
             }
+        }
+
+        private void StartDrawing(int x, int y)
+        {
+            currentlyDrawnConnector.AddGenericName();
+            drawingConnector = true;
+            connectorX = x;
+            connectorY = y;
+            this.Cursor = Cursors.Cross;
         }
 
         private void systemPanel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (drawingSignal == true)
+            if (drawingConnector == true)
             {
                 Graphics graphics = systemPanel1.CreateGraphics();
+                graphics.PageUnit = GraphicsUnit.Pixel;
                 graphics.Clear(systemPanel1.BackColor);
-                graphics.DrawLine(Pens.Black, signalX, signalY, e.X, signalY);
-                graphics.DrawLine(Pens.Black, e.X, signalY, e.X, e.Y);
+                var pen = new Pen(Color.Black, Thicknes);
+                graphics.DrawLine(pen, connectorX, connectorY, e.X, connectorY);
+                graphics.DrawLine(pen, e.X, connectorY, e.X, e.Y);
             }
         }
 
         private void systemPanel1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            drawingSignal = false;
+            drawingConnector = false;
             this.Cursor = Cursors.Arrow;
-            system.Signals.AddLast(currentlyDrawing);
-            currentlyDrawing.SetColor(Color.Violet);
+            if (drawingBus)
+            {
+                var bus = currentlyDrawnConnector as Bus;
+                system.Buses.AddLast(bus);
+                var width = GetBusWidth();
+                for (var i = 0; i < width; i++)
+                {
+                    var signal = new Signal(system);
+                    signal.Names.AddLast(string.Format("{0}[{1}]", bus.Names.First(), i));
+                    bus.Lines.ForEach(l => 
+                    { 
+                        signal.Lines.AddLast(l);
+                        l.ContainedBySignal = signal;
+                    });
+                    bus.Signals.AddLast(signal);
+                }
+            }
+            else
+            {
+                var signal = currentlyDrawnConnector as Signal;
+                system.Signals.AddLast(signal);
+                signal.Lines.ForEach(l => l.ContainedBySignal = signal);
+            }
+            
+            drawingBus = false;
+            currentlyDrawnConnector.SetColor(Color.Violet);
+        }
+
+        private int GetBusWidth()
+        {
+            using (var dialog = new SetBusWidthForm(this))
+            {
+                var result = dialog.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    return dialog.BusWidth;
+                }
+
+                return 0;
+            }
+
+
         }
 
         private void systemPanel1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (drawingSignal == true)
+            if (drawingConnector == true)
             {
-                if (e.X != signalX || e.Y != signalY)
+                if (e.X != connectorX || e.Y != connectorY)
                 {
-                    Line line1 = new Line(signalX, signalY, e.X, signalY, currentlyDrawing);
-                    Line line2 = new Line(e.X, signalY, e.X, e.Y, currentlyDrawing);
+                    Line line1 = new Line(Thicknes, connectorX, connectorY, e.X, connectorY);
+                    Line line2 = new Line(Thicknes, e.X, connectorY, e.X, e.Y);
                     systemPanel1.Controls.Add(line1);
                     systemPanel1.Controls.Add(line2);
-                    currentlyDrawing.Lines.AddLast(line1);
-                    currentlyDrawing.Lines.AddLast(line2);
+                    currentlyDrawnConnector.Lines.AddLast(line1);
+                    currentlyDrawnConnector.Lines.AddLast(line2);
                 }
                 else
                 {
-                    Line line = new Line(signalX, signalY, e.X, e.Y, currentlyDrawing);
+                    Line line = new Line(Thicknes, connectorX, connectorY, e.X, e.Y);
                     systemPanel1.Controls.Add(line);
-                    currentlyDrawing.Lines.AddLast(line);
+                    currentlyDrawnConnector.Lines.AddLast(line);
                 }
-                signalX = e.X;
-                signalY = e.Y;
+                connectorX = e.X;
+                connectorY = e.Y;
+            }
+            else if (drawingBus)
+            {
+                drawingBus = true;
+                currentlyDrawnConnector = new Bus(system);
+                StartDrawing(e.X, e.Y);
+            }
+        }
+
+        private int Thicknes
+        {
+            get
+            {
+                return drawingBus ? 5 : 1;
             }
         }
 
@@ -291,6 +357,11 @@ namespace MultiArc_Compiler
         private void frequencyInput_ValueChanged(object sender, EventArgs e)
         {
             system.Frequency = (double)frequencyInput.Value;
+        }
+
+        private void DrawBusButton_Click(object sender, EventArgs e)
+        {
+            drawingBus = true;
         }
     }
 }

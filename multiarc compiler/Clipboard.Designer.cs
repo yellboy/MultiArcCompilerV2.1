@@ -47,6 +47,7 @@ namespace MultiArc_Compiler
             this.label1 = new System.Windows.Forms.Label();
             this.frequencyInput = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
+            this.DrawBusButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyInput)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@ namespace MultiArc_Compiler
             this.componentsListBox.FormattingEnabled = true;
             this.componentsListBox.Location = new System.Drawing.Point(13, 39);
             this.componentsListBox.Name = "componentsListBox";
-            this.componentsListBox.Size = new System.Drawing.Size(107, 262);
+            this.componentsListBox.Size = new System.Drawing.Size(107, 249);
             this.componentsListBox.TabIndex = 0;
             this.componentsListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.componentsListBox_DrawItem);
             this.componentsListBox.SelectedIndexChanged += new System.EventHandler(this.componentsListBox_SelectedIndexChanged);
@@ -84,7 +85,7 @@ namespace MultiArc_Compiler
             // 
             this.addComponentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.addComponentButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.addComponentButton.Location = new System.Drawing.Point(12, 325);
+            this.addComponentButton.Location = new System.Drawing.Point(12, 294);
             this.addComponentButton.Name = "addComponentButton";
             this.addComponentButton.Size = new System.Drawing.Size(75, 23);
             this.addComponentButton.TabIndex = 2;
@@ -233,11 +234,23 @@ namespace MultiArc_Compiler
             this.label2.TabIndex = 12;
             this.label2.Text = "Hz";
             // 
+            // DrawBusButton
+            // 
+            this.DrawBusButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DrawBusButton.Location = new System.Drawing.Point(13, 324);
+            this.DrawBusButton.Name = "DrawBusButton";
+            this.DrawBusButton.Size = new System.Drawing.Size(75, 23);
+            this.DrawBusButton.TabIndex = 13;
+            this.DrawBusButton.Text = "Draw bus";
+            this.DrawBusButton.UseVisualStyleBackColor = true;
+            this.DrawBusButton.Click += new System.EventHandler(this.DrawBusButton_Click);
+            // 
             // Clipboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 386);
+            this.Controls.Add(this.DrawBusButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.frequencyInput);
             this.Controls.Add(this.label1);
@@ -279,6 +292,7 @@ namespace MultiArc_Compiler
         private Label label1;
         private NumericUpDown frequencyInput;
         private Label label2;
+        private Button DrawBusButton;
 
 
     }

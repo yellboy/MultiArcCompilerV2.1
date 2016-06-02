@@ -61,12 +61,14 @@
     <Compile Include="ArchConstants.cs" />
     <Compile Include="Argument.cs" />
     <Compile Include="Assembler.cs" />
+    <Compile Include="Bus.cs" />
     <Compile Include="Clipboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Clipboard.Designer.cs">
       <DependentUpon>Clipboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Connector.cs" />
     <Compile Include="ControlWithImage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -155,7 +157,7 @@
     <Compile Include="PerCederberg.Grammatica.Runtime\TokenRegExpParser.cs" />
     <Compile Include="PerCederberg.Grammatica.Runtime\TokenStringDFA.cs" />
     <Compile Include="Pin.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Port.cs" />
     <Compile Include="Program.cs" />
@@ -172,6 +174,12 @@
     </Compile>
     <Compile Include="SaveOldFileForm.Designer.cs">
       <DependentUpon>SaveOldFileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetBusWidthForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetBusWidthForm.Designer.cs">
+      <DependentUpon>SetBusWidthForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Signal.cs" />
@@ -214,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SaveOldFileForm.resx">
       <DependentUpon>SaveOldFileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetBusWidthForm.resx">
+      <DependentUpon>SetBusWidthForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

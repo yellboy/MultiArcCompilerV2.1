@@ -151,11 +151,19 @@ namespace MultiArc_Compiler
             }
         }
 
+        public LinkedList<Bus> Buses
+        {
+            get;
+            private set;
+        }
+
         /// <summary>
         /// Creates one object of UserSystem class.
         /// </summary>
         public UserSystem()
         {
+            Buses = new LinkedList<Bus>();
+
             components.Clear();
             wakeUpTimes.Clear();
         }
@@ -449,7 +457,7 @@ namespace MultiArc_Compiler
                                         int x2 = Convert.ToInt32(lineNode.Attributes["x2"].Value);
                                         int y1 = Convert.ToInt32(lineNode.Attributes["y1"].Value);
                                         int y2 = Convert.ToInt32(lineNode.Attributes["y2"].Value);
-                                        Line line = new Line(x1, y1, x2, y2, signal);
+                                        Line line = new Line(1, x1, y1, x2, y2, signal);
                                         signal.Lines.AddLast(line);
                                     }
                                     break;
