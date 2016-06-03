@@ -145,34 +145,7 @@ namespace MultiArc_Compiler
 
         private void systemPanel1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            drawingConnector = false;
-            this.Cursor = Cursors.Arrow;
-            if (drawingBus)
-            {
-                var bus = currentlyDrawnConnector as Bus;
-                system.Buses.AddLast(bus);
-                var width = GetBusWidth();
-                for (var i = 0; i < width; i++)
-                {
-                    var signal = new Signal(system);
-                    signal.Names.AddLast(string.Format("{0}[{1}]", bus.Names.First(), i));
-                    bus.Lines.ForEach(l => 
-                    { 
-                        signal.Lines.AddLast(l);
-                        l.ContainedBySignal = signal;
-                    });
-                    bus.Signals.AddLast(signal);
-                }
-            }
-            else
-            {
-                var signal = currentlyDrawnConnector as Signal;
-                system.Signals.AddLast(signal);
-                signal.Lines.ForEach(l => l.ContainedBySignal = signal);
-            }
             
-            drawingBus = false;
-            currentlyDrawnConnector.SetColor(Color.Violet);
         }
 
         private int GetBusWidth()
@@ -187,37 +160,89 @@ namespace MultiArc_Compiler
 
                 return 0;
             }
-
-
         }
 
         private void systemPanel1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (drawingConnector == true)
+            if (e.Button == MouseButtons.Left)
             {
-                if (e.X != connectorX || e.Y != connectorY)
+                if (drawingConnector == true)
                 {
-                    Line line1 = new Line(Thicknes, connectorX, connectorY, e.X, connectorY);
-                    Line line2 = new Line(Thicknes, e.X, connectorY, e.X, e.Y);
-                    systemPanel1.Controls.Add(line1);
-                    systemPanel1.Controls.Add(line2);
-                    currentlyDrawnConnector.Lines.AddLast(line1);
-                    currentlyDrawnConnector.Lines.AddLast(line2);
+                    if (e.X != connectorX || e.Y != connectorY)
+                    {
+                        Line line1 = new Line(Thicknes, connectorX, connectorY, e.X, connectorY);
+                        Line line2 = new Line(Thicknes, e.X, connectorY, e.X, e.Y);
+                        systemPanel1.Controls.Add(line1);
+                        systemPanel1.Controls.Add(line2);
+                        currentlyDrawnConnector.Lines.AddLast(line1);
+                        currentlyDrawnConnector.Lines.AddLast(line2);
+                    }
+                    else
+                    {
+                        Line line = new Line(Thicknes, connectorX, connectorY, e.X, e.Y);
+                        systemPanel1.Controls.Add(line);
+                        currentlyDrawnConnector.Lines.AddLast(line);
+                    }
+                    connectorX = e.X;
+                    connectorY = e.Y;
                 }
-                else
+                else if (drawingBus)
                 {
-                    Line line = new Line(Thicknes, connectorX, connectorY, e.X, e.Y);
-                    systemPanel1.Controls.Add(line);
-                    currentlyDrawnConnector.Lines.AddLast(line);
+                    drawingBus = true;
+                    currentlyDrawnConnector = new Bus(system);
+                    StartDrawing(e.X, e.Y);
                 }
-                connectorX = e.X;
-                connectorY = e.Y;
             }
-            else if (drawingBus)
+            else
             {
-                drawingBus = true;
-                currentlyDrawnConnector = new Bus(system);
-                StartDrawing(e.X, e.Y);
+                if (drawingConnector)
+                {
+                    if (e.X != connectorX || e.Y != connectorY)
+                    {
+                        Line line1 = new Line(Thicknes, connectorX, connectorY, e.X, connectorY);
+                        Line line2 = new Line(Thicknes, e.X, connectorY, e.X, e.Y);
+                        systemPanel1.Controls.Add(line1);
+                        systemPanel1.Controls.Add(line2);
+                        currentlyDrawnConnector.Lines.AddLast(line1);
+                        currentlyDrawnConnector.Lines.AddLast(line2);
+                    }
+                    else
+                    {
+                        Line line = new Line(Thicknes, connectorX, connectorY, e.X, e.Y);
+                        systemPanel1.Controls.Add(line);
+                        currentlyDrawnConnector.Lines.AddLast(line);
+                    }
+
+                    drawingConnector = false;
+                    this.Cursor = Cursors.Arrow;
+                    if (drawingBus)
+                    {
+                        var bus = currentlyDrawnConnector as Bus;
+                        system.Buses.AddLast(bus);
+                        var width = GetBusWidth();
+                        for (var i = 0; i < width; i++)
+                        {
+                            var signal = new Signal(system);
+                            signal.Bus = bus;
+                            signal.Names.AddLast(string.Format("{0}[{1}]", bus.Names.First(), i));
+                            bus.Lines.ForEach(l =>
+                            {
+                                signal.Lines.AddLast(l);
+                                l.ContainedBySignal = signal;
+                            });
+                            bus.Signals.AddLast(signal);
+                        }
+                    }
+                    else
+                    {
+                        var signal = currentlyDrawnConnector as Signal;
+                        system.Signals.AddLast(signal);
+                        signal.Lines.ForEach(l => l.ContainedBySignal = signal);
+                    }
+
+                    drawingBus = false;
+                    currentlyDrawnConnector.SetColor(Color.Violet);
+                }
             }
         }
 

@@ -28,7 +28,7 @@ namespace MultiArc_Compiler
 
         public virtual void AddGenericName()
         {
-            Names.AddLast(GetType().ToString() + _id);
+            Names.AddLast(GetType().ToString().Split('.').Last() + _id);
         }
         /// <summary>
         /// Sets color of the drawn signal.
@@ -54,7 +54,6 @@ namespace MultiArc_Compiler
         }
 
         private delegate void setColor(Color color);
-
 
         public abstract void AddName(string name);
     }

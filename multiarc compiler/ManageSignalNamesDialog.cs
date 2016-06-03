@@ -12,15 +12,15 @@ namespace MultiArc_Compiler
 {
     public partial class ManageSignalNamesDialog : Form
     {
-        private Signal _signal;
+        private Connector _connector;
 
-        public ManageSignalNamesDialog(Signal signal)
+        public ManageSignalNamesDialog(Connector connector)
         {
             InitializeComponent();
             Visible = true;
-            signal.Names.ForEach(s => NamesList.Items.Add(s));
+            connector.Names.ForEach(s => NamesList.Items.Add(s));
 
-            _signal = signal;
+            _connector = connector;
         }
 
         private void AddNameButton_Click(object sender, EventArgs e)
@@ -87,9 +87,9 @@ namespace MultiArc_Compiler
         {
             foreach (string name in NamesList.Items)
             {
-                if (!_signal.Names.Contains(name))
+                if (!_connector.Names.Contains(name))
                 {
-                    _signal.AddName(name);
+                    _connector.AddName(name);
                 }
             }
 

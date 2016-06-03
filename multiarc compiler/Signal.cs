@@ -55,6 +55,8 @@ namespace MultiArc_Compiler
             }
         }
 
+        public Bus Bus { get; set; }
+
         public LinkedList<Signal> ConnectedSignals { get; private set; } 
 
         /// <summary>

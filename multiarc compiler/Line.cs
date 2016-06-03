@@ -155,7 +155,7 @@ namespace MultiArc_Compiler
             switch (e.ClickedItem.Text)
             {
                 case "Manage names":
-                    var dialog = new ManageSignalNamesDialog(ContainedBySignal);
+                    var dialog = new ManageSignalNamesDialog(ContainedBySignal.Bus as Connector ?? ContainedBySignal as Connector);
                     break;
                 case "Remove":
                     containedBySignal.Remove();

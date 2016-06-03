@@ -17,6 +17,12 @@ namespace MultiArc_Compiler
 
         public override void AddName(string name)
         {
+            Names.AddLast(name);
+
+            for (var i = 0; i < Signals.Count; i++)
+            {
+                Signals.ElementAt(i).AddName(string.Format("{0}[{1}]", name, i));
+            }
         }
     }
 }
