@@ -65,3 +65,5 @@ D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.Ge
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
 C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SetBusWidthForm.resources
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.BusPinStatesForm.resources
+D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csprojResolveAssemblyReference.cache

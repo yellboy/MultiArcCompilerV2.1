@@ -156,6 +156,13 @@ namespace MultiArc_Compiler
                     }
                 }
 
+                if (s.Bus != null)
+                {
+                    var node = s.Bus.Signals.Find(s);
+                    s.Bus.Signals.AddBefore(node, mergedSignal);
+                    s.Bus.Signals.Remove(s);
+                }
+
                 system.Signals.Remove(s);
             }
 

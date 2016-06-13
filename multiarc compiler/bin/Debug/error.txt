@@ -1,8 +1,8 @@
-System.InvalidOperationException: Sequence contains no matching element
-   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
-   at MultiArc_Compiler.UserSystem.StartWorking(LinkedList`1 separators, LinkedList`1 breakPoints, TextBoxBase outputBox, Int32 entryPoint, Byte[] binary, Boolean stepByStepMode) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\UserSystem.cs:line 234
-   at MultiArc_Compiler.Form1.Execute() in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Form1.cs:line 396
-   at MultiArc_Compiler.Clipboard.executeButton_Click(Object sender, EventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Clipboard.cs:line 265
+System.Threading.SynchronizationLockException: Object synchronization method was called from an unsynchronized block of code.
+   at System.Threading.Monitor.ObjPulseAll(Object obj)
+   at System.Threading.Monitor.PulseAll(Object obj)
+   at MultiArc_Compiler.UserSystem.set_Ticks(Int64 value) in d:\MultiArc Compiler\multiarc compiler\UserSystem.cs:line 117
+   at MultiArc_Compiler.Clipboard.nextClockButton_Click(Object sender, EventArgs e) in d:\MultiArc Compiler\multiarc compiler\Clipboard.cs:line 275
    at System.Windows.Forms.Control.OnClick(EventArgs e)
    at System.Windows.Forms.Button.OnClick(EventArgs e)
    at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
@@ -18,6 +18,4 @@ System.InvalidOperationException: Sequence contains no matching element
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.Run(Form mainForm)
-   at MultiArc_Compiler.Program.Main() in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Program.cs:line 25
-   
-   class="{{ctrl.serviceChanged ? 'label-checkbox-disabled' : 'label-checkbox'}}"
+   at MultiArc_Compiler.Program.Main() in d:\MultiArc Compiler\multiarc compiler\Program.cs:line 25

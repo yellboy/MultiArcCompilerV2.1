@@ -146,6 +146,7 @@ namespace MultiArc_Compiler
             base.MouseClick += this.mouseClick;
             base.MouseEnter += this.mouseEnter;
             base.MouseLeave += this.mouseLeave;
+            menu.Items.Add("See pin states");
             menu.Items.Add("Manage names");
             menu.Items.Add("Remove");
         }
@@ -154,8 +155,11 @@ namespace MultiArc_Compiler
         {
             switch (e.ClickedItem.Text)
             {
+                case "See pin states":
+                    var pinStatesDialog = containedBySignal.Bus != null ? new BusPinStatesForm(containedBySignal.Bus) : null;
+                    break;
                 case "Manage names":
-                    var dialog = new ManageSignalNamesDialog(ContainedBySignal.Bus as Connector ?? ContainedBySignal as Connector);
+                    var signalNamesDialog = new ManageSignalNamesDialog(ContainedBySignal.Bus as Connector ?? ContainedBySignal as Connector);
                     break;
                 case "Remove":
                     containedBySignal.Remove();

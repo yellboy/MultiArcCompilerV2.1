@@ -231,6 +231,7 @@ namespace MultiArc_Compiler
                                 l.ContainedBySignal = signal;
                             });
                             bus.Signals.AddLast(signal);
+                            system.Signals.AddLast(signal);
                         }
                     }
                     else
