@@ -193,6 +193,13 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="Signal.cs" />
+    <Compile Include="SignalPinsDto.cs" />
+    <Compile Include="SignalPinStatesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignalPinStatesForm.Designer.cs">
+      <DependentUpon>SignalPinStatesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Symbol.cs" />
     <Compile Include="SystemComponent.cs">
       <SubType>UserControl</SubType>
@@ -239,8 +246,12 @@
     <EmbeddedResource Include="SetBusWidthForm.resx">
       <DependentUpon>SetBusWidthForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SignalPinStatesForm.resx">
+      <DependentUpon>SignalPinStatesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BusPinsDto.datasource" />
+    <None Include="Properties\DataSources\SignalPinsDto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

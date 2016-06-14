@@ -156,10 +156,18 @@ namespace MultiArc_Compiler
             switch (e.ClickedItem.Text)
             {
                 case "See pin states":
-                    var pinStatesDialog = containedBySignal.Bus != null ? new BusPinStatesForm(containedBySignal.Bus) : null;
+                    if (containedBySignal.Bus != null) 
+                    { 
+                        new BusPinStatesForm(containedBySignal.Bus); 
+                    } 
+                    else 
+                    { 
+                        new SignalPinStatesForm(containedBySignal); 
+                    }
+
                     break;
                 case "Manage names":
-                    var signalNamesDialog = new ManageSignalNamesDialog(ContainedBySignal.Bus as Connector ?? ContainedBySignal as Connector);
+                    new ManageSignalNamesDialog(ContainedBySignal.Bus as Connector ?? ContainedBySignal as Connector);
                     break;
                 case "Remove":
                     containedBySignal.Remove();

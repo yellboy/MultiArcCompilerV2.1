@@ -73,17 +73,18 @@ namespace MultiArc_Compiler
                 val = value;
                 if (signal != null)
                 {
-                    //lock (this)
-                    //{
-                        signal.Val = val;
-                        if (!parentPort.Initializing)
-                        { 
-                            signal.InformOtherPins(this); 
-                        }
-                    //}
+                    signal.Val = val;
+                    if (!parentPort.Initializing)
+                    { 
+                        signal.InformOtherPins(this); 
+                    }
                 }
+
+                ValueSetExternaly = false;
             }
         }
+
+        public bool ValueSetExternaly { get; private set; }
 
         public PinValue OldVal { get; private set; }
 
@@ -121,6 +122,7 @@ namespace MultiArc_Compiler
         public Pin(Port parentPort, int index) : this(parentPort)
         {
             this.Name = parentPort.Name + index;
+            ValueSetExternaly = false;
         }
 
         public Pin(Port parentPort, string name) : this(parentPort)
@@ -156,9 +158,13 @@ namespace MultiArc_Compiler
         {
             lock (this.parentPort)
             {
-                OldVal = val;
-                val = signalValue;
-                Monitor.PulseAll(Form1.LockObject);
+                if (val != PinValue.HIGHZ)
+                {
+                    OldVal = val;
+                    val = signalValue;
+                    ValueSetExternaly = true;
+                    Monitor.PulseAll(Form1.LockObject);
+                }
             }
         }
 

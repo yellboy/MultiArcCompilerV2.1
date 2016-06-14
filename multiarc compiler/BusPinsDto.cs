@@ -5,14 +5,8 @@ using System.Text;
 
 namespace MultiArc_Compiler
 {
-    public class BusPinsDto
+    public class BusPinsDto : SignalPinsDto
     {
         public int Index { get; set; }
-
-        public string ComponentName { get; set; }
-
-        public string PinName { get; set; }
-
-        public string PinValue { get; set; }
     }
 }
