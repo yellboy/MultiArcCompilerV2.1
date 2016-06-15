@@ -1,8 +1,6 @@
-System.Threading.SynchronizationLockException: Object synchronization method was called from an unsynchronized block of code.
-   at System.Threading.Monitor.ObjPulseAll(Object obj)
-   at System.Threading.Monitor.PulseAll(Object obj)
-   at MultiArc_Compiler.UserSystem.set_Ticks(Int64 value) in d:\MultiArc Compiler\multiarc compiler\UserSystem.cs:line 117
-   at MultiArc_Compiler.Clipboard.nextClockButton_Click(Object sender, EventArgs e) in d:\MultiArc Compiler\multiarc compiler\Clipboard.cs:line 275
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.UserSystem.EndWorking() in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\UserSystem.cs:line 305
+   at MultiArc_Compiler.Clipboard.stopButton_Click(Object sender, EventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Clipboard.cs:line 284
    at System.Windows.Forms.Control.OnClick(EventArgs e)
    at System.Windows.Forms.Button.OnClick(EventArgs e)
    at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
@@ -18,4 +16,4 @@ System.Threading.SynchronizationLockException: Object synchronization method was
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.Run(Form mainForm)
-   at MultiArc_Compiler.Program.Main() in d:\MultiArc Compiler\multiarc compiler\Program.cs:line 25
+   at MultiArc_Compiler.Program.Main() in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Program.cs:line 25

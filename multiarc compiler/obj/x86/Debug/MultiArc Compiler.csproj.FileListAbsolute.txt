@@ -68,3 +68,5 @@ C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compil
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.BusPinStatesForm.resources
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SignalPinStatesForm.resources
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csprojResolveAssemblyReference.cache
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.BusPinStatesForm.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SignalPinStatesForm.resources

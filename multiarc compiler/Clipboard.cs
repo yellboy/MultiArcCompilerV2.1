@@ -272,7 +272,11 @@ namespace MultiArc_Compiler
             {
                 Form1.Instance.ExecuteTickByTick();
             }
-            system.Ticks++;
+
+            lock (Form1.LockObject)
+            {
+                system.Ticks++;
+            }
         }
 
         private void stopButton_Click(object sender, EventArgs e)
