@@ -254,6 +254,7 @@ namespace MultiArc_Compiler
             {
                 running = true;
                 ex.Continue();
+                tickByTickMode = false;
                 //ex.WaitUntilBreakpointOrEnd();
                 //if (ex.Executing == true)
                 //{
