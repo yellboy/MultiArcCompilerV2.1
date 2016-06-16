@@ -303,6 +303,7 @@ namespace MultiArc_Compiler
         {
             system.LoadSystemFromFile(LoadSystemDialog.FileName);
             DrawSystem();
+            DisableCloseButton();
         }
 
         private void DrawSystem()
