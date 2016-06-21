@@ -193,14 +193,11 @@ namespace MultiArc_Compiler
                     }
                 }
 
-                if (haveNonPortControls)
-                {
-                }
-                else
+                if (!haveNonPortControls)
                 {
                     Rectangle rectangle = new Rectangle(5, 5, this.Width - 10, this.Height - 10);
                     graphics.FillRectangle(new SolidBrush(Color.White), rectangle);
-                    graphics.DrawRectangle(Pens.Black, rectangle);
+                    graphics.DrawRectangle(DefaultPen, rectangle);
                     LinkedList<Port> rightPorts = new LinkedList<Port>();
                     int rightCount = 0;
                     rightPorts.Clear();

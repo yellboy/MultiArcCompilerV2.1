@@ -8,6 +8,6 @@ public static void DrawComponent(MultiArc_Compiler.OtherComponent component, Sys
 	component.Width = 25;
 	Rectangle rectangle = new Rectangle(0, 0, 20, 20);
 	graphics.FillRectangle(new SolidBrush(Color.White), rectangle);
-	graphics.DrawRectangle(Pens.Black, rectangle);
+	graphics.DrawRectangle(component.DefaultPen, rectangle);
 	component.GetPin("CLK0").Location = new Point(20, 10);
 }

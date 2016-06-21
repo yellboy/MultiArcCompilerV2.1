@@ -73,6 +73,7 @@ namespace MultiArc_Compiler
                 var parent = (SystemComponent)Parent;
                 parent.ClickedX = Location.X + ClickedX;
                 parent.ClickedY = Location.Y + ClickedY;
+                parent.SelectControl();
                 parent.MouseDownAction(e);
                 return;
             }
@@ -100,6 +101,18 @@ namespace MultiArc_Compiler
         public void Draw()
         {
             var graphics = CreateGraphics();
+            
+            for (var x = 0; x < Width; x++)
+            {
+                for (var y = 0; y < Height; y++)
+                {
+                    var pixel = _image.GetPixel(x, y);
+                    if (pixel.ToArgb() == Color.Black.ToArgb())
+                    {
+                        _image.SetPixel(x, y, DefaultPen.Color);
+                    }
+                }
+            }
 
             if (Transparent)
             {
