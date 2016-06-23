@@ -30,6 +30,21 @@ namespace MultiArc_Compiler
             }
         }
 
+        private bool _wasSelected;
+
+        public override bool Selected
+        {
+            get
+            {
+                return base.Selected;
+            }
+            set
+            {
+                _wasSelected = base.Selected;
+                base.Selected = value;
+            }
+        }
+
         public ControlWithImage(Bitmap image, Designer designer)
         {
             _image = image;
@@ -101,15 +116,31 @@ namespace MultiArc_Compiler
         public void Draw()
         {
             var graphics = CreateGraphics();
-            
-            for (var x = 0; x < Width; x++)
+
+            if (_wasSelected != Selected)
             {
-                for (var y = 0; y < Height; y++)
+                for (var x = 0; x < Width; x++)
                 {
-                    var pixel = _image.GetPixel(x, y);
-                    if (pixel.ToArgb() == Color.Black.ToArgb())
+                    for (var y = 0; y < Height; y++)
                     {
-                        _image.SetPixel(x, y, DefaultPen.Color);
+                        var pixel = _image.GetPixel(x, y);
+
+                        if (!IsWhiteOrTransparent(pixel.ToArgb()))
+                        {
+                            if (!_wasSelected && Selected)
+                            {
+                                var color = Color.FromArgb(pixel.A, pixel.R, pixel.G + 50 < 255 ? pixel.G + 50 : 255, pixel.B);
+                                _image.SetPixel(x, y, color);
+                            }
+
+                            if (_wasSelected && !Selected)
+                            {
+                                var color = Color.FromArgb(pixel.A, pixel.R, pixel.G - 50 > 0 ? pixel.G - 50 : 0, pixel.B);
+                                _image.SetPixel(x, y, color);
+                            }
+                        }
+
+
                     }
                 }
             }

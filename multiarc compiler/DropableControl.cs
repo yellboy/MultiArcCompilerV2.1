@@ -9,7 +9,7 @@ namespace MultiArc_Compiler
 {
     public abstract class DropableControl : UserControl
     {
-        public bool Selected { get; set; }
+        public virtual bool Selected { get; set; }
 
         public Pen DefaultPen { get; protected set; }
 
@@ -17,7 +17,7 @@ namespace MultiArc_Compiler
         {
             Selected = false;
             DefaultPen = Pens.Black;
-            PassDefaultColorToControlsWithImages();
+            PassSelectedToControlsWithImage();
             MouseDown += OnMouseDown;
         }
 
@@ -27,7 +27,10 @@ namespace MultiArc_Compiler
             ClickedY = e.Y;
 
             SelectControl();
-            Refresh();
+            if (!ModifierKeys.HasFlag(Keys.Control))
+            {
+                DeselectOthers();
+            }
 
             MouseDownAction(e);
         }
@@ -36,16 +39,43 @@ namespace MultiArc_Compiler
         {
             Selected = true;
             DefaultPen = Pens.LightGreen;
-            PassDefaultColorToControlsWithImages();
+            PassSelectedToControlsWithImage();
+            Refresh();
         }
 
-        private void PassDefaultColorToControlsWithImages()
+        public void DeselectControl()
+        {
+            Selected = false;
+            DefaultPen = Pens.Black;
+            PassSelectedToControlsWithImage();
+            Refresh();
+        }
+
+        public virtual void DeselectOthers()
+        {
+            var parent = Parent;
+            while (!(parent is Panel))
+            {
+                parent = parent.Parent;
+            }
+
+            foreach (var c in parent.Controls)
+            {
+                if (c != this)
+                {
+                    ((DropableControl)c).DeselectControl();
+                }
+            }
+        }
+
+        private void PassSelectedToControlsWithImage()
         {
             foreach (var control in Controls)
             {
                 var image = control as ControlWithImage;
                 if (image != null)
                 {
+                    image.Selected = Selected;
                     image.DefaultPen = DefaultPen;
                 }
             }
