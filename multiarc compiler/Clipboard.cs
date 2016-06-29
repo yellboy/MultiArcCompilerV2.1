@@ -394,5 +394,17 @@ namespace MultiArc_Compiler
         {
             drawingBus = true;
         }
+
+        private void systemPanel1_Click(object sender, EventArgs e)
+        {
+            foreach (var c in systemPanel1.Controls)
+            {
+                var dropableControl = c as DropableControl;
+                if (dropableControl != null)
+                {
+                    dropableControl.DeselectControl();
+                }
+            }
+        }
     }
 }

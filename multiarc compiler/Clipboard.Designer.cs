@@ -77,6 +77,7 @@ namespace MultiArc_Compiler
             this.systemPanel1.Name = "systemPanel1";
             this.systemPanel1.Size = new System.Drawing.Size(458, 309);
             this.systemPanel1.TabIndex = 1;
+            this.systemPanel1.Click += new System.EventHandler(this.systemPanel1_Click);
             this.systemPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseClick);
             this.systemPanel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseDoubleClick);
             this.systemPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseMove);

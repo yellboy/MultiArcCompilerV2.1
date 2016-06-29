@@ -139,8 +139,6 @@ namespace MultiArc_Compiler
                                 _image.SetPixel(x, y, color);
                             }
                         }
-
-
                     }
                 }
             }
