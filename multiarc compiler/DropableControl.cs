@@ -13,6 +13,26 @@ namespace MultiArc_Compiler
 
         public Pen DefaultPen { get; protected set; }
 
+        private Panel _parentPanel;
+
+        private Panel ParentPanel { 
+            get
+            {
+                if (_parentPanel == null)
+                {
+                    var parent = Parent;
+                    while (!(parent is Panel))
+                    {
+                        parent = parent.Parent;
+                    }
+
+                    _parentPanel = (Panel)parent;
+                }
+
+                return _parentPanel;
+            }
+        }
+
         protected DropableControl()
         {
             Selected = false;
@@ -53,13 +73,7 @@ namespace MultiArc_Compiler
 
         public virtual void DeselectOthers()
         {
-            var parent = Parent;
-            while (!(parent is Panel))
-            {
-                parent = parent.Parent;
-            }
-
-            foreach (var c in parent.Controls)
+            foreach (var c in ParentPanel.Controls)
             {
                 if (c != this)
                 {
