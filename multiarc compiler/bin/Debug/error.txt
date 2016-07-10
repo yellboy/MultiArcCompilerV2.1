@@ -1,13 +1,13 @@
-System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.UserSystem.EndWorking() in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\UserSystem.cs:line 305
-   at MultiArc_Compiler.Clipboard.stopButton_Click(Object sender, EventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Clipboard.cs:line 284
-   at System.Windows.Forms.Control.OnClick(EventArgs e)
-   at System.Windows.Forms.Button.OnClick(EventArgs e)
-   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
-   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
+System.InvalidCastException: Unable to cast object of type 'MultiArc_Compiler.Line' to type 'MultiArc_Compiler.DropableControl'.
+   at MultiArc_Compiler.DropableControl.DeselectOthers() in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\DropableControl.cs:line 80
+   at MultiArc_Compiler.DropableControl.OnMouseDown(Object sender, MouseEventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\DropableControl.cs:line 52
+   at System.Windows.Forms.Control.OnMouseDown(MouseEventArgs e)
+   at System.Windows.Forms.UserControl.OnMouseDown(MouseEventArgs e)
+   at System.Windows.Forms.Control.WmMouseDown(Message& m, MouseButtons button, Int32 clicks)
    at System.Windows.Forms.Control.WndProc(Message& m)
-   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
-   at System.Windows.Forms.Button.WndProc(Message& m)
+   at System.Windows.Forms.ScrollableControl.WndProc(Message& m)
+   at System.Windows.Forms.ContainerControl.WndProc(Message& m)
+   at System.Windows.Forms.UserControl.WndProc(Message& m)
    at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
    at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
    at System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

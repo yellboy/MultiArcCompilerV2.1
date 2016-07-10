@@ -77,7 +77,12 @@ namespace MultiArc_Compiler
             {
                 if (c != this)
                 {
-                    ((DropableControl)c).DeselectControl();
+                    var dropableControl = c as DropableControl;
+
+                    if (dropableControl != null)
+                    {
+                        dropableControl.DeselectControl();
+                    }
                 }
             }
         }

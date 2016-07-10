@@ -26,29 +26,6 @@ G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.Ge
 G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
 G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
 G:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csprojResolveAssemblyReference.cache
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\MultiArc Compiler.exe
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\MultiArc Compiler.pdb
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\MoreLinq.dll
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\testApp.exe
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\MoreLinq.xml
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csprojResolveAssemblyReference.cache
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Clipboard.resources
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Designer.resources
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Form1.resources
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Line.resources
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.MemoryDumpForm.resources
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Properties.Resources.resources
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.RegistersForm.resources
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SaveOldFileForm.resources
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.GenerateResource.Cache
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\ImageMap.dll
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\ImageMap.pdb
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.ManageSignalNamesDialog.resources
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SetBusWidthForm.resources
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.BusPinStatesForm.resources
-C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SignalPinStatesForm.resources
 D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MultiArc Compiler.exe
 D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MultiArc Compiler.pdb
 D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MoreLinq.dll
@@ -69,3 +46,25 @@ D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SignalPin
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.GenerateResource.Cache
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\MultiArc Compiler.exe
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\MultiArc Compiler.pdb
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\ImageMap.dll
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\MoreLinq.dll
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\testApp.exe
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\ImageMap.pdb
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\bin\Debug\MoreLinq.xml
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.BusPinStatesForm.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Clipboard.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Designer.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Form1.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Line.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.ManageSignalNamesDialog.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.MemoryDumpForm.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Properties.Resources.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.RegistersForm.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SaveOldFileForm.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SetBusWidthForm.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SignalPinStatesForm.resources
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.GenerateResource.Cache
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
+C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb

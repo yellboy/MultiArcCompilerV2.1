@@ -141,6 +141,10 @@ namespace MultiArc_Compiler
                 graphics.DrawLine(pen, connectorX, connectorY, e.X, connectorY);
                 graphics.DrawLine(pen, e.X, connectorY, e.X, e.Y);
             }
+            else
+            {
+                systemPanel1.OnMouseMove(sender, e);
+            }
         }
 
         private void systemPanel1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -164,6 +168,8 @@ namespace MultiArc_Compiler
 
         private void systemPanel1_MouseClick(object sender, MouseEventArgs e)
         {
+            systemPanel1.OnMouseClick(sender, e);
+
             if (e.Button == MouseButtons.Left)
             {
                 if (drawingConnector == true)
@@ -393,18 +399,6 @@ namespace MultiArc_Compiler
         private void DrawBusButton_Click(object sender, EventArgs e)
         {
             drawingBus = true;
-        }
-
-        private void systemPanel1_Click(object sender, EventArgs e)
-        {
-            foreach (var c in systemPanel1.Controls)
-            {
-                var dropableControl = c as DropableControl;
-                if (dropableControl != null)
-                {
-                    dropableControl.DeselectControl();
-                }
-            }
         }
     }
 }
