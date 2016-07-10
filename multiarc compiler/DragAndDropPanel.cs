@@ -8,8 +8,10 @@ namespace MultiArc_Compiler
     {
 
         private bool _selecting;
+        private bool _justStartedSelecting;
         private Point _startingPoint;
         private Rectangle _selectionRectangle = new Rectangle(0, 0, 0, 0);
+
 
         public DragAndDropPanel()
         {
@@ -19,7 +21,6 @@ namespace MultiArc_Compiler
             MouseMove += OnMouseMove;
             MouseUp += OnMouseUp;
             MouseClick += OnMouseClick;
-            DoubleBuffered = true;
         }
 
         private void DragAndDrop(object sender, DragEventArgs e)
@@ -59,7 +60,16 @@ namespace MultiArc_Compiler
 
         private void OnMouseDown(object sender, MouseEventArgs e)
         {
+            var g = CreateGraphics();
+            g.Clear(this.BackColor);
+
+            foreach (Control c in Controls)
+            {
+                c.Refresh();
+            }
+
             _selecting = true;
+            _justStartedSelecting = true;
             _startingPoint = PointToScreen(new Point(e.X, e.Y));
         }
 
@@ -67,17 +77,22 @@ namespace MultiArc_Compiler
         {
             if (_selecting)
             {
-                ControlPaint.DrawReversibleFrame(_selectionRectangle, Color.DarkSeaGreen, FrameStyle.Dashed);
-                ControlPaint.FillReversibleRectangle(_selectionRectangle, Color.LightGreen);
-                
+                if (!_justStartedSelecting)
+                {
+                    ControlPaint.DrawReversibleFrame(_selectionRectangle, Color.Black, FrameStyle.Dashed);
+                    ControlPaint.FillReversibleRectangle(_selectionRectangle, Color.Red);
+                }
+
+                _justStartedSelecting = false;
+
                 Point endPoint = ((Control)sender).PointToScreen(new Point(e.X, e.Y));
 
                 int width = endPoint.X - _startingPoint.X;
                 int height = endPoint.Y - _startingPoint.Y;
                 _selectionRectangle = new Rectangle(_startingPoint.X, _startingPoint.Y, width, height);
 
-                ControlPaint.DrawReversibleFrame(_selectionRectangle, Color.DarkSeaGreen, FrameStyle.Dashed);
-                ControlPaint.FillReversibleRectangle(_selectionRectangle, Color.LightGreen);
+                ControlPaint.DrawReversibleFrame(_selectionRectangle, Color.Black, FrameStyle.Dashed);
+                ControlPaint.FillReversibleRectangle(_selectionRectangle, Color.Red);
             }
         }
 
@@ -86,20 +101,17 @@ namespace MultiArc_Compiler
             if (_selecting)
             {
                 _selecting = false;
-                ControlPaint.DrawReversibleFrame(_selectionRectangle, Color.DarkSeaGreen, FrameStyle.Dashed);
-                ControlPaint.FillReversibleRectangle(_selectionRectangle, Color.LightGreen);
+
+                if (!_justStartedSelecting)
+                {
+                    ControlPaint.DrawReversibleFrame(_selectionRectangle, Color.Black, FrameStyle.Dashed);
+                    ControlPaint.FillReversibleRectangle(_selectionRectangle, Color.Red);
+                }
             }
         }
 
         public void OnMouseClick(object sender, MouseEventArgs e)
         {
-            if (_selecting)
-            {
-                _selecting = false;
-                ControlPaint.DrawReversibleFrame(_selectionRectangle, Color.DarkSeaGreen, FrameStyle.Dashed);
-                ControlPaint.FillReversibleRectangle(_selectionRectangle, Color.LightGreen);
-            }
-
             foreach (var c in Controls)
             {
                 var dropableControl = c as DropableControl;
