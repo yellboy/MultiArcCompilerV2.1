@@ -102,10 +102,59 @@ namespace MultiArc_Compiler
             {
                 _selecting = false;
 
+                //var g = CreateGraphics();
+                //g.Clear(this.BackColor);
+
                 if (!_justStartedSelecting)
                 {
                     ControlPaint.DrawReversibleFrame(_selectionRectangle, Color.Black, FrameStyle.Dashed);
                     ControlPaint.FillReversibleRectangle(_selectionRectangle, Color.Red);
+
+                    SelectAllCoveredControls();
+
+                    RefreshAllControls();
+                }
+            }
+        }
+
+        private void RefreshAllControls()
+        {
+            foreach (Control c in Controls)
+            {
+                c.Refresh();
+                c.Refresh();
+                c.Refresh();
+            }
+        }
+
+        private void SelectAllCoveredControls()
+        {
+            foreach (var c in Controls)
+            {
+                var dropableControl = c as DropableControl;
+
+                if (dropableControl != null)
+                {
+                    var selectionStartPoint = PointToClient(new Point(_selectionRectangle.X, _selectionRectangle.Y));
+
+                    // TODO This part needs to be reworked
+                    if (_selectionRectangle.Width > 0)
+                    {
+                        if (dropableControl.Location.X >= selectionStartPoint.X && dropableControl.Location.X <= selectionStartPoint.X + _selectionRectangle.Width &&
+                            dropableControl.Location.Y >= selectionStartPoint.Y && dropableControl.Location.Y <= selectionStartPoint.Y + _selectionRectangle.Height)
+                        {
+                            dropableControl.SelectControl();
+                        }
+                    }
+                    else
+                    {
+                        if (dropableControl.Location.X >= selectionStartPoint.X + _selectionRectangle.Width && dropableControl.Location.X <= selectionStartPoint.X &&
+                            dropableControl.Location.Y >= selectionStartPoint.Y + _selectionRectangle.Height && dropableControl.Location.Y <= selectionStartPoint.Y)
+                        {
+                            dropableControl.SelectControl();
+                        }
+                    }
+
                 }
             }
         }

@@ -32,6 +32,8 @@ namespace MultiArc_Compiler
 
         private bool _wasSelected;
 
+        private bool[ , ] _selectionApplied;
+
         public override bool Selected
         {
             get
@@ -41,6 +43,11 @@ namespace MultiArc_Compiler
             set
             {
                 _wasSelected = base.Selected;
+                if (_image != null)
+                {
+                    _selectionApplied = new bool[_image.Width, _image.Height];
+                } 
+
                 base.Selected = value;
             }
         }
@@ -48,6 +55,7 @@ namespace MultiArc_Compiler
         public ControlWithImage(Bitmap image, Designer designer)
         {
             _image = image;
+            _selectionApplied = new bool[_image.Width, _image.Height];
             _designer = designer;
             Size = image.Size;
             Paint += Draw;
@@ -127,16 +135,21 @@ namespace MultiArc_Compiler
 
                         if (!IsWhiteOrTransparent(pixel.ToArgb()))
                         {
-                            if (!_wasSelected && Selected)
+                            if (_selectionApplied != null && !_selectionApplied[x, y])
                             {
-                                var color = Color.FromArgb(pixel.A, pixel.R, pixel.G + 50 < 255 ? pixel.G + 50 : 255, pixel.B);
-                                _image.SetPixel(x, y, color);
-                            }
+                                _selectionApplied[x, y] = true;
 
-                            if (_wasSelected && !Selected)
-                            {
-                                var color = Color.FromArgb(pixel.A, pixel.R, pixel.G - 50 > 0 ? pixel.G - 50 : 0, pixel.B);
-                                _image.SetPixel(x, y, color);
+                                if (!_wasSelected && Selected)
+                                {
+                                    var color = Color.FromArgb(pixel.A, pixel.R, pixel.G + 50 < 255 ? pixel.G + 50 : 255, pixel.B);
+                                    _image.SetPixel(x, y, color);
+                                }
+
+                                if (_wasSelected && !Selected)
+                                {
+                                    var color = Color.FromArgb(pixel.A, pixel.R, pixel.G - 50 > 0 ? pixel.G - 50 : 0, pixel.B);
+                                    _image.SetPixel(x, y, color);
+                                }
                             }
                         }
                     }
