@@ -41,6 +41,21 @@ namespace MultiArc_Compiler
             MouseDown += OnMouseDown;
         }
 
+        public abstract bool IsCompletelySelected(Rectangle rectangle);
+
+        public abstract bool IsPartialySelected(Rectangle rectange);
+
+        protected Point[] GetRectanglePoints(Rectangle rectangle)
+        {
+            var point1 = ParentPanel.PointToClient(new Point(rectangle.X, rectangle.Y));
+            var point2 = new Point(point1.X, point1.Y + rectangle.Height);
+            var point3 = new Point(point1.X + rectangle.Width, point1.Y);
+            var point4 = new Point(point1.X + rectangle.Width, point1.Y + rectangle.Height);
+
+            var points = new[] { point1, point2, point3, point4 };
+            return points.OrderBy(p => p.X).ThenBy(p => p.Y).ToArray();
+        }
+
         public virtual void OnMouseDown(object sender, MouseEventArgs e)
         {
             ClickedX = e.X;

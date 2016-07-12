@@ -340,5 +340,19 @@ namespace MultiArc_Compiler
         {
             _image.Dispose();
         }
+
+        public override bool IsPartialySelected(Rectangle rectangle)
+        {
+            var rectangleRegion = new Region(rectangle);
+            return Region.IsVisible(rectangle, CreateGraphics());
+        }
+
+        public override bool IsCompletelySelected(Rectangle rectangle)
+        {
+            var region = new Region(Region.GetRegionData());
+            region.Intersect(rectangle);
+
+            return region.Equals(Region, CreateGraphics());
+        }
     }
 }

@@ -233,5 +233,17 @@ namespace MultiArc_Compiler
             
             return newPin;
         }
+
+        // TODO
+        public override bool IsCompletelySelected(Rectangle rectangle)
+        {
+            return true;
+        }
+
+        // TODO
+        public override bool IsPartialySelected(Rectangle rectange)
+        {
+            return true;
+        }
     }
 }

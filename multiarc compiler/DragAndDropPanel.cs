@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Linq;
+using MoreLinq;
+using System.Collections.Generic;
 
 namespace MultiArc_Compiler
 {
@@ -11,7 +14,6 @@ namespace MultiArc_Compiler
         private bool _justStartedSelecting;
         private Point _startingPoint;
         private Rectangle _selectionRectangle = new Rectangle(0, 0, 0, 0);
-
 
         public DragAndDropPanel()
         {
@@ -135,26 +137,32 @@ namespace MultiArc_Compiler
 
                 if (dropableControl != null)
                 {
-                    var selectionStartPoint = PointToClient(new Point(_selectionRectangle.X, _selectionRectangle.Y));
+                    //var point1 = PointToClient(new Point(_selectionRectangle.X, _selectionRectangle.Y));
+                    //var point2 = new Point(point1.X, point1.Y + _selectionRectangle.Height);
+                    //var point3 = new Point(point1.X + _selectionRectangle.Width, point1.Y);
+                    //var point4 = new Point(point1.X + _selectionRectangle.Width, point1.Y + _selectionRectangle.Height);
+
+                    //var points = new[] { point1, point2, point3, point4 };
+                    //points = points.OrderBy(p => p.X).ThenBy(p => p.Y).ToArray();
 
                     // TODO This part needs to be reworked
                     if (_selectionRectangle.Width > 0)
                     {
-                        if (dropableControl.Location.X >= selectionStartPoint.X && dropableControl.Location.X <= selectionStartPoint.X + _selectionRectangle.Width &&
-                            dropableControl.Location.Y >= selectionStartPoint.Y && dropableControl.Location.Y <= selectionStartPoint.Y + _selectionRectangle.Height)
+                        
+                        if (!dropableControl.IsPartialySelected(_selectionRectangle) && !dropableControl.IsCompletelySelected(_selectionRectangle))
                         {
-                            dropableControl.SelectControl();
+                            continue;
                         }
                     }
                     else
                     {
-                        if (dropableControl.Location.X >= selectionStartPoint.X + _selectionRectangle.Width && dropableControl.Location.X <= selectionStartPoint.X &&
-                            dropableControl.Location.Y >= selectionStartPoint.Y + _selectionRectangle.Height && dropableControl.Location.Y <= selectionStartPoint.Y)
+                        if (!dropableControl.IsCompletelySelected(_selectionRectangle))
                         {
-                            dropableControl.SelectControl();
+                            continue;
                         }
                     }
 
+                    dropableControl.SelectControl();
                 }
             }
         }

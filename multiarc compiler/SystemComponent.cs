@@ -170,6 +170,22 @@ namespace MultiArc_Compiler
             Parent.Controls.Remove(this);
         }
 
+        protected bool HasNonPortControls
+        {
+            get
+            {
+                foreach (var c in Controls)
+                {
+                    if (c is ControlWithImage)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+        }
+
         protected void redraw(object sender, PaintEventArgs e)
         {
             Graphics graphics = this.CreateGraphics();
@@ -183,17 +199,7 @@ namespace MultiArc_Compiler
             }
             else
             {
-                var haveNonPortControls = false;
-                foreach (var c in Controls)
-                {
-                    if (c is ControlWithImage)
-                    {
-                        haveNonPortControls = true;
-                        break;
-                    }
-                }
-
-                if (!haveNonPortControls)
+                if (!HasNonPortControls)
                 {
                     Rectangle rectangle = new Rectangle(5, 5, this.Width - 10, this.Height - 10);
                     graphics.FillRectangle(new SolidBrush(Color.White), rectangle);
@@ -667,6 +673,57 @@ namespace MultiArc_Compiler {
             {
                 pin.Signal = null;
             }
+        }
+
+        public override bool IsPartialySelected(Rectangle rectangle)
+        {
+            if (HasNonPortControls)
+            {
+                foreach (var c in Controls)
+                {
+                    var controlWithImage = c as ControlWithImage;
+
+                    if (controlWithImage != null)
+                    {
+                        if (controlWithImage.IsPartialySelected(rectangle))
+                        {
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+
+            return GetRectanglePoints(rectangle).Count(p => p.X >= Location.X && p.X <= Location.X + Width || p.Y >= Location.Y && p.Y <= Location.Y + Height) >= 2;
+        }
+
+        public override bool IsCompletelySelected(Rectangle rectangle)
+        {
+            if (HasNonPortControls)
+            {
+                foreach (var c in Controls)
+                {
+                    var controlWithImage = c as ControlWithImage;
+
+                    if (controlWithImage != null)
+                    {
+                        if (!controlWithImage.IsCompletelySelected(rectangle))
+                        {
+                            return false;
+                        }
+                    }
+                }
+
+                return true;
+            }
+
+            var points = GetRectanglePoints(rectangle);
+
+            return points[0].X <= Location.X && points[0].Y <= Location.Y &&
+                   points[1].X <= Location.X && points[1].Y >= Location.Y + Height &&
+                   points[2].X >= Location.X + Width && points[2].Y <= Location.Y &&
+                   points[3].X >= Location.X + Width && points[3].Y >= Location.Y + Height;
         }
     }
 }
