@@ -52,4 +52,10 @@ System.InvalidCastException: Unable to cast object of type 'MultiArc_Compiler.Li
    at MultiArc_Compiler.ControlWithImage..ctor(Bitmap image, Designer designer) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 51
    at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 498
    at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
+   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1386System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 576
+   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
+   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1386System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 576
+   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
    at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1386

@@ -15,7 +15,7 @@ namespace MultiArc_Compiler
 
         private Panel _parentPanel;
 
-        private Panel ParentPanel { 
+        protected Panel ParentPanel { 
             get
             {
                 if (_parentPanel == null)

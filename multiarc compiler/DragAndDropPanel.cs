@@ -63,7 +63,7 @@ namespace MultiArc_Compiler
         private void OnMouseDown(object sender, MouseEventArgs e)
         {
             var g = CreateGraphics();
-            g.Clear(this.BackColor);
+            //g.Clear(this.BackColor);
 
             foreach (Control c in Controls)
             {
@@ -137,18 +137,8 @@ namespace MultiArc_Compiler
 
                 if (dropableControl != null)
                 {
-                    //var point1 = PointToClient(new Point(_selectionRectangle.X, _selectionRectangle.Y));
-                    //var point2 = new Point(point1.X, point1.Y + _selectionRectangle.Height);
-                    //var point3 = new Point(point1.X + _selectionRectangle.Width, point1.Y);
-                    //var point4 = new Point(point1.X + _selectionRectangle.Width, point1.Y + _selectionRectangle.Height);
-
-                    //var points = new[] { point1, point2, point3, point4 };
-                    //points = points.OrderBy(p => p.X).ThenBy(p => p.Y).ToArray();
-
-                    // TODO This part needs to be reworked
                     if (_selectionRectangle.Width > 0)
                     {
-                        
                         if (!dropableControl.IsPartialySelected(_selectionRectangle) && !dropableControl.IsCompletelySelected(_selectionRectangle))
                         {
                             continue;
