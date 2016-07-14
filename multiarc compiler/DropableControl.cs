@@ -47,7 +47,7 @@ namespace MultiArc_Compiler
 
         protected Point[] GetRectanglePoints(Rectangle rectangle)
         {
-            var point1 = ParentPanel.PointToClient(new Point(rectangle.X, rectangle.Y));
+            var point1 = new Point(rectangle.X, rectangle.Y);
             var point2 = new Point(point1.X, point1.Y + rectangle.Height);
             var point3 = new Point(point1.X + rectangle.Width, point1.Y);
             var point4 = new Point(point1.X + rectangle.Width, point1.Y + rectangle.Height);
