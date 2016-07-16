@@ -15,6 +15,9 @@ namespace MultiArc_Compiler
 {
     public abstract class SystemComponent : DropableControl
     {
+        protected const string Copy = "Copy         Ctrl + C";
+        protected const string Remove = "Remove            Del";
+
         protected string name;
 
         /// <summary>
@@ -141,7 +144,7 @@ namespace MultiArc_Compiler
             {
                 return new[] 
                 {
-                    "Remove"
+                    Copy, Remove                
                 };
             }
         }
@@ -166,8 +169,27 @@ namespace MultiArc_Compiler
 
         protected virtual void MenuItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            system.RemoveComponent(this);
-            Parent.Controls.Remove(this);
+            switch (e.ClickedItem.Text)
+            {
+                case Remove:
+                    system.RemoveComponent(this);
+                    Parent.Controls.Remove(this);
+                    break;
+                case Copy:
+                    var selectedControls = new List<SystemComponent>();
+
+                    foreach (var c in ParentPanel.Controls)
+                    {
+                        var component = c as SystemComponent;
+                        if (component != null && component.Selected)
+                        {
+                            selectedControls.Add(component);
+                        }
+                    }
+
+                    system.CopiedComponents = selectedControls;
+                    break;
+            }
         }
 
         protected bool HasNonPortControls

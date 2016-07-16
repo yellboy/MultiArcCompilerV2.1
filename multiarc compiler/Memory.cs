@@ -14,6 +14,8 @@ using System.Threading;
 using System.CodeDom.Compiler;
 using Microsoft.CSharp;
 using System.Reflection;
+using MoreLinq;
+using System.Linq;
 
 namespace MultiArc_Compiler
 {
@@ -23,6 +25,8 @@ namespace MultiArc_Compiler
     /// </sumary>
     public class Memory: NonCPUComponent
     {
+        private const string MemoryDump = "Memory dump";
+
         private string name;
 
         /// <summary>
@@ -285,8 +289,7 @@ namespace MultiArc_Compiler
             {
                 return new[]
                 {
-                    "Memory dump",
-                    "Remove"
+                    MemoryDump, Copy, Remove
                 };
             }
         }
@@ -694,10 +697,10 @@ public static void Cycle(Memory memory)
         {
             switch (e.ClickedItem.Text)
             {
-                case "Memory dump":
+                case MemoryDump:
                     ((MemoryDumpForm)observer).Show();
                     break;
-                case "Remove":
+                default: 
                     base.MenuItemClicked(sender, e);
                     break;
             }

@@ -400,5 +400,15 @@ namespace MultiArc_Compiler
         {
             drawingBus = true;
         }
+
+        public void DoThePaste(int x, int y)
+        {
+            foreach (var c in system.CopiedComponents)
+            {
+                var newComponent = (SystemComponent)c.Clone();
+                systemPanel1.Controls.Add(newComponent);
+                newComponent.Location = new Point(x, y);
+            }
+        }
     }
 }

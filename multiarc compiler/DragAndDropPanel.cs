@@ -7,7 +7,6 @@ using System.Collections.Generic;
 
 namespace MultiArc_Compiler
 {
-
     public class DragAndDropPanel : Panel
     {
         private bool _selecting;
@@ -15,6 +14,10 @@ namespace MultiArc_Compiler
         private Point _startingPoint;
         private Rectangle _selectionRectangle = new Rectangle(0, 0, 0, 0);
         private bool _selectingFromLeftToRight;
+        private int _clickedX;
+        private int _clickedY;
+
+        private ContextMenuStrip _menu;
 
         public DragAndDropPanel()
         {
@@ -24,6 +27,26 @@ namespace MultiArc_Compiler
             MouseMove += OnMouseMove;
             MouseUp += OnMouseUp;
             MouseClick += OnMouseClick;
+
+            _menu = new ContextMenuStrip();
+            _menu.Items.Add("Paste      Ctrl + V");
+            _menu.ItemClicked += MenuItemClicked;
+        }
+
+        private void MenuItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            DoThePaste(_clickedX, _clickedY);
+        }
+
+        protected void DoThePaste(int x, int y)
+        {
+            var clipboard = Parent as Clipboard;
+
+            if (clipboard != null)
+            {
+                clipboard.DoThePaste(x, y);
+                return;
+            }
         }
 
         private void DragAndDrop(object sender, DragEventArgs e)
@@ -160,13 +183,22 @@ namespace MultiArc_Compiler
 
         public void OnMouseClick(object sender, MouseEventArgs e)
         {
-            foreach (var c in Controls)
+            if (e.Button == MouseButtons.Left)
             {
-                var dropableControl = c as DropableControl;
-                if (dropableControl != null)
+                foreach (var c in Controls)
                 {
-                    dropableControl.DeselectControl();
+                    var dropableControl = c as DropableControl;
+                    if (dropableControl != null)
+                    {
+                        dropableControl.DeselectControl();
+                    }
                 }
+            }
+            else
+            {
+                _clickedX = e.X;
+                _clickedY = e.Y;
+                _menu.Show(PointToScreen(new Point(e.X, e.Y)));
             }
         }
     }

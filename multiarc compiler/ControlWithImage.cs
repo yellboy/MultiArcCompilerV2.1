@@ -364,7 +364,7 @@ namespace MultiArc_Compiler
             var rectangleRegion = new Region(rectangle);
             foreach (var p in Points)
             {
-                var point = new Point(p.X + Parent.Location.X, p.Y + Parent.Location.Y);
+                var point = AdaptPointCoordinates(p);
 
                 if (PointInsideRectangle(point, rectangle))
                 {
@@ -375,11 +375,26 @@ namespace MultiArc_Compiler
             return false;
         }
 
+        private Point AdaptPointCoordinates(Point p)
+        {
+            var hasPanelForParent = Parent is Panel;
+            var x = p.X + (hasPanelForParent ? Location.X : Parent.Location.X);
+            var y = p.Y + (hasPanelForParent ? Location.Y : Parent.Location.Y); ;
+            if (!(Parent is Panel))
+            {
+                x += Parent.Location.X;
+                y += Parent.Location.Y;
+            }
+
+            var point = new Point(x, y);
+            return point;
+        }
+
         public override bool IsCompletelySelected(Rectangle rectangle)
         {
             foreach (var p in Points)
             {
-                var point = new Point(p.X + Parent.Location.X, p.Y + Parent.Location.Y);
+                var point = AdaptPointCoordinates(p);
 
                 if (!PointInsideRectangle(point, rectangle))
                 {

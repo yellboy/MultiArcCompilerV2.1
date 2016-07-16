@@ -141,7 +141,7 @@ namespace MultiArc_Compiler
             this.DesignPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DesignPanel.BackColor = System.Drawing.Color.Transparent;
+            this.DesignPanel.BackColor = System.Drawing.Color.GhostWhite;
             this.DesignPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DesignPanel.Location = new System.Drawing.Point(150, 13);
             this.DesignPanel.Name = "DesignPanel";

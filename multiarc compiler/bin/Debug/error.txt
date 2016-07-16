@@ -1,13 +1,24 @@
-System.InvalidCastException: Unable to cast object of type 'MultiArc_Compiler.Line' to type 'MultiArc_Compiler.DropableControl'.
-   at MultiArc_Compiler.DropableControl.DeselectOthers() in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\DropableControl.cs:line 80
-   at MultiArc_Compiler.DropableControl.OnMouseDown(Object sender, MouseEventArgs e) in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\DropableControl.cs:line 52
-   at System.Windows.Forms.Control.OnMouseDown(MouseEventArgs e)
-   at System.Windows.Forms.UserControl.OnMouseDown(MouseEventArgs e)
-   at System.Windows.Forms.Control.WmMouseDown(Message& m, MouseButtons button, Int32 clicks)
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Port.set_Val(Int32 value) in d:\MultiArc Compiler\multiarc compiler\Port.cs:line 132
+   at MultiArc_Compiler.Port.Clone() in d:\MultiArc Compiler\multiarc compiler\Port.cs:line 248
+   at MultiArc_Compiler.Memory.Clone() in d:\MultiArc Compiler\multiarc compiler\Memory.cs:line 730
+   at MultiArc_Compiler.Clipboard.DoThePaste(Int32 x, Int32 y) in d:\MultiArc Compiler\multiarc compiler\Clipboard.cs:line 408
+   at MultiArc_Compiler.DragAndDropPanel.DoThePaste(Int32 x, Int32 y) in d:\MultiArc Compiler\multiarc compiler\DragAndDropPanel.cs:line 47
+   at MultiArc_Compiler.DragAndDropPanel.MenuItemClicked(Object sender, ToolStripItemClickedEventArgs e) in d:\MultiArc Compiler\multiarc compiler\DragAndDropPanel.cs:line 38
+   at System.Windows.Forms.ToolStrip.OnItemClicked(ToolStripItemClickedEventArgs e)
+   at System.Windows.Forms.ToolStripDropDown.OnItemClicked(ToolStripItemClickedEventArgs e)
+   at System.Windows.Forms.ToolStrip.HandleItemClick(ToolStripItem dismissingItem)
+   at System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
+   at System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
+   at System.Windows.Forms.ToolStripItem.FireEventInteractive(EventArgs e, ToolStripItemEventType met)
+   at System.Windows.Forms.ToolStripItem.FireEvent(EventArgs e, ToolStripItemEventType met)
+   at System.Windows.Forms.ToolStrip.OnMouseUp(MouseEventArgs mea)
+   at System.Windows.Forms.ToolStripDropDown.OnMouseUp(MouseEventArgs mea)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
    at System.Windows.Forms.Control.WndProc(Message& m)
    at System.Windows.Forms.ScrollableControl.WndProc(Message& m)
-   at System.Windows.Forms.ContainerControl.WndProc(Message& m)
-   at System.Windows.Forms.UserControl.WndProc(Message& m)
+   at System.Windows.Forms.ToolStrip.WndProc(Message& m)
+   at System.Windows.Forms.ToolStripDropDown.WndProc(Message& m)
    at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
    at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
    at System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
@@ -16,46 +27,4 @@ System.InvalidCastException: Unable to cast object of type 'MultiArc_Compiler.Li
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.Run(Form mainForm)
-   at MultiArc_Compiler.Program.Main() in c:\Projects\MultiArcCompilerV2.0\multiarc compiler\Program.cs:line 25System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.ControlWithImage.set_Selected(Boolean value) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 46
-   at MultiArc_Compiler.DropableControl..ctor() in d:\MultiArc Compiler\multiarc compiler\DropableControl.cs:line 38
-   at MultiArc_Compiler.ControlWithImage..ctor(Bitmap image, Designer designer) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 51
-   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 498
-   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
-   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1386System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.ControlWithImage.set_Selected(Boolean value) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 46
-   at MultiArc_Compiler.DropableControl..ctor() in d:\MultiArc Compiler\multiarc compiler\DropableControl.cs:line 38
-   at MultiArc_Compiler.ControlWithImage..ctor(Bitmap image, Designer designer) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 51
-   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 498
-   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
-   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1386System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.ControlWithImage.set_Selected(Boolean value) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 46
-   at MultiArc_Compiler.DropableControl..ctor() in d:\MultiArc Compiler\multiarc compiler\DropableControl.cs:line 38
-   at MultiArc_Compiler.ControlWithImage..ctor(Bitmap image, Designer designer) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 51
-   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 498
-   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
-   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1386System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.ControlWithImage.set_Selected(Boolean value) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 46
-   at MultiArc_Compiler.DropableControl..ctor() in d:\MultiArc Compiler\multiarc compiler\DropableControl.cs:line 38
-   at MultiArc_Compiler.ControlWithImage..ctor(Bitmap image, Designer designer) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 51
-   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 498
-   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
-   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1386System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.ControlWithImage.set_Selected(Boolean value) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 46
-   at MultiArc_Compiler.DropableControl..ctor() in d:\MultiArc Compiler\multiarc compiler\DropableControl.cs:line 38
-   at MultiArc_Compiler.ControlWithImage..ctor(Bitmap image, Designer designer) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 51
-   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 498
-   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
-   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1386System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.ControlWithImage.set_Selected(Boolean value) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 46
-   at MultiArc_Compiler.DropableControl..ctor() in d:\MultiArc Compiler\multiarc compiler\DropableControl.cs:line 38
-   at MultiArc_Compiler.ControlWithImage..ctor(Bitmap image, Designer designer) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 51
-   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 498
-   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
-   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1386System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 576
-   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
-   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1386System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.SystemComponent.ProcessDesignNode(XmlNode designNode) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 576
-   at MultiArc_Compiler.OtherComponent.Load(String arcFile, String dataFolder) in d:\MultiArc Compiler\multiarc compiler\OtherComponent.cs:line 250
-   at MultiArc_Compiler.Form1.LoadOtherComponentDialog_FileOk(Object sender, CancelEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1386
+   at MultiArc_Compiler.Program.Main() in d:\MultiArc Compiler\multiarc compiler\Program.cs:line 25

@@ -245,11 +245,11 @@ namespace MultiArc_Compiler
         {
             Port ret = (Port)this.MemberwiseClone();
             ret.Size = size;
-            ret.Val = Val;
             for (int i = 0; i < size; i++)
             {
                 ret[i] = new Pin(ret, i);
             }
+            ret.Val = Val;
             return ret;
         }
 
