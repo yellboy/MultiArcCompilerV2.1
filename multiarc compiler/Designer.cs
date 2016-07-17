@@ -23,6 +23,8 @@ namespace MultiArc_Compiler
         private int _lastLevel = 0;
 
         private string _projectFolder;
+
+        public List<ControlWithImage> CopiedControls { get; set; }
         
         public Designer(ICollection<SystemComponent> components, string projectFolder)
         {
@@ -266,6 +268,16 @@ namespace MultiArc_Compiler
             _addedImages.Where(i => i != controlWithImage && i.Level > controlWithImage.Level).ForEach(i => i.Level--);
             _addedImages.Remove(controlWithImage);
             _lastLevel--;
+        }
+
+        public void DoThePaste(int x, int y)
+        {
+            foreach (var c in CopiedControls)
+            {
+                var newControl = (ControlWithImage)c.Clone();
+                DesignPanel.Controls.Add(newControl);
+                newControl.Location = new Point(x, y);
+            }
         }
     }
 }

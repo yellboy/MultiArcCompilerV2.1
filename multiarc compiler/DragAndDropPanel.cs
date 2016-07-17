@@ -47,14 +47,19 @@ namespace MultiArc_Compiler
                 clipboard.DoThePaste(x, y);
                 return;
             }
+
+            var designer = Parent as Designer;
+
+            if (designer != null)
+            {
+                designer.DoThePaste(x, y);
+            }
         }
 
         private void DragAndDrop(object sender, DragEventArgs e)
         {
             string[] formats = e.Data.GetFormats();
             var item = (DropableControl)e.Data.GetData(formats[0]);
-            //item.Location = new Point(e.X, e.Y);
-            //item.Location = new Point(e.X - this.Location.X - 8, e.Y);
             var point = PointToClient(new Point(e.X - item.ClickedX, e.Y - item.ClickedY));
 
             var dx = item.Location.X - point.X;

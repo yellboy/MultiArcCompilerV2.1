@@ -10,6 +10,11 @@ namespace MultiArc_Compiler
 {
     public class ControlWithImage : DropableControl, ICloneable
     {
+        private const string BringToFront = "Bring to Front";
+        private const string SendToBack = "Send to Back";
+        private const string Copy = "Copy     Ctrl + C";
+        private const string Remove = "Remove        Del";
+
         private readonly Bitmap _image;
 
         public bool Transparent { get; set; }
@@ -70,10 +75,11 @@ namespace MultiArc_Compiler
             Size = image.Size;
             Paint += Draw;
 
-            _menu.Items.Add("Bring to front");
-            _menu.Items.Add("Send to back"); 
+            _menu.Items.Add(BringToFront);
+            _menu.Items.Add(SendToBack);
             _menu.Items.Add(new ToolStripSeparator());
-            _menu.Items.Add("Remove");
+            _menu.Items.Add(Copy);
+            _menu.Items.Add(Remove);
             _menu.ItemClicked += MenuItemClicked;
         }
 
@@ -81,16 +87,36 @@ namespace MultiArc_Compiler
         {
             switch (e.ClickedItem.Text)
             {
-                case "Bring to front":
+                case BringToFront:
                     _designer.BringToFront(this);
                     break;
-                case "Send to back":
+                case SendToBack:
                     _designer.SendToBack(this);
                     break;
-                case "Remove":
+                case Copy:
+                    DoTheCopy();
+                    break;
+                case Remove:
                     _designer.Remove(this);
                     break;
             }
+        }
+
+        private void DoTheCopy()
+        {
+            var selectedControls = new List<ControlWithImage>();
+
+            foreach (var c in ParentPanel.Controls)
+            {
+                var controlWithImage = c as ControlWithImage;
+
+                if (controlWithImage != null)
+                {
+                    selectedControls.Add(controlWithImage);
+                }
+            }
+
+            _designer.CopiedControls = selectedControls;
         }
 
         public void AddToSystemComponent(SystemComponent component)
