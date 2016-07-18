@@ -10,8 +10,8 @@ namespace MultiArc_Compiler
 {
     public class ControlWithImage : DropableControl, ICloneable
     {
-        private const string BringToFront = "Bring to Front";
-        private const string SendToBack = "Send to Back";
+        private new const string BringToFront = "Bring to Front";
+        private new const string SendToBack = "Send to Back";
         private const string Copy = "Copy     Ctrl + C";
         private const string Remove = "Remove        Del";
 
@@ -163,7 +163,6 @@ namespace MultiArc_Compiler
             
             if (_wasSelected != Selected)
             {
-
                 for (var x = 0; x < Width; x++)
                 {
                     for (var y = 0; y < Height; y++)
@@ -369,7 +368,7 @@ namespace MultiArc_Compiler
 
         public object Clone()
         {
-            var clone = new ControlWithImage(_image, _designer)
+            var clone = new ControlWithImage(GetOriginalImage(), _designer)
             {
                 Transparent = Transparent,
                 _addedToComponent = _addedToComponent,
@@ -378,6 +377,29 @@ namespace MultiArc_Compiler
             };
 
             return clone;
+        }
+
+        private Bitmap GetOriginalImage()
+        {
+            var originalImage = (Bitmap)_image.Clone();
+
+            if (Selected)
+            {
+                for (var x = 0; x < Width; x++)
+                {
+                    for (var y = 0; y < Height; y++)
+                    {
+                        var pixel = originalImage.GetPixel(x, y);
+                        if (!IsWhiteOrTransparent(pixel.ToArgb()))
+                        {
+                            var color = Color.FromArgb(pixel.A, pixel.R, pixel.G - 50 > 0 ? pixel.G - 50 : 0, pixel.B);
+                            originalImage.SetPixel(x, y, color);
+                        }
+                    }
+                }
+            }
+
+            return originalImage;
         }
 
         public void DisposeImage()

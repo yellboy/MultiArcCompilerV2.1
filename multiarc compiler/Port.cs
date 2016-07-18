@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -206,6 +207,15 @@ namespace MultiArc_Compiler
         {
             this.name = name;
             this.size = size;
+            if (pins == null)
+            {
+                pins = new Pin[size];
+                for (var i = 0; i < size; i++)
+                {
+                    pins[i] = new Pin(this, i);
+                }
+            }
+
             this.Val = val;
             this.component = component;
             Initializing = false;
@@ -243,12 +253,23 @@ namespace MultiArc_Compiler
 
         public object Clone()
         {
-            Port ret = (Port)this.MemberwiseClone();
-            ret.Size = size;
+            Port ret = new Port(name, component, size);
+            ret.Initializing = Initializing;
+            ret.portPosition = portPosition;
+            ret.portType = portType;
             for (int i = 0; i < size; i++)
             {
                 ret[i] = new Pin(ret, i);
+                ret.pins[i].Clipboard = pins[i].Clipboard;
+                ret.pins[i].Height = pins[i].Height;
+                ret.pins[i].Width = pins[i].Width;
+                ret.pins[i].Val = pins[i].Val;
+                ret.pins[i].Signal = null;
+                ret.pins[i].Selected = false;
+                ret.pins[i].Name = pins[i].Name;
+                ret.pins[i].Location = new Point(pins[i].Location.X, pins[i].Location.Y);
             }
+
             ret.Val = Val;
             return ret;
         }

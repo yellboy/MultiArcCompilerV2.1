@@ -1,10 +1,5 @@
 System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.Port.set_Val(Int32 value) in d:\MultiArc Compiler\multiarc compiler\Port.cs:line 132
-   at MultiArc_Compiler.Port.Clone() in d:\MultiArc Compiler\multiarc compiler\Port.cs:line 248
-   at MultiArc_Compiler.Memory.Clone() in d:\MultiArc Compiler\multiarc compiler\Memory.cs:line 730
-   at MultiArc_Compiler.Clipboard.DoThePaste(Int32 x, Int32 y) in d:\MultiArc Compiler\multiarc compiler\Clipboard.cs:line 408
-   at MultiArc_Compiler.DragAndDropPanel.DoThePaste(Int32 x, Int32 y) in d:\MultiArc Compiler\multiarc compiler\DragAndDropPanel.cs:line 47
-   at MultiArc_Compiler.DragAndDropPanel.MenuItemClicked(Object sender, ToolStripItemClickedEventArgs e) in d:\MultiArc Compiler\multiarc compiler\DragAndDropPanel.cs:line 38
+   at MultiArc_Compiler.SystemComponent.MenuItemClicked(Object sender, ToolStripItemClickedEventArgs e) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 175
    at System.Windows.Forms.ToolStrip.OnItemClicked(ToolStripItemClickedEventArgs e)
    at System.Windows.Forms.ToolStripDropDown.OnItemClicked(ToolStripItemClickedEventArgs e)
    at System.Windows.Forms.ToolStrip.HandleItemClick(ToolStripItem dismissingItem)

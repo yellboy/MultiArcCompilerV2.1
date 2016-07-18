@@ -408,6 +408,8 @@ namespace MultiArc_Compiler
                 var newComponent = (SystemComponent)c.Clone();
                 systemPanel1.Controls.Add(newComponent);
                 newComponent.Location = new Point(x, y);
+                system.Components.AddLast(newComponent);
+                newComponent.System = system;
             }
         }
     }

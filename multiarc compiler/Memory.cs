@@ -727,8 +727,12 @@ public static void Cycle(Memory memory)
             newMemory.ports.Clear();
             foreach (Port port in ports)
             {
-                newMemory.ports.AddLast((Port)port.Clone());
+                var newPort = (Port)port.Clone();
+                newMemory.ports.AddLast(newPort);
+                newPort.Component = newMemory;
+                newMemory.GetAllPins().ForEach(p => newMemory.Controls.Add(p));
             }
+
             newMemory.Initialize();
             return newMemory;
         }

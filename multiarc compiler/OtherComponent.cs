@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Xml;
 using Microsoft.CSharp;
+using MoreLinq;
 
 namespace MultiArc_Compiler
 {
@@ -283,7 +284,39 @@ public static void Cycle(OtherComponent component)
 
         public override object Clone()
         {
-            return this;
+            var newComponent = new OtherComponent(ProjectPath);
+            newComponent.observer = this.observer;
+            newComponent.Height = this.Height;
+            newComponent.Width = this.Width;
+            newComponent.name = this.name;
+            newComponent.DrawnFromCode = this.DrawnFromCode;
+            newComponent.dataFolder = this.dataFolder;
+            newComponent.ArcFile = this.ArcFile;
+            newComponent.ports = new LinkedList<Port>();
+            newComponent.ports.Clear();
+            
+            if (HasNonPortControls)
+            {
+                foreach (var c in Controls)
+                {
+                    var controlWithImage = c as ControlWithImage;
+
+                    if (controlWithImage != null)
+                    {
+                        newComponent.Controls.Add((ControlWithImage)controlWithImage.Clone());
+                    }
+                }
+            }
+            
+            foreach (Port port in ports)
+            {
+                var newPort = (Port)port.Clone();
+                newPort.Component = newComponent;
+                newComponent.ports.AddLast(newPort);
+                newComponent.GetAllPins().ForEach(p => newComponent.Controls.Add(p));
+            }
+
+            return newComponent;
         }
     }
 }
