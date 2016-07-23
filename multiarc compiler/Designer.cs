@@ -262,7 +262,7 @@ namespace MultiArc_Compiler
             controlWithImage.Level = 0;
         }
 
-        public void Remove(ControlWithImage controlWithImage)
+        private void Remove(ControlWithImage controlWithImage)
         {
             DesignPanel.Controls.Remove(controlWithImage);
             _addedImages.Where(i => i != controlWithImage && i.Level > controlWithImage.Level).ForEach(i => i.Level--);
@@ -273,6 +273,19 @@ namespace MultiArc_Compiler
         private void Designer_KeyDown(object sender, KeyEventArgs e)
         {
             DesignPanel.OnKeyDown(sender, e);
+        }
+
+        public void RemoveControls(List<NonPinDropableControl> selectedControls)
+        {
+            foreach (var c in selectedControls)
+            {
+                var controlWithImage = c as ControlWithImage;
+ 
+                if (controlWithImage != null)
+                {
+                    Remove(controlWithImage);
+                }
+            }
         }
     }
 }

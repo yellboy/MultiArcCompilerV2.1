@@ -97,7 +97,7 @@ namespace MultiArc_Compiler
                     ParentPanel.DoTheCopy(this);
                     break;
                 case Remove:
-                    _designer.Remove(this);
+                    ParentPanel.DoTheRemove();
                     break;
             }
         }

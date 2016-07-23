@@ -48,6 +48,35 @@ namespace MultiArc_Compiler
             {
                 DoThePaste(0, 0);
             }
+            else if (e.KeyCode == Keys.Delete)
+            {
+                DoTheRemove();
+            }
+        }
+
+        public void DoTheRemove()
+        {
+            var selectedControls = GetSelectedControls();
+
+            foreach (var c in selectedControls)
+            {
+                Controls.Remove(c);
+            }
+
+            var clipboard = Parent as Clipboard;
+
+            if (clipboard != null)
+            {
+                clipboard.RemoveControls(selectedControls);
+                return;
+            }
+
+            var designer = Parent as Designer;
+            
+            if (designer != null)
+            {
+                designer.RemoveControls(selectedControls);
+            }
         }
 
         private void MenuItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -57,18 +86,7 @@ namespace MultiArc_Compiler
 
         public void DoTheCopy(NonPinDropableControl control = null)
         {
-            var selectedControls = new List<NonPinDropableControl>();
-
-            foreach (var c in Controls)
-            {
-                var dropableControl = c as NonPinDropableControl;
-                if (dropableControl != null && dropableControl.Selected)
-                {
-                    selectedControls.Add(dropableControl);
-                }
-            }
-
-            _copiedControls = selectedControls;
+            _copiedControls = GetSelectedControls();
 
             var topLeftX = Width;
             var topLeftY = Height;
@@ -90,6 +108,22 @@ namespace MultiArc_Compiler
 
                 _copiedControlsClickLocation = new Point(topLeftX + (control != null ? control.ClickedX : 0), topLeftY + (control != null ? control.ClickedY : 0));
             }
+        }
+
+        private List<NonPinDropableControl> GetSelectedControls()
+        {
+            var selectedControls = new List<NonPinDropableControl>();
+
+            foreach (var c in Controls)
+            {
+                var dropableControl = c as NonPinDropableControl;
+                if (dropableControl != null && dropableControl.Selected)
+                {
+                    selectedControls.Add(dropableControl);
+                }
+            }
+
+            return selectedControls;
         }
 
         protected void DoThePaste(int x, int y)

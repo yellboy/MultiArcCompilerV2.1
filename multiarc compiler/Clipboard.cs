@@ -415,5 +415,18 @@ namespace MultiArc_Compiler
         {
             systemPanel1.OnKeyDown(sender, e);
         }
+
+        public void RemoveControls(List<NonPinDropableControl> selectedControls)
+        {
+            foreach (var c in selectedControls)
+            {
+                var component = c as SystemComponent;
+
+                if (component != null)
+                {
+                    system.RemoveComponent(component);
+                }
+            }
+        }
     }
 }

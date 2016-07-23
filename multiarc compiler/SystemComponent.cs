@@ -172,8 +172,7 @@ namespace MultiArc_Compiler
             switch (e.ClickedItem.Text)
             {
                 case Remove:
-                    system.RemoveComponent(this);
-                    Parent.Controls.Remove(this);
+                    ParentPanel.DoTheRemove();
                     break;
                 case Copy:
                     ParentPanel.DoTheCopy(this);
