@@ -1,8 +1,10 @@
 System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.SystemComponent.MenuItemClicked(Object sender, ToolStripItemClickedEventArgs e) in d:\MultiArc Compiler\multiarc compiler\SystemComponent.cs:line 175
-   at System.Windows.Forms.ToolStrip.OnItemClicked(ToolStripItemClickedEventArgs e)
-   at System.Windows.Forms.ToolStripDropDown.OnItemClicked(ToolStripItemClickedEventArgs e)
-   at System.Windows.Forms.ToolStrip.HandleItemClick(ToolStripItem dismissingItem)
+   at MultiArc_Compiler.DragAndDropPanel..ctor() in d:\MultiArc Compiler\multiarc compiler\DragAndDropPanel.cs:line 35
+   at MultiArc_Compiler.Clipboard.InitializeComponent() in d:\MultiArc Compiler\multiarc compiler\Clipboard.Designer.cs:line 35
+   at MultiArc_Compiler.Clipboard..ctor(LinkedList`1 componentsList, UserSystem system) in d:\MultiArc Compiler\multiarc compiler\Clipboard.cs:line 32
+   at MultiArc_Compiler.Form1.systemToolStripMenuItem_Click(Object sender, EventArgs e) in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 1279
+   at System.Windows.Forms.ToolStripItem.RaiseEvent(Object key, EventArgs e)
+   at System.Windows.Forms.ToolStripMenuItem.OnClick(EventArgs e)
    at System.Windows.Forms.ToolStripItem.HandleClick(EventArgs e)
    at System.Windows.Forms.ToolStripItem.HandleMouseUp(MouseEventArgs e)
    at System.Windows.Forms.ToolStripItem.FireEventInteractive(EventArgs e, ToolStripItemEventType met)

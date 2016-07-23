@@ -32,7 +32,6 @@ namespace MultiArc_Compiler
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clipboard));
             this.componentsListBox = new System.Windows.Forms.ListBox();
-            this.systemPanel1 = new MultiArc_Compiler.DragAndDropPanel();
             this.addComponentButton = new System.Windows.Forms.Button();
             this.nextClockButton = new System.Windows.Forms.Button();
             this.executeButton = new System.Windows.Forms.Button();
@@ -48,6 +47,7 @@ namespace MultiArc_Compiler
             this.frequencyInput = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.DrawBusButton = new System.Windows.Forms.Button();
+            this.systemPanel1 = new MultiArc_Compiler.DragAndDropPanel();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyInput)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,22 +64,6 @@ namespace MultiArc_Compiler
             this.componentsListBox.TabIndex = 0;
             this.componentsListBox.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.componentsListBox_DrawItem);
             this.componentsListBox.SelectedIndexChanged += new System.EventHandler(this.componentsListBox_SelectedIndexChanged);
-            // 
-            // systemPanel1
-            // 
-            this.systemPanel1.AllowDrop = true;
-            this.systemPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.systemPanel1.BackColor = System.Drawing.Color.GhostWhite;
-            this.systemPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.systemPanel1.Location = new System.Drawing.Point(127, 39);
-            this.systemPanel1.Name = "systemPanel1";
-            this.systemPanel1.Size = new System.Drawing.Size(458, 309);
-            this.systemPanel1.TabIndex = 1;
-            this.systemPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseClick);
-            this.systemPanel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseDoubleClick);
-            this.systemPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseMove);
             // 
             // addComponentButton
             // 
@@ -245,6 +229,22 @@ namespace MultiArc_Compiler
             this.DrawBusButton.UseVisualStyleBackColor = true;
             this.DrawBusButton.Click += new System.EventHandler(this.DrawBusButton_Click);
             // 
+            // systemPanel1
+            // 
+            this.systemPanel1.AllowDrop = true;
+            this.systemPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.systemPanel1.BackColor = System.Drawing.Color.GhostWhite;
+            this.systemPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.systemPanel1.Location = new System.Drawing.Point(127, 39);
+            this.systemPanel1.Name = "systemPanel1";
+            this.systemPanel1.Size = new System.Drawing.Size(458, 309);
+            this.systemPanel1.TabIndex = 1;
+            this.systemPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseClick);
+            this.systemPanel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseDoubleClick);
+            this.systemPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseMove);
+            // 
             // Clipboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,9 +265,11 @@ namespace MultiArc_Compiler
             this.Controls.Add(this.systemPanel1);
             this.Controls.Add(this.componentsListBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(613, 424);
             this.Name = "Clipboard";
             this.Text = "System";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Clipboard_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.frequencyInput)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

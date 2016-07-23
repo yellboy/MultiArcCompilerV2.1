@@ -410,5 +410,10 @@ namespace MultiArc_Compiler
                 component.System = system;
             }
         }
+
+        private void Clipboard_KeyDown(object sender, KeyEventArgs e)
+        {
+            systemPanel1.OnKeyDown(sender, e);
+        }
     }
 }

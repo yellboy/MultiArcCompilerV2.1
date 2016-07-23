@@ -31,10 +31,23 @@ namespace MultiArc_Compiler
             MouseMove += OnMouseMove;
             MouseUp += OnMouseUp;
             MouseClick += OnMouseClick;
+            KeyDown += OnKeyDown;
 
             _menu = new ContextMenuStrip();
             _menu.Items.Add("Paste      Ctrl + V");
             _menu.ItemClicked += MenuItemClicked;
+        }
+
+        public void OnKeyDown(object sender, System.Windows.Forms.KeyEventArgs e)
+        {
+            if (e.KeyValue == 'C' && e.Control)
+            {
+                DoTheCopy();
+            }
+            else if (e.KeyValue == 'V' && e.Control)
+            {
+                DoThePaste(0, 0);
+            }
         }
 
         private void MenuItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -42,7 +55,7 @@ namespace MultiArc_Compiler
             DoThePaste(_clickedX, _clickedY);
         }
 
-        public void DoTheCopy(NonPinDropableControl control)
+        public void DoTheCopy(NonPinDropableControl control = null)
         {
             var selectedControls = new List<NonPinDropableControl>();
 
@@ -60,20 +73,23 @@ namespace MultiArc_Compiler
             var topLeftX = Width;
             var topLeftY = Height;
 
-            foreach (var c in _copiedControls)
+            if (_copiedControls.Count > 0)
             {
-                if (c.Location.X < topLeftX)
+                foreach (var c in _copiedControls)
                 {
-                    topLeftX = c.Location.X;
+                    if (c.Location.X < topLeftX)
+                    {
+                        topLeftX = c.Location.X;
+                    }
+
+                    if (c.Location.Y < topLeftY)
+                    {
+                        topLeftY = c.Location.Y;
+                    }
                 }
 
-                if (c.Location.Y < topLeftY)
-                {
-                    topLeftY = c.Location.Y;
-                }
+                _copiedControlsClickLocation = new Point(topLeftX + (control != null ? control.ClickedX : 0), topLeftY + (control != null ? control.ClickedY : 0));
             }
-
-            _copiedControlsClickLocation = new Point(topLeftX + control.ClickedX, topLeftY + control.ClickedY);
         }
 
         protected void DoThePaste(int x, int y)

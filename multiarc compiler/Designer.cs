@@ -270,8 +270,9 @@ namespace MultiArc_Compiler
             _lastLevel--;
         }
 
-        public void DoThePaste(List<NonPinDropableControl> controlsToAdd)
+        private void Designer_KeyDown(object sender, KeyEventArgs e)
         {
+            DesignPanel.OnKeyDown(sender, e);
         }
     }
 }

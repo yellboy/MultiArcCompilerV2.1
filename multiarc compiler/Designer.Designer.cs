@@ -163,9 +163,11 @@ namespace MultiArc_Compiler
             this.Controls.Add(this.DesignPanel);
             this.Controls.Add(this.ComponentsComboBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MinimumSize = new System.Drawing.Size(621, 435);
             this.Name = "Designer";
             this.Text = "Designer";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Designer_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
