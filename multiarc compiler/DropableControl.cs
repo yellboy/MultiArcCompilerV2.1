@@ -13,20 +13,21 @@ namespace MultiArc_Compiler
 
         public Pen DefaultPen { get; protected set; }
 
-        private Panel _parentPanel;
+        private DragAndDropPanel _parentPanel;
 
-        protected Panel ParentPanel { 
+        protected DragAndDropPanel ParentPanel
+        { 
             get
             {
                 if (_parentPanel == null)
                 {
                     var parent = Parent;
-                    while (!(parent is Panel))
+                    while (!(parent is DragAndDropPanel))
                     {
                         parent = parent.Parent;
                     }
 
-                    _parentPanel = (Panel)parent;
+                    _parentPanel = (DragAndDropPanel)parent;
                 }
 
                 return _parentPanel;

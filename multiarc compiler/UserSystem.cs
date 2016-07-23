@@ -70,12 +70,6 @@ namespace MultiArc_Compiler
             }
         }
 
-        public ICollection<SystemComponent> CopiedComponents
-        {
-            get;
-            set;
-        }
-
         private delegate void SignalTicksChanged();
 
         private void signalTicksChanged()

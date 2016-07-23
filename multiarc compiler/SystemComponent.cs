@@ -13,7 +13,7 @@ using System.Reflection;
 
 namespace MultiArc_Compiler
 {
-    public abstract class SystemComponent : DropableControl
+    public abstract class SystemComponent : NonPinDropableControl
     {
         protected const string Copy = "Copy         Ctrl + C";
         protected const string Remove = "Remove            Del";
@@ -176,18 +176,7 @@ namespace MultiArc_Compiler
                     Parent.Controls.Remove(this);
                     break;
                 case Copy:
-                    var selectedControls = new List<SystemComponent>();
-
-                    foreach (var c in ParentPanel.Controls)
-                    {
-                        var component = c as SystemComponent;
-                        if (component != null && component.Selected)
-                        {
-                            selectedControls.Add(component);
-                        }
-                    }
-
-                    system.CopiedComponents = selectedControls;
+                    ParentPanel.DoTheCopy(this);
                     break;
             }
         }
@@ -349,14 +338,6 @@ namespace MultiArc_Compiler
                 }
             }
         }
-
-        /// <summary>
-        /// Makes copy of the component.
-        /// </summary>
-        /// <returns>
-        /// New component as copy of current component.
-        /// </returns>
-        public abstract object Clone();
 
         public override void MouseDownAction(MouseEventArgs e)
         {

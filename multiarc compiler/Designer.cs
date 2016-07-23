@@ -270,14 +270,8 @@ namespace MultiArc_Compiler
             _lastLevel--;
         }
 
-        public void DoThePaste(int x, int y)
+        public void DoThePaste(List<NonPinDropableControl> controlsToAdd)
         {
-            foreach (var c in CopiedControls)
-            {
-                var newControl = (ControlWithImage)c.Clone();
-                DesignPanel.Controls.Add(newControl);
-                newControl.Location = new Point(x, y);
-            }
         }
     }
 }

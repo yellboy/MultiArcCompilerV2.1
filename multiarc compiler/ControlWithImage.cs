@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace MultiArc_Compiler
 {
-    public class ControlWithImage : DropableControl, ICloneable
+    public class ControlWithImage : NonPinDropableControl, ICloneable
     {
         private new const string BringToFront = "Bring to Front";
         private new const string SendToBack = "Send to Back";
@@ -94,29 +94,12 @@ namespace MultiArc_Compiler
                     _designer.SendToBack(this);
                     break;
                 case Copy:
-                    DoTheCopy();
+                    ParentPanel.DoTheCopy(this);
                     break;
                 case Remove:
                     _designer.Remove(this);
                     break;
             }
-        }
-
-        private void DoTheCopy()
-        {
-            var selectedControls = new List<ControlWithImage>();
-
-            foreach (var c in ParentPanel.Controls)
-            {
-                var controlWithImage = c as ControlWithImage;
-
-                if (controlWithImage != null)
-                {
-                    selectedControls.Add(controlWithImage);
-                }
-            }
-
-            _designer.CopiedControls = selectedControls;
         }
 
         public void AddToSystemComponent(SystemComponent component)
@@ -366,7 +349,7 @@ namespace MultiArc_Compiler
             return color == Color.White.ToArgb() || color == 0;
         }
 
-        public object Clone()
+        public override object Clone()
         {
             var clone = new ControlWithImage(GetOriginalImage(), _designer)
             {

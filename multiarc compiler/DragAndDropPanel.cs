@@ -19,6 +19,10 @@ namespace MultiArc_Compiler
 
         private ContextMenuStrip _menu;
 
+        private List<NonPinDropableControl> _copiedControls = new List<NonPinDropableControl>();
+
+        private Point _copiedControlsClickLocation;
+
         public DragAndDropPanel()
         {
             DragDrop += DragAndDrop;
@@ -38,21 +42,57 @@ namespace MultiArc_Compiler
             DoThePaste(_clickedX, _clickedY);
         }
 
+        public void DoTheCopy(NonPinDropableControl control)
+        {
+            var selectedControls = new List<NonPinDropableControl>();
+
+            foreach (var c in Controls)
+            {
+                var dropableControl = c as NonPinDropableControl;
+                if (dropableControl != null && dropableControl.Selected)
+                {
+                    selectedControls.Add(dropableControl);
+                }
+            }
+
+            _copiedControls = selectedControls;
+
+            var topLeftX = Width;
+            var topLeftY = Height;
+
+            foreach (var c in _copiedControls)
+            {
+                if (c.Location.X < topLeftX)
+                {
+                    topLeftX = c.Location.X;
+                }
+
+                if (c.Location.Y < topLeftY)
+                {
+                    topLeftY = c.Location.Y;
+                }
+            }
+
+            _copiedControlsClickLocation = new Point(topLeftX + control.ClickedX, topLeftY + control.ClickedY);
+        }
+
         protected void DoThePaste(int x, int y)
         {
+            var controlsToAdd = new List<NonPinDropableControl>();
+
+            foreach (var c in _copiedControls)
+            {
+                var newControl = (NonPinDropableControl)c.Clone();
+                Controls.Add(newControl);
+                newControl.Location = new Point(c.Location.X + x - _copiedControlsClickLocation.X, c.Location.Y + y - _copiedControlsClickLocation.Y);
+                controlsToAdd.Add(newControl);
+            }
+
             var clipboard = Parent as Clipboard;
 
             if (clipboard != null)
             {
-                clipboard.DoThePaste(x, y);
-                return;
-            }
-
-            var designer = Parent as Designer;
-
-            if (designer != null)
-            {
-                designer.DoThePaste(x, y);
+                clipboard.DoThePaste(controlsToAdd);
             }
         }
 

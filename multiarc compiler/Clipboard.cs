@@ -401,15 +401,13 @@ namespace MultiArc_Compiler
             drawingBus = true;
         }
 
-        public void DoThePaste(int x, int y)
+        public void DoThePaste(List<NonPinDropableControl> controls)
         {
-            foreach (var c in system.CopiedComponents)
+            foreach (var c in controls)
             {
-                var newComponent = (SystemComponent)c.Clone();
-                systemPanel1.Controls.Add(newComponent);
-                newComponent.Location = new Point(x, y);
-                system.Components.AddLast(newComponent);
-                newComponent.System = system;
+                var component = c as SystemComponent;
+                system.Components.AddLast(component);
+                component.System = system;
             }
         }
     }
