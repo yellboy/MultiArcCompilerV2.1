@@ -63,7 +63,7 @@ namespace MultiArc_Compiler
             ClickedY = e.Y;
 
             SelectControl();
-            if (!ModifierKeys.HasFlag(Keys.Control))
+            if (!ModifierKeys.HasFlag(Keys.Control) && e.Button != MouseButtons.Right)
             {
                 DeselectOthers();
             }

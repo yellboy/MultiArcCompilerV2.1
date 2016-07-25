@@ -48,6 +48,11 @@ C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc_Compil
 C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.GenerateResource.Cache
 C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
 C:\Projects\MultiArcCompilerV2.0\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
+D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MultiArc Compiler.exe
+D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MultiArc Compiler.pdb
+D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MoreLinq.dll
+D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\testApp.exe
+D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MoreLinq.xml
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.BusPinStatesForm.resources
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Clipboard.resources
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Designer.resources
@@ -61,10 +66,5 @@ D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SaveOldFi
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SetBusWidthForm.resources
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SignalPinStatesForm.resources
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.GenerateResource.Cache
-D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MultiArc Compiler.exe
-D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MultiArc Compiler.pdb
-D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MoreLinq.dll
-D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\testApp.exe
-D:\MultiArc Compiler\MultiArc Compiler\bin\Debug\MoreLinq.xml
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
