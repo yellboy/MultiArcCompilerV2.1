@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Linq;
 using MoreLinq;
 using System.Collections.Generic;
+using System.Windows.Media.Animation;
 
 namespace MultiArc_Compiler
 {
@@ -48,9 +49,27 @@ namespace MultiArc_Compiler
             {
                 DoThePaste(0, 0);
             }
+            else if (e.KeyValue == 'A' && e.Control)
+            {
+                SelectAllControls();   
+            }
             else if (e.KeyCode == Keys.Delete)
             {
                 DoTheRemove();
+            }
+        }
+
+        private void SelectAllControls()
+        {
+            foreach (var c in Controls)
+            {
+                var dropableControl = c as NonPinDropableControl;
+
+                if (dropableControl != null)
+                {
+                    dropableControl.SelectControl();
+                    dropableControl.Refresh();
+                }
             }
         }
 
@@ -134,7 +153,29 @@ namespace MultiArc_Compiler
             {
                 var newControl = (NonPinDropableControl)c.Clone();
                 Controls.Add(newControl);
-                newControl.Location = new Point(c.Location.X + x - _copiedControlsClickLocation.X, c.Location.Y + y - _copiedControlsClickLocation.Y);
+                var newX = c.Location.X + x - _copiedControlsClickLocation.X;
+                if (newX < 0)
+                {
+                    newX = 0;
+                }
+
+                if (newX + newControl.Width >= Width)
+                {
+                    newX = Width - newControl.Width - 1;
+                }
+
+                var newY = c.Location.Y + y - _copiedControlsClickLocation.Y;
+                if (newY < 0)
+                {
+                    newY = 0;
+                }
+
+                if (newY + newControl.Height >= Height)
+                {
+                    newY = Height - newControl.Height - 1;
+                }
+
+                newControl.Location = new Point(newX, newY);
                 controlsToAdd.Add(newControl);
             }
 

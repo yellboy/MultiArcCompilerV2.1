@@ -220,6 +220,7 @@ namespace MultiArc_Compiler
             // 
             // DrawBusButton
             // 
+            this.DrawBusButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DrawBusButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DrawBusButton.Location = new System.Drawing.Point(13, 324);
             this.DrawBusButton.Name = "DrawBusButton";
