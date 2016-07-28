@@ -12,6 +12,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using MoreLinq;
+using System.Text.RegularExpressions;
 
 namespace MultiArc_Compiler
 {
@@ -387,7 +388,7 @@ namespace MultiArc_Compiler
 
                 XmlNode linesNode = doc.CreateElement("lines");
                 signalNode.AppendChild(linesNode);
-                foreach (Line l in s.Lines)
+                foreach (Line l in s.Lines.Where(l => l.ContainedByBus == null))
                 {
                     XmlNode lineNode = doc.CreateElement("line");
                     linesNode.AppendChild(lineNode);
@@ -419,12 +420,45 @@ namespace MultiArc_Compiler
                 }
                 signalsNode.AppendChild(signalNode);
             }
+            XmlNode busesNode = doc.CreateElement("buses");
+            systemNode.AppendChild(busesNode);
+            foreach (var b in Buses)
+            {
+                XmlNode busNode = doc.CreateElement("bus");
+                busesNode.AppendChild(busNode);
+                foreach (var n in b.Names)
+                {
+                    XmlNode nameNode = doc.CreateElement("name");
+                    nameNode.InnerText = n;
+                    busNode.AppendChild(nameNode);
+                }
+                XmlNode linesNode = doc.CreateElement("lines");
+                busNode.AppendChild(linesNode);
+                foreach (var l in b.Lines)
+                {
+                    XmlNode lineNode = doc.CreateElement("line");
+                    linesNode.AppendChild(lineNode);
+                    XmlAttribute x1Attribute = doc.CreateAttribute("x1");
+                    x1Attribute.Value = l.X1.ToString();
+                    lineNode.Attributes.Append(x1Attribute);
+                    XmlAttribute x2Attribute = doc.CreateAttribute("x2");
+                    x2Attribute.Value = l.X2.ToString();
+                    lineNode.Attributes.Append(x2Attribute);
+                    XmlAttribute y1Attribute = doc.CreateAttribute("y1");
+                    y1Attribute.Value = l.Y1.ToString();
+                    lineNode.Attributes.Append(y1Attribute);
+                    XmlAttribute y2Attribute = doc.CreateAttribute("y2");
+                    y2Attribute.Value = l.Y2.ToString();
+                    lineNode.Attributes.Append(y2Attribute);
+                }
+            }
             doc.Save(fileName);
         }
 
         public void LoadSystemFromFile(string fileName)
         {
             signals = new LinkedList<Signal>();
+            Buses = new LinkedList<Bus>();
             components = new LinkedList<SystemComponent>();
             XmlDocument doc = new XmlDocument();
             doc.Load(fileName);
@@ -479,6 +513,51 @@ namespace MultiArc_Compiler
                             }
                         }
                         signals.AddLast(signal);
+                    }
+                }
+                else if (childNode.Name.Equals("buses"))
+                {
+                    foreach (XmlNode busNode in childNode.ChildNodes)
+                    {
+                        Bus bus = new Bus(this);
+                        foreach (XmlNode innerNode in busNode.ChildNodes)
+                        {
+                            switch (innerNode.Name)
+                            {
+                                case "lines":
+                                    foreach (XmlNode lineNode in innerNode.ChildNodes)
+                                    {
+                                        int x1 = Convert.ToInt32(lineNode.Attributes["x1"].Value);
+                                        int x2 = Convert.ToInt32(lineNode.Attributes["x2"].Value);
+                                        int y1 = Convert.ToInt32(lineNode.Attributes["y1"].Value);
+                                        int y2 = Convert.ToInt32(lineNode.Attributes["y2"].Value);
+                                        Line line = new Line(5, x1, y1, x2, y2);
+                                        line.ContainedByBus = bus;
+                                        bus.Lines.AddLast(line);
+                                    }
+                                    break;
+                                case "name":
+                                    string name = innerNode.InnerText.Trim();
+                                    bus.Names.AddLast(name);
+                                    string regex = "^" + name + @"[\d+]$";
+                                    var matchingSignals = signals.Where(s => s.Names.Any(n => Regex.Match(n, regex).Length > 0));
+                                    foreach (var s in matchingSignals)
+                                    {
+                                        bus.Signals.AddLast(s);
+                                    }
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        foreach (Signal s in bus.Signals)
+                        {
+                            foreach (Line l in bus.Lines)
+                            {
+                                s.Lines.AddLast(l);
+                            }
+                        }
+                        Buses.AddLast(bus);
                     }
                 }
             }

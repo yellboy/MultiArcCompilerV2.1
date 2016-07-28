@@ -234,6 +234,7 @@ namespace MultiArc_Compiler
                             bus.Lines.ForEach(l =>
                             {
                                 signal.Lines.AddLast(l);
+                                l.ContainedByBus = bus;
                                 l.ContainedBySignal = signal;
                             });
                             bus.Signals.AddLast(signal);

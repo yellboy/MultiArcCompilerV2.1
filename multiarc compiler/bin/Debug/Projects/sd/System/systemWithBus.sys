@@ -1,0 +1,138 @@
+<system>
+  <components>
+    <component name="Arch4" type="MultiArc_Compiler.CPU" x="0" y="0" />
+    <component name="2kRAM" type="MultiArc_Compiler.Memory" x="223" y="116" />
+  </components>
+  <signals>
+    <signal>
+      <name>Signal0</name>
+      <lines>
+        <line x1="80" x2="343" y1="10" y2="10" />
+        <line x1="343" x2="343" y1="10" y2="129" />
+      </lines>
+      <pins>
+        <pin pin_name="AD0" component_name="Arch4" />
+        <pin pin_name="ADDR0" component_name="2kRAM" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal1</name>
+      <lines>
+        <line x1="80" x2="356" y1="21" y2="21" />
+        <line x1="356" x2="356" y1="21" y2="145" />
+        <line x1="356" x2="343" y1="145" y2="145" />
+        <line x1="343" x2="343" y1="145" y2="146" />
+      </lines>
+      <pins>
+        <pin pin_name="AD1" component_name="Arch4" />
+        <pin pin_name="ADDR1" component_name="2kRAM" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal2</name>
+      <lines>
+        <line x1="80" x2="365" y1="32" y2="32" />
+        <line x1="365" x2="365" y1="32" y2="166" />
+        <line x1="365" x2="343" y1="166" y2="166" />
+        <line x1="343" x2="343" y1="166" y2="163" />
+      </lines>
+      <pins>
+        <pin pin_name="AD2" component_name="Arch4" />
+        <pin pin_name="ADDR2" component_name="2kRAM" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal3</name>
+      <lines>
+        <line x1="80" x2="379" y1="43" y2="43" />
+        <line x1="379" x2="379" y1="43" y2="184" />
+        <line x1="379" x2="343" y1="184" y2="184" />
+        <line x1="343" x2="343" y1="184" y2="180" />
+      </lines>
+      <pins>
+        <pin pin_name="AD3" component_name="Arch4" />
+        <pin pin_name="ADDR3" component_name="2kRAM" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal4</name>
+      <lines>
+        <line x1="80" x2="389" y1="54" y2="54" />
+        <line x1="389" x2="389" y1="54" y2="200" />
+        <line x1="389" x2="343" y1="200" y2="200" />
+        <line x1="343" x2="343" y1="200" y2="197" />
+      </lines>
+      <pins>
+        <pin pin_name="AD4" component_name="Arch4" />
+        <pin pin_name="ADDR4" component_name="2kRAM" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal5</name>
+      <lines>
+        <line x1="80" x2="398" y1="65" y2="65" />
+        <line x1="398" x2="398" y1="65" y2="215" />
+        <line x1="398" x2="343" y1="215" y2="215" />
+        <line x1="343" x2="343" y1="215" y2="214" />
+      </lines>
+      <pins>
+        <pin pin_name="AD5" component_name="Arch4" />
+        <pin pin_name="ADDR5" component_name="2kRAM" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal6</name>
+      <lines>
+        <line x1="80" x2="408" y1="76" y2="76" />
+        <line x1="408" x2="408" y1="76" y2="236" />
+        <line x1="408" x2="343" y1="236" y2="236" />
+        <line x1="343" x2="343" y1="236" y2="231" />
+      </lines>
+      <pins>
+        <pin pin_name="AD6" component_name="Arch4" />
+        <pin pin_name="ADDR6" component_name="2kRAM" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal7</name>
+      <lines>
+        <line x1="80" x2="415" y1="87" y2="87" />
+        <line x1="415" x2="415" y1="87" y2="256" />
+        <line x1="415" x2="343" y1="256" y2="256" />
+        <line x1="343" x2="343" y1="256" y2="248" />
+      </lines>
+      <pins>
+        <pin pin_name="AD7" component_name="Arch4" />
+        <pin pin_name="ADDR7" component_name="2kRAM" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Bus10[0]</name>
+      <name>B[0]</name>
+      <name>S[0]</name>
+      <name>Signal12</name>
+      <name>Signal14</name>
+      <lines>
+        <line x1="40" x2="46" y1="100" y2="100" />
+        <line x1="46" x2="46" y1="100" y2="154" />
+        <line x1="283" x2="225" y1="266" y2="266" />
+        <line x1="225" x2="225" y1="266" y2="285" />
+      </lines>
+      <pins>
+        <pin pin_name="WR_RD0" component_name="Arch4" />
+        <pin pin_name="RD_WR0" component_name="2kRAM" />
+      </pins>
+    </signal>
+  </signals>
+  <buses>
+    <bus>
+      <name>Bus10</name>
+      <name>B</name>
+      <name>S</name>
+      <lines>
+        <line x1="29" x2="157" y1="260" y2="260" />
+        <line x1="157" x2="157" y1="260" y2="282" />
+      </lines>
+    </bus>
+  </buses>
+</system>
