@@ -330,6 +330,14 @@ namespace MultiArc_Compiler
                 }
                 s.SetColor(Color.Violet);
             }
+            foreach (var b in system.Buses)
+            {
+                foreach (var l in b.Lines)
+                {
+                    systemPanel1.Controls.Add(l);
+                }
+                b.SetColor(Color.Violet);
+            }
             systemPanel1.Refresh();
         }
 

@@ -697,7 +697,35 @@ namespace MultiArc_Compiler {
                 return false;
             }
 
-            return GetRectanglePoints(rectangle).Count(p => p.X >= Location.X && p.X <= Location.X + Width || p.Y >= Location.Y && p.Y <= Location.Y + Height) >= 2;
+            var points = GetRectanglePoints(rectangle);
+
+            if (points.Any(p => p.X >= Location.X && p.X <= Location.X + Width && p.Y >= Location.Y && p.Y <= Location.Y + Height))
+            {
+                return true;
+            }
+
+            var topLeft = points.ElementAt(0);
+            var bottomLeft = points.ElementAt(1);
+            var topRight = points.ElementAt(2);
+            var bottomRight = points.ElementAt(3);
+
+            if (topLeft.X < Location.X && topLeft.Y >= Location.Y && 
+                bottomLeft.X < Location.X && bottomLeft.Y <= Location.Y + Height &&
+                topRight.X > Location.X + Width && topRight.Y >= Location.Y &&
+                bottomRight.X > Location.X + Width && bottomRight.Y <= Location.Y + Height)
+            {
+                return true;
+            }
+
+            if (topLeft.X >= Location.X && topLeft.Y < Location.Y &&
+                bottomLeft.X >= Location.X && bottomLeft.Y > Location.Y + Height && 
+                topRight.X <= Location.X + Width && topRight.Y < Location.Y &&
+                bottomRight.X <= Location.X + Width && bottomRight.Y > Location.Y + Height)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public override bool IsCompletelySelected(Rectangle rectangle)

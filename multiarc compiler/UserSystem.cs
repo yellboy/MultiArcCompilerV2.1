@@ -434,6 +434,12 @@ namespace MultiArc_Compiler
                 }
                 XmlNode linesNode = doc.CreateElement("lines");
                 busNode.AppendChild(linesNode);
+                foreach (var s in b.Signals)
+                {
+                    XmlNode signalNode = doc.CreateElement("signal");
+                    signalNode.InnerText = s.Names.First();
+                    busNode.AppendChild(signalNode);
+                }
                 foreach (var l in b.Lines)
                 {
                     XmlNode lineNode = doc.CreateElement("line");
@@ -536,15 +542,15 @@ namespace MultiArc_Compiler
                                         bus.Lines.AddLast(line);
                                     }
                                     break;
+                                case "signal":
+                                    string signalName = innerNode.InnerText.Trim();
+                                    Signal signal = signals.First(s => s.Names.Any(n => n == signalName));
+                                    bus.Signals.AddLast(signal);
+                                    signal.Bus = bus;
+                                    break;
                                 case "name":
                                     string name = innerNode.InnerText.Trim();
                                     bus.Names.AddLast(name);
-                                    string regex = "^" + name + @"[\d+]$";
-                                    var matchingSignals = signals.Where(s => s.Names.Any(n => Regex.Match(n, regex).Length > 0));
-                                    foreach (var s in matchingSignals)
-                                    {
-                                        bus.Signals.AddLast(s);
-                                    }
                                     break;
                                 default:
                                     break;

@@ -173,7 +173,7 @@ namespace MultiArc_Compiler
 
                     break;
                 case "Manage names":
-                    new ManageSignalNamesDialog(ContainedBySignal.Bus as Connector ?? ContainedBySignal as Connector);
+                    new ManageSignalNamesDialog(ContainedByBus as Connector ?? ContainedBySignal as Connector);
                     break;
                 case "Remove":
                     containedBySignal.Remove();
