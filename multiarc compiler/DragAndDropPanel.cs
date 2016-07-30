@@ -319,22 +319,34 @@ namespace MultiArc_Compiler
 
         public void OnMouseClick(object sender, MouseEventArgs e)
         {
+            var clipboard = Parent as Clipboard;
+
+            if (clipboard != null && clipboard.DrawingConnector)
+            {
+                return;
+            }
+
             if (e.Button == MouseButtons.Left)
             {
-                foreach (var c in Controls)
-                {
-                    var dropableControl = c as DropableControl;
-                    if (dropableControl != null)
-                    {
-                        dropableControl.DeselectControl();
-                    }
-                }
+                DeselectAllControls();
             }
             else
             {
                 _clickedX = e.X;
                 _clickedY = e.Y;
                 _menu.Show(PointToScreen(new Point(e.X, e.Y)));
+            }
+        }
+
+        public void DeselectAllControls()
+        {
+            foreach (var c in Controls)
+            {
+                var dropableControl = c as DropableControl;
+                if (dropableControl != null)
+                {
+                    dropableControl.DeselectControl();
+                }
             }
         }
     }

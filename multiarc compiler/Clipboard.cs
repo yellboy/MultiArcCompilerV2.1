@@ -13,7 +13,11 @@ namespace MultiArc_Compiler
     {
         private const int NoCloseButton = 0x200;
 
-        private bool drawingConnector = false;
+        public bool DrawingConnector
+        {
+            get;
+            private set;
+        }
 
         private Connector currentlyDrawnConnector = null;
 
@@ -83,48 +87,52 @@ namespace MultiArc_Compiler
 
         public void PinClicked(Pin pin)
         {
-            int x = pin.Location.X + pin.Parent.Location.X + (pin.ParentPort.PortPosition == Position.RIGHT ? 5 : 0);
-            int y = pin.Location.Y + pin.Parent.Location.Y + (pin.ParentPort.PortPosition == Position.DOWN ? 5 : 0);
-            if (drawingConnector && !drawingBus)
+            if (!drawingBus)
             {
-                var signal = currentlyDrawnConnector as Signal;
-                
-                if (x != connectorX || y != connectorY)
+                int x = pin.Location.X + pin.Parent.Location.X + (pin.ParentPort.PortPosition == Position.RIGHT ? 5 : 0);
+                int y = pin.Location.Y + pin.Parent.Location.Y + (pin.ParentPort.PortPosition == Position.DOWN ? 5 : 0);
+                if (DrawingConnector && !drawingBus)
                 {
-                    Line line1 = new Line(Thicknes, connectorX, connectorY, x, connectorY, signal);
-                    Line line2 = new Line(Thicknes, x, connectorY, x, y, signal);
-                    systemPanel1.Controls.Add(line1);
-                    systemPanel1.Controls.Add(line2);
-                    currentlyDrawnConnector.Lines.AddLast(line1);
-                    currentlyDrawnConnector.Lines.AddLast(line2);
+                    var signal = currentlyDrawnConnector as Signal;
+
+                    if (x != connectorX || y != connectorY)
+                    {
+                        Line line1 = new Line(Thicknes, connectorX, connectorY, x, connectorY, signal);
+                        Line line2 = new Line(Thicknes, x, connectorY, x, y, signal);
+                        systemPanel1.Controls.Add(line1);
+                        systemPanel1.Controls.Add(line2);
+                        currentlyDrawnConnector.Lines.AddLast(line1);
+                        currentlyDrawnConnector.Lines.AddLast(line2);
+                    }
+                    else
+                    {
+                        Line line = new Line(Thicknes, connectorX, connectorY, x, y, signal);
+                        systemPanel1.Controls.Add(line);
+                        currentlyDrawnConnector.Lines.AddLast(line);
+                    }
+                    DrawingConnector = false;
+                    signal.Pins.AddLast(pin);
+                    pin.Signal = signal;
+                    Cursor = Cursors.Arrow;
+                    system.Signals.AddLast(signal);
+                    currentlyDrawnConnector.SetColor(Color.Violet);
                 }
                 else
                 {
-                    Line line = new Line(Thicknes, connectorX, connectorY, x, y, signal);
-                    systemPanel1.Controls.Add(line);
-                    currentlyDrawnConnector.Lines.AddLast(line);
+                    currentlyDrawnConnector = new Signal(system);
+                    var signal = currentlyDrawnConnector as Signal;
+                    signal.Pins.AddLast(pin);
+                    pin.Signal = signal;
+                    StartDrawing(x, y);
                 }
-                drawingConnector = false;
-                signal.Pins.AddLast(pin);
-                pin.Signal = signal;
-                Cursor = Cursors.Arrow;
-                system.Signals.AddLast(signal);
-                currentlyDrawnConnector.SetColor(Color.Violet);
-            }
-            else
-            {
-                currentlyDrawnConnector = new Signal(system);
-                var signal = currentlyDrawnConnector as Signal;
-                signal.Pins.AddLast(pin);
-                pin.Signal = signal;
-                StartDrawing(x, y);
             }
         }
 
         private void StartDrawing(int x, int y)
         {
+            systemPanel1.DeselectAllControls();
             currentlyDrawnConnector.AddGenericName();
-            drawingConnector = true;
+            DrawingConnector = true;
             connectorX = x;
             connectorY = y;
             this.Cursor = Cursors.Cross;
@@ -132,7 +140,7 @@ namespace MultiArc_Compiler
 
         private void systemPanel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (drawingConnector == true)
+            if (DrawingConnector == true)
             {
                 Graphics graphics = systemPanel1.CreateGraphics();
                 graphics.PageUnit = GraphicsUnit.Pixel;
@@ -168,11 +176,9 @@ namespace MultiArc_Compiler
 
         private void systemPanel1_MouseClick(object sender, MouseEventArgs e)
         {
-            systemPanel1.OnMouseClick(sender, e);
-
             if (e.Button == MouseButtons.Left)
             {
-                if (drawingConnector == true)
+                if (DrawingConnector == true)
                 {
                     if (e.X != connectorX || e.Y != connectorY)
                     {
@@ -201,7 +207,7 @@ namespace MultiArc_Compiler
             }
             else
             {
-                if (drawingConnector)
+                if (DrawingConnector)
                 {
                     if (e.X != connectorX || e.Y != connectorY)
                     {
@@ -219,7 +225,7 @@ namespace MultiArc_Compiler
                         currentlyDrawnConnector.Lines.AddLast(line);
                     }
 
-                    drawingConnector = false;
+                    DrawingConnector = false;
                     this.Cursor = Cursors.Arrow;
                     if (drawingBus)
                     {
@@ -407,7 +413,15 @@ namespace MultiArc_Compiler
 
         private void DrawBusButton_Click(object sender, EventArgs e)
         {
-            drawingBus = true;
+            drawingBus = !drawingBus;
+            if (drawingBus)
+            {
+                DrawBusButton.Text = "Stop drawing bus";
+            }
+            else
+            {
+                DrawBusButton.Text = "Draw bus";
+            }
         }
 
         public void DoThePaste(List<NonPinDropableControl> controls)
