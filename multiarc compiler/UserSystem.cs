@@ -578,5 +578,40 @@ namespace MultiArc_Compiler
             wakeUpTimes.Clear();
             ticks = 0;
         }
+
+        public void DisableSelectingToAllComponents()
+        {
+            foreach (var c in components)
+            {
+                c.SelectingDisabled = true;
+            }
+
+            foreach (var s in signals)
+            {
+                s.SelectingDisabled = true;
+            }
+
+            foreach (var b in Buses)
+            {
+                b.SelectingDisabled = false;
+            }
+        }
+
+        public void RemoveConnector(Connector c)
+        {
+            var bus = c as Bus;
+            if (bus != null)
+            {
+                var node = Buses.Find(bus);
+                Buses.Remove(node);
+            }
+
+            var signal = c as Signal;
+            if (signal != null)
+            {
+                var node = signals.Find(signal);
+                signals.Remove(node);
+            }
+        }
     }
 }

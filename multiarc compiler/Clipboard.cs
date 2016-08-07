@@ -31,7 +31,7 @@ namespace MultiArc_Compiler
         
         private UserSystem system;
 
-        public Clipboard(LinkedList<SystemComponent> componentsList, UserSystem system)
+        public Clipboard(LinkedList<SystemComponent> componentsList, UserSystem system, string projectFolder)
         {
             InitializeComponent();
             this.Visible = true;
@@ -46,6 +46,8 @@ namespace MultiArc_Compiler
             TicksChanged();
             addComponentButton.Enabled = false;
             frequencyInput.Value = (decimal)system.Frequency;
+            LoadSystemDialog.InitialDirectory = projectFolder + "System";
+            SaveSystemDialog.InitialDirectory = projectFolder + "System";
         }
 
         private void addComponentButton_Click(object sender, EventArgs e)
@@ -153,11 +155,6 @@ namespace MultiArc_Compiler
             {
                 systemPanel1.OnMouseMove(sender, e);
             }
-        }
-
-        private void systemPanel1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            
         }
 
         private int GetBusWidth()
@@ -449,6 +446,14 @@ namespace MultiArc_Compiler
                 {
                     system.RemoveComponent(component);
                 }
+            }
+        }
+
+        public void RemoveConnectors(List<Connector> selectedConnectors)
+        {
+            foreach (var c in selectedConnectors)
+            {
+                system.RemoveConnector(c);
             }
         }
     }

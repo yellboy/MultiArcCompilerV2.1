@@ -33,10 +33,17 @@
       <level>0</level>
       <transparent>True</transparent>
     </image>
+    <image>
+      <file>1HzCLK1.png</file>
+      <x>128</x>
+      <y>168</y>
+      <level>1</level>
+      <transparent>True</transparent>
+    </image>
     <pin>
       <name>CLK0</name>
-      <x>177</x>
-      <y>33</y>
+      <x>199</x>
+      <y>84</y>
     </pin>
   </design>
 </othercomponent>

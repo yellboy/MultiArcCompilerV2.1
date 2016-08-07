@@ -106,6 +106,7 @@
     <Compile Include="Instruction.cs" />
     <Compile Include="InstructionRegister.cs" />
     <Compile Include="IRegistersObserver.cs" />
+    <Compile Include="ISelectableControl.cs" />
     <Compile Include="Line.cs">
       <SubType>Component</SubType>
     </Compile>

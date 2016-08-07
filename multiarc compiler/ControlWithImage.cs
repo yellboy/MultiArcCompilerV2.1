@@ -40,7 +40,7 @@ namespace MultiArc_Compiler
 
         private bool[ , ] _selectionApplied;
 
-        public override bool Selected
+        public bool Selected
         {
             get
             {

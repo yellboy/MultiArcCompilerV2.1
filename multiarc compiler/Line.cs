@@ -43,6 +43,14 @@ namespace MultiArc_Compiler
             set;
         }
 
+        public Connector ContainedByConnector
+        {
+            get
+            {
+                return ContainedByBus as Connector ?? ContainedBySignal as Connector;
+            }
+        }
+
         private int x1, x2, y1, y2;
 
         /// <summary>
@@ -173,7 +181,7 @@ namespace MultiArc_Compiler
 
                     break;
                 case "Manage names":
-                    new ManageSignalNamesDialog(ContainedByBus as Connector ?? ContainedBySignal as Connector);
+                    new ManageSignalNamesDialog(ContainedByConnector);
                     break;
                 case "Remove":
                     containedBySignal.Remove();
@@ -212,6 +220,14 @@ namespace MultiArc_Compiler
             {
                 menu.Show(this, new Point(e.X, e.Y));
             }
+            else
+            {
+                ContainedByConnector.SelectControl();
+                if (!ModifierKeys.HasFlag(Keys.Control) && e.Button != MouseButtons.Right)
+                {
+                    ContainedByConnector.DeselectOthers();
+                }
+            }
         }
 
 
@@ -223,6 +239,45 @@ namespace MultiArc_Compiler
         private void mouseLeave(object sender, EventArgs e)
         {
             Cursor = Cursors.Arrow;
+        }
+
+        public void Deselect()
+        {
+            ContainedByConnector.DeselectControl();
+        }
+
+        public void SelectControl()
+        {
+            ContainedByConnector.SelectControl();
+        }
+
+        public bool IsCompletelySelected(Rectangle rectangle)
+        {
+            var topLeft = new Point(rectangle.Location.X, rectangle.Location.Y);
+            var bottomRight = new Point(rectangle.Location.X + rectangle.Width - 1, rectangle.Location.Y + rectangle.Height - 1);
+
+            return topLeft.X <= X1 && bottomRight.X >= X2 && topLeft.Y <= Y1 && bottomRight.Y >= Y2;
+        }
+
+        public bool IsPartialySelected(Rectangle rectangle)
+        {
+            var topLeft = new Point(rectangle.Location.X, rectangle.Location.Y);
+            var bottomRight = new Point(rectangle.Location.X + rectangle.Width - 1, rectangle.Location.Y + rectangle.Height - 1);
+
+            if (_thicknes == Width)
+            {
+                return (topLeft.X <= X1 && bottomRight.X >= X1 &&
+                            (topLeft.Y <= Y1 && bottomRight.Y >= Y1 || 
+                             topLeft.Y <= Y2 && bottomRight.Y >= Y2 ||
+                             topLeft.Y >= Y1 && bottomRight.Y <= Y2));
+            }
+            else
+            {
+                return (topLeft.Y <= Y1 && bottomRight.Y >= Y1 &&
+                            (topLeft.X <= X1 && bottomRight.X >= X1 || 
+                             topLeft.X <= X2 && bottomRight.X >= X2 ||
+                             topLeft.X >= X1 && bottomRight.X <= X2));
+            }
         }
     }
 }

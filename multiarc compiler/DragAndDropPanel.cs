@@ -24,6 +24,25 @@ namespace MultiArc_Compiler
 
         private Point _copiedControlsClickLocation;
 
+        private List<Connector> Connectors
+        {
+            get
+            {
+                var connectors = new List<Connector>();
+
+                foreach (var c in Controls)
+                {
+                    var line = c as Line;
+                    if (line != null && !connectors.Contains(line.ContainedByConnector))
+                    {
+                        connectors.Add(line.ContainedByConnector);
+                    }
+                }
+                
+                return connectors;
+            }
+        }
+
         public DragAndDropPanel()
         {
             DragDrop += DragAndDrop;
@@ -70,6 +89,13 @@ namespace MultiArc_Compiler
                     dropableControl.SelectControl();
                     dropableControl.Refresh();
                 }
+
+                var line = c as Line;
+
+                if (line != null && !line.ContainedByConnector.Selected)
+                {
+                    line.SelectControl();
+                }
             }
         }
 
@@ -87,6 +113,18 @@ namespace MultiArc_Compiler
             if (clipboard != null)
             {
                 clipboard.RemoveControls(selectedControls);
+
+                var selectedConnectors = GetSelectedConnectors();
+                clipboard.RemoveConnectors(selectedConnectors);
+                
+                foreach (var c in selectedConnectors)
+                {
+                    foreach (var l in c.Lines)
+                    {
+                        Controls.Remove(l);
+                    }
+                }
+
                 return;
             }
 
@@ -96,6 +134,22 @@ namespace MultiArc_Compiler
             {
                 designer.RemoveControls(selectedControls);
             }
+        }
+
+        private List<Connector> GetSelectedConnectors()
+        {
+            var selectedConnectors = new List<Connector>();
+
+            foreach (var c in Controls)
+            {
+                var line = c as Line;
+                if (line != null && line.ContainedByConnector.Selected && !selectedConnectors.Contains(line.ContainedByConnector))
+                {
+                    selectedConnectors.Add(line.ContainedByConnector);
+                }
+            }
+
+            return selectedConnectors;
         }
 
         private void MenuItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -315,6 +369,26 @@ namespace MultiArc_Compiler
                     dropableControl.SelectControl();
                 }
             }
+
+            foreach (var c in Connectors)
+            {
+                if (_selectingFromLeftToRight)
+                {
+                    if (!c.IsPartialySelected(_selectionRectangle) && !c.IsCompletelySelected(_selectionRectangle))
+                    {
+                        continue;
+                    }
+                }
+                else
+                {
+                    if (!c.IsCompletelySelected(_selectionRectangle))
+                    {
+                        continue;
+                    }
+                }
+
+                c.SelectControl();
+            }
         }
 
         public void OnMouseClick(object sender, MouseEventArgs e)
@@ -343,9 +417,40 @@ namespace MultiArc_Compiler
             foreach (var c in Controls)
             {
                 var dropableControl = c as DropableControl;
+
                 if (dropableControl != null)
                 {
                     dropableControl.DeselectControl();
+                }
+
+                var line = c as Line;
+
+                if (line != null)
+                {
+                    line.Deselect();
+                }
+            }
+        }
+
+        public void DeselectAllControlsExcept(ISelectableControl control)
+        {
+            foreach (var c in Controls)
+            {
+                if (c != control)
+                {
+                    var dropableControl = c as DropableControl;
+
+                    if (dropableControl != null)
+                    {
+                        dropableControl.DeselectControl();
+                    }
+
+                    var line = c as Line;
+
+                    if (line != null && line.ContainedByConnector != control)
+                    {
+                        line.Deselect();
+                    }
                 }
             }
         }

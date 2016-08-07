@@ -154,6 +154,8 @@ namespace MultiArc_Compiler
             // 
             // SaveSystemDialog
             // 
+            this.SaveSystemDialog.DefaultExt = "sys";
+            this.SaveSystemDialog.Filter = "sys files|*.sys";
             this.SaveSystemDialog.Title = "Save system";
             this.SaveSystemDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.SaveSystemDialog_FileOk);
             // 
@@ -170,7 +172,8 @@ namespace MultiArc_Compiler
             // 
             // LoadSystemDialog
             // 
-            this.LoadSystemDialog.FileName = "openFileDialog1";
+            this.LoadSystemDialog.DefaultExt = "sys";
+            this.LoadSystemDialog.Filter = "sys files|*.sys|all files|*.*";
             this.LoadSystemDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.LoadSystemDialog_FileOk);
             // 
             // label1
@@ -243,7 +246,6 @@ namespace MultiArc_Compiler
             this.systemPanel1.Size = new System.Drawing.Size(458, 309);
             this.systemPanel1.TabIndex = 1;
             this.systemPanel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseClick);
-            this.systemPanel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseDoubleClick);
             this.systemPanel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.systemPanel1_MouseMove);
             // 
             // Clipboard

@@ -393,6 +393,7 @@ namespace MultiArc_Compiler
             }
             if (compiled == true)
             {
+                system.DisableSelectingToAllComponents();
                 system.StartWorking(separators, breakPoints, OutputBox, entryPoint, binary);
             }
         }
@@ -1276,7 +1277,7 @@ Name: " + projectName + @"
 
         private void systemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clipboard = new Clipboard(componentsList, system);
+            clipboard = new Clipboard(componentsList, system, projectPath);
             clipboard.Visible = true;
             clipboard.Focus();
         }

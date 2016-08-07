@@ -7,9 +7,11 @@ using System.Windows.Forms;
 
 namespace MultiArc_Compiler
 {
-    public abstract class DropableControl : UserControl
+    public abstract class DropableControl : UserControl, ISelectableControl
     {
-        public virtual bool Selected { get; set; }
+        public bool Selected { get; set; }
+
+        public bool SelectingDisabled { get; set; }
 
         public Pen DefaultPen { get; protected set; }
 
@@ -87,20 +89,9 @@ namespace MultiArc_Compiler
             Refresh();
         }
 
-        public virtual void DeselectOthers()
+        public void DeselectOthers()
         {
-            foreach (var c in ParentPanel.Controls)
-            {
-                if (c != this)
-                {
-                    var dropableControl = c as DropableControl;
-
-                    if (dropableControl != null)
-                    {
-                        dropableControl.DeselectControl();
-                    }
-                }
-            }
+            ParentPanel.DeselectAllControlsExcept(this);
         }
 
         private void PassSelectedToControlsWithImage()
