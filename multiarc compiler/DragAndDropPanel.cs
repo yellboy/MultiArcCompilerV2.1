@@ -326,7 +326,7 @@ namespace MultiArc_Compiler
                 if (!_justStartedSelecting)
                 {
                     CreateGraphics().Clear(BackColor);
-                    SelectAllCoveredControls();
+                    SelectAllCoveredControlsAndDeselectAllNonCoveredControls();
 
                     RefreshAllControls();
                 }
@@ -343,7 +343,7 @@ namespace MultiArc_Compiler
             }
         }
 
-        private void SelectAllCoveredControls()
+        private void SelectAllCoveredControlsAndDeselectAllNonCoveredControls()
         {
             foreach (var c in Controls)
             {
@@ -355,6 +355,7 @@ namespace MultiArc_Compiler
                     {
                         if (!dropableControl.IsPartialySelected(_selectionRectangle) && !dropableControl.IsCompletelySelected(_selectionRectangle))
                         {
+                            dropableControl.DeselectControl();
                             continue;
                         }
                     }
@@ -362,6 +363,7 @@ namespace MultiArc_Compiler
                     {
                         if (!dropableControl.IsCompletelySelected(_selectionRectangle))
                         {
+                            dropableControl.DeselectControl();
                             continue;
                         }
                     }

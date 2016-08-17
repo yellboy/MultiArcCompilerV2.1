@@ -282,6 +282,11 @@ public static void Cycle(OtherComponent component)
             return errorCount;
         }
 
+        public Register GetRegister(string name)
+        {
+            return constants.GetRegister(name);
+        }
+
         public override object Clone()
         {
             var newComponent = new OtherComponent(ProjectPath);

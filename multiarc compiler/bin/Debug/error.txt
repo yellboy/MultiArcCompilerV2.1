@@ -1,7 +1,8 @@
 System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.Clipboard.systemPanel1_MouseClick(Object sender, MouseEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Clipboard.cs:line 233
-   at System.Windows.Forms.MouseEventHandler.Invoke(Object sender, MouseEventArgs e)
-   at System.Windows.Forms.Control.OnMouseClick(MouseEventArgs e)
+   at MultiArc_Compiler.ControlWithImage.IsPartialySelected(Rectangle rectangle) in d:\MultiArc Compiler\multiarc compiler\ControlWithImage.cs:line 396
+   at MultiArc_Compiler.DragAndDropPanel.SelectAllCoveredControlsAndDeselectAllNonCoveredControls() in d:\MultiArc Compiler\multiarc compiler\DragAndDropPanel.cs:line 356
+   at MultiArc_Compiler.DragAndDropPanel.OnMouseUp(Object sender, MouseEventArgs e) in d:\MultiArc Compiler\multiarc compiler\DragAndDropPanel.cs:line 329
+   at System.Windows.Forms.Control.OnMouseUp(MouseEventArgs e)
    at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
    at System.Windows.Forms.Control.WndProc(Message& m)
    at System.Windows.Forms.ScrollableControl.WndProc(Message& m)

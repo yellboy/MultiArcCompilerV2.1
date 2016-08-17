@@ -9,7 +9,7 @@ namespace MultiArc_Compiler
 {
     public abstract class DropableControl : UserControl, ISelectableControl
     {
-        public bool Selected { get; set; }
+        public virtual bool Selected { get; set; }
 
         public bool SelectingDisabled { get; set; }
 

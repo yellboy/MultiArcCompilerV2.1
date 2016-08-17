@@ -40,7 +40,7 @@ namespace MultiArc_Compiler
 
         private bool[ , ] _selectionApplied;
 
-        public bool Selected
+        public override bool Selected
         {
             get
             {
@@ -160,13 +160,13 @@ namespace MultiArc_Compiler
 
                                 if (!_wasSelected && Selected)
                                 {
-                                    var color = Color.FromArgb(pixel.A, pixel.R, pixel.G + 50 < 255 ? pixel.G + 50 : 255, pixel.B);
+                                    var color = Color.FromArgb(pixel.A, pixel.R, pixel.G + 100 < 255 ? pixel.G + 100 : 255, pixel.B);
                                     _image.SetPixel(x, y, color);
                                 }
 
                                 if (_wasSelected && !Selected)
                                 {
-                                    var color = Color.FromArgb(pixel.A, pixel.R, pixel.G - 50 > 0 ? pixel.G - 50 : 0, pixel.B);
+                                    var color = Color.FromArgb(pixel.A, pixel.R, pixel.G - 100 > 0 ? pixel.G - 100 : 0, pixel.B);
                                     _image.SetPixel(x, y, color);
                                 }
                             }
@@ -341,6 +341,21 @@ namespace MultiArc_Compiler
             {
                 graphics.DrawImage(_image, new Point(0, 0));
                 Region = new Region(new Rectangle(0, 0, _image.Width, _image.Height));
+
+                var points = new List<Point>();
+                for (var y = 0; y < _image.Height; y++)
+                {
+                    points.Add(new Point(0, y));
+                    points.Add(new Point(_image.Width - 1, y));
+                } 
+                
+                for (var x = 0; x < _image.Width; x++)
+                {
+                    points.Add(new Point(x, 0));
+                    points.Add(new Point(x, _image.Height - 1));
+                }
+
+                Points = points.OrderBy(p => p.X).ThenBy(p => p.Y).ToList();
             }
         }
 

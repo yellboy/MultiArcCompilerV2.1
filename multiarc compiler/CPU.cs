@@ -83,6 +83,11 @@ namespace MultiArc_Compiler
 
         public CPU(string projectPath) : base(projectPath) { }
 
+        public Register GetRegister(string name)
+        {
+            return constants.GetRegister(name);
+        }
+        
         /// <summary>
         /// Loads architecture from file.
         /// </summary>
