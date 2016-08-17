@@ -196,6 +196,22 @@ namespace MultiArc_Compiler
             }
         }
 
+        public bool ContainsPoint(Point point)
+        {
+            if (Parent is DropableControl)
+            {
+                var x = Location.X + Parent.Location.X;
+                var y = Location.X + Parent.Location.Y;
+
+                if (point.X >= x && point.X <= x + Width && point.Y >= y && point.Y <= y + Height)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public override void MouseDownAction(MouseEventArgs e)
         {
             if (Clipboard != null)

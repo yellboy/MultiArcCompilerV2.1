@@ -243,7 +243,10 @@ namespace MultiArc_Compiler
 
         public void Deselect()
         {
-            ContainedByConnector.DeselectControl();
+            if (ContainedByConnector != null)
+            {
+                ContainedByConnector.DeselectControl();
+            }
         }
 
         public void SelectControl()

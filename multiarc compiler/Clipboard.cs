@@ -118,6 +118,8 @@ namespace MultiArc_Compiler
                     Cursor = Cursors.Arrow;
                     system.Signals.AddLast(signal);
                     currentlyDrawnConnector.SetColor(Color.Violet);
+
+                    RemoveAllOrphanedLines();
                 }
                 else
                 {
@@ -126,6 +128,19 @@ namespace MultiArc_Compiler
                     signal.Pins.AddLast(pin);
                     pin.Signal = signal;
                     StartDrawing(x, y);
+                }
+            }
+        }
+
+        private void RemoveAllOrphanedLines()
+        {
+            foreach (var c in Controls)
+            {
+                var line = c as Line;
+                
+                if (line != null && line.ContainedByConnector == null)
+                {
+                    systemPanel1.Controls.Remove(line);
                 }
             }
         }
@@ -173,6 +188,12 @@ namespace MultiArc_Compiler
 
         private void systemPanel1_MouseClick(object sender, MouseEventArgs e)
         {
+            var pins = system.Components.Select(c => c.GetAllPins()).ToList();
+            if (pins.Any(l => l.Any(p => p.ContainsPoint(new Point(e.X, e.Y)))))
+            {
+                return;
+            }
+
             if (e.Button == MouseButtons.Left)
             {
                 if (DrawingConnector == true)
