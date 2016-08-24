@@ -193,7 +193,7 @@ namespace MultiArc_Compiler
         {
             Graphics graphics = CreateGraphics();
             graphics.PageUnit = GraphicsUnit.Pixel;
-            Pen pen = new Pen(containedBySignal != null && containedBySignal.Bus != null ? Color.Violet : ForeColor, _thicknes);
+            Pen pen = new Pen(ForeColor, _thicknes);
             if (Width == _thicknes)
             {
                 graphics.DrawLine(pen, 0, 0, 0, Height);

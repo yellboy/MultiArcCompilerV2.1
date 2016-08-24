@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="b8b19af2-f873-409b-b085-c6a35c8a0292"
+  name="LineNumbers"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="fa243d46-78af-450c-a105-00d5bea1c233"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DLineNumbers"
+      tag="ViewCode" />
+  </referencesInternal>
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="a5adad24-626f-451f-8921-daf4e04a42ee">
+      <profileInstance
+        Id="2f919760-8744-4588-9238-027d1c526498"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="86a3d355-ee45-49e3-9e48-3f44dd9348bd"
+        name="LineNumbers_For_RichTextBox"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="e289cfc8-3ae0-4198-a0d0-d8452daa9c2f"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DLineNumbers Type%3DLineNumbers_For_RichTextBox"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="2bcec087-79d0-46c1-acad-e43b4bc8fc24"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4d2ee065-4e6f-483d-8e0a-9220c8868920">
+                <propertyInstance
+                  Id="c0949f22-f9d7-44ca-a9e8-3a0b7ba0783d"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e61802e2-d627-45b7-ab8a-436381c2346a">
+                <propertyInstance
+                  Id="119bf39c-5fef-4610-bb11-bdb39f5a86e1"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a02adc31-f500-4290-b1aa-0ba31d5b3a1c">
+                <propertyInstance
+                  Id="73e473f9-6274-4e67-9276-5ecf395cc2ca"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="74216325-0f62-4d9e-8f82-b8701a98a67c">
+                <propertyInstance
+                  Id="97d55268-7f4a-452e-a1ab-03da57cdc032"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ea423840-6a08-4de2-bffe-8de0f998389d">
+                <propertyInstance
+                  Id="92c6243b-d105-4847-9455-22f65e525461"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="8ba05051-3825-45f4-9378-1c228df8b111"
+            isSubstitutable="false">
+            <classMoniker
+              Id="fc4c6999-d410-4e7e-acb0-88dcd8a3b279"
+              LastKnownName="Control"
+              LastKnownLocation="Package5_2008.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

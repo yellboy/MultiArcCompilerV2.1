@@ -1,17 +1,8 @@
 System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.DragAndDropPanel.SelectAllControls() in d:\MultiArc Compiler\multiarc compiler\DragAndDropPanel.cs:line 95
-   at MultiArc_Compiler.DragAndDropPanel.OnKeyDown(Object sender, KeyEventArgs e) in d:\MultiArc Compiler\multiarc compiler\DragAndDropPanel.cs:line 73
-   at MultiArc_Compiler.Clipboard.Clipboard_KeyDown(Object sender, KeyEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Clipboard.cs:line 442
-   at System.Windows.Forms.Control.OnKeyDown(KeyEventArgs e)
-   at System.Windows.Forms.Control.ProcessKeyEventArgs(Message& m)
-   at System.Windows.Forms.Form.ProcessKeyPreview(Message& m)
-   at System.Windows.Forms.Control.ProcessKeyPreview(Message& m)
-   at System.Windows.Forms.Control.ProcessKeyPreview(Message& m)
-   at System.Windows.Forms.Control.ProcessKeyMessage(Message& m)
-   at System.Windows.Forms.Control.WmKeyChar(Message& m)
+   at MultiArc_Compiler.Line.mouseClick(Object sender, MouseEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Line.cs:line 225
+   at System.Windows.Forms.Control.OnMouseClick(MouseEventArgs e)
+   at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
    at System.Windows.Forms.Control.WndProc(Message& m)
-   at System.Windows.Forms.ScrollableControl.WndProc(Message& m)
-   at System.Windows.Forms.UserControl.WndProc(Message& m)
    at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
    at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
    at System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

@@ -273,6 +273,8 @@ namespace MultiArc_Compiler
                     }
 
                     drawingBus = false;
+                    DrawBusButton.Text = "Draw bus";
+                    RemoveAllOrphanedLines();
                     currentlyDrawnConnector.SetColor(Color.Violet);
                 }
             }
