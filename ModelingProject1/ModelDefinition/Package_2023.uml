@@ -5541,6 +5541,58 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="401ee188-e9f3-4459-ab21-977e2d6dd6e1"
+            isDerived="false"
+            sourceEndRoleName="SystemComponent"
+            targetEndRoleName="ControlWithImage"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="6c105cce-bf60-462b-a7bb-52ff37215b9d"
+              LastKnownName="ControlWithImage"
+              LastKnownLocation="Package_2023.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c8580cde-db46-4cc5-9249-12cb8471b8c2"
+                  name="SystemComponent"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d9de9d55-b1e2-46c0-9ae2-71c1a1c65f56"
+                  name="ControlWithImage"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="bbe8dec4-9dc6-46af-9c52-18ac1168b84a"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="926a9140-0368-4e75-83cc-a05afea26156"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -12281,45 +12333,6 @@
         </generalsInternal>
         <targetEnds>
           <association
-            Id="122240b2-071d-4054-8246-a773013b0c04"
-            isDerived="false"
-            sourceEndRoleName="DragAndDropPanel"
-            targetEndRoleName="Designer"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="84c90f6a-6868-495b-a3ff-6131c9aa995a"
-              LastKnownName="Designer"
-              LastKnownLocation="Package_2023.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="4cfcdfb2-7e58-4a66-af41-7d41e13576f3"
-                  name="DragAndDropPanel"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="c7ab8a97-d0f9-4e86-a4b4-8460aee57a49"
-                  name="Designer"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
             Id="6f06f1eb-9b8f-41c7-b92f-b46b595ae5c1"
             isDerived="false"
             sourceEndRoleName="DragAndDropPanel"
@@ -14936,6 +14949,45 @@
                       value="1" />
                   </upperValueInternal>
                 </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d391f40d-9039-4adc-8c8c-3ea670b3b2ac"
+            isDerived="false"
+            sourceEndRoleName="Designer"
+            targetEndRoleName="DragAndDropPanel"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="d2137755-d83d-4556-bb4e-1c517be97ef1"
+              LastKnownName="DragAndDropPanel"
+              LastKnownLocation="Package_2023.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c7c44f86-dda7-4cae-a3dd-fd7edc28db6a"
+                  name="Designer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a24cab2c-f8b6-4ca2-8f2f-6e56fbb639a3"
+                  name="DragAndDropPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>

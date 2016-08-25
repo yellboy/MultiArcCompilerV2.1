@@ -66,6 +66,24 @@
           </stereotypeInstance>
         </appliedStereotypesInternal>
         <elementDefinition Id="84c90f6a-6868-495b-a3ff-6131c9aa995a" />
+        <targetEnds>
+          <association Id="f12a8cd7-e55b-4051-bdb1-6cba83ccae54" isDerived="false" sourceEndRoleName="Designer" targetEndRoleName="DragAndDropPanel" isLeaf="false" isAbstract="false">
+            <classMoniker Id="aa5b4f77-0a87-49ce-b953-b3208e4a7d14" LastKnownName="DragAndDropPanel" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5aac7ffa-107f-4919-8be0-65c5a1d833a4" name="Designer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c7c44f86-dda7-4cae-a3dd-fd7edc28db6a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="49e93a04-7e1e-45ab-8327-e16276027d5a" name="DragAndDropPanel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="a24cab2c-f8b6-4ca2-8f2f-6e56fbb639a3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="d391f40d-9039-4adc-8c8c-3ea670b3b2ac" />
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property Id="7eb79b9f-aa26-4832-ab6c-4f888e76e6da" name="CopiedControls" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
             <referencesInternal>
@@ -2155,22 +2173,6 @@
         </appliedStereotypesInternal>
         <elementDefinition Id="d2137755-d83d-4556-bb4e-1c517be97ef1" />
         <targetEnds>
-          <association Id="c91b18e2-bf42-454b-b2a5-13d6e68643a8" isDerived="false" sourceEndRoleName="DragAndDropPanel" targetEndRoleName="Designer" isLeaf="false" isAbstract="false">
-            <classMoniker Id="720d40d7-e01b-4516-8c58-b492861693e7" LastKnownName="Designer" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="a0a172f6-dd1f-4ec5-8955-103825ff1c7d" name="DragAndDropPanel" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="4cfcdfb2-7e58-4a66-af41-7d41e13576f3" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="4c501f98-becf-4b79-bf19-a53d68e32afb" name="Designer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="c7ab8a97-d0f9-4e86-a4b4-8460aee57a49" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="122240b2-071d-4054-8246-a773013b0c04" />
-          </association>
           <association Id="a76fcdfe-bfc9-4d5c-af6d-78600542ad65" isDerived="false" sourceEndRoleName="DragAndDropPanel" targetEndRoleName="ISelectableControl" isLeaf="false" name="*" isAbstract="false">
             <interfaceMoniker Id="99124512-3f67-4df3-9da6-cd13ae63f614" LastKnownName="ISelectableControl" />
             <relationshipOwnedElementsInternal>

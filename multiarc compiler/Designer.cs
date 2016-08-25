@@ -154,7 +154,7 @@ namespace MultiArc_Compiler
 
                 SaveComponentPermanently();
             }
-        }
+        } 
 
         private void SaveComponentPermanently()
         {
