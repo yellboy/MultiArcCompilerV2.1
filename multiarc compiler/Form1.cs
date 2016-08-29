@@ -406,7 +406,11 @@ namespace MultiArc_Compiler
             }
             if (compiled == true)
             {
-                system.ResetToDefault();
+                if (!system.Executing)
+                {
+                    system.ResetToDefault();
+                }
+
                 system.StartWorkingTickByTick(separators, breakPoints, OutputBox, entryPoint, binary);
             }
         }
@@ -1086,6 +1090,9 @@ Name: " + projectName + @"
             loadToolStripMenuItem.Enabled = true;
             LoadArcButton.Enabled = true;
 
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
             foreach (SystemComponent c in componentsList)
             {
                 c.DisposeAllImages();
@@ -1127,6 +1134,9 @@ Name: " + projectName + @"
 
 
             projectOpenning = false;
+            sw.Stop();
+
+            Console.WriteLine("Project openning time: {0} ms.", sw.ElapsedMilliseconds);
         }
 
         private void recompileCodeToolStripMenuItem_Click(object sender, EventArgs e)

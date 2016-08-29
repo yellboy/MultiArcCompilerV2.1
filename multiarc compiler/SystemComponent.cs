@@ -451,7 +451,7 @@ namespace MultiArc_Compiler
                     if (!File.Exists(path))
                     {
                         var contents = 
-@"public stati void DrawComponent(" + GetType() + @"component, Graphics graphics) 
+@"public stati void DrawComponent(" + GetType() + @" component, Graphics graphics) 
 {
     // This is auto generated code. Please, edit only method body.
     // Define how component is drawn here.

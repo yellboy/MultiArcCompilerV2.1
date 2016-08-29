@@ -15,7 +15,7 @@ namespace MultiArc_Compiler
     {
         private string dataFolder;
         private RegistersForm observer;
-        ArchConstants constants = new ArchConstants();
+        private ArchConstants constants = new ArchConstants();
 
         public override string Name
         {
@@ -290,6 +290,7 @@ public static void Cycle(OtherComponent component)
         public override object Clone()
         {
             var newComponent = new OtherComponent(ProjectPath);
+            newComponent.results = results;
             newComponent.observer = this.observer;
             newComponent.Height = this.Height;
             newComponent.Width = this.Width;

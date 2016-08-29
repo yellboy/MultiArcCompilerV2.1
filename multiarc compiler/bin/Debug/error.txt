@@ -1,8 +1,16 @@
-System.NullReferenceException: Object reference not set to an instance of an object.
-   at MultiArc_Compiler.Line.mouseClick(Object sender, MouseEventArgs e) in d:\MultiArc Compiler\multiarc compiler\Line.cs:line 225
-   at System.Windows.Forms.Control.OnMouseClick(MouseEventArgs e)
+System.InvalidOperationException: Sequence contains no matching element
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)
+   at MultiArc_Compiler.UserSystem.StartWorking(LinkedList`1 separators, LinkedList`1 breakPoints, TextBoxBase outputBox, Int32 entryPoint, Byte[] binary, Boolean stepByStepMode, Boolean shouldWorkInTickByTickMode) in d:\MultiArc Compiler\multiarc compiler\UserSystem.cs:line 244
+   at MultiArc_Compiler.UserSystem.StartWorkingTickByTick(LinkedList`1 separators, LinkedList`1 breakPoints, TextBoxBase outputBox, Int32 entryPoint, Byte[] binary) in d:\MultiArc Compiler\multiarc compiler\UserSystem.cs:line 288
+   at MultiArc_Compiler.Form1.ExecuteTickByTick() in d:\MultiArc Compiler\multiarc compiler\Form1.cs:line 414
+   at MultiArc_Compiler.Clipboard.nextClockButton_Click(Object sender, EventArgs e) in d:\MultiArc Compiler\multiarc compiler\Clipboard.cs:line 306
+   at System.Windows.Forms.Control.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnClick(EventArgs e)
+   at System.Windows.Forms.Button.OnMouseUp(MouseEventArgs mevent)
    at System.Windows.Forms.Control.WmMouseUp(Message& m, MouseButtons button, Int32 clicks)
    at System.Windows.Forms.Control.WndProc(Message& m)
+   at System.Windows.Forms.ButtonBase.WndProc(Message& m)
+   at System.Windows.Forms.Button.WndProc(Message& m)
    at System.Windows.Forms.Control.ControlNativeWindow.OnMessage(Message& m)
    at System.Windows.Forms.Control.ControlNativeWindow.WndProc(Message& m)
    at System.Windows.Forms.NativeWindow.DebuggableCallback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)

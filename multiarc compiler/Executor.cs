@@ -11,6 +11,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Threading;
 using System.Drawing;
+using System.Diagnostics;
 
 namespace MultiArc_Compiler
 {
@@ -242,6 +243,8 @@ namespace MultiArc_Compiler
             executing = true;
             next = 0;
             Thread.EndCriticalRegion();
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
             try
             {
                 vars = new Variables();
@@ -321,6 +324,8 @@ namespace MultiArc_Compiler
                 system.EndWorking();
                 writeToOutput(" Code executed successfully.\n");
                 Form1.Instance.ExecutionStoped();
+                sw.Stop();
+                Console.WriteLine("Execution time: {0} ms.", sw.ElapsedMilliseconds);
             }
             catch (System.Reflection.TargetInvocationException ex)
             {

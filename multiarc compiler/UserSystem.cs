@@ -144,6 +144,14 @@ namespace MultiArc_Compiler
 
         private Executor ex;
 
+        public bool Executing
+        {
+            get
+            {
+                return ex != null && ex.Executing;
+            }
+        }
+
         public LinkedList<Signal> Signals
         {
             get
@@ -222,8 +230,9 @@ namespace MultiArc_Compiler
         /// <summary>
         /// Starts program execution.
         /// </summary>
-        public void StartWorking(LinkedList<int> separators, LinkedList<int> breakPoints, TextBoxBase outputBox, int entryPoint, byte[] binary, bool stepByStepMode = false)
+        public void StartWorking(LinkedList<int> separators, LinkedList<int> breakPoints, TextBoxBase outputBox, int entryPoint, byte[] binary, bool stepByStepMode = false, bool shouldWorkInTickByTickMode = false)
         {
+            tickByTickMode = shouldWorkInTickByTickMode;
             if (ex == null || ex.Executing == false)
             {
                 ResetToDefault();
@@ -255,7 +264,7 @@ namespace MultiArc_Compiler
             {
                 running = true;
                 ex.Continue();
-                tickByTickMode = false;
+                //tickByTickMode = false;
                 //ex.WaitUntilBreakpointOrEnd();
                 //if (ex.Executing == true)
                 //{
@@ -276,8 +285,7 @@ namespace MultiArc_Compiler
 
         public void StartWorkingTickByTick(LinkedList<int> separators, LinkedList<int> breakPoints, TextBoxBase outputBox, int entryPoint, byte[] binary)
         {
-            tickByTickMode = true;
-            StartWorking(separators, breakPoints, outputBox, entryPoint, binary);
+            StartWorking(separators, breakPoints, outputBox, entryPoint, binary, shouldWorkInTickByTickMode: true);
         }
 
         public void ExecuteNextStep(LinkedList<int> separators, LinkedList<int> breakPoints, TextBoxBase outputBox, int entryPoint, byte[] binary)
@@ -611,6 +619,14 @@ namespace MultiArc_Compiler
             {
                 var node = signals.Find(signal);
                 signals.Remove(node);
+            }
+        }
+
+        public bool TickByTickMode
+        {
+            get
+            {
+                return tickByTickMode;
             }
         }
     }

@@ -291,6 +291,16 @@ namespace MultiArc_Compiler
         public void TicksChanged()
         {
             ticksCountLabel.Text = "" + system.Ticks;
+
+            if (system.TickByTickMode || 
+               (system.Frequency >= 100 && system.Frequency < 500 && (system.Ticks % 30 == 0)) || 
+               (system.Frequency >= 700 && system.Frequency <= 1000 && (system.Ticks % 100 == 0)))
+            {
+                foreach (var c in system.Components)
+                {
+                    c.Refresh();
+                }
+            }
         }
 
         private void executeButton_Click(object sender, EventArgs e)

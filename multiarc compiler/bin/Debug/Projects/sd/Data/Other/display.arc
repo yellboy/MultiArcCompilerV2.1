@@ -1,0 +1,29 @@
+<othercomponent>
+  <name>Display</name>
+  <filename>Display.cs</filename>
+  <dimensions>
+    <height>
+			50
+		</height>
+    <width>
+			50
+		</width>
+  </dimensions>
+  <ports>
+	<disp>
+		<name>
+			DSP
+		</name>
+		<side>
+			left
+		</side>
+		<type>
+			in
+		</type>
+		<number>
+			8
+		</number>
+	</disp>
+  </ports>
+  <design code="true"></design>   
+</othercomponent>

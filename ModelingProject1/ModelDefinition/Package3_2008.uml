@@ -512,7 +512,7 @@
                     <classMoniker
                       Id="28b5d7e8-3653-414e-a206-9aabd3de6bff"
                       LastKnownName="AddressingMode"
-                      LastKnownLocation="Package_2008.uml" />
+                      LastKnownLocation="Package_2023.uml" />
                   </actuals>
                   <formal>
                     <classifierTemplateParameterMoniker

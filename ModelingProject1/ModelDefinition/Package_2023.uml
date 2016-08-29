@@ -144,6 +144,136 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="70097df8-1aec-47fc-ba28-d2c589f32151"
+            isDerived="false"
+            sourceEndRoleName="Clipboard"
+            targetEndRoleName="DragAndDropPanel"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="d2137755-d83d-4556-bb4e-1c517be97ef1"
+              LastKnownName="DragAndDropPanel"
+              LastKnownLocation="Package_2023.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="169fb3f9-6497-426b-b1c0-13df67b6b2a7"
+                  name="Clipboard"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Composite"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="157c2d3b-9acf-474d-8a2d-957a33406037"
+                  name="DragAndDropPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="true" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="99c20baa-cc3b-4068-8c98-a2d003f8ae33"
+            isDerived="false"
+            sourceEndRoleName="Clipboard"
+            targetEndRoleName="SystemComponent"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="d5e2fba7-3ee2-4a1f-93e7-dd98ab7ddfce"
+              LastKnownName="SystemComponent"
+              LastKnownLocation="Package_2023.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d44df035-0510-4696-8b12-b9269b33b41f"
+                  name="Clipboard"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="841f45ee-e297-46a1-b398-bb82f929bd7d"
+                  name="SystemComponent"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="878c0153-d35b-4037-a045-a20161917ada"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f09a78c7-dcda-4a6a-917d-34ae7a68ac68"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="09279a51-cee0-43bf-bf64-9c419956b949"
+            isDerived="false"
+            sourceEndRoleName="Clipboard"
+            targetEndRoleName="UserSystem"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="d37b162a-b321-45a8-b948-2e5cae97cac9"
+              LastKnownName="UserSystem"
+              LastKnownLocation="Package_2023.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7ae63f02-4cf6-43cf-8784-540d2e7a5beb"
+                  name="Clipboard"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0f8d2515-9508-4eb4-912f-236dda9698b3"
+                  name="UserSystem"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -12385,6 +12515,45 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
+          <association
+            Id="97f6f992-38c6-4215-8272-eb0dd0235229"
+            isDerived="false"
+            sourceEndRoleName="DragAndDropPanel"
+            targetEndRoleName="Line"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="e1f7b386-777e-49de-800e-330384366c78"
+              LastKnownName="Line"
+              LastKnownLocation="Package_2008.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5c0f3fad-8f45-4ab2-9499-9b4beef8dba9"
+                  name="DragAndDropPanel"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1254583c-ccf6-49f6-8176-9c74663c760c"
+                  name="Line"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
         </targetEnds>
         <ownedAttributesInternal>
           <property
@@ -22812,6 +22981,2764 @@
           </generalization>
         </generalsInternal>
       </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="28b5d7e8-3653-414e-a206-9aabd3de6bff"
+        name="AddressingMode"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="558da0aa-912f-48ce-8df1-ef14a37729d8"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="3beed8f8-1141-43f7-820f-8a33d83596a5"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="09de07fb-1764-4c5d-8573-7ea76cb76115">
+                <propertyInstance
+                  Id="c7c0ee5a-525d-4221-856f-5a9272082886"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b8e16c3a-5d43-4b6c-af77-c321589e3bb4">
+                <propertyInstance
+                  Id="5794d98c-93b4-44f9-84b4-39c7c7cf150f"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="881cf417-8c85-4d9f-b326-f49a000833e3">
+                <propertyInstance
+                  Id="6c6f3d55-2347-4141-9c8a-e3a14c603ddc"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2ae7b27a-d1aa-4bbb-9e8e-7ecf208751ec">
+                <propertyInstance
+                  Id="1ddc496d-4e84-48e5-b975-ff2f95cfd41f"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="32f36075-6319-4df8-958f-1f1a2b6d6dcf">
+                <propertyInstance
+                  Id="c9dfbfd2-bad5-4a1b-9b28-2fe6ade497b7"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="c469394c-c74d-45f9-9524-5ca198cc20ce"
+            isDerived="false"
+            sourceEndRoleName="AddressingMode"
+            targetEndRoleName="Expressions"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="663503af-d368-4d8f-ac95-fc3913856aa9"
+              LastKnownName="LinkedList&lt;String‎&gt;"
+              LastKnownLocation="Package3_2008.uml" />
+            <description>Property Expressions references type LinkedList&lt;String‎&gt;.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c6ab39d1-90a9-4b8f-951b-cffdabf59954"
+                  name="AddressingMode"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="ad55d7ff-7f91-4fd7-884c-e37e13e80e23"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="32dbd53c-01db-4f5d-b94d-618be20b87f9"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4cf2f7e5-34d1-442a-84a6-e3a35e50aada"
+                  name="Expressions"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="271b984f-e01a-4dc0-8c94-54937f05784d"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="2035d381-83a5-4c35-a1ac-14f133c9d868"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="e9ca1086-87a8-490d-bd09-79139180b442"
+            isDerived="false"
+            sourceEndRoleName="AddressingMode"
+            targetEndRoleName="Result"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7156f7bf-0ed8-43b2-b930-339754040695"
+              LastKnownName="Data"
+              LastKnownLocation="Package_2008.uml" />
+            <description>Property Result references type Data.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4095ccb5-9be0-4fb2-a9a4-8d347e483c20"
+                  name="AddressingMode"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="d9fd3252-5da8-4f7d-a8b0-0545eef5a130"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f31c1ec6-6bb2-44e8-ab9e-ca671a5924c9"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a00d8d7c-7481-4ba3-96b0-fc506b2bc56a"
+                  name="Result"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="ca0921c8-367c-480b-a573-42e019d0b3ed"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f4673cba-3cf1-4a64-8a60-7b96482d4afe"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="3e2640c6-099d-4e96-8960-5c71ede87032"
+            isDerived="false"
+            sourceEndRoleName="AddressingMode"
+            targetEndRoleName="Values"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="cfb84cdc-ae82-4b9a-92e2-57e9bb96ac8f"
+              LastKnownName="Dictionary&lt;String‎, Int32‎&gt;"
+              LastKnownLocation="Package3_2008.uml" />
+            <description>Property Values references type Dictionary&lt;String‎, Int32‎&gt;.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fedb384a-00a1-4b12-b84e-3ff92e4813d3"
+                  name="AddressingMode"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="588219c0-5077-44b3-81ad-5b3b241e98ab"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="d4899aad-0e50-4c01-bec0-5d8cbb187c93"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3c1bc461-c778-4133-8a05-1328fd84fc50"
+                  name="Values"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="67dad3ca-8545-4e01-a08a-ea5331656d91"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7f584710-a88e-45e5-9e6b-48cc197200e9"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="667cc605-32e5-4ada-a876-04c37d49c166"
+            name="Name"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="291cf219-d859-4033-bef7-f7131608343c"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="97400283-995e-47ad-beef-c60817aa37ee"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="45fabcf4-5305-42b0-958c-727961c25240">
+                    <propertyInstance
+                      Id="13d4a4c2-2bf1-4ecd-bd7b-c7a4eb475de8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e43bc88b-3c91-4e2c-8504-c897d934b77b">
+                    <propertyInstance
+                      Id="1755b4e0-cf9f-4483-9d53-a85de04068b5"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5040347c-06f2-4140-9992-4ce0a5ea794a">
+                    <propertyInstance
+                      Id="0568bba1-bd29-4fa7-8edd-a0386f3f13da"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7bb0122c-1e9d-4227-b4d5-6e718b3c546e">
+                    <propertyInstance
+                      Id="4fa180d0-791f-4075-af0c-ba920110235d"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c163586c-b812-4cb4-a6eb-3190a9d7d2b0">
+                    <propertyInstance
+                      Id="f5b611a8-2b17-4f7b-a4cc-8accaeb38aaa"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ccfe0e5-cd2c-4aef-ad32-95e6bd3d3b51">
+                    <propertyInstance
+                      Id="94f7f9dc-2f0e-4e06-b395-45a44a162ae2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="233a2a55-e3e4-4231-9ec8-64f9d6714c86">
+                    <propertyInstance
+                      Id="cbac7d5f-c53b-403d-9ce7-ef2f472b7abe"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="af314405-9f11-4383-b692-79905968b173"
+            name="FileName"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ff88f5b5-703d-4138-a109-735cf48b455a"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DFileName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="13b03ad7-469c-448c-9b98-bb5ecfc78904"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66ca96c5-5a6d-42be-b3d8-838334d53400">
+                    <propertyInstance
+                      Id="23c08521-b719-48af-9bd5-6634828f0a73"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7ff3938a-e77b-45d4-afdd-c6f56bf2c33f">
+                    <propertyInstance
+                      Id="529291b5-766a-4ab6-80a2-7340aa86e0a0"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b0e1c341-96d0-41f4-a756-e79759d098f1">
+                    <propertyInstance
+                      Id="6107d40a-17ef-48a8-81e7-99356aee87fe"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="85eda0ec-e4dd-4c56-bf25-8840fa3e72dd">
+                    <propertyInstance
+                      Id="2ec15cd2-9ca2-451f-8e29-c1d707b698de"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="288241c7-ffe7-4ac9-b547-1b8924a989f7">
+                    <propertyInstance
+                      Id="891d8e16-a901-4049-b908-acec5088fbb6"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83e177e4-56c0-44f2-9f77-38c9243fb38d">
+                    <propertyInstance
+                      Id="57fde72e-e501-4410-8e7c-b74c983cc200"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f32c51bc-9f71-4e3c-b54d-fdd58404ce6a">
+                    <propertyInstance
+                      Id="e21587b6-01fc-4690-916a-be6eee311c36"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="828dff9a-eb9c-4837-95e9-6da66faab5b4"
+            name="Expressions"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="693fc977-5c58-4f77-bdf1-24ab459f153a"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DExpressions"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4408b2b6-7303-4fd0-9098-3222b220d674"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c0b35826-3b37-4e19-a6eb-cd9a3ab1dade">
+                    <propertyInstance
+                      Id="f3c299b1-3db8-4892-9e85-f71907984ea0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5e4a5967-739b-4538-bc88-cc2ce5514319">
+                    <propertyInstance
+                      Id="a77560c3-afd8-4fbc-9963-f3d52fd1c0c5"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d7c3163e-527e-4b44-883e-e4ef42681f69">
+                    <propertyInstance
+                      Id="ff97d6ae-fb24-4ed0-a341-762af81c2823"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7fddc390-948e-491d-a728-ec830e31b356">
+                    <propertyInstance
+                      Id="5f7fdce6-bfb1-4a4c-8e65-18f16b52d1bf"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bee6f574-7dd8-464a-9d52-805d33acc7f0">
+                    <propertyInstance
+                      Id="26d12da1-43f1-4f83-8b70-f3867f69514b"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2f52f2dd-ef89-4965-8a9e-3ffdc469b022">
+                    <propertyInstance
+                      Id="450b6dca-fda0-4e6e-ba3f-ab15007ed946"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="366c696e-95d6-440c-808a-47bccfbc98df">
+                    <propertyInstance
+                      Id="b2d2e1cb-cb5a-4317-ae5a-d954d8f4e762"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="663503af-d368-4d8f-ac95-fc3913856aa9"
+                LastKnownName="LinkedList&lt;String‎&gt;"
+                LastKnownLocation="Package3_2008.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="3aa9bc39-8265-4fde-ad8f-32da2ce259c6"
+            name="Result"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="04120dcf-4e46-42fc-b4bf-1586ec0cfb25"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DResult"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="141f9541-8de5-443c-aacc-a9d35d0c66f3"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8bae716e-8a1f-40e8-8a5b-425b8839b766">
+                    <propertyInstance
+                      Id="64ea3f01-482c-401a-8b3c-2d61d08d15cb"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="68b5fe77-401d-40da-9d57-ae8e064c0ad1">
+                    <propertyInstance
+                      Id="1159d6ee-69d8-4004-9036-f0a640d8b638"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a658a183-84d4-4c35-a64c-195f7f76a5c2">
+                    <propertyInstance
+                      Id="8ef86b03-bad4-4f02-ae92-80ad50818222"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="60d8739f-41f1-40a1-b10c-0037ed158678">
+                    <propertyInstance
+                      Id="9b32415c-bb53-478d-9483-40392fdc1765"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ffba0e3e-1d5a-489c-a2ae-dfa9fd0fcc2e">
+                    <propertyInstance
+                      Id="1cf920be-7894-40de-936f-14e0f1bc815e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0b26f7a6-0f8e-4e9f-862f-8a033d98aeb3">
+                    <propertyInstance
+                      Id="1176e679-3ca6-4f89-89e0-aee4113d6bd2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2bc1f4ee-ca4a-4549-926c-194f2e059eb0">
+                    <propertyInstance
+                      Id="861b66bf-a547-4c14-867b-9138b6a655fd"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="7156f7bf-0ed8-43b2-b930-339754040695"
+                LastKnownName="Data"
+                LastKnownLocation="Package_2008.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b12dab76-e829-42a3-848f-28bca00190e6"
+            name="Values"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ff1264ac-371a-485d-a521-2e56e7cf2028"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DValues"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c198e633-588d-4532-9386-2ce5c7b1b13b"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5c309084-7f02-487e-90b3-e3fe2a595971">
+                    <propertyInstance
+                      Id="90541e99-4ffc-4523-bf6f-f0e18038150d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="532209e6-05bb-4073-8d81-0936ec079b60">
+                    <propertyInstance
+                      Id="3bc8f33e-baa9-4fb5-bebc-bf3bd77d0772"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c549d998-d3fe-44f8-b60d-6897ac2f4226">
+                    <propertyInstance
+                      Id="939910c3-c92a-41cf-9812-2060705743ba"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d1f58ee6-422f-43cc-b270-3715b57cd459">
+                    <propertyInstance
+                      Id="4c0d25d5-6fe6-4e6f-b1fd-030beec67540"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8c02554-09ea-41c4-bc0e-6e030105b599">
+                    <propertyInstance
+                      Id="40550757-6bc9-4493-b0c5-40809368822d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="254453c1-140c-411f-8136-7b63da0bd298">
+                    <propertyInstance
+                      Id="982fbb07-f812-42a5-9a8f-56822bcff1d4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8964b215-fa78-431a-ad55-db910036ca72">
+                    <propertyInstance
+                      Id="e22542bc-c7b5-46c1-b294-259e9c61a231"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="cfb84cdc-ae82-4b9a-92e2-57e9bb96ac8f"
+                LastKnownName="Dictionary&lt;String‎, Int32‎&gt;"
+                LastKnownLocation="Package3_2008.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0b681246-6f95-4c34-b1ab-bed2874d5fdd"
+            name="OperandReadFromExpression"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="ddefba28-d022-4a9c-a1e8-eab44457bd50"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DOperandReadFromExpression"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d1a55f63-33ee-4be6-8f6a-e996d2dd7e12"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6639108a-e6a8-4e53-a6bd-194e84cd259c">
+                    <propertyInstance
+                      Id="de968281-f3b7-46fd-9e27-2589856fc6ab"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ac3dbd4-3f4d-4964-a956-efb225fbd779">
+                    <propertyInstance
+                      Id="8428bbcf-6a6e-462f-ab62-1bf3a135e3d5"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4d2a78cc-c26a-466c-96f8-68feea192185">
+                    <propertyInstance
+                      Id="e059c23b-181a-4662-8aa9-cb95098c77be"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dd685af8-6b7e-47de-a1db-041026f029be">
+                    <propertyInstance
+                      Id="82e957db-75fe-4808-8188-efbd44a3217a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="57c40ddf-5314-4f1c-88a2-f7ec70670e7d">
+                    <propertyInstance
+                      Id="7869dee6-2d08-4366-8c65-4e52ce4c3bac"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8e932129-6aa6-40c8-979e-6190c9081f37">
+                    <propertyInstance
+                      Id="1fb4337f-4319-4c72-b516-35d841aa3360"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e08e296f-6f01-40e1-abe7-ff68944b8352">
+                    <propertyInstance
+                      Id="07b9972d-7d69-4585-a53c-d0a97dea7931"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="5d2c8ffe-1c40-429d-be4c-6f40e2ba5960"
+            name="OperandInValues"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="db038853-6c82-417b-b849-d3a95667ca7a"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DOperandInValues"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="009e8175-05b2-4d69-96d7-0fcb1c53d2a3"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="30255d63-8849-4341-a92c-d90b7b9ce28a">
+                    <propertyInstance
+                      Id="16faa37f-e943-4f6b-bfb4-2330ee1be963"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="23c44f62-b83a-45f7-8f14-cd07ceb87c23">
+                    <propertyInstance
+                      Id="b1f25483-78c2-4712-b4c3-8d11be47b863"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="80d4393e-7b54-4d2b-a5db-8d95f66dc752">
+                    <propertyInstance
+                      Id="b9ad165b-c51c-4941-ba08-a0f5a5251baf"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="964ea992-b244-468e-b1ca-ae1ad37d49dd">
+                    <propertyInstance
+                      Id="b89d0241-00dd-418b-a70f-18aed7198585"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b8487bc1-80a3-43dc-a6a1-2b32754563b8">
+                    <propertyInstance
+                      Id="148b62a1-83e2-4c3c-b938-0e7f5b3f09eb"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a3b68549-389c-43d7-a0e6-c191967583cc">
+                    <propertyInstance
+                      Id="05c7c66a-ed36-48d5-8cdd-0f3d96683811"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="52fb2a3b-ffe8-4bba-a126-a490195c2ef2">
+                    <propertyInstance
+                      Id="eb44789f-e478-45ca-9be0-c316f28220e5"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2e54de29-8ea0-46bb-ba12-1d40a329d274"
+            name="OperandValueDefinedByUser"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="334c5d3c-197a-4535-8729-91b04a9a729d"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DOperandValueDefinedByUser"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4f0e65f4-739d-4996-8363-36d3ccba352d"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5211370f-b1f1-4aca-8e6b-d494a0e462fe">
+                    <propertyInstance
+                      Id="b75b4c14-edc3-440a-b208-49a26a3fc714"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f2a93701-c5a0-4f49-8e13-755619d5995b">
+                    <propertyInstance
+                      Id="a4be88f7-8687-4359-b303-5dad538c9cda"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2b9c9488-fbdb-4e80-839f-2c3c6ac70365">
+                    <propertyInstance
+                      Id="abf75ef4-1b1c-4d9c-9647-5fbbc167865a"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7800d231-924d-4559-b39d-304203c712c2">
+                    <propertyInstance
+                      Id="669a9340-7c80-471c-9c82-f9841395439c"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="55ac8b23-d110-4a6b-a695-abed25d90bd5">
+                    <propertyInstance
+                      Id="aa7ef59a-18ab-4e8c-ad2b-2399e096eb44"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fa295079-0eea-4846-bcfd-d3429cf26173">
+                    <propertyInstance
+                      Id="45bcd5c1-d538-4633-a559-7634c275b266"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="704aa322-2cf2-48a6-a8cb-0d2d294282df">
+                    <propertyInstance
+                      Id="56a40bbd-dac0-4330-bde7-7a6b50c16746"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="82b3fc89-5d82-4f84-81e2-36b97ad849ee"
+            name="OperandType"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="d693785a-05f5-4aac-9762-260ded29a044"
+                handle="viewcode://./CodeSchema_Property?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DOperandType"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="947e62ce-c01d-4a42-944c-e5d439fc3205"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6f755833-fb32-4d58-a768-b1bb1b6772ee">
+                    <propertyInstance
+                      Id="247796bb-d460-4c4f-866b-251603dc8047"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0dfb50e7-f4fd-4f0d-9f5e-239307680517">
+                    <propertyInstance
+                      Id="c0342cf4-ba49-4c5a-96ad-c27af77a2034"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8fe17512-218a-47ce-be69-a2b3e7d55089">
+                    <propertyInstance
+                      Id="40624d9a-901e-4835-87de-dc0a4483ebc0"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cc443cdd-b7b5-4d7c-abf3-80bc5a85b0a2">
+                    <propertyInstance
+                      Id="066bee3e-f1a2-46c7-8986-486e886aedcc"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7816dc62-2050-4642-8997-66e0d61a2593">
+                    <propertyInstance
+                      Id="288109ff-61c9-4422-944e-3f984267af5a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="70ce7c5e-56a0-490c-a833-c7cf571ae4c9">
+                    <propertyInstance
+                      Id="e72f892c-4c79-4b2c-ace9-2f981294dfd3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="88e680b1-7bbb-465a-95d3-2cc00fec7972">
+                    <propertyInstance
+                      Id="c12c53af-c248-4a01-b67d-1363cf0c36b3"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="4b646db1-e77b-4448-b1ef-5ddd9623c072"
+            name="name"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3c350170-38b9-4048-9867-c65b2bc9dc56"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3Dname"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4ecadb58-7a6d-4672-b87f-e0cb1702980d"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cc7b6e06-0c47-4c7a-a27a-72bb18cb6770">
+                    <propertyInstance
+                      Id="6484c5ac-172a-47e7-9521-5379fa60b0a0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75d5804d-0622-45ec-86cf-46aadf1d743d">
+                    <propertyInstance
+                      Id="3a5c0452-267e-4cf5-8e72-067a672d07af"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75ce7def-f182-4b86-b839-c07cb6ef8fd7">
+                    <propertyInstance
+                      Id="bf31f881-f833-4f25-84c9-fd4620e8562a"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c0ae7ba0-c8b5-4566-b872-a63555409b28">
+                    <propertyInstance
+                      Id="01a06fd4-ffed-4c6b-8930-4611179a1df3"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f65138a0-7f30-4789-84ba-a20153b84fb3">
+                    <propertyInstance
+                      Id="cdee9b31-b826-422b-8cf2-1fd494431f89"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2cb1e0c5-901e-4467-ab13-d705e8d0ee63"
+            name="fileName"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="f608bab7-cd6f-41cb-a40c-d5ad1b969094"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DfileName"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="fedd131b-16ac-4c97-bc62-ae5c2d69c10b"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="80fac1d0-9059-4327-bfdb-d67e1725ec0f">
+                    <propertyInstance
+                      Id="3a1c4aa3-6240-4255-9388-8d7fe79d4622"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8e7dff90-77d2-47c7-ae85-7cdb48834aed">
+                    <propertyInstance
+                      Id="4e02ab72-79a3-4e6b-a7ea-306af22bd47e"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94ec6578-f3ab-4920-8286-9f7586466d0a">
+                    <propertyInstance
+                      Id="bff51eab-c17b-4c56-a8de-d772a254b3e9"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d0d4a75b-7c61-4594-b47d-5cc1fd5622cc">
+                    <propertyInstance
+                      Id="3c5a7aeb-a06e-4870-bc6a-16bcfc7ac469"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="133323e0-c4f3-4636-9202-88995e020360">
+                    <propertyInstance
+                      Id="75b8ccb2-ba54-41e5-8240-edf0b08044d4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="52ccb484-9cbd-45aa-bf7e-344ed3fc0b7f"
+            name="executionCode"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="1e0368e9-b043-48ad-939e-2b29a9ca85fd"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DexecutionCode"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="bac24ee9-9757-4303-9274-539a6c73cf0b"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0fd497c9-9ff9-46ad-91e2-edb3ac52a3d2">
+                    <propertyInstance
+                      Id="1cb89183-7d46-49ff-b07d-f1181370bc0a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca91fb2d-dc0b-4d76-890e-d2650f119757">
+                    <propertyInstance
+                      Id="1e169032-0d66-4790-8cbd-2b0aa8ac7a4c"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d7257664-2092-4af2-bdfd-2715c3e61465">
+                    <propertyInstance
+                      Id="8c8e3c11-3bb9-4363-b3b3-b7f558c6cc34"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="79e48ee0-1d79-401e-9b83-0ee26edd4128">
+                    <propertyInstance
+                      Id="cc58fdf8-360b-4beb-bc49-b7e8b46b0034"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6a06a627-0913-4bbb-b61a-eb46013016f4">
+                    <propertyInstance
+                      Id="611f77e7-bbd0-4f56-a278-e3726e808a27"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ff3fb2ba-d7c1-437c-b5c3-942eee168cd8"
+            name="expressions"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="85c1aa18-1b82-40e8-bf7b-3b9ab320ee6c"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3Dexpressions"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3cf5b343-6a8a-4527-9da5-940c007e83d0"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94ae59da-14af-494d-aec7-08c69d5d4726">
+                    <propertyInstance
+                      Id="f61a9c59-d041-4114-a221-bd0ead248bd2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f29aaac-4b71-49d6-b496-1e75bb3ab372">
+                    <propertyInstance
+                      Id="49566622-b93b-4053-9f60-f873c13938f1"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5573e3ff-d0f8-4a50-9074-7629594c3c67">
+                    <propertyInstance
+                      Id="01519803-a205-4c7e-8224-4257b13d7234"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a7c4efe8-23ae-4c4e-86e3-f73c1ebcb062">
+                    <propertyInstance
+                      Id="cc58b038-ce74-4215-b109-cbaa8840ea50"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d28ace61-8afe-4a47-94cb-ade02ceb6449">
+                    <propertyInstance
+                      Id="b285ef7e-fd7f-472d-af5f-12fa81475542"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="663503af-d368-4d8f-ac95-fc3913856aa9"
+                LastKnownName="LinkedList&lt;String‎&gt;"
+                LastKnownLocation="Package3_2008.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="cb12c8f4-9e3b-46c2-bb57-7ed51072f94b"
+            name="result"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="9f21a4a4-2c00-443a-9f53-6aea587e0a3f"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3Dresult"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ff14f6f8-beff-4ff7-8c1c-19b6ae7e9473"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bed34cc0-3cb2-4fea-b067-128fec09be72">
+                    <propertyInstance
+                      Id="e2f3037f-ec2f-4787-acb1-95722f8015c4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="78cea7d2-9ffd-4e12-9fe9-5fcfe32674ef">
+                    <propertyInstance
+                      Id="e1419be2-785a-4175-ad81-52c6311741b2"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ed190e7a-27eb-4c87-8ff5-5364e68f190b">
+                    <propertyInstance
+                      Id="fcb3a1a6-f3bb-4e9f-87a7-a51f47d11d8d"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5bc0712c-d68c-4921-a158-b600fc929996">
+                    <propertyInstance
+                      Id="b6387a7c-c0bc-4e15-831b-9b0c80d035cf"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1c4f9642-b5d3-4d8d-b018-d79ac1a327ee">
+                    <propertyInstance
+                      Id="d6fa5bf9-3f73-4319-9f2a-20ea45afbd62"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="7156f7bf-0ed8-43b2-b930-339754040695"
+                LastKnownName="Data"
+                LastKnownLocation="Package_2008.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="26940af4-565d-4f97-bd6f-0155ad01318d"
+            name="results"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="96beb345-80a4-40ea-a298-8c90d7e64ba8"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3Dresults"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="56b25445-cdd0-4668-a2c0-0bc47448a956"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a6a691e8-54e1-43fa-9911-5e065f91ff78">
+                    <propertyInstance
+                      Id="f6ba8902-fde5-40c6-8805-17c6e4cf9dc8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20b7f6a1-0abc-41a0-9a6c-be6dc81bc22b">
+                    <propertyInstance
+                      Id="9729cca8-69cc-484f-96a5-d3edc6adc36c"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="baf1e06f-d959-4429-8ece-18c222304bfc">
+                    <propertyInstance
+                      Id="68c9e026-209a-4403-8fc0-42c5265df3ca"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d19b37b7-1244-49a3-bfdc-2cfa5daf8dc0">
+                    <propertyInstance
+                      Id="c91ecc6b-fa96-424d-8be8-937ce291684d"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="dcc550f0-60bc-45ef-ae77-73de5c09437d">
+                    <propertyInstance
+                      Id="260a6194-02b7-4cea-9352-5ae1cd5ff522"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="283106e9-bccb-4be8-b226-a52802d0025d"
+                LastKnownName="CompilerResults"
+                LastKnownLocation="Package7_2008.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="3c1000b2-5d47-410d-a354-25a1041f69c5"
+            name="values"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="079c9a79-ab30-4b49-ad7f-e9c1a40be0c8"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3Dvalues"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="05535c49-9967-4415-8b9e-bdca460e6984"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="81ff563b-138c-4ddb-9c71-b39f4dfbb50e">
+                    <propertyInstance
+                      Id="82f48a45-83d0-44d5-af69-eda3d13392e7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="07379a9d-fcc7-4c71-953c-7b3597ab26ed">
+                    <propertyInstance
+                      Id="a045467a-a758-4d13-8aee-b88d713f13cd"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b595a43f-27d5-4f59-a896-3cd076925b15">
+                    <propertyInstance
+                      Id="dd9c1d1e-e9bd-48c4-a79e-715559d1259e"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3910bfeb-2a13-4d6b-99ac-f419f19f63e9">
+                    <propertyInstance
+                      Id="88b29d98-2f41-4ffb-a1fb-85403649ce46"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2dbffcd0-f341-472b-8024-954b8241302a">
+                    <propertyInstance
+                      Id="6c3d2c2a-df03-4720-9fc8-c430a0aa69cd"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="cfb84cdc-ae82-4b9a-92e2-57e9bb96ac8f"
+                LastKnownName="Dictionary&lt;String‎, Int32‎&gt;"
+                LastKnownLocation="Package3_2008.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2d67db7b-26b0-4137-8b73-93ae914c9b14"
+            name="operandReadFromExpression"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="2cefda86-cacc-47b4-8be1-9b972e502ec6"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DoperandReadFromExpression"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="27b64a8f-1465-4e0d-b4b5-07cc109f2d1b"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5f3a14aa-2588-4fdc-8690-29b0ba56b077">
+                    <propertyInstance
+                      Id="1ee96491-730a-4c55-b3f9-4e1254a6dd05"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="46087a21-2070-4ab0-b3aa-26f65565f748">
+                    <propertyInstance
+                      Id="97345918-124e-47a0-af49-c23b8b57dec0"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ed629dbd-5c37-4389-9211-91e3d4ebf1f0">
+                    <propertyInstance
+                      Id="410ece44-0e6e-4479-930b-0f1db633dd0b"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ad3b217e-1939-4fa8-8641-2183a52e28e3">
+                    <propertyInstance
+                      Id="4a656ac4-b180-4f85-b19f-6c2727dccaaf"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ba0e31be-da4a-403c-b0c4-3c51e764cdd7">
+                    <propertyInstance
+                      Id="deb92491-632e-41cb-89d6-ba989d341c45"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="88beaff8-8573-4498-9aa1-498b787d87cb"
+            name="operandInValues"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="fa094d55-0682-4dde-bded-f9d32e4603d7"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DoperandInValues"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8cd58956-773f-4699-b68b-f4510ed92454"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f48f5c1d-6e40-410b-8fdd-b9512b725537">
+                    <propertyInstance
+                      Id="ae401773-00d6-4d93-bb5f-2e42a0b89a97"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9d8561c3-d119-4a9b-b657-6ce78dcc28a4">
+                    <propertyInstance
+                      Id="1d12f331-8eaa-44b3-84bd-9269e64c4672"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7ca3427e-def8-4057-8e4f-5c9ef447b3c8">
+                    <propertyInstance
+                      Id="78f73047-314e-41ab-a56a-49cdbc8a6c60"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2b39733c-b6ff-4f37-a605-6b4b9ce74b45">
+                    <propertyInstance
+                      Id="5e0eb869-8b54-4515-aef8-c3e1e2ed8cae"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e658d9fa-0e19-4d6a-8302-810d5cf887ea">
+                    <propertyInstance
+                      Id="8103c39c-652c-47cf-b662-b07d7946ce44"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="4d9888e3-9773-41d3-96a6-3d80a2286938"
+            name="operandValueDefinedByUser"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="52d8bc01-1ea7-463a-9ee1-3ad739ac9eb2"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DoperandValueDefinedByUser"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="04d5bb25-055f-435c-b426-791e7cbd25d5"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="07b8fae1-798e-4ea5-89b3-f24f6f7bb718">
+                    <propertyInstance
+                      Id="cb4157c2-f70b-44b8-8e93-bf58e11ee3ff"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3ccc0812-4b2c-4011-b0fe-9067b9cfcb89">
+                    <propertyInstance
+                      Id="59d30552-cb70-49c8-9d11-6f04c476122b"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="442041e1-6727-4983-92ac-603f64e5079f">
+                    <propertyInstance
+                      Id="775ea7ea-7bbc-40a5-ac5f-257213861a01"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="30a41224-44f1-4517-8372-3e5984ea3374">
+                    <propertyInstance
+                      Id="025190f4-3b86-434f-b93d-eb303199406c"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17b776f6-cecf-4066-b870-4b996191cc99">
+                    <propertyInstance
+                      Id="4f1082ec-49ec-4ecb-9235-d7a4f842e1ef"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6e653dbc-1afd-496c-97b2-7961094f9c9f"
+            name="operandType"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="4aed759d-6aec-4ce9-921c-0b38123daff6"
+                handle="viewcode://./CodeSchema_Field?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3DoperandType"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="043dc20f-c830-447a-a61f-3af6d9ce5d54"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="09b2b49c-cdf9-4c1e-a3f9-853c6be61f4d">
+                    <propertyInstance
+                      Id="04106738-8187-4d01-99b0-261c2993040a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cc25aef7-f858-4ca4-a5cc-a2c4a9f93ec6">
+                    <propertyInstance
+                      Id="1d603828-5276-4ee0-a2ce-61c4784cd93d"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd9bdda2-1ab2-4ff0-b515-18eec84bda70">
+                    <propertyInstance
+                      Id="933ad753-29d6-495d-b022-7f920311881d"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bd3f2846-46d1-4401-8834-441158997e7d">
+                    <propertyInstance
+                      Id="0cd53159-a23f-42a6-92cb-b0c9feb92138"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6f8e84a1-c01d-4472-b586-d362c6cd20c5">
+                    <propertyInstance
+                      Id="9da5036f-ef26-4426-871b-ce1be5edd218"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="ae139f38-9241-4720-b02d-87a9e86c601e"
+            name="AddExpression"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="78c22f19-8bd5-442c-b735-bdf5ef3ddcce"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DAddExpression OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a2b79891-809c-46a6-b1ec-11accd31583b"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20c1c01b-a61e-4f6e-8a50-7e2db108b943">
+                    <propertyInstance
+                      Id="f161db86-3afd-4dca-a5ea-e1760e647447"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="810916ba-20b1-427b-9c7e-52123011f1cb">
+                    <propertyInstance
+                      Id="a60b8c01-59cd-44b8-9bd0-9004b19e0d56"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66f21b36-5773-470f-989b-8f8517cfed8a">
+                    <propertyInstance
+                      Id="06747370-4bea-4c32-a2d7-f4b6dc4c71de"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7f1fbbde-a9b5-4cb1-a842-a26a5771c4c8">
+                    <propertyInstance
+                      Id="06bbe6d5-d7df-496f-b336-105a66824ab0"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d4248c5f-4f2f-4425-9e23-02a936037431">
+                    <propertyInstance
+                      Id="a6102282-e1cd-4a6e-8de5-35888904fc8f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="be665361-c606-44ba-be14-4bee6d0dce54">
+                    <propertyInstance
+                      Id="6358273e-12fd-48c6-a5f5-9b8988e3a470"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="02c640dc-d6f1-490b-ab32-9fccc446d9e7"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a7b3c8bc-7b53-406b-8e68-6c0743988589"
+                  name="expression"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="440b1f2a-8373-4cd1-b783-986d94e2f2b5"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DAddExpression OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dexpression"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="80017de4-7205-406b-928c-4fa09c00bb5a"
+            name="AddValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="29e772c6-c6eb-45a2-91d3-2cd3f0405982"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DAddValue OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1bd1e5d9-67c2-4c4c-8a15-d88ac3039238"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2e860d60-40f5-4cff-8b11-91354bcaff10">
+                    <propertyInstance
+                      Id="aefe5039-0b69-46a0-bf69-f7ae3339c9c5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="88832cb2-7461-4324-89ef-ca8bd3a45c26">
+                    <propertyInstance
+                      Id="79d613b0-1327-44c6-9084-3a36bc6247a8"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a3d72067-0a77-4cda-8e1e-a0089297f47c">
+                    <propertyInstance
+                      Id="887d8699-4978-4d8c-8bcb-69a170389ece"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="96e0052f-6dce-4df5-8d4b-eeb31a2084ec">
+                    <propertyInstance
+                      Id="d5f0ade9-b1b1-4365-8b3e-0afb5452a5da"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1a1153de-ec45-49cd-a6a1-84210a83eb58">
+                    <propertyInstance
+                      Id="0613033c-aeec-4269-9d74-e833ddaa3a51"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ce6adac0-3482-4686-af38-bf70aba5b595">
+                    <propertyInstance
+                      Id="20749e31-b8ec-4efd-a5a4-e756bdf748a7"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="511b58c4-ac07-4e25-9f4a-cd95022d7fa6"
+                  name="expression"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="44b45065-38ca-4e8d-b6b8-bf69d93d38e6"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DAddValue OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dexpression"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d7158eb8-d57d-43f8-9461-5a722fa80e79"
+                  name="value"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="89138244-4a7a-47c6-be97-62c88fdcd031"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DAddValue OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dvalue"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="1d44f778-595d-4cb8-8672-b278ce61d75e"
+            name="AddressingMode"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="fb8a45c8-9ac2-4c6d-b9a7-6f24f6cd4dca"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DData)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d886be17-83b7-4f4c-a49d-5a8084ff4af4"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="34d4a795-9678-47f5-9258-a47e958ea7a5">
+                    <propertyInstance
+                      Id="0b7b5969-7b17-45f7-8a43-905a5c82e7d1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="694df751-df26-497d-b24d-5a3d0dfe48a2">
+                    <propertyInstance
+                      Id="278cbb89-f9d9-474a-b8ca-ae941c8e0d36"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a47689dd-db79-44c2-b446-8adda04dc0c6">
+                    <propertyInstance
+                      Id="b32e33ee-a490-49ea-8c9d-b799400c10b1"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c25581ba-0120-499d-a7f1-96882da55ea8">
+                    <propertyInstance
+                      Id="529f799a-43c5-4a1d-8fa2-4c5775da1c8c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="481bcd64-929f-4812-bc81-f69ebca101a9">
+                    <propertyInstance
+                      Id="fce41c67-cde4-4ecc-a24e-2a16f22c6cfd"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4b6c39ce-20f9-4b1e-81e9-119f21fe25f7">
+                    <propertyInstance
+                      Id="d9814992-4735-4d89-a871-801057772f1b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c048f4a2-61f6-4206-8099-71a512e99f02"
+                  name="name"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="82323844-1441-48d1-b1b2-3db71280e548"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DData)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dname"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="de5a0dec-67c3-4ff6-ba32-3e7c7c59a487"
+                  name="result"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="df56206f-8aff-4ffa-bb03-2f93abb9460b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DData)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dresult"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="7156f7bf-0ed8-43b2-b930-339754040695"
+                      LastKnownName="Data"
+                      LastKnownLocation="Package_2008.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="99cc61de-73b2-4d3c-96c4-a0c2de7eed2d"
+                  name="fileName"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="bd7133a0-b6ad-4ab2-be25-760f05ed97a3"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DData)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DfileName"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b410a8f2-a695-4869-acab-0ba027b9f317"
+            name="Equals"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e18931d5-d109-4a99-af55-1f9e836b7f18"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DEquals OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2e44af4a-6852-4a11-a329-167e1e438d01"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fd7a21fb-1e01-4bbb-8209-291b79394a23">
+                    <propertyInstance
+                      Id="2331da46-f10e-4547-815e-285c1a8bf296"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="663a66f6-ea7b-493f-a7cc-93ebaef20b1b">
+                    <propertyInstance
+                      Id="0193630a-09e5-44c7-99b2-50da3cd89a3b"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fdf60a69-3f2e-4592-a940-d62a2054b491">
+                    <propertyInstance
+                      Id="a7ced0eb-e8bf-4d47-ab00-a99d195d2368"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8dbad765-586a-48f3-adf6-8d0cfaf6cf7c">
+                    <propertyInstance
+                      Id="cd172041-aca7-4d5a-9e1f-8d6c27a1f160"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e384b765-bf27-4f04-bcbf-bb76d72a440c">
+                    <propertyInstance
+                      Id="26dfcca3-7f1e-462d-94b9-ff28bb0e3b9b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="863b5c07-54f4-4ed3-8261-f9a27d5a5172">
+                    <propertyInstance
+                      Id="99d55a19-7738-4bc6-a508-4c8d2ea3c304"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d61a92f7-57cf-472a-abd4-3ad77386bd8b"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="52f729c6-9c9e-4051-8736-57d8ffc97992"
+                  name="am"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="581661b6-f81c-4b17-bc5f-098f4bc79571"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DEquals OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode)]) ParameterIdentifier%3Dam"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="28b5d7e8-3653-414e-a206-9aabd3de6bff"
+                      LastKnownName="AddressingMode"
+                      LastKnownLocation="Package_2023.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8a878026-ae87-45fe-82f8-ae036cc9cfa5"
+            name="GetData"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d224940a-2897-4a7f-8302-3afe5429ed4f"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DGetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="f9bb4f4e-2596-4039-8ba9-479192186f5d"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3ba46fed-b10e-4402-82c4-92ea5e4a3256">
+                    <propertyInstance
+                      Id="8af6888e-e499-48c5-aa4e-1ebe9a3b242d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="52fdb37b-f99c-49d4-962a-62a51d1038c0">
+                    <propertyInstance
+                      Id="91e492e3-866a-418b-96f6-7996bc05aea1"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e53159a0-c0af-48ce-b2a4-77d862238d01">
+                    <propertyInstance
+                      Id="23a4db90-a734-4957-89a3-2838c110d117"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ed5e7e31-8f40-40f1-bb57-0d803e03130c">
+                    <propertyInstance
+                      Id="b5e3e13e-edbe-4034-b988-586d5abb08c3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2944dc28-cf77-4f88-a2fe-dc6d4c09dd2e">
+                    <propertyInstance
+                      Id="146fc6a7-55e6-427c-a3ac-0f86284d7615"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e1944f8f-558b-4218-9360-cc993fdc9d35">
+                    <propertyInstance
+                      Id="f55e96be-bf05-4ee1-9d05-5b7d514211e1"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dc180783-20dd-4d89-a5bb-8c7d47f236dd"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d1072c40-d099-4beb-b3b7-4cd9337431e0"
+                  name="ir"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="6d5f7dc8-8790-4ac6-8978-c26935587584"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DGetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dir"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="dbf8ab3a-3ccc-4d50-a2c9-69393f56211a"
+                      LastKnownName="InstructionRegister"
+                      LastKnownLocation="Package_2008.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a4db9508-d620-42fd-91b7-b91dacdd4e43"
+                  name="cpu"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="1159b719-8385-446d-8b98-54042f44338e"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DGetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dcpu"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="35d26004-ea33-4d65-9ffb-60dd559186c0"
+                      LastKnownName="CPU"
+                      LastKnownLocation="Package_2008.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="93b3514e-464a-4fd0-9631-5d530f3624de"
+                  name="variables"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="fc4a2116-bf62-4359-ba29-0d12d59c3bee"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DGetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dvariables"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b3910b3e-8a64-4d18-8cf2-7cee37cc8841"
+                      LastKnownName="Variables"
+                      LastKnownLocation="Package_2008.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="802484df-3adb-49bc-90e4-8f26bfdfbbde"
+                  name="startBit"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="90bf566e-1524-416d-9354-4a9401ca3970"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DGetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DstartBit"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b605b7a8-8dae-48f6-bce3-712640da2aa4"
+                  name="endBit"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ea6ef47b-8c17-4d75-a9a0-2fb224e7cd1f"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DGetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DendBit"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="511dad67-0843-47d6-9a15-acbd4346cc04"
+            name="SetData"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="bbb9b7b8-eec8-4b38-89b7-423ca98e2272"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DSetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1489999a-df7b-435e-89db-5268709a12da"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bce8a306-9a6b-4d28-a463-072ffd2ae384">
+                    <propertyInstance
+                      Id="ae34f996-e2f5-4e2c-9573-581e82a0acbd"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f70f2c80-5848-4c94-8fee-9a73d91d8fbd">
+                    <propertyInstance
+                      Id="628d9211-b167-4c92-b95e-dc067c31b879"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e398c45d-a60c-4d90-97d0-9369fd0bcd69">
+                    <propertyInstance
+                      Id="8ad26057-4409-4502-ad75-ad34fa5c9303"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="189527ea-c27c-4ede-b1cf-e379ad2fab9d">
+                    <propertyInstance
+                      Id="c6ed27a5-636c-48ea-a880-b275fe8519c7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2d4cd8a6-23c7-4626-8bca-c5624c6c7f0c">
+                    <propertyInstance
+                      Id="c444ba8e-1ff2-4547-a163-8cee00bd7f91"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4c7e83b1-36b9-4fd4-9a85-ba36a70e06df">
+                    <propertyInstance
+                      Id="4a1e9b3c-4df5-41f4-bec8-41887309f15d"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="20475f7e-997d-4913-900e-cc25521539ed"
+                  name="ir"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f9b2aaa1-3075-4f4a-b9c1-389c00c7d799"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DSetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dir"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="dbf8ab3a-3ccc-4d50-a2c9-69393f56211a"
+                      LastKnownName="InstructionRegister"
+                      LastKnownLocation="Package_2008.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="60ec61fc-6edc-4045-9837-1498219e83f3"
+                  name="cpu"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="05bbe587-f04f-4e1d-9f7a-5fdfbb31c152"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DSetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dcpu"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="35d26004-ea33-4d65-9ffb-60dd559186c0"
+                      LastKnownName="CPU"
+                      LastKnownLocation="Package_2008.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="803a56c8-b58d-4283-824b-704284c85981"
+                  name="variables"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="016e48b9-6344-4d00-9ed3-0e856adef7b1"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DSetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dvariables"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b3910b3e-8a64-4d18-8cf2-7cee37cc8841"
+                      LastKnownName="Variables"
+                      LastKnownLocation="Package_2008.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bda4ab24-53d1-44b3-b238-63c7886db74f"
+                  name="startBit"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ed380061-bb7e-40c7-a680-399d5d2e4628"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DSetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DstartBit"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9eef5153-2f2d-4634-9527-f301e6520c21"
+                  name="endBit"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="3a2577a9-2362-4e8c-8eb4-d31f3dd8e330"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DSetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DendBit"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cad470a4-0bea-4080-ba92-af54491bef60"
+                  name="data"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="d6290227-4ad6-4d2b-b4e6-e8d2cd849333"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DSetData OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DInstructionRegister)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DCPU)%2C(Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DVariables)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Ddata"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="89e11320-e2e2-48b4-9547-823a1a71a4f1"
+            name="GetOperandValue"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="6ea5d8cf-53f0-4431-b59e-78f8ebf0f789"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DGetOperandValue OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a2e71b41-bbaf-488d-aa3c-9b164048c47c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c0dcc965-6512-48f9-a9ff-8be0b108903c">
+                    <propertyInstance
+                      Id="563b3d2c-3696-4fa9-9476-6d9b063da684"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0c791166-33a2-48c5-b539-e9a4601701cc">
+                    <propertyInstance
+                      Id="7ead7741-0639-4114-ae2e-023f679443e0"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e7c268a2-b252-44b6-8b31-917644560d2d">
+                    <propertyInstance
+                      Id="d85ac1ea-7232-4577-9942-57e313cf4e51"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="22b1a993-4355-45ae-8d79-52a6d1d0301e">
+                    <propertyInstance
+                      Id="a08b746f-6c0b-4169-9637-e30760c124ea"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="37571062-e4e4-4b0d-be94-db4561146845">
+                    <propertyInstance
+                      Id="44702927-fe9a-4145-b03e-1f6cd1fd1c9a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="14a82ecc-4bf8-4927-afda-e1d63ea56cad">
+                    <propertyInstance
+                      Id="4eee23fa-9347-4eb4-9be7-170da6c89a7b"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="42a875bb-1e71-4764-9b10-5d7a271f39ef"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="fe4cbd7b-17de-4164-ac80-b0af5c0670d8"
+                  name="image"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="02a1cf27-8175-44c3-bde6-99a7c85dc541"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DGetOperandValue OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3Dimage"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="46986a0e-25b0-4e5d-a285-8db633e9e604"
+                  name="currentLocation"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="d4da9fcd-5087-4ed1-9299-7655f11a81cd"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DGetOperandValue OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DcurrentLocation"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6eb64665-790c-4a24-ae28-777234daee53"
+                  name="relativeValue"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="e6e5c286-9cc3-47d0-83ff-f5ca15207b31"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DGetOperandValue OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DrelativeValue"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="72b171e4-2288-4020-a0a7-731caf24d7f8"
+                  name="absoluteValue"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="8308dc82-df1e-4eac-b5c6-12ada232ce1d"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DGetOperandValue OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt32)]) ParameterIdentifier%3DabsoluteValue"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="761934e0-de2e-4a28-a342-c4965d95f959"
+            name="CompileCode"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="402fe5b5-f54a-4b6c-bbf8-1e817afc2b49"
+                handle="viewcode://./CodeSchema_Method?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DCompileCode OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DTextBoxBase)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a7e20525-c151-40fc-ad36-d26aff783155"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3056a77a-b972-4701-9a5e-cfa764906949">
+                    <propertyInstance
+                      Id="84f26b24-d5f2-4e1f-926e-168ba3b2d6a5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="adbd1465-1f7c-4269-813b-3cee224aa648">
+                    <propertyInstance
+                      Id="c7a004f4-be5f-45bf-84e6-27f58e1fe8e1"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="38f80967-bb3c-4c6d-8593-ea6dd221ef13">
+                    <propertyInstance
+                      Id="b2e4e51d-319d-442c-adbb-cb76accc4588"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c680e2fd-854a-40bf-9850-a0f8c1b85bf7">
+                    <propertyInstance
+                      Id="688e8db7-3bd9-4b03-b36e-0668b1136233"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a2a14b10-fcb1-408b-a30c-54766353780e">
+                    <propertyInstance
+                      Id="9cbe2a5c-8977-46b1-b629-22f1057a9f33"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0d1a46ff-0be3-4ef1-8834-d4c1a2a85aa6">
+                    <propertyInstance
+                      Id="09060bd8-e654-4198-b914-6537909b9508"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="2d2ad2f4-a245-4259-9746-6e89d68ccd18"
+                  direction="Return">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="aa155377-b28d-4df1-824d-9b98c69cff62"
+                  name="output"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="cce92406-aa5a-4d47-8c7f-f04398291027"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3D&quot;file:%2F%2F%2FD:%2FMultiArc Compiler%2FMultiArc Compiler%2Fbin%2FDebug%2FMultiArc Compiler.exe&quot; Namespace%3DMultiArc_Compiler Type%3DAddressingMode Member%3D(Name%3DCompileCode OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2FSystem.Windows.Forms.dll&quot; Namespace%3DSystem.Windows.Forms Type%3DTextBoxBase)]) ParameterIdentifier%3Doutput"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="17a1594d-ef9c-4959-9bd4-5a3aa64259a1"
+                      LastKnownName="TextBoxBase"
+                      LastKnownLocation="Package5_2008.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1e5ccc25-7808-4f2b-99b6-d17b9c2de111"
+        LastKnownName="z"
+        LastKnownLocation="Package_2008.uml" />
     </packageHasNamedElement>
   </packagedElements>
 </package>

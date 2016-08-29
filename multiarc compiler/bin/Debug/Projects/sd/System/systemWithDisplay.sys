@@ -1,0 +1,173 @@
+<system>
+  <components>
+    <component name="Arch4" type="MultiArc_Compiler.CPU" x="0" y="0" />
+    <component name="2kRAM" type="MultiArc_Compiler.Memory" x="223" y="116" />
+    <component name="Display" type="MultiArc_Compiler.OtherComponent" x="422" y="378" />
+  </components>
+  <signals>
+    <signal>
+      <name>Bus10[0]</name>
+      <name>B[0]</name>
+      <name>S[0]</name>
+      <name>Signal12</name>
+      <name>Signal14</name>
+      <lines>
+        <line x1="40" x2="46" y1="100" y2="100" />
+        <line x1="46" x2="46" y1="100" y2="154" />
+        <line x1="283" x2="225" y1="266" y2="266" />
+        <line x1="225" x2="225" y1="266" y2="285" />
+      </lines>
+      <pins>
+        <pin pin_name="WR_RD0" component_name="Arch4" />
+        <pin pin_name="RD_WR0" component_name="2kRAM" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal0</name>
+      <name>Signal11</name>
+      <lines>
+        <line x1="80" x2="343" y1="10" y2="10" />
+        <line x1="343" x2="343" y1="10" y2="129" />
+        <line x1="422" x2="362" y1="379" y2="379" />
+        <line x1="362" x2="362" y1="379" y2="337" />
+        <line x1="362" x2="362" y1="337" y2="337" />
+        <line x1="362" x2="362" y1="337" y2="336" />
+      </lines>
+      <pins>
+        <pin pin_name="AD0" component_name="Arch4" />
+        <pin pin_name="ADDR0" component_name="2kRAM" />
+        <pin pin_name="DSP0" component_name="Display" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal1</name>
+      <name>Signal12</name>
+      <lines>
+        <line x1="80" x2="356" y1="21" y2="21" />
+        <line x1="356" x2="356" y1="21" y2="145" />
+        <line x1="356" x2="343" y1="145" y2="145" />
+        <line x1="343" x2="343" y1="145" y2="146" />
+        <line x1="422" x2="335" y1="385" y2="385" />
+        <line x1="335" x2="335" y1="385" y2="375" />
+      </lines>
+      <pins>
+        <pin pin_name="AD1" component_name="Arch4" />
+        <pin pin_name="ADDR1" component_name="2kRAM" />
+        <pin pin_name="DSP1" component_name="Display" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal2</name>
+      <name>Signal13</name>
+      <lines>
+        <line x1="80" x2="365" y1="32" y2="32" />
+        <line x1="365" x2="365" y1="32" y2="166" />
+        <line x1="365" x2="343" y1="166" y2="166" />
+        <line x1="343" x2="343" y1="166" y2="163" />
+        <line x1="422" x2="327" y1="391" y2="391" />
+        <line x1="327" x2="327" y1="391" y2="378" />
+      </lines>
+      <pins>
+        <pin pin_name="AD2" component_name="Arch4" />
+        <pin pin_name="ADDR2" component_name="2kRAM" />
+        <pin pin_name="DSP2" component_name="Display" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal3</name>
+      <name>Signal14</name>
+      <lines>
+        <line x1="80" x2="379" y1="43" y2="43" />
+        <line x1="379" x2="379" y1="43" y2="184" />
+        <line x1="379" x2="343" y1="184" y2="184" />
+        <line x1="343" x2="343" y1="184" y2="180" />
+        <line x1="422" x2="291" y1="397" y2="397" />
+        <line x1="291" x2="291" y1="397" y2="394" />
+      </lines>
+      <pins>
+        <pin pin_name="AD3" component_name="Arch4" />
+        <pin pin_name="ADDR3" component_name="2kRAM" />
+        <pin pin_name="DSP3" component_name="Display" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal4</name>
+      <name>Signal15</name>
+      <lines>
+        <line x1="80" x2="389" y1="54" y2="54" />
+        <line x1="389" x2="389" y1="54" y2="200" />
+        <line x1="389" x2="343" y1="200" y2="200" />
+        <line x1="343" x2="343" y1="200" y2="197" />
+        <line x1="422" x2="254" y1="403" y2="403" />
+        <line x1="254" x2="254" y1="403" y2="457" />
+      </lines>
+      <pins>
+        <pin pin_name="AD4" component_name="Arch4" />
+        <pin pin_name="ADDR4" component_name="2kRAM" />
+        <pin pin_name="DSP4" component_name="Display" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal5</name>
+      <name>Signal16</name>
+      <lines>
+        <line x1="80" x2="398" y1="65" y2="65" />
+        <line x1="398" x2="398" y1="65" y2="215" />
+        <line x1="398" x2="343" y1="215" y2="215" />
+        <line x1="343" x2="343" y1="215" y2="214" />
+        <line x1="422" x2="303" y1="409" y2="409" />
+        <line x1="303" x2="303" y1="409" y2="459" />
+      </lines>
+      <pins>
+        <pin pin_name="AD5" component_name="Arch4" />
+        <pin pin_name="ADDR5" component_name="2kRAM" />
+        <pin pin_name="DSP5" component_name="Display" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal6</name>
+      <name>Signal17</name>
+      <lines>
+        <line x1="80" x2="408" y1="76" y2="76" />
+        <line x1="408" x2="408" y1="76" y2="236" />
+        <line x1="408" x2="343" y1="236" y2="236" />
+        <line x1="343" x2="343" y1="236" y2="231" />
+        <line x1="422" x2="337" y1="415" y2="415" />
+        <line x1="337" x2="337" y1="415" y2="488" />
+      </lines>
+      <pins>
+        <pin pin_name="AD6" component_name="Arch4" />
+        <pin pin_name="ADDR6" component_name="2kRAM" />
+        <pin pin_name="DSP6" component_name="Display" />
+      </pins>
+    </signal>
+    <signal>
+      <name>Signal7</name>
+      <name>Signal18</name>
+      <lines>
+        <line x1="80" x2="415" y1="87" y2="87" />
+        <line x1="415" x2="415" y1="87" y2="256" />
+        <line x1="415" x2="343" y1="256" y2="256" />
+        <line x1="343" x2="343" y1="256" y2="248" />
+        <line x1="422" x2="373" y1="421" y2="421" />
+        <line x1="373" x2="373" y1="421" y2="510" />
+      </lines>
+      <pins>
+        <pin pin_name="AD7" component_name="Arch4" />
+        <pin pin_name="ADDR7" component_name="2kRAM" />
+        <pin pin_name="DSP7" component_name="Display" />
+      </pins>
+    </signal>
+  </signals>
+  <buses>
+    <bus>
+      <name>Bus10</name>
+      <name>B</name>
+      <name>S</name>
+      <lines>
+        <line x1="29" x2="157" y1="260" y2="260" />
+        <line x1="157" x2="157" y1="260" y2="282" />
+      </lines>
+    </bus>
+  </buses>
+</system>

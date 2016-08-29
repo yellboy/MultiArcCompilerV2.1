@@ -26,12 +26,6 @@
   <packagedElements>
     <packageHasNamedElement>
       <packageMoniker
-        Id="1e5ccc25-7808-4f2b-99b6-d17b9c2de111"
-        LastKnownName="z"
-        LastKnownLocation="Package_2008.uml" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <packageMoniker
         Id="68363f9a-26b6-4101-a860-0d865c63c7a4"
         LastKnownName="System"
         LastKnownLocation="Package1_2008.uml" />
