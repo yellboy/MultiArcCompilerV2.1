@@ -1064,7 +1064,14 @@ public static void WriteToMemory(CPU cpu, uint address, byte[] value)
 {
     // Define how CPU writtes to memory here.
     // If this method is not needed, just leave it empty.
-}";
+}
+
+public static void CheckForInterrupts(CPU cpu, Variables variables)
+{
+    // Define how CPU checks for interrups here.
+    // If this method is not needed, just leave it empty.
+}
+";
                     var file = File.Create(dataFolder + "CPUs/" + FileName);
                     file.Close();
                     File.WriteAllText(dataFolder + "CPUs/" + FileName, methodBodies);
@@ -1166,6 +1173,13 @@ public class DynamicClass" + name + @"
             var t = results.CompiledAssembly.GetType("DynamicClass" + name);
             object[] parameters = new object[] { this, address };
             return (byte[])t.GetMethod("ReadFromMemory").Invoke(null, parameters);
+        }
+
+        public void CheckForInterupts(Variables vars)
+        {
+            var t = results.CompiledAssembly.GetType("DynamicClass" + name);
+            object[] parameters = new object[] { this, vars };
+            t.GetMethod("CheckForInterrupts").Invoke(null, parameters);
         }
     }
 }

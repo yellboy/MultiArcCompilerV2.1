@@ -418,6 +418,36 @@ namespace MultiArc_Compiler
             SwitchFrequencyInputEnabledThreadSafe(false);
         }
 
+        public void ExecutionOver()
+        {
+            EnableFrequencyChanges();
+            RefreshControlsThreadSafe();
+        }
+
+        private delegate void RefreshControlsDelegate(); 
+
+        private void RefreshControlsThreadSafe()
+        {
+
+            if (systemPanel1.InvokeRequired)
+            {
+                RefreshControlsDelegate d = new RefreshControlsDelegate(RefreshControls);
+                this.BeginInvoke(d);
+            }
+            else
+            {
+                RefreshControls();
+            }
+        }
+
+        private void RefreshControls()
+        {
+            foreach (Control c in systemPanel1.Controls)
+            {
+                c.Refresh();
+            }
+        }
+
         public void EnableFrequencyChanges()
         {
             SwitchFrequencyInputEnabledThreadSafe(true);

@@ -51,7 +51,12 @@ namespace MultiArc_Compiler
         /// </returns>
         public object GetVariable(string name)
         {
-            return variables[name];
+            if (variables.ContainsKey(name))
+            {
+                return variables[name];
+            }
+
+            return null;
         }
 
         /// <summary>

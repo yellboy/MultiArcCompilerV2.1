@@ -39,6 +39,15 @@ namespace MultiArc_Compiler {
             case (int) Arch4Constants.JMP:
                 EnterJmp((Token) node);
                 break;
+            case (int) Arch4Constants.OUT:
+                EnterOut((Token) node);
+                break;
+            case (int) Arch4Constants.ITR:
+                EnterItr((Token) node);
+                break;
+            case (int) Arch4Constants.RTI:
+                EnterRti((Token) node);
+                break;
             case (int) Arch4Constants.R0:
                 EnterR0((Token) node);
                 break;
@@ -171,6 +180,9 @@ namespace MultiArc_Compiler {
             case (int) Arch4Constants.PCREL:
                 EnterPcrel((Production) node);
                 break;
+            case (int) Arch4Constants.ABSL:
+                EnterAbsl((Production) node);
+                break;
             case (int) Arch4Constants.LD1:
                 EnterLd1((Production) node);
                 break;
@@ -182,6 +194,12 @@ namespace MultiArc_Compiler {
                 break;
             case (int) Arch4Constants.HALT1:
                 EnterHalt1((Production) node);
+                break;
+            case (int) Arch4Constants.OUT1:
+                EnterOut1((Production) node);
+                break;
+            case (int) Arch4Constants.INT1:
+                EnterInt1((Production) node);
                 break;
             case (int) Arch4Constants.INSTRUCTION:
                 EnterInstruction((Production) node);
@@ -212,6 +230,12 @@ namespace MultiArc_Compiler {
                 return ExitHalt((Token) node);
             case (int) Arch4Constants.JMP:
                 return ExitJmp((Token) node);
+            case (int) Arch4Constants.OUT:
+                return ExitOut((Token) node);
+            case (int) Arch4Constants.ITR:
+                return ExitItr((Token) node);
+            case (int) Arch4Constants.RTI:
+                return ExitRti((Token) node);
             case (int) Arch4Constants.R0:
                 return ExitR0((Token) node);
             case (int) Arch4Constants.R1:
@@ -300,6 +324,8 @@ namespace MultiArc_Compiler {
                 return ExitRegind((Production) node);
             case (int) Arch4Constants.PCREL:
                 return ExitPcrel((Production) node);
+            case (int) Arch4Constants.ABSL:
+                return ExitAbsl((Production) node);
             case (int) Arch4Constants.LD1:
                 return ExitLd1((Production) node);
             case (int) Arch4Constants.LD2:
@@ -308,6 +334,10 @@ namespace MultiArc_Compiler {
                 return ExitJmp1((Production) node);
             case (int) Arch4Constants.HALT1:
                 return ExitHalt1((Production) node);
+            case (int) Arch4Constants.OUT1:
+                return ExitOut1((Production) node);
+            case (int) Arch4Constants.INT1:
+                return ExitInt1((Production) node);
             case (int) Arch4Constants.INSTRUCTION:
                 return ExitInstruction((Production) node);
             }
@@ -356,6 +386,9 @@ namespace MultiArc_Compiler {
             case (int) Arch4Constants.PCREL:
                 ChildPcrel(node, child);
                 break;
+            case (int) Arch4Constants.ABSL:
+                ChildAbsl(node, child);
+                break;
             case (int) Arch4Constants.LD1:
                 ChildLd1(node, child);
                 break;
@@ -367,6 +400,12 @@ namespace MultiArc_Compiler {
                 break;
             case (int) Arch4Constants.HALT1:
                 ChildHalt1(node, child);
+                break;
+            case (int) Arch4Constants.OUT1:
+                ChildOut1(node, child);
+                break;
+            case (int) Arch4Constants.INT1:
+                ChildInt1(node, child);
                 break;
             case (int) Arch4Constants.INSTRUCTION:
                 ChildInstruction(node, child);
@@ -501,6 +540,84 @@ namespace MultiArc_Compiler {
          * discovered errors</exception>
          */
         public virtual Node ExitJmp(Token node) {
+            return node;
+        }
+
+        /**
+         * <summary>Called when entering a parse tree node.</summary>
+         *
+         * <param name='node'>the node being entered</param>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual void EnterOut(Token node) {
+        }
+
+        /**
+         * <summary>Called when exiting a parse tree node.</summary>
+         *
+         * <param name='node'>the node being exited</param>
+         *
+         * <returns>the node to add to the parse tree, or
+         *          null if no parse tree should be created</returns>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual Node ExitOut(Token node) {
+            return node;
+        }
+
+        /**
+         * <summary>Called when entering a parse tree node.</summary>
+         *
+         * <param name='node'>the node being entered</param>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual void EnterItr(Token node) {
+        }
+
+        /**
+         * <summary>Called when exiting a parse tree node.</summary>
+         *
+         * <param name='node'>the node being exited</param>
+         *
+         * <returns>the node to add to the parse tree, or
+         *          null if no parse tree should be created</returns>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual Node ExitItr(Token node) {
+            return node;
+        }
+
+        /**
+         * <summary>Called when entering a parse tree node.</summary>
+         *
+         * <param name='node'>the node being entered</param>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual void EnterRti(Token node) {
+        }
+
+        /**
+         * <summary>Called when exiting a parse tree node.</summary>
+         *
+         * <param name='node'>the node being exited</param>
+         *
+         * <returns>the node to add to the parse tree, or
+         *          null if no parse tree should be created</returns>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual Node ExitRti(Token node) {
             return node;
         }
 
@@ -1796,6 +1913,46 @@ namespace MultiArc_Compiler {
          * <exception cref='ParseException'>if the node analysis
          * discovered errors</exception>
          */
+        public virtual void EnterAbsl(Production node) {
+        }
+
+        /**
+         * <summary>Called when exiting a parse tree node.</summary>
+         *
+         * <param name='node'>the node being exited</param>
+         *
+         * <returns>the node to add to the parse tree, or
+         *          null if no parse tree should be created</returns>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual Node ExitAbsl(Production node) {
+            return node;
+        }
+
+        /**
+         * <summary>Called when adding a child to a parse tree
+         * node.</summary>
+         *
+         * <param name='node'>the parent node</param>
+         * <param name='child'>the child node, or null</param>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual void ChildAbsl(Production node, Node child) {
+            node.AddChild(child);
+        }
+
+        /**
+         * <summary>Called when entering a parse tree node.</summary>
+         *
+         * <param name='node'>the node being entered</param>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
         public virtual void EnterLd1(Production node) {
         }
 
@@ -1945,6 +2102,86 @@ namespace MultiArc_Compiler {
          * discovered errors</exception>
          */
         public virtual void ChildHalt1(Production node, Node child) {
+            node.AddChild(child);
+        }
+
+        /**
+         * <summary>Called when entering a parse tree node.</summary>
+         *
+         * <param name='node'>the node being entered</param>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual void EnterOut1(Production node) {
+        }
+
+        /**
+         * <summary>Called when exiting a parse tree node.</summary>
+         *
+         * <param name='node'>the node being exited</param>
+         *
+         * <returns>the node to add to the parse tree, or
+         *          null if no parse tree should be created</returns>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual Node ExitOut1(Production node) {
+            return node;
+        }
+
+        /**
+         * <summary>Called when adding a child to a parse tree
+         * node.</summary>
+         *
+         * <param name='node'>the parent node</param>
+         * <param name='child'>the child node, or null</param>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual void ChildOut1(Production node, Node child) {
+            node.AddChild(child);
+        }
+
+        /**
+         * <summary>Called when entering a parse tree node.</summary>
+         *
+         * <param name='node'>the node being entered</param>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual void EnterInt1(Production node) {
+        }
+
+        /**
+         * <summary>Called when exiting a parse tree node.</summary>
+         *
+         * <param name='node'>the node being exited</param>
+         *
+         * <returns>the node to add to the parse tree, or
+         *          null if no parse tree should be created</returns>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual Node ExitInt1(Production node) {
+            return node;
+        }
+
+        /**
+         * <summary>Called when adding a child to a parse tree
+         * node.</summary>
+         *
+         * <param name='node'>the parent node</param>
+         * <param name='child'>the child node, or null</param>
+         *
+         * <exception cref='ParseException'>if the node analysis
+         * discovered errors</exception>
+         */
+        public virtual void ChildInt1(Production node, Node child) {
             node.AddChild(child);
         }
 

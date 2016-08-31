@@ -165,6 +165,7 @@ namespace MultiArc_Compiler
                 while (true)
                 {
                     int pc = cpu.Constants.GetRegister("pc").Val;
+                    cpu.CheckForInterupts(vars);
                     if (separators.Contains(pc) && pc != entryPoint)
                     {
                         Instruction inst = cpu.Constants.MatchInstruction(binary.ToArray());
@@ -281,7 +282,22 @@ namespace MultiArc_Compiler
                             int[] result = inst.Execute(ir, cpu, vars, operands);
                             inst.StoreResult(ir, cpu, vars, result);
                             instructionCode.Clear();
+
+                            cpu.CheckForInterupts(vars);
+
                             pc = cpu.Constants.GetRegister("pc").Val;
+
+
+                            for (int i = 0; i < separators.Count - 1; i++)
+                            {
+                                if (separators.ElementAt(i) == pc - entryPoint)
+                                {
+                                    Thread.BeginCriticalRegion();
+                                    next = i;
+                                    Thread.EndCriticalRegion();
+                                }
+                            }
+
                             if (pc - entryPoint >= binary.Count() || (bool)vars.GetVariable("working") == false) // First condition might not work for addressing word larger than 1
                             {
 

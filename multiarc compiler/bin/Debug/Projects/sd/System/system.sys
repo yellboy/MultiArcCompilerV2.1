@@ -121,8 +121,8 @@
         <line x1="37" x2="37" y1="100" y2="151" />
       </lines>
       <pins>
-        <pin pin_name="RD_WR0" component_name="2kRAM" />
-        <pin pin_name="WR_RD0" component_name="Arch4" />
+        <pin pin_name="RD0" component_name="2kRAM" />
+        <pin pin_name="RD0" component_name="Arch4" />
       </pins>
     </signal>
   </signals>

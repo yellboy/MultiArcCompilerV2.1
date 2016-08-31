@@ -41,6 +41,11 @@ namespace MultiArc_Compiler
                 {
                     lock (Form1.LockObject)
                     {
+                        if (this.Name == "INTRC")
+                        {
+                            this.Wait(100);
+                            this.GetPort("INT").Val = 1;
+                        }
                         var t = results.CompiledAssembly.GetType("DynamicClass" + name);
                         t.GetMethod("Cycle").Invoke(null, new object[] { this });
                         Thread.EndCriticalRegion();

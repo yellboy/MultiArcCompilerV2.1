@@ -48,6 +48,9 @@
 		<name>ADD</name>
 		<name>HALT</name>
 		<name>JMP</name>
+		<name>OUT</name>
+		<name>ITR</name>
+		<name>RTI</name>
 	</instruction_mnemonics>
 	<addressing_modes>
 		<immed>
@@ -116,6 +119,15 @@
 			<operand>read_from_expression</operand>
 			<operand_type>relative</operand_type>
 		</pcrel>
+		<absl>
+			<name>absl</name>
+			<file>absl.cs</file>
+			<result>b</result>
+			<expression>IDENTIFIER</expression>
+			<expression>DEC_NUMBER</expression>
+			<operand>read_from_expression</operand>
+			<operand_type>absolute</operand_type>
+		</absl>
 	</addressing_modes>
 	<instructions>
 		<ld1>
@@ -231,19 +243,77 @@
 				<value>0001010</value>
 			</opcode>
 		</halt1>
+		<out1>
+			<mnemonic>OUT</mnemonic>
+			<size>2</size>
+			<file>out.cs</file>
+			<opcode>
+				<start_bit>15</start_bit>
+				<end_bit>8</end_bit>
+				<value>01111111</value>
+			</opcode>
+			<arguments>
+				<arg>
+					<type>src</type>
+					<addressing_mode>
+						<name>immed</name>
+						<operand>
+							<start_bit>7</start_bit>
+							<end_bit>0</end_bit>
+						</operand>
+					</addressing_mode>
+				</arg>
+			</arguments>
+		</out1>
+		<int1>
+			<mnemonic>ITR</mnemonic>
+			<size>2</size>
+			<file>itr.cs</file>
+			<opcode>
+				<start_bit>15</start_bit>
+				<end_bit>8</end_bit>
+				<value>11011100</value>
+			</opcode>
+			<arguments>
+				<arg>
+					<type>src</type>
+					<addressing_mode>
+						<name>absl</name>
+						<operand>
+							<start_bit>7</start_bit>
+							<end_bit>0</end_bit>
+						</operand>
+					</addressing_mode>
+				</arg>
+			</arguments>
+		</int1>
 	</instructions>
 	<dimensions>
 		<height>
-			100
+			200
 		</height>
 		<width>
 			80
 		</width>
 	</dimensions>
 	<ports>
-		<ad>
+		<addrdata>
 			<name>
-				AD
+				ADDRDATA
+			</name>
+			<number>
+				8
+			</number>
+			<side>
+				right
+			</side>
+			<type>
+				OUT
+			</type>
+		</addrdata>
+		<data>
+			<name> 
+				DATA 
 			</name>
 			<number>
 				8
@@ -254,10 +324,10 @@
 			<type>
 				INOUT
 			</type>
-		</ad>
+		</data>
 		<wrrd>
 			<name>
-				RD
+				WR_RD
 			</name>
 			<number>
 				1
@@ -269,5 +339,19 @@
 				down
 			</side>
 		</wrrd>
+		<int>
+			<name>
+				INT
+			</name>
+			<number>
+				1
+			</number>
+			<type>
+				IN
+			</type>
+			<side>
+				left
+			</side>
+		</int>
 	</ports>
 </architecture>

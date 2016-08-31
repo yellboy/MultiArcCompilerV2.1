@@ -70,6 +70,24 @@ namespace MultiArc_Compiler {
                                        "JMP");
             AddPattern(pattern);
 
+            pattern = new TokenPattern((int) Arch4Constants.OUT,
+                                       "OUT",
+                                       TokenPattern.PatternType.STRING,
+                                       "OUT");
+            AddPattern(pattern);
+
+            pattern = new TokenPattern((int) Arch4Constants.ITR,
+                                       "ITR",
+                                       TokenPattern.PatternType.STRING,
+                                       "ITR");
+            AddPattern(pattern);
+
+            pattern = new TokenPattern((int) Arch4Constants.RTI,
+                                       "RTI",
+                                       TokenPattern.PatternType.STRING,
+                                       "RTI");
+            AddPattern(pattern);
+
             pattern = new TokenPattern((int) Arch4Constants.R0,
                                        "R0",
                                        TokenPattern.PatternType.STRING,

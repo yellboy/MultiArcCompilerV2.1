@@ -1033,7 +1033,7 @@ Name: " + projectName + @"
             Directory.CreateDirectory(projectPath + "System\\");
             Directory.CreateDirectory(dataFolder + "CPUs\\");
             Directory.CreateDirectory(dataFolder + "Memories\\");
-            Directory.CreateDirectory(dataFolder + "OtherComponents\\");
+            Directory.CreateDirectory(dataFolder + "Other\\");
             LoadArchitectureDialog.InitialDirectory = dataFolder + "CPUs\\";
             LoadMemoryDialog.InitialDirectory = dataFolder + "Memories\\";
             LoadOtherComponentDialog.InitialDirectory = dataFolder + "Other\\";
@@ -1099,36 +1099,45 @@ Name: " + projectName + @"
             }
 
             string[] cpuFiles = Directory.GetFiles(dataFolder + "CPUs\\");
-            foreach (string f in cpuFiles)
+            if (cpuFiles != null)
             {
-                if (f.ToLower().EndsWith(".arc"))
+                foreach (string f in cpuFiles)
                 {
-                    arcFileName = f;
-                    projectOpenning = true;
-                    registersForm = null;
-                    LoadArchitecture(sender, e);
+                    if (f.ToLower().EndsWith(".arc"))
+                    {
+                        arcFileName = f;
+                        projectOpenning = true;
+                        registersForm = null;
+                        LoadArchitecture(sender, e);
+                    }
                 }
-            } 
+            }
             string[] memoryFiles = Directory.GetFiles(dataFolder + "Memories\\");
-            foreach (string f in memoryFiles)
+            if (memoryFiles != null)
             {
-                if (f.ToLower().EndsWith(".arc"))
+                foreach (string f in memoryFiles)
                 {
-                    memoryFileName = f;
-                    projectOpenning = true;
-                    registersForm = null;
-                    LoadMemoryDialog_FileOk(sender, e);
+                    if (f.ToLower().EndsWith(".arc"))
+                    {
+                        memoryFileName = f;
+                        projectOpenning = true;
+                        registersForm = null;
+                        LoadMemoryDialog_FileOk(sender, e);
+                    }
                 }
             }
             string[] otherFiles = Directory.GetFiles(dataFolder + "Other\\");
-            foreach (string f in otherFiles)
+            if (otherFiles != null)
             {
-                if (f.ToLower().EndsWith(".arc"))
+                foreach (string f in otherFiles)
                 {
-                    otherComponentFileName = f;
-                    projectOpenning = true;
-                    registersForm = null;
-                    LoadOtherComponentDialog_FileOk(sender, e);
+                    if (f.ToLower().EndsWith(".arc"))
+                    {
+                        otherComponentFileName = f;
+                        projectOpenning = true;
+                        registersForm = null;
+                        LoadOtherComponentDialog_FileOk(sender, e);
+                    }
                 }
             }
 

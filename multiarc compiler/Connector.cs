@@ -52,6 +52,8 @@ namespace MultiArc_Compiler
             }
         }
 
+        private Color _previousColor;
+
         public Connector(UserSystem system)
         {
             System = system;
@@ -81,6 +83,7 @@ namespace MultiArc_Compiler
                 }
                 else
                 {
+                    _previousColor = line.ForeColor;
                     line.ForeColor = color;
                     line.Refresh();
                 }
@@ -101,7 +104,7 @@ namespace MultiArc_Compiler
         public void DeselectControl()
         {
             Selected = false;
-            SetColor(Color.Violet); 
+            SetColor(_previousColor); 
             Refresh();
         }
 

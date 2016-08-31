@@ -318,7 +318,7 @@ namespace MultiArc_Compiler
                 component.StopWorking();
             }
 
-            clipboard.EnableFrequencyChanges();
+            clipboard.ExecutionOver();
         }
 
         /// <summary>
