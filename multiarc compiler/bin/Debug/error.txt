@@ -21,4 +21,109 @@ System.NullReferenceException: Object reference not set to an instance of an obj
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
    at System.Windows.Forms.Application.Run(Form mainForm)
-   at MultiArc_Compiler.Program.Main() in d:\MultiArc Compiler\multiarc compiler\Program.cs:line 25
+   at MultiArc_Compiler.Program.Main() in d:\MultiArc Compiler\multiarc compiler\Program.cs:line 25System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at DynamicClassArch4.ReadFromMemory(CPU cpu, UInt32 address)
+   --- End of inner exception stack trace ---
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   at System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   at MultiArc_Compiler.CPU.ReadFromMemory(UInt32 address) in d:\MultiArc Compiler V2.1\multiarc compiler\CPU.cs:line 1175
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 327System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 280System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 280System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 280System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 280System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 280System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Instruction.FetchOperands(InstructionRegister ir, CPU cpu, Variables variables) in d:\MultiArc Compiler V2.1\multiarc compiler\Instruction.cs:line 320
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 281System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Instruction.FetchOperands(InstructionRegister ir, CPU cpu, Variables variables) in d:\MultiArc Compiler V2.1\multiarc compiler\Instruction.cs:line 320
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 281System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Instruction.FetchOperands(InstructionRegister ir, CPU cpu, Variables variables) in d:\MultiArc Compiler V2.1\multiarc compiler\Instruction.cs:line 320
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 281System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Instruction.FetchOperands(InstructionRegister ir, CPU cpu, Variables variables) in d:\MultiArc Compiler V2.1\multiarc compiler\Instruction.cs:line 320
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 281System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Instruction.FetchOperands(InstructionRegister ir, CPU cpu, Variables variables) in d:\MultiArc Compiler V2.1\multiarc compiler\Instruction.cs:line 320
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 281System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Instruction.FetchOperands(InstructionRegister ir, CPU cpu, Variables variables) in d:\MultiArc Compiler V2.1\multiarc compiler\Instruction.cs:line 320
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 281System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Instruction.FetchOperands(InstructionRegister ir, CPU cpu, Variables variables) in d:\MultiArc Compiler V2.1\multiarc compiler\Instruction.cs:line 320
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 281System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Instruction.FetchOperands(InstructionRegister ir, CPU cpu, Variables variables) in d:\MultiArc Compiler V2.1\multiarc compiler\Instruction.cs:line 320
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 281System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.NullReferenceException: Object reference not set to an instance of an object.
+   at MultiArc_Compiler.Instruction.FetchOperands(InstructionRegister ir, CPU cpu, Variables variables) in d:\MultiArc Compiler V2.1\multiarc compiler\Instruction.cs:line 318
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 281System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278System.Exception: Unknown instruction
+   at MultiArc_Compiler.ArchConstants.MatchInstruction(Byte[] binary) in d:\MultiArc Compiler V2.1\multiarc compiler\ArchConstants.cs:line 504
+   at MultiArc_Compiler.Executor.executeStepByStep() in d:\MultiArc Compiler V2.1\multiarc compiler\Executor.cs:line 278

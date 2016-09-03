@@ -15,7 +15,7 @@ namespace MultiArc_Compiler
     /// <summary>
     /// Possible values of the pin.
     /// </summary>
-    public enum PinValue { TRUE, FALSE, HIGHZ };
+    public enum PinValue { TRUE, FALSE, HIGHZ, UNDEFINED };
 
     /// <summary>
     /// Class representing pin of the port.
@@ -73,16 +73,19 @@ namespace MultiArc_Compiler
                 val = value;
                 if (signal != null)
                 {
-                    signal.Val = val;
+                    signal.SetValueFromPinIfNeeded(this);
+
                     if (!parentPort.Initializing)
-                    { 
-                        signal.InformOtherPins(this); 
+                    {
+                        signal.InformOtherPins(this);
                     }
                 }
 
                 ValueSetExternaly = false;
             }
         }
+
+        public PinValue SetValue { get; private set; }
 
         public bool ValueSetExternaly { get; private set; }
 
@@ -156,16 +159,30 @@ namespace MultiArc_Compiler
 
         public void InformThatSignalChanged(PinValue signalValue)
         {
-            lock (this.parentPort)
+            if (ValueSetExternaly || val == PinValue.UNDEFINED || (val == PinValue.HIGHZ && signalValue == SetValue))
             {
-                if (val != PinValue.HIGHZ)
+                lock (this.parentPort)
                 {
+                    if (val == PinValue.UNDEFINED)
+                    {
+                        ValueSetExternaly = true;
+                    }
+
                     OldVal = val;
                     val = signalValue;
-                    ValueSetExternaly = true;
                     Monitor.PulseAll(Form1.LockObject);
                 }
             }
+        }
+
+        public void SetHighZ()
+        {
+            if (!ValueSetExternaly)
+            {
+                SetValue = val;
+            }
+
+            val = PinValue.HIGHZ;
         }
 
         protected void mouseEnter(object sender, EventArgs e)

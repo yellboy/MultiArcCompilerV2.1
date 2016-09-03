@@ -297,16 +297,6 @@ namespace MultiArc_Compiler {
             pattern.AddAlternative(alt);
             AddPattern(pattern);
 
-            pattern = new ProductionPattern((int) Arch4Constants.ABSL,
-                                            "ABSL");
-            alt = new ProductionPatternAlternative();
-            alt.AddToken((int) Arch4Constants.IDENTIFIER, 1, 1);
-            pattern.AddAlternative(alt);
-            alt = new ProductionPatternAlternative();
-            alt.AddToken((int) Arch4Constants.DEC_NUMBER, 1, 1);
-            pattern.AddAlternative(alt);
-            AddPattern(pattern);
-
             pattern = new ProductionPattern((int) Arch4Constants.LD1,
                                             "ld1");
             alt = new ProductionPatternAlternative();
@@ -342,22 +332,6 @@ namespace MultiArc_Compiler {
             pattern.AddAlternative(alt);
             AddPattern(pattern);
 
-            pattern = new ProductionPattern((int) Arch4Constants.OUT1,
-                                            "out1");
-            alt = new ProductionPatternAlternative();
-            alt.AddToken((int) Arch4Constants.OUT, 1, 1);
-            alt.AddProduction((int) Arch4Constants.IMMED, 1, 1);
-            pattern.AddAlternative(alt);
-            AddPattern(pattern);
-
-            pattern = new ProductionPattern((int) Arch4Constants.INT1,
-                                            "int1");
-            alt = new ProductionPatternAlternative();
-            alt.AddToken((int) Arch4Constants.ITR, 1, 1);
-            alt.AddProduction((int) Arch4Constants.ABSL, 1, 1);
-            pattern.AddAlternative(alt);
-            AddPattern(pattern);
-
             pattern = new ProductionPattern((int) Arch4Constants.INSTRUCTION,
                                             "Instruction");
             alt = new ProductionPatternAlternative();
@@ -371,12 +345,6 @@ namespace MultiArc_Compiler {
             pattern.AddAlternative(alt);
             alt = new ProductionPatternAlternative();
             alt.AddProduction((int) Arch4Constants.HALT1, 1, 1);
-            pattern.AddAlternative(alt);
-            alt = new ProductionPatternAlternative();
-            alt.AddProduction((int) Arch4Constants.OUT1, 1, 1);
-            pattern.AddAlternative(alt);
-            alt = new ProductionPatternAlternative();
-            alt.AddProduction((int) Arch4Constants.INT1, 1, 1);
             pattern.AddAlternative(alt);
             AddPattern(pattern);
 

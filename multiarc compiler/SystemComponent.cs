@@ -68,7 +68,14 @@ namespace MultiArc_Compiler
         /// </returns>
         public Port GetPort(string name)
         {
-            return ports.FirstOrDefault(port => port.Name.ToLower().Equals(name.ToLower()));
+            var p = ports.FirstOrDefault(port => port.Name.ToLower().Equals(name.ToLower()));
+
+            if (p == null)
+            {
+                throw new Exception("There is no port with name " + name);
+            }
+
+            return p;
         }
 
         public Pin GetPin(string name)
@@ -84,7 +91,7 @@ namespace MultiArc_Compiler
                 }
             }
 
-            return null;
+            throw new Exception("There is no pin with name " + name);
         }
 
         /// <summary>
@@ -381,7 +388,7 @@ namespace MultiArc_Compiler
             Pin pin = GetPin(pinName);
             //lock (pin.ParentPort)
             //{
-                while (!((pin.OldVal == PinValue.FALSE || pin.OldVal == PinValue.HIGHZ) && pin.Val == PinValue.TRUE))
+                while (!((pin.OldVal == PinValue.FALSE || pin.OldVal == PinValue.HIGHZ || pin.OldVal == PinValue.UNDEFINED) && pin.Val == PinValue.TRUE))
                 {
                     Console.WriteLine("Thread {0} waiting for rising edge of {1}", Thread.CurrentThread.ManagedThreadId, pinName);
                     //Monitor.Wait(pin.ParentPort);
@@ -396,7 +403,7 @@ namespace MultiArc_Compiler
             Pin pin = GetPin(pinName);
             //lock (pin.ParentPort)
             //{
-                while (!(pin.OldVal == PinValue.TRUE && pin.Val == PinValue.FALSE))
+                while (!((pin.OldVal == PinValue.UNDEFINED || pin.OldVal == PinValue.HIGHZ || pin.OldVal == PinValue.TRUE) && pin.Val == PinValue.FALSE))
                 {
                     //Monitor.Wait(pin.ParentPort);
                     Monitor.Wait(Form1.LockObject);

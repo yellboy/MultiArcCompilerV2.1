@@ -500,7 +500,9 @@ namespace MultiArc_Compiler
                     return i;
                 }
             }
-            return null;
+
+            throw new Exception("Unknown instruction");
+            //return null;
         }
         
         /// <summary>

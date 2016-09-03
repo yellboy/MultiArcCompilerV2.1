@@ -16,15 +16,15 @@ namespace MultiArc_Compiler
             InitializeComponent();
             Visible = true;
 
-            foreach (var p in signal.Pins)
+            foreach (var pin in signal.Pins)
             {
-                if (!p.ValueSetExternaly)
+                if (!pin.ValueSetExternaly && !(pin.Val == PinValue.HIGHZ && pin.SetValue == PinValue.UNDEFINED || pin.Val == PinValue.UNDEFINED))
                 {
                     signalPinsDtoBindingSource.Add(new SignalPinsDto
                     {
-                        ComponentName = p.ParentPort.Component.Name,
-                        PinName = p.Name,
-                        PinValue = p.Val.ToString()
+                        ComponentName = pin.ParentPort.Component.Name,
+                        PinName = pin.Name,
+                        PinValue = pin.Val == PinValue.HIGHZ ? pin.SetValue.ToString() : pin.Val.ToString()
                     });
                 }
             }

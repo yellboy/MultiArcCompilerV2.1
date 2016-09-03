@@ -16,7 +16,7 @@ namespace MultiArc_Compiler
 
         private int id = nextId++;
 
-        private PinValue val = PinValue.HIGHZ;
+        private PinValue val = PinValue.UNDEFINED;
 
         public PinValue Val
         {
@@ -37,6 +37,9 @@ namespace MultiArc_Compiler
                         break;
                     case PinValue.HIGHZ:
                         this.SetColor(Color.Yellow);
+                        break;
+                    case PinValue.UNDEFINED:
+                        this.SetColor(Color.Cyan);
                         break;
                 }
             }
@@ -88,6 +91,33 @@ namespace MultiArc_Compiler
         /// </param>
         public void InformOtherPins(Pin pin = null)
         {
+            if (pin != null && pin.Val == PinValue.UNDEFINED)
+            {
+
+            }
+
+            var foundConflict = false;
+            foreach (var p in pins.Where(tp => tp != pin))
+            {
+                if (pin.Val != PinValue.UNDEFINED && p.Val != PinValue.UNDEFINED && p.Val != PinValue.HIGHZ && p.Val != pin.Val && !p.ValueSetExternaly)
+                {
+                    val = PinValue.HIGHZ;
+                    foundConflict = true;
+                    break;
+                }
+            }
+
+            if (foundConflict)
+            {
+                foreach (var p in pins)
+                {
+                    p.SetHighZ();
+                }
+
+                SetColor(Color.Yellow);
+                return;
+            }
+
             foreach (Pin p in pins)
             {
                 if (pin == null || p != pin)
@@ -167,6 +197,16 @@ namespace MultiArc_Compiler
             }
 
             system.Signals.AddLast(mergedSignal);
+        }
+
+        public void SetValueFromPinIfNeeded(Pin pin)
+        {
+            if (pin.Val == PinValue.UNDEFINED && pins.Any(p => p != pin && p.Val != PinValue.UNDEFINED && !p.ValueSetExternaly))
+            {
+                return;
+            }
+
+            Val = pin.Val;
         }
     }
 }

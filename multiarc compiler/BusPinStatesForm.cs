@@ -25,14 +25,14 @@ namespace MultiArc_Compiler
                 {
                     var pin = pins.ElementAt(j);
 
-                    if (!pin.ValueSetExternaly)
+                    if (!pin.ValueSetExternaly && !(pin.Val == PinValue.HIGHZ && pin.SetValue == PinValue.UNDEFINED || pin.Val == PinValue.UNDEFINED))
                     {
                         busPinsDtoBindingSource.Add(new BusPinsDto
                         {
                             Index = i,
                             ComponentName = pin.ParentPort.Component.Name,
                             PinName = pin.Name,
-                            PinValue = pin.Val.ToString()
+                            PinValue = pin.Val == PinValue.HIGHZ ? pin.SetValue.ToString() : pin.Val.ToString()
                         });
                     }
                 }

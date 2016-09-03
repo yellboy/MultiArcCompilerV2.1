@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using MoreLinq;
 
 namespace MultiArc_Compiler
 {
@@ -115,6 +116,13 @@ namespace MultiArc_Compiler
                     if (pins[i].Val == PinValue.TRUE)
                     {
                         ret |= 1 << i;
+                    }
+                    else if (pins[i].Val == PinValue.HIGHZ)
+                    {
+                        var random = new Random();
+                        int randomValue = random.Next(0, 1);
+
+                        ret |= randomValue << i;
                     }
                 }
                 Console.WriteLine("Port {0} returning value {1}.", name, ret);
@@ -289,8 +297,13 @@ namespace MultiArc_Compiler
         public void ResetToDefault()
         {
             Initializing = true;
-            Val = 0;
+            RemoveValue();
             Initializing = false;
+        }
+
+        public void RemoveValue()
+        {
+            pins.ForEach(p => p.Val = PinValue.UNDEFINED);
         }
 
         public ICollection<Pin> GetAllPins()

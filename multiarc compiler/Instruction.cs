@@ -289,7 +289,11 @@ namespace MultiArc_Compiler
                 {
                     arg.SelectedAddressingMode = arg.AddressingModes.ElementAt(0);
                 }
+            }
 
+            if (arguments.Any(a => a.SelectedAddressingMode == null))
+            {
+                throw new Exception("Invalid addressing mode");
             }
         }
 

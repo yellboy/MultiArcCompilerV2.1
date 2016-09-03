@@ -580,9 +580,15 @@ namespace MultiArc_Compiler
         public void ResetToDefault()
         {
             foreach (var c in components)
-            {
+             {
                 c.ResetToDefault();
             }
+
+            foreach (var s in signals)
+            {
+                s.Val = PinValue.UNDEFINED;
+            }
+
             wakeUpTimes.Clear();
             ticks = 0;
         }

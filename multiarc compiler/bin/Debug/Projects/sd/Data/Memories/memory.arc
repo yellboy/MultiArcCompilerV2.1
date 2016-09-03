@@ -34,7 +34,7 @@
 		</addr>
 		<wr_rd>
 			<name>
-				RD
+				RD_WR
 			</name>
 			<side>
 				down

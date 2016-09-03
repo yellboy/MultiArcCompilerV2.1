@@ -70,3 +70,24 @@ D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.Ge
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
 D:\MultiArc Compiler\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csprojResolveAssemblyReference.cache
+D:\MultiArc Compiler V2.1\MultiArc Compiler\bin\Debug\MultiArc Compiler.exe
+D:\MultiArc Compiler V2.1\MultiArc Compiler\bin\Debug\MultiArc Compiler.pdb
+D:\MultiArc Compiler V2.1\MultiArc Compiler\bin\Debug\MoreLinq.dll
+D:\MultiArc Compiler V2.1\MultiArc Compiler\bin\Debug\testApp.exe
+D:\MultiArc Compiler V2.1\MultiArc Compiler\bin\Debug\MoreLinq.xml
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.BusPinStatesForm.resources
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Clipboard.resources
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Designer.resources
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Form1.resources
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Line.resources
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.ManageSignalNamesDialog.resources
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.MemoryDumpForm.resources
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.Properties.Resources.resources
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.RegistersForm.resources
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SaveOldFileForm.resources
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SetBusWidthForm.resources
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc_Compiler.SignalPinStatesForm.resources
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csproj.GenerateResource.Cache
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.exe
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.pdb
+D:\MultiArc Compiler V2.1\MultiArc Compiler\obj\x86\Debug\MultiArc Compiler.csprojResolveAssemblyReference.cache
