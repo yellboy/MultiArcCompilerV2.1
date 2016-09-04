@@ -287,7 +287,6 @@ namespace MultiArc_Compiler
 
                             pc = cpu.Constants.GetRegister("pc").Val;
 
-
                             for (int i = 0; i < separators.Count - 1; i++)
                             {
                                 if (separators.ElementAt(i) == pc - entryPoint)
@@ -322,7 +321,7 @@ namespace MultiArc_Compiler
                         if ((stepByStepMode || breakPoints.Contains(next)) && separators.Contains(pc - entryPoint))
                         {
                             //breakSem.WaitOne();
-                            system.Running = false;
+                            system.Pause();
                         }
                         byte[] readFromMemory = cpu.ReadFromMemory((uint)pc);
                         Console.WriteLine("Read from memory {0}", ConversionHelper.ConvertFromByteArrayToInt(readFromMemory));

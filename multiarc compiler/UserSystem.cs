@@ -280,7 +280,14 @@ namespace MultiArc_Compiler
                 //}
             }
 
-            clipboard.DisableFrequencyChanges();
+            if (tickByTickMode)
+            {
+                clipboard.EnableFrequencyChanges();
+            }
+            else
+            {
+                clipboard.DisableFrequencyChanges();
+            }
         }
 
         public void StartWorkingTickByTick(LinkedList<int> separators, LinkedList<int> breakPoints, TextBoxBase outputBox, int entryPoint, byte[] binary)
@@ -634,6 +641,12 @@ namespace MultiArc_Compiler
             {
                 return tickByTickMode;
             }
+        }
+
+        public void Pause()
+        {
+            Running = false;
+            clipboard.EnableFrequencyChanges();
         }
     }
 }
