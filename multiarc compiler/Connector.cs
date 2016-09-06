@@ -96,16 +96,22 @@ namespace MultiArc_Compiler
 
         public void SelectControl()
         {
-            Selected = true;
-            SetColor(Color.Lime);
-            Refresh();
+            if (!SelectingDisabled && !Selected)
+            {
+                Selected = true;
+                SetColor(Color.Lime);
+                Refresh();
+            }
         }
 
         public void DeselectControl()
         {
-            Selected = false;
-            SetColor(_previousColor); 
-            Refresh();
+            if (Selected)
+            {
+                Selected = false;
+                SetColor(_previousColor);
+                Refresh();
+            }
         }
 
         private void Refresh()

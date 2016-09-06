@@ -222,6 +222,8 @@ namespace MultiArc_Compiler
                     currentlyDrawnConnector = new Bus(system);
                     StartDrawing(e.X, e.Y);
                 }
+
+                systemPanel1.DeselectAllControls();
             }
             else
             {

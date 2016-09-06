@@ -75,18 +75,24 @@ namespace MultiArc_Compiler
 
         public void SelectControl()
         {
-            Selected = true;
-            DefaultPen = Pens.LightGreen;
-            PassSelectedToControlsWithImage();
-            Refresh();
+            if (!SelectingDisabled && !Selected)
+            {
+                Selected = true;
+                DefaultPen = Pens.LightGreen;
+                PassSelectedToControlsWithImage();
+                Refresh();
+            }
         }
 
         public void DeselectControl()
         {
-            Selected = false;
-            DefaultPen = Pens.Black;
-            PassSelectedToControlsWithImage();
-            Refresh();
+            if (Selected)
+            {
+                Selected = false;
+                DefaultPen = Pens.Black;
+                PassSelectedToControlsWithImage();
+                Refresh();
+            }
         }
 
         public void DeselectOthers()

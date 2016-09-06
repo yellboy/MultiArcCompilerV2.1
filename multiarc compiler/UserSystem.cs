@@ -280,6 +280,8 @@ namespace MultiArc_Compiler
                 //}
             }
 
+            SetSelectingDisabledToAllComponentsAndConnectors(true);
+
             if (tickByTickMode)
             {
                 clipboard.EnableFrequencyChanges();
@@ -326,6 +328,7 @@ namespace MultiArc_Compiler
             }
 
             clipboard.ExecutionOver();
+            SetSelectingDisabledToAllComponentsAndConnectors(false);
         }
 
         /// <summary>
@@ -600,21 +603,21 @@ namespace MultiArc_Compiler
             ticks = 0;
         }
 
-        public void DisableSelectingToAllComponents()
+        public void SetSelectingDisabledToAllComponentsAndConnectors(bool disabled)
         {
             foreach (var c in components)
             {
-                c.SelectingDisabled = true;
+                c.SelectingDisabled = disabled;
             }
 
             foreach (var s in signals)
             {
-                s.SelectingDisabled = true;
+                s.SelectingDisabled = disabled;
             }
 
             foreach (var b in Buses)
             {
-                b.SelectingDisabled = false;
+                b.SelectingDisabled = disabled;
             }
         }
 

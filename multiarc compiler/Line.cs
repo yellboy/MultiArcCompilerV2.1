@@ -241,19 +241,6 @@ namespace MultiArc_Compiler
             Cursor = Cursors.Arrow;
         }
 
-        public void Deselect()
-        {
-            if (ContainedByConnector != null)
-            {
-                ContainedByConnector.DeselectControl();
-            }
-        }
-
-        public void SelectControl()
-        {
-            ContainedByConnector.SelectControl();
-        }
-
         public bool IsCompletelySelected(Rectangle rectangle)
         {
             var topLeft = new Point(rectangle.Location.X, rectangle.Location.Y);

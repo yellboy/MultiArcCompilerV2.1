@@ -89,13 +89,11 @@ namespace MultiArc_Compiler
                     dropableControl.SelectControl();
                     dropableControl.Refresh();
                 }
-
-                var line = c as Line;
-
-                if (line != null && line.ContainedByConnector != null && !line.ContainedByConnector.Selected)
-                {
-                    line.SelectControl();
-                }
+            }
+            
+            foreach (var c in Connectors)
+            {
+                c.SelectControl();
             }
         }
 
@@ -424,13 +422,12 @@ namespace MultiArc_Compiler
                 {
                     dropableControl.DeselectControl();
                 }
+            }
 
-                var line = c as Line;
 
-                if (line != null)
-                {
-                    line.Deselect();
-                }
+            foreach (var c in Connectors)
+            {
+                c.DeselectControl();
             }
         }
 
@@ -446,13 +443,14 @@ namespace MultiArc_Compiler
                     {
                         dropableControl.DeselectControl();
                     }
+                }
+            }
 
-                    var line = c as Line;
-
-                    if (line != null && line.ContainedByConnector != control)
-                    {
-                        line.Deselect();
-                    }
+            foreach (var c in Connectors)
+            {
+                if (c != control)
+                {
+                    c.DeselectControl();
                 }
             }
         }

@@ -393,7 +393,6 @@ namespace MultiArc_Compiler
             }
             if (compiled == true)
             {
-                system.DisableSelectingToAllComponents();
                 system.StartWorking(separators, breakPoints, OutputBox, entryPoint, binary);
             }
         }
