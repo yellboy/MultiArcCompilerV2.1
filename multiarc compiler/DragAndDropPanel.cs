@@ -201,6 +201,7 @@ namespace MultiArc_Compiler
         {
             var controlsToAdd = new List<NonPinDropableControl>();
 
+            Cursor = Cursors.WaitCursor;
             foreach (var c in _copiedControls)
             {
                 var newControl = (NonPinDropableControl)c.Clone();
@@ -237,6 +238,8 @@ namespace MultiArc_Compiler
             {
                 clipboard.DoThePaste(controlsToAdd);
             }
+
+            Cursor = Cursors.Default;
         }
 
         private void DragAndDrop(object sender, DragEventArgs e)
