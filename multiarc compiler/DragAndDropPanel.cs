@@ -141,7 +141,7 @@ namespace MultiArc_Compiler
             foreach (var c in Controls)
             {
                 var line = c as Line;
-                if (line != null && line.ContainedByConnector.Selected && !selectedConnectors.Contains(line.ContainedByConnector))
+                if (line != null && line.ContainedByConnector != null && line.ContainedByConnector.Selected && !selectedConnectors.Contains(line.ContainedByConnector))
                 {
                     selectedConnectors.Add(line.ContainedByConnector);
                 }

@@ -326,7 +326,8 @@ namespace MultiArc_Compiler
 
         private void stopButton_Click(object sender, EventArgs e)
         {
-            system.EndWorking();
+            //system.EndWorking();
+            Form1.Instance.StopDebugging();
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
@@ -520,6 +521,11 @@ namespace MultiArc_Compiler
             {
                 system.RemoveConnector(c);
             }
+        }
+
+        private void PauseButton_Click(object sender, EventArgs e)
+        {
+            system.Pause();
         }
     }
 }

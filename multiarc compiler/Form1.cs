@@ -1262,18 +1262,16 @@ Name: " + projectName + @"
         private void stopDebuggingToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StopDebugging();
-            deselectAllLines();
-            CodeBox.ReadOnly = false;
-            stopDebuggingToolStripMenuItem.Enabled = false;
-            OutputBox.AppendText(DateTime.Now + " Code stopped. \n");
         }
 
         public void StopDebugging()
         {
-            if (ex != null)
-            {
-                ex.StopDebugging();
-            }
+            system.EndWorking();
+
+            deselectAllLines();
+            CodeBox.ReadOnly = false;
+            stopDebuggingToolStripMenuItem.Enabled = false;
+            OutputBox.AppendText(DateTime.Now + " Code stopped. \n");
         }
 
         private delegate void Deselect();

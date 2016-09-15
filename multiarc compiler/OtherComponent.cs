@@ -290,6 +290,7 @@ public static void Cycle(OtherComponent component)
         public override object Clone()
         {
             var newComponent = new OtherComponent(ProjectPath);
+            newComponent.DesignCompileResults = DesignCompileResults;
             newComponent.results = results;
             newComponent.observer = this.observer;
             newComponent.Height = this.Height;

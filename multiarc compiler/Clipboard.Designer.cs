@@ -47,6 +47,7 @@ namespace MultiArc_Compiler
             this.frequencyInput = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.DrawBusButton = new System.Windows.Forms.Button();
+            this.PauseButton = new System.Windows.Forms.Button();
             this.systemPanel1 = new MultiArc_Compiler.DragAndDropPanel();
             ((System.ComponentModel.ISupportInitialize)(this.frequencyInput)).BeginInit();
             this.SuspendLayout();
@@ -83,7 +84,7 @@ namespace MultiArc_Compiler
             this.nextClockButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nextClockButton.BackgroundImage")));
             this.nextClockButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.nextClockButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.nextClockButton.Location = new System.Drawing.Point(535, 356);
+            this.nextClockButton.Location = new System.Drawing.Point(507, 356);
             this.nextClockButton.Name = "nextClockButton";
             this.nextClockButton.Size = new System.Drawing.Size(22, 22);
             this.nextClockButton.TabIndex = 3;
@@ -97,7 +98,7 @@ namespace MultiArc_Compiler
             this.executeButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("executeButton.BackgroundImage")));
             this.executeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.executeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.executeButton.Location = new System.Drawing.Point(507, 356);
+            this.executeButton.Location = new System.Drawing.Point(479, 356);
             this.executeButton.Name = "executeButton";
             this.executeButton.Size = new System.Drawing.Size(22, 22);
             this.executeButton.TabIndex = 4;
@@ -233,6 +234,20 @@ namespace MultiArc_Compiler
             this.DrawBusButton.UseVisualStyleBackColor = true;
             this.DrawBusButton.Click += new System.EventHandler(this.DrawBusButton_Click);
             // 
+            // PauseButton
+            // 
+            this.PauseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.PauseButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PauseButton.BackgroundImage")));
+            this.PauseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PauseButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.PauseButton.Location = new System.Drawing.Point(535, 356);
+            this.PauseButton.Name = "PauseButton";
+            this.PauseButton.Size = new System.Drawing.Size(22, 22);
+            this.PauseButton.TabIndex = 14;
+            this.tooltip.SetToolTip(this.PauseButton, "Pause");
+            this.PauseButton.UseVisualStyleBackColor = true;
+            this.PauseButton.Click += new System.EventHandler(this.PauseButton_Click);
+            // 
             // systemPanel1
             // 
             this.systemPanel1.AllowDrop = true;
@@ -253,6 +268,7 @@ namespace MultiArc_Compiler
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 386);
+            this.Controls.Add(this.PauseButton);
             this.Controls.Add(this.DrawBusButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.frequencyInput);
@@ -298,6 +314,7 @@ namespace MultiArc_Compiler
         private NumericUpDown frequencyInput;
         private Label label2;
         private Button DrawBusButton;
+        private Button PauseButton;
 
 
     }

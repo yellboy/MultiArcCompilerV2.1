@@ -710,6 +710,7 @@ public static void Cycle(Memory memory)
         public override object Clone()
         {
             Memory newMemory = new Memory(ProjectPath);
+            newMemory.DesignCompileResults = DesignCompileResults;
             newMemory.results = results;
             newMemory.auSize = this.auSize;
             newMemory.size = this.size;

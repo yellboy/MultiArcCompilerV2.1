@@ -327,6 +327,9 @@ namespace MultiArc_Compiler
                 component.StopWorking();
             }
 
+            ex.StopDebugging();
+
+            ResetToDefault();
             clipboard.ExecutionOver();
             SetSelectingDisabledToAllComponentsAndConnectors(false);
         }
